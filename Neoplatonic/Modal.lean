@@ -9,6 +9,10 @@ Avicenna-style ungrounded necessary existence.
 
 Both beings exist in all worlds, but one is grounded in the other.
 Therefore merely existing in every world does not make one a first principle.
+
+Superseded by `GodelGrounding.lean`: `godlike_ne_firstPrinciple` there makes
+the same point against Scott's full axiom set and `GroundTheory` in one model.
+This toy is kept because that file reuses `groundsSecond`.
 -/
 
 
