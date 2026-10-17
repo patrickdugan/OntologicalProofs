@@ -7,3 +7,6 @@ Fixes made to the original files:
 - LocalConfluence.lean: renamed variable `local` (reserved word) to `lc`; fixed `refl`/`@step` patterns.
 Assumptions unchanged: commonEffect / localCoherence / singleParent and the RH bridge
 `spectralAlignmentToCommonPrior` are still hypotheses, not theorems.
+
+## Arithmetic patch (2026-10-17)
+Added `Neoplatonic/Arithmetic.lean` and the RH.lean vacuity lemmas. Compile fixes: `mul_eq_left.mp h.symm`; explicit product hint in `reach₂_mul_right`; zeta/Möbius statements written with `ArithmeticFunction.zeta`/`moebius` explicitly. All theorems depend only on propext / Classical.choice / Quot.sound.

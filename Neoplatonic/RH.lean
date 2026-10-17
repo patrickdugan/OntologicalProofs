@@ -8,7 +8,12 @@ It implies all nontrivial zeta zeros have a common real coordinate,
 which in turn implies pairwise spectral alignment.
 
 `spectralAlignmentToCommonPrior` is a *new metaphysical bridging premise*.
-It does NOT follow from RH or any known analytic theorem. It is explicitly
+It does NOT follow from RH or any known analytic theorem.
+`RHGroundTheory.ofGroundTheory` / `RHGroundTheory.toGroundTheory` below
+show that under RH the field is interdefinable with `commonPrior`; the
+bridge is vacuous, not merely unproven. The proven connection between
+`riemannZeta` and a grounding order runs through divisibility, see
+`Arithmetic.lean`. It is explicitly
 labeled as a hypothesis rather than smuggled in as a mathematical result.
 -/
 
@@ -62,5 +67,27 @@ theorem rh_conditional_first_principle {α : Type u}
     commonPrior := theory.spectralAlignmentToCommonPrior aligned
   }
   exact unique_first_principle groundTheory (theory.realizesNat 0)
+
+/-- Any ground theory with an injective arithmetic realization already yields an
+`RHGroundTheory`, with the bridge field discharged by `commonPrior`. -/
+def RHGroundTheory.ofGroundTheory {α : Type u} (theory : GroundTheory α)
+    (f : ℕ → α) (hf : Function.Injective f) : RHGroundTheory α where
+  prior := theory.prior
+  wf := theory.wf
+  realizesNat := f
+  realizesNat_injective := hf
+  spectralAlignmentToCommonPrior := fun _ => theory.commonPrior
+
+/-- Under RH the bridge field *is* `commonPrior`. Together with
+`RHGroundTheory.ofGroundTheory` this shows `spectralAlignmentToCommonPrior`
+carries no information beyond `commonPrior` once RH is assumed: its antecedent
+is a closed proposition sharing no variable with `prior`, so the zeta function
+plays no inferential role. The field is kept only as documentation of the
+retired attempt. -/
+def RHGroundTheory.toGroundTheory {α : Type u} (theory : RHGroundTheory α)
+    (rh : RiemannHypothesis) : GroundTheory α where
+  prior := theory.prior
+  wf := theory.wf
+  commonPrior := theory.spectralAlignmentToCommonPrior (rh_implies_spectral_alignment rh)
 
 end Neoplatonic

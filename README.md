@@ -22,10 +22,11 @@ declarations. **Compilation status (2026-10-17):** all modules compile against c
 | `LocalConfluence.lean` | Well-foundedness + common effects + **local ancestral coherence of co-grounds** imply a unique universal root | Local coherence and common effects are metaphysical axioms |
 | `Symmetry.lean` | A uniquely distinguished point must be fixed by every predicate-preserving symmetry; integer translation forbids a unique invariant integer | Pure mathematics |
 | `RHGeometry.lean` | RH + a nontrivial zeta zero imply a unique shared real coordinate 1/2 among nontrivial zeros | RH remains an open conjecture; zero existence is an explicit premise |
-| `RH.lean` | The actual mathlib RH implies critical-zero alignment; optional speculative bridge derives first principle | Spectral-to-ontology bridge **unjustified** |
+| `RH.lean` | The actual mathlib RH implies critical-zero alignment; optional speculative bridge derives first principle | Bridge field shown **vacuous** (interdefinable with `commonPrior` under RH); retained as documentation |
 | `Models.lean`, `MergeModel.lean` | Explicit failures when unity conditions are absent | Pure mathematical countermodels |
 | `CoherentModel.lean` | A concrete grounding system with two immediate co-grounds satisfies the local-confluence version | Pure mathematical consistency witness |
 | `Modal.lean` | Modal necessity does not imply being ungrounded | Pure mathematical countermodel |
+| `Arithmetic.lean` | Proper divisibility on ℕ⁺ is a confluent ground theory with unique first principle 1; with the unit removed the roots are exactly the primes, local coherence fails at 6, and common ground ⇔ non-coprime; `riemannZeta` is the L-series of this order's incidence zeta | Pure mathematics |
 
 ## Main result of version 2: backward confluence
 
@@ -71,6 +72,29 @@ The apex has two distinct immediate grounds, both tracing to `origin`.
 This refutes the idea that the revised theorem secretly requires a
 linear or single-parent causal chain.
 
+## Arithmetic as a model: what the One costs
+
+`Arithmetic.lean` supplies the natural infinite model of the version-2 axioms.
+Take `prior d n` to mean `d` is a proper divisor of `n` on the positive
+naturals. This is well-founded, branches (2 and 3 are incomparable immediate
+grounds of 6) and merges, satisfies `commonEffect` (products) and
+`localCoherence` (the unit is below everything), and has the unique first
+principle `1`: the empty product, the ground of everything by contributing
+no determination.
+
+Remove the unit and the picture inverts. On `{n | 2 ≤ n}` the roots are
+exactly the primes (`root₂_iff_prime`), there are unboundedly many of them
+(`roots₂_unbounded`), `commonEffect` still holds, `localCoherence` fails at
+6 (`not_locally_coherent₂`), no first principle exists
+(`no_first_principle₂`), and two beings have a common ground iff they are
+not coprime (`common_ground_iff_not_coprime`).
+
+So arithmetic's answer to "is there a One" is: iff the unit is counted. This
+is the strongest statement available of what `localCoherence` costs. The
+Riemann zeta function enters only here: for `Re s > 1` it is the L-series of
+the incidence zeta function of this divisibility order, and `ζ * μ = 1`
+isolates the unit. Its zeros do not enter.
+
 ## Objection and research agenda
 
 - The `commonEffect` assumption amounts to a global connectedness or
@@ -95,16 +119,20 @@ linear or single-parent causal chain.
 Mathlib defines the genuine `RiemannHypothesis` in
 [`Mathlib.NumberTheory.LSeries.RiemannZeta`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/LSeries/RiemannZeta.html).
 
-Under RH, the common real coordinate of the nontrivial zero spectrum
-is 1/2. `RHGeometry.lean` adds a witness of a nontrivial zero so the
-common coordinate is **uniquely** characterized. This is an authentic
-conditional mathematical statement about the zeta function.
+`RHGeometry.lean` states a conditional mathematical fact: under RH, with one
+nontrivial zero as witness, the nontrivial zeros share the unique real
+coordinate 1/2. Note that symmetry of the zeros about 1/2 is unconditional
+(functional equation); RH is the collapse of each symmetric pair onto the line.
 
-In `RH.lean`, a separate field `spectralAlignmentToCommonPrior` is
-**exactly the unsupported bridge** from number theory to metaphysics.
-The RH extension cannot serve as a God proof without independent
-argument for that bridge. `RHGeometry.lean` deliberately avoids that
-problem by stating only the spectral consequence.
+`RH.lean` contains the retired bridge `spectralAlignmentToCommonPrior`. Its
+antecedent `SpectralAligned` is a closed proposition about ℂ with no variable
+in common with `prior`, so the field is extensionally `¬SpectralAligned ∨
+commonPrior`, i.e. `commonPrior` under RH. `RHGroundTheory.ofGroundTheory`
+and `RHGroundTheory.toGroundTheory` make this interdefinability explicit. The
+zeta zeros do no inferential work and no reformulation of RH (Hilbert–Pólya,
+Weil/Li positivity, random-matrix statistics) changes this: every relation ζ
+provides between primes and zeros is a symmetric identity between two
+encodings of one object, while grounding is asymmetric and well-founded.
 
 ## Exhaustive finite audits
 
@@ -139,6 +167,7 @@ lake env lean Neoplatonic/CoherentModel.lean
 lake env lean Neoplatonic/Modal.lean
 lake env lean Neoplatonic/RH.lean
 lake env lean Neoplatonic/RHGeometry.lean
+lake env lean Neoplatonic/Arithmetic.lean
 ```
 
 A good next acceptance gate is to run all commands under a pinned mathlib

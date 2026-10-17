@@ -8,3 +8,4 @@ import Neoplatonic.CoherentModel
 import Neoplatonic.Modal
 import Neoplatonic.RH
 import Neoplatonic.RHGeometry
+import Neoplatonic.Arithmetic
