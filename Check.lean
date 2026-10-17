@@ -1,0 +1,6 @@
+import Neoplatonic
+open Neoplatonic
+#print axioms unique_first_principle
+#print axioms confluent_unique_first_principle
+#print axioms rh_conditional_first_principle
+#print axioms rh_implies_spectral_alignment
