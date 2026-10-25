@@ -1,0 +1,50 @@
+{
+  "all_candidates": [
+    {
+      "failed_axioms": [
+        "E2",
+        "E5"
+      ],
+      "mdl_bits": 3,
+      "name": "short-harmful-account",
+      "prediction_bits": 2,
+      "total_bits": 5
+    },
+    {
+      "failed_axioms": [
+        "E6",
+        "E7"
+      ],
+      "mdl_bits": 5,
+      "name": "beautiful-self-certifying-oracle",
+      "prediction_bits": 1,
+      "total_bits": 6
+    },
+    {
+      "failed_axioms": [],
+      "mdl_bits": 15,
+      "name": "verbose-rights-aware-account",
+      "prediction_bits": 4,
+      "total_bits": 19
+    },
+    {
+      "failed_axioms": [],
+      "mdl_bits": 11,
+      "name": "economical-rights-aware-account",
+      "prediction_bits": 3,
+      "total_bits": 14
+    },
+    {
+      "failed_axioms": [
+        "E8"
+      ],
+      "mdl_bits": 8,
+      "name": "short-incompatible-readings",
+      "prediction_bits": 2,
+      "total_bits": 10
+    }
+  ],
+  "constrained_winner": "economical-rights-aware-account",
+  "naive_winner": "short-harmful-account",
+  "note": "Costs and obligations are invented; this tests a selection procedure only."
+}

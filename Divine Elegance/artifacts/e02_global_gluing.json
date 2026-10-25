@@ -1,0 +1,56 @@
+{
+  "pairwise_counterexample": true,
+  "seed": 20261025,
+  "sweep": [
+    {
+      "consistent": 3000,
+      "exact_fraction": 1.0,
+      "independent_cycles": 0,
+      "observed_fraction": 1.0,
+      "trials": 3000
+    },
+    {
+      "consistent": 1493,
+      "exact_fraction": 0.5,
+      "independent_cycles": 1,
+      "observed_fraction": 0.49766666666666665,
+      "trials": 3000
+    },
+    {
+      "consistent": 757,
+      "exact_fraction": 0.25,
+      "independent_cycles": 2,
+      "observed_fraction": 0.25233333333333335,
+      "trials": 3000
+    },
+    {
+      "consistent": 362,
+      "exact_fraction": 0.125,
+      "independent_cycles": 3,
+      "observed_fraction": 0.12066666666666667,
+      "trials": 3000
+    },
+    {
+      "consistent": 189,
+      "exact_fraction": 0.0625,
+      "independent_cycles": 4,
+      "observed_fraction": 0.063,
+      "trials": 3000
+    },
+    {
+      "consistent": 109,
+      "exact_fraction": 0.03125,
+      "independent_cycles": 5,
+      "observed_fraction": 0.036333333333333336,
+      "trials": 3000
+    },
+    {
+      "consistent": 41,
+      "exact_fraction": 0.015625,
+      "independent_cycles": 6,
+      "observed_fraction": 0.013666666666666667,
+      "trials": 3000
+    }
+  ],
+  "synthetic": true
+}
