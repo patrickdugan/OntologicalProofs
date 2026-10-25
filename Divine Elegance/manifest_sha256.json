@@ -1,0 +1,241 @@
+{
+  "base": "DivineElegance_Formal_Research_v0_1",
+  "files": {
+    ".github/workflows/lean_and_python.yml": {
+      "sha256": "76debf4fbfadad972777390570285eb2411e28c585952c7105c6ab840896c371",
+      "bytes": 1001
+    },
+    "AGENTIC_ROADMAP.md": {
+      "sha256": "c4496b5f91de42105f9aafff7a66fa6de77ea72f97248af13d0f230f9c9d9a1c",
+      "bytes": 4081
+    },
+    "CODEX_MASTER_HANDOFF.md": {
+      "sha256": "843a292908b266ce91da446b70e71e40065ee21573ad6761dff845a2c2a01677",
+      "bytes": 3165
+    },
+    "DivineElegance/Axioms.lean": {
+      "sha256": "6c999a1efb6d2867da32733b288c50c5756f0b14d37a177de95e99e91843e695",
+      "bytes": 1910
+    },
+    "DivineElegance/Jurisdiction.lean": {
+      "sha256": "bb99b4551abd3a98455568b9557d24ba85e5bc60a7d4f8974e52916e347900ea",
+      "bytes": 2061
+    },
+    "DivineElegance/MoralInformation.lean": {
+      "sha256": "4f8c8db529f57254f1d3730ec2f4b48b94f6a70bfbc9e088ba475287446dbb50",
+      "bytes": 1937
+    },
+    "DivineElegance/NumericalPatterns.lean": {
+      "sha256": "e0a24d5c1af63416753cf1bcc6e0c84f9d59e1339bc06bf0a3e1b6c739fb9802",
+      "bytes": 877
+    },
+    "DivineElegance/Readings.lean": {
+      "sha256": "ee9521f1d57655a1c3d3450bec5d578bc9996b915a15ea612737cdf2810203cd",
+      "bytes": 2068
+    },
+    "DivineElegance.lean": {
+      "sha256": "e95488133f0c27be6856c7f4c78887b70d1f8a1145e9a3030c8cc9f3d292c971",
+      "bytes": 362
+    },
+    "PROOF_LEDGER.md": {
+      "sha256": "8601369797593987f908132e32455da1c0fb194b0253c91ebaab8ddca0518eae",
+      "bytes": 4475
+    },
+    "QuranModal.lean": {
+      "sha256": "d8cfd043574da14aa7f4e2499aeafcbef5abc0af3fd25536238111d9a464331d",
+      "bytes": 10977
+    },
+    "README.md": {
+      "sha256": "e1879214cd6b365081b7458f49d1ffe931910cd491646fbabefd49c6041a45df",
+      "bytes": 2724
+    },
+    "VERIFICATION.md": {
+      "sha256": "d8419a1078b161ab19c6461844b04c6c9293f6f2f6cd3a6f72c9742439786664",
+      "bytes": 2308
+    },
+    "artifacts/RUN_STATUS.json": {
+      "sha256": "5c94e556ed0279508f62ed81fc04f2e36a1f8cd91b6d8443a2fdf426e1e2f724",
+      "bytes": 1577
+    },
+    "artifacts/cycle_consistency.png": {
+      "sha256": "c679c4d911abb26ae62b1073f3007d55f52052740394af0bd33cf61cc1a025c6",
+      "bytes": 74045
+    },
+    "artifacts/e01_modal_models.json": {
+      "sha256": "9ead3d303f06c4e0a0bfd348ccba0fe5e5a608ebdb7033f997baa5047cec0335",
+      "bytes": 978
+    },
+    "artifacts/e02_global_gluing.json": {
+      "sha256": "b35d02be3e4990c65790b1e996cf3d2af23fd9cdb81376b558ae33445ffa9dd6",
+      "bytes": 1253
+    },
+    "artifacts/e03_nineteen.json": {
+      "sha256": "e209814e7f764a40fc6f7d8b74579605958562d3f501cead4059b0d36b939cc9",
+      "bytes": 431
+    },
+    "artifacts/e04_constrained_elegance.json": {
+      "sha256": "b6dd999c0d4aa8cf3ae41169e2ea34e2194d871d10816bfe976f9850a80ce2d1",
+      "bytes": 1096
+    },
+    "artifacts/e05_relevant_invariance.json": {
+      "sha256": "de65dd7b90e10454f1e423d9a2e841c91b6f8ec267e08690b8867efff7a86535",
+      "bytes": 296
+    },
+    "artifacts/e06_defensive_gate.json": {
+      "sha256": "2848458380ac89b4cbf6fe21fe1b4308d961a91a5d3b33b8b04201034298e818",
+      "bytes": 629
+    },
+    "artifacts/elegance_selector.png": {
+      "sha256": "39c3a3213b2f4890761ddc12cade339f7167f635ed3da33d9bed11cbc1c176f3",
+      "bytes": 67478
+    },
+    "artifacts/registry_staging_audit.json": {
+      "sha256": "b4c974f813ecaa1b35eea30651853e79f290d75faa0ee4d48412266dca09ca4d",
+      "bytes": 310
+    },
+    "experiments/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "experiments/common.py": {
+      "sha256": "211e5e2d1228aab9f78d3602015bd04d6e7d301767af76b976f9f5d30c616120",
+      "bytes": 501
+    },
+    "experiments/e01_salvation_models.py": {
+      "sha256": "b0dc59ffad7e4cd9ffab6a0e74af2f8d4836b54c5668fef039d90354173ac291",
+      "bytes": 1062
+    },
+    "experiments/e02_global_gluing.py": {
+      "sha256": "0d96b126d85a3c478511b66c1fbe9df64c6ca687cec75d4a8050088fc495c034",
+      "bytes": 2106
+    },
+    "experiments/e03_nineteen.py": {
+      "sha256": "1d3f25beb546fcf919c35e5edb6f5c0456f794f62d32f5914fd7994d41619037",
+      "bytes": 1430
+    },
+    "experiments/e04_constrained_elegance.py": {
+      "sha256": "4f9177e8ff6aa2b6b519909561a88869ce2f66feb827e74b88b12838ec36b908",
+      "bytes": 1403
+    },
+    "experiments/e05_relevant_invariance.py": {
+      "sha256": "5912b845a0a8d9994ac00bd899ccb1554ad017b920a5774762e060d5f54e44ae",
+      "bytes": 1841
+    },
+    "experiments/e06_defensive_action_gate.py": {
+      "sha256": "5e1c71bbb4b423f8102e6d94769fa327cc045e6be325ed1068b8ccbb8b3ea83a",
+      "bytes": 1625
+    },
+    "jobs/DE-01_Lean_Kernel.md": {
+      "sha256": "9f74fc38d7aa0d7e011e4995db73ac4801abb23db99c91fe6d3052fef53ea93e",
+      "bytes": 1455
+    },
+    "jobs/DE-02_96_Global_Audit.md": {
+      "sha256": "004e9836415f4869a807429d7e77828b97e028ad78b6b9d44d303c3a2583a863",
+      "bytes": 2455
+    },
+    "jobs/DE-03_Moral_Bottleneck.md": {
+      "sha256": "f7647f9c5e5525164a4ee4d754220022f830bd43b70f2f7a13de157237e52205",
+      "bytes": 1685
+    },
+    "jobs/DE-04_Isa_Source_Sign.md": {
+      "sha256": "708283b5515c6480002f393f1f542d06e4e52535aa109243fdfde5340b735e4a",
+      "bytes": 1278
+    },
+    "jobs/DE-05_RSI_Control.md": {
+      "sha256": "0f92ed1d8579fa99cc22218cc376c69c6399b81d17bae34fc4b2b0340d35698e",
+      "bytes": 1630
+    },
+    "jobs/DE-06_Code19_Audit.md": {
+      "sha256": "13d73a9b7f4798bbe6f373f5ca261685730f84886fd706fc55e87576edaadef0",
+      "bytes": 1488
+    },
+    "jobs/DE-07_Conformal_Justice.md": {
+      "sha256": "3b55c185271d8fc76bcfd4626cf138492b15a2b307188ff7a1e419a5a1e50c79",
+      "bytes": 1338
+    },
+    "jobs/DE-08_6GW_Source_Fiqh.md": {
+      "sha256": "acf08b30882dac778e4f2b13f89c7ba6cb1e5d617d878fa2c2fe468019477e25",
+      "bytes": 1276
+    },
+    "jobs/DE-09_Lattice_Replication.md": {
+      "sha256": "ffde2d8103a69b92ef0257244b28a2fa019e6123d3099c395fc4769de5342d46",
+      "bytes": 1071
+    },
+    "jobs/README.md": {
+      "sha256": "0b0a32a6cf7f0d8dd6b309bce2557df002753f94d83a138e8ff93eaac067250b",
+      "bytes": 272
+    },
+    "jobs/job_manifest.json": {
+      "sha256": "ad5d269d8ac1ea7ede2ecf7262a3d6026ceb2a52d40171e5de6117b9b4eb7aea",
+      "bytes": 2998
+    },
+    "lakefile.toml": {
+      "sha256": "740af79075b09bbb282b817256e3dec6cacddd81983730e9477735f9f41a56a6",
+      "bytes": 172
+    },
+    "lean-toolchain": {
+      "sha256": "8f6680f8389e8adee06cb2bd44372c6d60dce0e8301630b61a99a5642d1bd71b",
+      "bytes": 25
+    },
+    "run_all.py": {
+      "sha256": "b958b362ab2efd72064253166242794adb871c65666f55408c9599cb960cf105",
+      "bytes": 1272
+    },
+    "scripts/check_placeholders.py": {
+      "sha256": "1d68f115a761dceab7784301e8e51f31ffa0ade4651021ff89643c30cc1395a9",
+      "bytes": 684
+    },
+    "source/Axiomatic_Overture.md": {
+      "sha256": "0abdde886cb48ee429fd30eed642ada3ee51ea6c07c1c666d59f4c4805252ac3",
+      "bytes": 16585
+    },
+    "source/E0_E8_claim_ledger.json": {
+      "sha256": "891a30caa0a3c2e1b91521d6751f7bb82769cff84e54df07d2f0d99039bb3fbf",
+      "bytes": 3630
+    },
+    "source/Elegance_Keys_19_Chapters.md": {
+      "sha256": "9f1da98f3d4f75f834e73182aeff6fd10d6f452ab87c4d843cfefcb91aa9e7c8",
+      "bytes": 2633
+    },
+    "source/PHILOSOPHY_AND_PROOFS.md": {
+      "sha256": "804d3f5fba062744d4c3be2e64b3ba7e7ee6c5cdef077ec35db08ac3f664bd5e",
+      "bytes": 6298
+    },
+    "source/QURAN_MODAL_README.md": {
+      "sha256": "4fabdf20e2535967110a9ccf50b0dbb39f25f6ccb764cee42d777d861a7bd2f0",
+      "bytes": 6506
+    },
+    "source/check_models.py": {
+      "sha256": "7da06b993bc74887fdf2bc614a3d86556bba5c66f4dc09eb801185cbeefc31be",
+      "bytes": 3345
+    },
+    "source/finite_models.csv": {
+      "sha256": "a31b97bf197c6572983c2726fa4c91929a897a1c74e01fa56cc74d0d252988a9",
+      "bytes": 1864
+    },
+    "source/ikhtilaf_96_registry.json": {
+      "sha256": "5b071057d0575c88d8e42eaa7a0f75e7ba52552b2cedb99c849208b1a5f5cd69",
+      "bytes": 36734
+    },
+    "source/ikhtilaf_96_staging.csv": {
+      "sha256": "38b60aaec627ae8457acf600ec95cd3dda680c95de6e6dcad34581396961c062",
+      "bytes": 19250
+    },
+    "source/quran_ikhtilaf_v07.xlsx": {
+      "sha256": "75e734090796551daf778a351833440002bbc7b788c8d7d6b4ffe31f4308d3df",
+      "bytes": 26272
+    },
+    "source/quran_modal_v08_verification.json": {
+      "sha256": "8db73a4db988662021520af61b48880739ad29df4aac2f7a78c97086cc27825c",
+      "bytes": 1202
+    },
+    "source/verification.json": {
+      "sha256": "8db73a4db988662021520af61b48880739ad29df4aac2f7a78c97086cc27825c",
+      "bytes": 1202
+    },
+    "tests/test_experiments.py": {
+      "sha256": "0268477bcf459ca91ef26b7c5d6be04af2f5cecd7697929879afb16d2e54c5a9",
+      "bytes": 1690
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "experiments.e01_salvation_models": {
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "experiments.e02_global_gluing": {
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "experiments.e03_nineteen": {
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "experiments.e04_constrained_elegance": {
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "experiments.e05_relevant_invariance": {
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "experiments.e06_defensive_action_gate": {
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "unittest": {
+    "exit_code": 0,
+    "stderr": "test_any_nineteen_letter_input (test_experiments.TestTheologicalModelFixtures.test_any_nineteen_letter_input) ... ok\ntest_constraints_before_compression (test_experiments.TestTheologicalModelFixtures.test_constraints_before_compression) ... ok\ntest_defensive_gate (test_experiments.TestTheologicalModelFixtures.test_defensive_gate) ... ok\ntest_global_parity_counterexample (test_experiments.TestTheologicalModelFixtures.test_global_parity_counterexample) ... ok\ntest_random_parity_sweep (test_experiments.TestTheologicalModelFixtures.test_random_parity_sweep) ... ok\ntest_relevant_relabeling (test_experiments.TestTheologicalModelFixtures.test_relevant_relabeling) ... ok\ntest_salvation_counts (test_experiments.TestTheologicalModelFixtures.test_salvation_counts) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.086s\n\nOK\n"
+  },
+  "lean_compiler": {
+    "status": "NOT_RUN",
+    "reason": "Lean compiler unavailable in this environment. Must run pinned lake build."
+  }
+}
