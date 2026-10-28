@@ -113,11 +113,11 @@ theorem gram_realization_forces_fixed
     (weight : ι → ℝ) (τ : ι → ι)
     (hτ : Function.Involutive τ) (hweight : ∀ i, 0 < weight i)
     (A : (ι → ℝ) →ₗ[ℝ] (κ → ℝ))
-    (matches : ∀ v, reflectionForm weight τ v = ∑ k, (A v k) ^ 2) :
+    (hGram : ∀ v, reflectionForm weight τ v = ∑ k, (A v k) ^ 2) :
     ∀ i, τ i = i := by
   apply (positive_iff_fixed weight τ hτ hweight).mp
   intro v
-  rw [matches v]
+  rw [hGram v]
   exact Finset.sum_nonneg (fun k _ => sq_nonneg (A v k))
 
 /-- A zero weight can hide an entire orbit, hence the strict weight premise. -/

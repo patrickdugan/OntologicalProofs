@@ -1,51 +1,65 @@
 # Grammy and Primes
 
-A Graham-scale arithmetic experiment inside [OntologicalProofs](https://github.com/patrickdugan/OntologicalProofs), with an RH-dependent ontological argument deliberately opened for falsification.
+Graham-scale arithmetic and RH-dependent ontology inside [OntologicalProofs](https://github.com/patrickdugan/OntologicalProofs). The formal work keeps arithmetic results separate from additional metaphysical premises.
 
-The joke is that a prime field of roughly Graham's-number size would demand roughly log₂(G) logical qubits just to encode one field element. Graham's number is 3^E, hence composite. Factorial-wheel candidates G!k ± 1 evade every prime sieve up to G, but Euclid's trick cannot certify simultaneous primality. Over F₇[T], however, the four polynomials T^(3^m) - a with a ∈ {2,3,4,5} are irreducible for all m≥1: a rigorous four-polynomial constellation at degree G=3^E.
+## Current continuation: positivity with an explicit test
 
-## What lives here
+[POSITIVITY_BRIDGE.md](POSITIVITY_BRIDGE.md) develops the finite weighted reflection theorem: if tau is an involution and every weight is positive, its paired quadratic form is nonnegative on all vectors exactly when tau fixes every index. Every moved orbit has an explicit negative witness. The Lean countermodel satisfies Scott's axioms and the grounding theory, identifies the God-like witness with the common root, and satisfies A6, while the independent reflection form remains negative on that witness vector.
 
-- [PrimeWheel.lean](PrimeWheel.lean) presents Lean source for H!k ± 1 avoiding every prime divisor p ≤ H and having exact gap 2. No massive numeral is evaluated.
-- [RHGod.lean](RHGod.lean) formalizes conditional RH-to-God claims, the logical fallacy behind ¬RH ⇒ ¬God, an explicit propositional countermodel, and the effect of Scott modal collapse on world-indexed RH *reports*.
-- [MATHEMATICAL_NOTE.md](MATHEMATICAL_NOTE.md) gives proofs, the arithmetic spectrum, the parity obstruction, and the ontology bridge audit.
-- [experiment.py](experiment.py) reproduces finite primorial-wheel and Liouville-parity checks using only the Python standard library. Run python3 experiment.py.
+[DIVISOR_TO_WEIL.md](DIVISOR_TO_WEIL.md) constructs an unconditional positive divisor-incidence norm and describes Suzuki's published RH-equivalent norm identity as a concrete analytic target. Equality between the divisor construction and the Weil form is an open obligation in this investigation.
 
-## The live mathematical question
+A logical equivalence with RH alone does not make an independently specified arithmetic criterion circular. The unrestricted proposition-bridge audits concern their stated logical signatures. The new notes qualify the earlier use of 'vacuous' accordingly.
 
-A hypothetical GodExists → RiemannHypothesis makes ¬RH → ¬God follow immediately. The premise is doing all the philosophical work. The repository already contains [Neoplatonic/RH.lean](../Neoplatonic/RH.lean), which marks its own SpectralAligned → commonPrior metaphysical bridge as *vacuous under RH*, along with Scott/Anderson modal results and explicit countermodels. Our new proposition-level Lean theorems cannot establish that metaphysical bridge.
+## Lean modules
 
-A potentially more illuminating question is whether a constrained *spectral perfection* theology commits itself to RH in a way that could be falsified by finding an off-line zeta zero. That would refute the proposed spectral-perfect-being model, not every conception of God. The analogous failure mode in Gödel–Scott is that overly broad essence produces modal collapse; the existing Anderson model offers a well-defined alternative.
+| File | Mathematical scope |
+|---|---|
+| [PrimeWheel.lean](PrimeWheel.lean) | Factorial-wheel gap two and exclusion of small prime factors |
+| [RHGod.lean](RHGod.lean) | Actual mathlib RH, Scott positivity, conditional bridges and countermodels |
+| [SpectralSymmetry.lean](SpectralSymmetry.lean) | Reflection-invariant off-axis rational toy spectrum |
+| [ReflectionPositivity.lean](ReflectionPositivity.lean) | Weighted positivity criterion, separating-test premise, Gram-map implication, Scott-root A6 countermodel |
+| [DivisorGram.lean](DivisorGram.lean) | Positive divisor energy, the unit-divisor feature, exact two-point energy |
 
-**The core bridge audit:** The theorem scott_spectral_bridge_iff_rh states that, under Scott's axioms on a symmetric frame, the added premise that every God-like witness implies RH is equivalent to RH itself. Thus the attractive claim that the ontological argument proves RH packages the unsolved conjecture directly into its premise.
+The first three modules passed GitHub Actions run 26 at `3b7c5a677efde1de1a9333c03eb52e35c0b71396`. The current scoped workflow compiles every Lean file in this folder; consult the run for the current head before claiming verification of later changes. Each new positivity theorem prints its axiom dependencies. Lean v4.35.0 and mathlib v4.35.0 remain pinned by the existing project.
 
-## New spectral and Möbius investigations
+## Arithmetic background
 
-- [SpectralSymmetry.lean](SpectralSymmetry.lean) gives a kernel-checkable *attempt* for a symmetric off-axis rational spectrum and shows why global symmetry alone does not imply pointwise RH-style alignment.
-- [SPECTRAL_THEOLOGY.md](SPECTRAL_THEOLOGY.md) audits the Hilbert–Pólya, Li-positivity and Möbius-cancellation possibilities, with epistemic boundaries and falsifiers.
-- [mobius_experiment.py](mobius_experiment.py) checks six independently published Mertens-function values up to x=1,000,000.
-- [polynomial_experiment.py](polynomial_experiment.py) implements a finite-field Frobenius irreducibility test for the four polynomials x^(3^m)−a over F7 at m=1,2,3,4, including a reducible control. The Graham-degree generalization is proven mathematically in the research note, not by enumeration.
-- [CI workflow](../.github/workflows/grammy-and-primes.yml) checks the three Lean files and runs both Python scripts. GitHub Actions compilation status must be read from the current PR checks before describing these files as verified.
+Graham's number G is a power of 3. The candidates G!k +/- 1 evade every prime divisor at most G and have gap two. Their simultaneous primality is unproved. Over F7[T], the four polynomials T^(3^m)-a for a in {2,3,4,5} are irreducible for every m>=1. The research note gives the norm-and-tower-law argument, which applies symbolically to degree G.
 
+[MATHEMATICAL_NOTE.md](MATHEMATICAL_NOTE.md) contains the CRT wheel correlation and finite Fourier identity, the Liouville parity decomposition, and the polynomial construction. [SPECTRAL_THEOLOGY.md](SPECTRAL_THEOLOGY.md) records the earlier Hilbert-Polya, Li-coefficient and Mobius-cancellation proposals. The repository's existing [Neoplatonic/RH.lean](../Neoplatonic/RH.lean) explicitly exposes its spectral-to-grounding assumption.
 
-## Evidence labels
+## Experiments
 
-- **Lean, source awaiting compile check:** Written for Lean v4.35.0/mathlib v4.35.0. Run lake env lean grammy-and-primes/PrimeWheel.lean and lake env lean grammy-and-primes/RHGod.lean. Do not describe these as compiler-verified until those commands succeed.
-- **Proved by mathematical argument:** CRT wheel correlation, its finite Fourier identity, and the F₇[T] binomial irreducibility argument.
-- **Experiment:** The Python routine tests finite cases, using a deterministic Miller–Rabin algorithm valid strictly below 2^64. Its checked results do not prove infinite prime distribution.
-- **Conjecture:** Hardy–Littlewood twin-prime asymptotics, RH, and the spectral-zero-correlation inversion heuristics.
-- **Metaphysical premise:** GodExists → RH and any claim from arithmetic symmetry to an ontological first principle. Each requires independent justification.
+All five scripts use the Python standard library. Their outputs describe finite checks.
+
+| Script | Checks |
+|---|---|
+| `experiment.py` | Exact CRT counts, seven primorial twin-pair counts, bounded Liouville identity |
+| `mobius_experiment.py` | Six Mertens-function checkpoints through one million |
+| `polynomial_experiment.py` | F7 binomial irreducibility at degrees 3, 9, 27, 81, with a reducible control |
+| `positivity_experiment.py` | All 1,116 involutions on sizes 0 through 8, positive weights, negative witnesses, exact principal minors, restricted-test controls |
+| `divisor_gram_experiment.py` | Divisor Gram matrices and Mobius inverses through size 16, exact energies |
+
+The positivity script uses Fraction arithmetic and no actual zeta zeros. Its 3,348 weighted cases include coinciding weight schemes at small sizes. The divisor script makes no claim that its positive form equals Weil's.
+
+## Claim boundaries
+
+The finite arithmetic and logical theorems prove their stated implications. The infinite analytic Weil criterion is cited from published work and has not been formalized here. The general finite-field irreducibility argument is a written proof with finite computational controls. RH, the integer twin-prime conjecture, and any inference from divine existence to arithmetic positivity remain unresolved by this work.
+
+A hypothetical GodExists -> RH permits contraposition. An RH counterexample would refute the joint theological claim containing that implication. The existing conditional logic supplies no universal refutation of every conception of God.
 
 ## Run
 
 From the repository root:
 
-    python3 grammy-and-primes/experiment.py
-    python3 grammy-and-primes/mobius_experiment.py
-    python3 grammy-and-primes/polynomial_experiment.py
-    lake build Neoplatonic
-    lake env lean grammy-and-primes/PrimeWheel.lean
-    lake env lean grammy-and-primes/RHGod.lean
-    lake env lean grammy-and-primes/SpectralSymmetry.lean
+```sh
+lake build Neoplatonic
+for file in grammy-and-primes/*.lean; do lake env lean "$file"; done
+python3 grammy-and-primes/experiment.py
+python3 grammy-and-primes/mobius_experiment.py
+python3 grammy-and-primes/polynomial_experiment.py
+python3 grammy-and-primes/positivity_experiment.py
+python3 grammy-and-primes/divisor_gram_experiment.py
+```
 
-Keep the epistemic distinction visible when extending this folder: an explicit condition under which a claim follows is useful; naming a condition after a deity does not independently show that it holds.
+[The scoped workflow](../.github/workflows/grammy-and-primes.yml) checks these commands, preserves failure status across the Lean scripts, and rejects printed `sorryAx` dependencies. Mathematical review must also inspect the hypotheses of each theorem.
