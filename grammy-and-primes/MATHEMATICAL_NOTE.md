@@ -90,6 +90,18 @@ The standard-library Python script checks the wheel CRT formula against direct e
 
 The next arithmetic test should grow H with X and measure Liouville-twisted two-point terms under dyadic windows. Boundary effects from an exponentially large wheel period deserve explicit checks. An ontological extension should start with countermodel search whenever a newly proposed premise appears to force a necessary first principle.
 
+## 8. Möbius cancellation and the arithmetic first principle
+
+The existing \`Neoplatonic/Arithmetic.lean\` defines an incidence-zeta and Möbius inversion for the divisibility order. The exact identity \`ζ * μ = δ\` singles out the multiplicative unit as the first principle. The Riemann hypothesis has a separate analytic characterization:
+
+    RH iff for every ε > 0, M(x) = O_ε(x^(1/2+ε)),
+    where M(x) := sum_{n≤x} μ(n).
+
+This is an unbounded square-root cancellation estimate for the Möbius function, not the discredited Mertens conjecture \`|M(x)| < √x\`. The latter is known false. Thus a nontrivial RH-dependent "God" argument could be framed as a necessity claim about cancellation in the Möbius inverse of the divisibility-grounding order. The missing step is an independently motivated reason why any first principle would force *that specific analytic error exponent*.
+
+A new standard-library test \`mobius_experiment.py\` verifies six finite values: M(10)=-1, M(100)=1, M(1000)=2, M(10,000)=-23, M(100,000)=-48, M(1,000,000)=212. None of them verifies a universal estimate.
+
+
 ### Sources
 
 - Keating and Smith, *Twin prime correlations from the pair correlation of Riemann zeros* (2019): https://arxiv.org/abs/1903.07057
