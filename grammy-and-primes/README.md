@@ -19,6 +19,14 @@ A potentially more illuminating question is whether a constrained *spectral perf
 
 **The core bridge audit:** The theorem scott_spectral_bridge_iff_rh states that, under Scott's axioms on a symmetric frame, the added premise that every God-like witness implies RH is equivalent to RH itself. Thus the attractive claim that the ontological argument proves RH packages the unsolved conjecture directly into its premise.
 
+## New spectral and Möbius investigations
+
+- [SpectralSymmetry.lean](SpectralSymmetry.lean) gives a kernel-checkable *attempt* for a symmetric off-axis rational spectrum and shows why global symmetry alone does not imply pointwise RH-style alignment.
+- [SPECTRAL_THEOLOGY.md](SPECTRAL_THEOLOGY.md) audits the Hilbert–Pólya, Li-positivity and Möbius-cancellation possibilities, with epistemic boundaries and falsifiers.
+- [mobius_experiment.py](mobius_experiment.py) checks six independently published Mertens-function values up to x=1,000,000.
+- [CI workflow](../.github/workflows/grammy-and-primes.yml) checks the three Lean files and runs both Python scripts. GitHub Actions compilation status must be read from the current PR checks before describing these files as verified.
+
+
 ## Evidence labels
 
 - **Lean, source awaiting compile check:** Written for Lean v4.35.0/mathlib v4.35.0. Run lake env lean grammy-and-primes/PrimeWheel.lean and lake env lean grammy-and-primes/RHGod.lean. Do not describe these as compiler-verified until those commands succeed.
