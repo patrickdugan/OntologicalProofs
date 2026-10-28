@@ -30,11 +30,15 @@ jobs:
           use-mathlib-cache: 'true'
       - name: Build existing Neoplatonic imports
         run: lake build Neoplatonic
-      - name: Check factorial wheel Lean proofs
-        run: lake env lean grammy-and-primes/PrimeWheel.lean
-      - name: Check RH/God dependency Lean proofs
-        run: lake env lean grammy-and-primes/RHGod.lean
-      - name: Check spectral symmetry Lean proofs
-        run: lake env lean grammy-and-primes/SpectralSymmetry.lean
       - name: Reproduce finite arithmetic tests
         run: python3 grammy-and-primes/experiment.py
+      - name: Compile every new Lean script and report all errors
+        shell: bash
+        run: |
+          status=0
+          for file in grammy-and-primes/PrimeWheel.lean grammy-and-primes/RHGod.lean grammy-and-primes/SpectralSymmetry.lean; do
+            echo "::group::$file"
+            lake env lean "$file" || status=1
+            echo "::endgroup::"
+          done
+          exit "$status"
