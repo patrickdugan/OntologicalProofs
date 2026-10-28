@@ -36,13 +36,21 @@ jobs:
         run: python3 grammy-and-primes/mobius_experiment.py
       - name: Check finite-field irreducibility controls
         run: python3 grammy-and-primes/polynomial_experiment.py
+      - name: Check exact reflection positivity and negative controls
+        run: python3 grammy-and-primes/positivity_experiment.py
       - name: Compile every new Lean script and report all errors
         shell: bash
         run: |
           status=0
-          for file in grammy-and-primes/PrimeWheel.lean grammy-and-primes/RHGod.lean grammy-and-primes/SpectralSymmetry.lean; do
+          for file in grammy-and-primes/*.lean; do
             echo "::group::$file"
-            lake env lean "$file" || status=1
+            log=$(mktemp)
+            lake env lean "$file" 2>&1 | tee "$log" || status=1
+            if grep -q 'sorryAx' "$log"; then
+              echo "::error::Unproved declaration found in $file"
+              status=1
+            fi
+            rm -f "$log"
             echo "::endgroup::"
           done
           exit "$status"
