@@ -24,6 +24,7 @@ A potentially more illuminating question is whether a constrained *spectral perf
 - [SpectralSymmetry.lean](SpectralSymmetry.lean) gives a kernel-checkable *attempt* for a symmetric off-axis rational spectrum and shows why global symmetry alone does not imply pointwise RH-style alignment.
 - [SPECTRAL_THEOLOGY.md](SPECTRAL_THEOLOGY.md) audits the Hilbert–Pólya, Li-positivity and Möbius-cancellation possibilities, with epistemic boundaries and falsifiers.
 - [mobius_experiment.py](mobius_experiment.py) checks six independently published Mertens-function values up to x=1,000,000.
+- [polynomial_experiment.py](polynomial_experiment.py) implements a finite-field Frobenius irreducibility test for the four polynomials x^(3^m)−a over F7 at m=1,2,3, including a reducible control. The Graham-degree generalization is proven mathematically in the research note, not by enumeration.
 - [CI workflow](../.github/workflows/grammy-and-primes.yml) checks the three Lean files and runs both Python scripts. GitHub Actions compilation status must be read from the current PR checks before describing these files as verified.
 
 
