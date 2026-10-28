@@ -1,9 +1,6 @@
 name: Grammy and Primes proof checks
 
 on:
-  push:
-    branches:
-      - research/grammy-and-primes-rh-ontology
   pull_request:
     branches:
       - main
@@ -11,6 +8,10 @@ on:
       - 'grammy-and-primes/**'
       - '.github/workflows/grammy-and-primes.yml'
   workflow_dispatch:
+
+concurrency:
+  group: grammy-and-primes-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
