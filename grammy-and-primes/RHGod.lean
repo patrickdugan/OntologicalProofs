@@ -57,6 +57,31 @@ theorem spectrally_certified_iff_god_under_rh (God : Prop)
 
 universe u v
 
+/-- Under Scott's premises, a separate Godlike-to-RH bridge proves RH.
+    It makes that bridge, not the modal logic, the mathematical load bearer. -/
+theorem rh_from_scott_with_speculative_bridge
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (w : W)
+    (spectralBridge : ∀ x : α,
+      Neoplatonic.Godel.Godlike T.P x w → RiemannHypothesis) :
+    RiemannHypothesis := by
+  obtain ⟨g, hg⟩ := Neoplatonic.Godel.godlike_exists T hsymm w
+  exact spectralBridge g hg
+
+/-- Since Scott proves a Godlike inhabitant, the proposed bridge is
+    logically equivalent to RH itself once Scott's assumptions are held. -/
+theorem scott_spectral_bridge_iff_rh
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (w : W) :
+    (∀ x : α, Neoplatonic.Godel.Godlike T.P x w → RiemannHypothesis) ↔
+      RiemannHypothesis := by
+  constructor
+  · exact rh_from_scott_with_speculative_bridge T hsymm w
+  · intro rh _ _
+    exact rh
+
 /-- Scott's axioms propagate any proposition to an accessible world;
     by this point RH has been replaced with a world-indexed report. -/
 theorem scott_propagates_rh_reports
