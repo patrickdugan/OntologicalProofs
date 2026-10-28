@@ -40,11 +40,13 @@ jobs:
         run: python3 grammy-and-primes/positivity_experiment.py
       - name: Check divisor Gram forms and Mobius inverses
         run: python3 grammy-and-primes/divisor_gram_experiment.py
+      - name: Check Logos projection controls and centered prime measure
+        run: python3 grammy-and-primes/logos-quasicrystal/experiment.py
       - name: Compile every new Lean script and report all errors
         shell: bash
         run: |
           status=0
-          for file in grammy-and-primes/*.lean; do
+          while IFS= read -r -d '' file; do
             echo "::group::$file"
             log=$(mktemp)
             lake env lean "$file" 2>&1 | tee "$log" || status=1
@@ -54,5 +56,5 @@ jobs:
             fi
             rm -f "$log"
             echo "::endgroup::"
-          done
+          done < <(find grammy-and-primes -type f -name '*.lean' -print0 | sort -z)
           exit "$status"
