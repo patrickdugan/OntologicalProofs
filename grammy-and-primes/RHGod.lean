@@ -1,5 +1,6 @@
 import Neoplatonic.RH
 import Neoplatonic.GodelScott
+import GrammyAndPrimes.SpectralSymmetry
 
 /-!
 # RH and an ontological argument: dependency audit
@@ -81,6 +82,21 @@ theorem scott_spectral_bridge_iff_rh
   · exact rh_from_scott_with_speculative_bridge T hsymm w
   · intro rh _ _
     exact rh
+
+/-- Scott's consistent one-world theory admits a God-like being while the
+    independent toy spectrum is reflection-symmetric with off-axis points.
+    This refutes a proposed *structural* implication from Scott plus setwise
+    symmetry to spectral alignment. The toy is not a zeta-zero construction. -/
+theorem scott_model_with_off_axis_symmetric_toy :
+    ∃ T : Neoplatonic.Godel.ScottTheory (fun (_ _ : Unit) => True) Unit,
+      (∃ g : Unit, Neoplatonic.Godel.Godlike T.P g ()) ∧
+      (∀ b : Bool, ∃ c : Bool,
+        toyCoordinate c = mirror (toyCoordinate b)) ∧
+      (∃ b : Bool, toyCoordinate b ≠ (1 / 2 : ℚ)) := by
+  refine ⟨Neoplatonic.Godel.trivialScott, ?_, toy_closed_under_reflection,
+    toy_has_off_axis_point⟩
+  exact Neoplatonic.Godel.godlike_exists Neoplatonic.Godel.trivialScott
+    ⟨fun _ _ _ => trivial⟩ ()
 
 /-- Scott's axioms propagate any proposition to an accessible world;
     by this point RH has been replaced with a world-indexed report. -/
