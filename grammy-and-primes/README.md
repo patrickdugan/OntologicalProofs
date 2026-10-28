@@ -17,6 +17,8 @@ A hypothetical GodExists → RiemannHypothesis makes ¬RH → ¬God follow immed
 
 A potentially more illuminating question is whether a constrained *spectral perfection* theology commits itself to RH in a way that could be falsified by finding an off-line zeta zero. That would refute the proposed spectral-perfect-being model, not every conception of God. The analogous failure mode in Gödel–Scott is that overly broad essence produces modal collapse; the existing Anderson model offers a well-defined alternative.
 
+**The core bridge audit:** The theorem scott_spectral_bridge_iff_rh states that, under Scott's axioms on a symmetric frame, the added premise that every God-like witness implies RH is equivalent to RH itself. Thus the attractive claim that the ontological argument proves RH packages the unsolved conjecture directly into its premise.
+
 ## Evidence labels
 
 - **Lean, source awaiting compile check:** Written for Lean v4.35.0/mathlib v4.35.0. Run lake env lean grammy-and-primes/PrimeWheel.lean and lake env lean grammy-and-primes/RHGod.lean. Do not describe these as compiler-verified until those commands succeed.
