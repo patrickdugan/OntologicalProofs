@@ -96,6 +96,28 @@ theorem scott_spectral_bridge_iff_rh
   · intro rh _ _
     exact rh
 
+/-- Any world-constant property of a Scott God-like witness is positive
+    exactly when that proposition is true. This is a conditional theorem
+    using Scott's axioms and a symmetric accessibility relation. -/
+theorem scott_constant_positivity_iff_truth
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (w : W) (Q : Prop) :
+    T.P (fun (_ : α) (_ : W) => Q) w ↔ Q := by
+  obtain ⟨g, hg⟩ := Neoplatonic.Godel.godlike_exists T hsymm w
+  exact Neoplatonic.Godel.positive_iff_godlike_has T w hg
+    (fun _ _ => Q)
+
+/-- Making "RH is a positive property" a Scott premise is, given a God-like
+    witness, equivalent to assuming RH itself. -/
+theorem scott_rh_positivity_iff_rh
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (w : W) :
+    T.P (fun (_ : α) (_ : W) => RiemannHypothesis) w ↔
+      RiemannHypothesis :=
+  scott_constant_positivity_iff_truth T hsymm w RiemannHypothesis
+
 /-- Scott's one-world theory admits a God-like being alongside a
     reflection-symmetric, off-axis *toy* spectrum. This countermodel targets
     the structural symmetry-to-alignment bridge, not the actual RH. -/

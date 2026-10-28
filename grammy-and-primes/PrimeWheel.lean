@@ -17,7 +17,7 @@ theorem excludes_plus_one {m k p : ℕ} (hp : Nat.Prime p)
     (hpm : p ∣ m) : ¬ p ∣ m * k + 1 := by
   intro hpair
   have hproduct : p ∣ m * k := dvd_mul_of_dvd_left hpm k
-  have hone : p ∣ 1 := (Nat.dvd_add_iff_right hproduct).mp hpair
+  have hone : p ∣ 1 := (Nat.dvd_add_iff_right hproduct).mpr hpair
   exact hp.not_dvd_one hone
 
 /-- A prime divisor of m cannot divide m*k - 1 when m*k > 0. -/
@@ -29,7 +29,7 @@ theorem excludes_minus_one {m k p : ℕ} (hp : Nat.Prime p)
   have hsum : p ∣ (m * k - 1) + 1 := by
     rw [hcancel]
     exact hproduct
-  have hone : p ∣ 1 := (Nat.dvd_add_iff_right hpair).mp hsum
+  have hone : p ∣ 1 := (Nat.dvd_add_iff_right hpair).mpr hsum
   exact hp.not_dvd_one hone
 
 /-- Both factorial-wheel candidates avoid all prime divisors at most H. -/

@@ -58,7 +58,7 @@ Graham's number G is 3^E for some E ≥ 1. Taking m=E constructs four consecutiv
 
 This is an instance of standard irreducible-binomial theory over finite fields. It implies nothing about four consecutive **integer** primes.
 
-Small-degree falsification control: `polynomial_experiment.py` uses a polynomial Frobenius/GCD irreducibility test to verify the four noncube binomials over F7 at degrees 3, 9, and 27. It rejects x³−1 as reducible. These tests support the stated symbolic induction without attempting Graham-scale evaluation.
+Small-degree falsification control: `polynomial_experiment.py` uses a polynomial Frobenius/GCD irreducibility test to verify the four noncube binomials over F7 at degrees 3, 9, 27, and 81. It rejects x³−1 as reducible. These tests support the stated symbolic induction without attempting Graham-scale evaluation.
 
 ## 5. RH as a statement about zero locations, not twin correlations
 
@@ -82,6 +82,8 @@ A substantive theology might claim that perfect divine mathematical order necess
 
 A sharper formal result now follows by applying Scott's actual godlike_exists theorem: **given Scott's axioms on a symmetric frame, (∀x, Godlike(x) → RH) if and only if RH**. Since Scott already supplies a God-like witness at the selected world, the added Godlike-to-RH bridge is just RH with a God-like antecedent attached. A putative off-line zero would therefore refute the joint axiom system while leaving the culprit premises open for audit. This is formalized as scott_spectral_bridge_iff_rh in RHGod.lean.
 
+A further Scott-specific test applies the existing `positive_iff_godlike_has`: on a symmetric frame, positivity of every world-constant proposition Q is equivalent to the truth of Q. In particular, `T.P (fun _ _ => RiemannHypothesis) w ↔ RiemannHypothesis`. This formalizes the mathematical price of declaring RH a divine positive property. The corollaries are `scott_constant_positivity_iff_truth` and `scott_rh_positivity_iff_rh` in `RHGod.lean`.
+
 The existing Neoplatonic/RH.lean already demonstrates that its speculative spectral-alignment-to-common-prior bridge is vacuous under RH: it supplies the desired common-prior condition as an assumption. The existing GodelScott.lean proves modal collapse; the separate GodelAnderson.lean supplies an S5 model without it. RHGod.lean connects to the Scott result by showing that any accessible worlds carrying opposite *reports* about RH conflict with Scott's axioms on a symmetric frame. A report that varies by world is an epistemic proposition; the actual arithmetic truth of RH stays fixed across mathematical interpretation.
 
 This suggests a useful falsification program: impose specific spectral axioms on an account of divine necessity, test what those premises force, and look for models satisfying the mathematical claims while lacking the alleged ontological conclusion. New axiom bridges require independent reasons.
@@ -94,14 +96,14 @@ The next arithmetic test should grow H with X and measure Liouville-twisted two-
 
 ## 8. Möbius cancellation and the arithmetic first principle
 
-The existing \`Neoplatonic/Arithmetic.lean\` defines an incidence-zeta and Möbius inversion for the divisibility order. The exact identity \`ζ * μ = δ\` singles out the multiplicative unit as the first principle. The Riemann hypothesis has a separate analytic characterization:
+The existing `Neoplatonic/Arithmetic.lean` defines an incidence-zeta and Möbius inversion for the divisibility order. The exact identity `ζ * μ = δ` singles out the multiplicative unit as the first principle. The Riemann hypothesis has a separate analytic characterization:
 
     RH iff for every ε > 0, M(x) = O_ε(x^(1/2+ε)),
     where M(x) := sum_{n≤x} μ(n).
 
-This is an unbounded square-root cancellation estimate for the Möbius function, not the discredited Mertens conjecture \`|M(x)| < √x\`. The latter is known false. Thus a nontrivial RH-dependent "God" argument could be framed as a necessity claim about cancellation in the Möbius inverse of the divisibility-grounding order. The missing step is an independently motivated reason why any first principle would force *that specific analytic error exponent*.
+This is an unbounded square-root cancellation estimate for the Möbius function, not the discredited Mertens conjecture `|M(x)| < √x`. The latter is known false. Thus a nontrivial RH-dependent "God" argument could be framed as a necessity claim about cancellation in the Möbius inverse of the divisibility-grounding order. The missing step is an independently motivated reason why any first principle would force *that specific analytic error exponent*.
 
-A new standard-library test \`mobius_experiment.py\` verifies six finite values: M(10)=-1, M(100)=1, M(1000)=2, M(10,000)=-23, M(100,000)=-48, M(1,000,000)=212. None of them verifies a universal estimate.
+A new standard-library test `mobius_experiment.py` verifies six finite values: M(10)=-1, M(100)=1, M(1000)=2, M(10,000)=-23, M(100,000)=-48, M(1,000,000)=212. None of them verifies a universal estimate.
 
 
 ### Sources

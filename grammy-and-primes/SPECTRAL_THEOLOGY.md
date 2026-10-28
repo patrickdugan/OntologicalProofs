@@ -5,9 +5,9 @@ This is a **conditional ontology**, not a demonstration of theism or atheism.
 
 ## The proposition that makes the joke work
 
-Let \`G\` mean the existence of some God-like first principle and \`RH\` be the actual Riemann hypothesis, as defined by mathlib. The proposition \`G → RH\` makes \`¬RH → ¬G\` automatic. That premise is the entire logical crux: a disproof of RH would refute **the package containing that premise**.
+Let `G` mean the existence of some God-like first principle and `RH` be the actual Riemann hypothesis, as defined by mathlib. The proposition `G → RH` makes `¬RH → ¬G` automatic. That premise is the entire logical crux: a disproof of RH would refute **the package containing that premise**.
 
-With Scott's actual ontological premises (on a symmetric frame), \`∃g, Godlike(g)\` is already derivable. As a result, the statement
+With Scott's actual ontological premises (on a symmetric frame), `∃g, Godlike(g)` is already derivable. As a result, the statement
 
     (∀x, Godlike(x) → RH) ↔ RH
 
@@ -17,7 +17,15 @@ A more seductive way to conceal the assumption is to write
 
     G → H,    H → RH,
 
-where H stands for something impressive sounding like "canonical self-adjoint spectral completion." However, if H is merely an arbitrary proposition, the existence of such a factorization is **equivalent** to \`G → RH\`: take H = RH. The Lean theorem \`unconstrained_intermediate_bridge_iff_direct\` records this no-go test. An intermediate construction only advances the argument if it has independently specified mathematical content.
+where H stands for something impressive sounding like "canonical self-adjoint spectral completion." However, if H is merely an arbitrary proposition, the existence of such a factorization is **equivalent** to `G → RH`: take H = RH. The Lean theorem `unconstrained_intermediate_bridge_iff_direct` records this no-go test. An intermediate construction only advances the argument if it has independently specified mathematical content.
+
+### What Scott positivity does to RH
+
+Under Scott's full axioms on a symmetric accessibility frame, a God-like witness exists. The repository already shows that every positive property is exactly a property possessed by that witness. Applied to any world-constant proposition Q:
+
+    Positive(λx,w. Q) ↔ Q.
+
+In particular, **Positive(λx,w. RH) ↔ RH**. The proposed new positivity axiom does all the mathematical work. The Lean theorems `scott_constant_positivity_iff_truth` and `scott_rh_positivity_iff_rh` state this explicitly. They apply equally to any closed mathematical proposition, so the result supplies a falsification test for philosophical claims that RH follows uniquely from positive properties.
 
 ## Symmetry, fixedness, and the critical line
 
@@ -25,13 +33,13 @@ The zeta functional equation and conjugation symmetry give a reflection symmetry
 
 The rational toy spectrum {1/3, 2/3} is symmetric under x ↦ 1−x. Its mean is 1/2 and its sum of squared deviations about that mean is 1/18. It violates pointwise fixedness.
 
-In \`SpectralSymmetry.lean\`:
-- \`mirror_involution\`, \`mirror_pair_mean\`: arithmetic of reflection.
-- \`mirror_fixed_iff_center\`: fixedness is equivalent to individual placement at 1/2.
-- \`toy_closed_under_reflection\` and \`toy_has_off_axis_point\`: an explicit countermodel to deriving RH-type alignment from the functional symmetry alone.
-- \`reflection_closure_not_sufficient\`: refutation of the quantified structural inference.
+In `SpectralSymmetry.lean`:
+- `mirror_involution`, `mirror_pair_mean`: arithmetic of reflection.
+- `mirror_fixed_iff_center`: fixedness is equivalent to individual placement at 1/2.
+- `toy_closed_under_reflection` and `toy_has_off_axis_point`: an explicit countermodel to deriving RH-type alignment from the functional symmetry alone.
+- `reflection_closure_not_sufficient`: refutation of the quantified structural inference.
 
-In \`RHGod.lean\`, \`scott_model_with_off_axis_symmetric_toy\` takes the one-world Scott model *already in the repository*, adds the independent toy spectrum, and witnesses both God-like existence and off-axis symmetry. This makes a mathematically clean countermodel to "Scott + spectral symmetry entails all-spectral-critical-line." It does not supply an off-line zero of the real Riemann zeta function.
+In `RHGod.lean`, `scott_model_with_off_axis_symmetric_toy` takes the one-world Scott model *already in the repository*, adds the independent toy spectrum, and witnesses both God-like existence and off-axis symmetry. This makes a mathematically clean countermodel to "Scott + spectral symmetry entails all-spectral-critical-line." It does not supply an off-line zero of the real Riemann zeta function.
 
 ## Two candidate bridges with genuine mathematical substance
 
@@ -69,7 +77,7 @@ The attempted theological claim might be that divine rationality forces a *speci
 
 ### Bridge Möbius: cancellation in the divisibility-grounding order
 
-The existing \`Neoplatonic/Arithmetic.lean\` treats divisibility as a grounding order. Its incidence zeta function and Möbius inverse satisfy an exact inversion identity: \`ζ * μ = δ\`, isolating the multiplicative unit \`1\`. This is a theorem about divisibility and is independent of RH.
+The existing `Neoplatonic/Arithmetic.lean` treats divisibility as a grounding order. Its incidence zeta function and Möbius inverse satisfy an exact inversion identity: `ζ * μ = δ`, isolating the multiplicative unit `1`. This is a theorem about divisibility and is independent of RH.
 
 A much stronger statement links its Möbius inverse back to the analytic Riemann zeta function. Define
 
@@ -79,11 +87,11 @@ A classical equivalent of RH is that for **every ε>0**, the estimate
 
     M(x) = O_ε(x^(1/2+ε))
 
-holds as x grows. The stronger Mertens conjecture \`|M(x)| < √x\` for all x>1 was disproved by Odlyzko and te Riele. Keeping these two asymptotic statements separate is essential.
+holds as x grows. The stronger Mertens conjecture `|M(x)| < √x` for all x>1 was disproved by Odlyzko and te Riele. Keeping these two asymptotic statements separate is essential.
 
 This connects the "One" to a mathematically precise kind of *cancellation* in the inclusion–exclusion structure of integers. It offers a third possible premise for divine arithmetic coherence, although asserting a divine preference for square-root cancellation would still require its own justification.
 
-The new \`mobius_experiment.py\` verifies six finite Mertens checkpoints (ending at M(1,000,000)=212), furnishing a reproducible baseline rather than evidence of the universal asymptotic.
+The new `mobius_experiment.py` verifies six finite Mertens checkpoints (ending at M(1,000,000)=212), furnishing a reproducible baseline rather than evidence of the universal asymptotic.
 
 
 ## A discriminating experimental protocol
@@ -119,6 +127,6 @@ The new \`mobius_experiment.py\` verifies six finite Mertens checkpoints (ending
 - NIST DLMF, §25.10, *Zeros of the Riemann Zeta Function*: https://dlmf.nist.gov/25.10
 - Bombieri and Lagarias, *Complements to Li's Criterion for the Riemann Hypothesis*, Journal of Number Theory 77 (1999), pp. 274–287, DOI: https://doi.org/10.1006/jnth.1999.2392
 - Andrade, *Hilbert–Pólya Conjecture, Zeta Functions and Bosonic Quantum Field Theories*, International Journal of Modern Physics A (2013), DOI: https://doi.org/10.1142/S0217751X13500723
-- Existing repository: \`Neoplatonic/RH.lean\`, \`GodelScott.lean\`, \`GodelAnderson.lean\`, \`GodelGrounding.lean\`.
+- Existing repository: `Neoplatonic/RH.lean`, `GodelScott.lean`, `GodelAnderson.lean`, `GodelGrounding.lean`.
 
 These resources explain the mathematical bridges. They supply no independent philosophical reason to make them necessary consequences of divine existence.

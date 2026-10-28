@@ -76,7 +76,7 @@ def is_irreducible_power3(n: int, a: int) -> bool:
 def main() -> None:
     assert is_irreducible_power3(3, 2)
     assert not is_irreducible_power3(3, 1)
-    for m in (1, 2, 3):
+    for m in (1, 2, 3, 4):
         n = 3**m
         for a in (2, 3, 4, 5):
             assert is_irreducible_power3(n, a), (n, a)
