@@ -67,6 +67,25 @@ An off-axis zero would ultimately force a violation of the all-n criterion. This
 
 The attempted theological claim might be that divine rationality forces a *specific* positive-definite arithmetic structure whose coefficients are λ_n. Mere elegance or symmetry has no such implication. To make this substantive, derive the positive structure by an independent constructive axiom scheme, and see whether its failure can be localized to a distinct premise.
 
+### Bridge Möbius: cancellation in the divisibility-grounding order
+
+The existing \`Neoplatonic/Arithmetic.lean\` treats divisibility as a grounding order. Its incidence zeta function and Möbius inverse satisfy an exact inversion identity: \`ζ * μ = δ\`, isolating the multiplicative unit \`1\`. This is a theorem about divisibility and is independent of RH.
+
+A much stronger statement links its Möbius inverse back to the analytic Riemann zeta function. Define
+
+    M(x) = ∑_{n≤x} μ(n).
+
+A classical equivalent of RH is that for **every ε>0**, the estimate
+
+    M(x) = O_ε(x^(1/2+ε))
+
+holds as x grows. The stronger Mertens conjecture \`|M(x)| < √x\` for all x>1 was disproved by Odlyzko and te Riele. Keeping these two asymptotic statements separate is essential.
+
+This connects the "One" to a mathematically precise kind of *cancellation* in the inclusion–exclusion structure of integers. It offers a third possible premise for divine arithmetic coherence, although asserting a divine preference for square-root cancellation would still require its own justification.
+
+The new \`mobius_experiment.py\` verifies six finite Mertens checkpoints (ending at M(1,000,000)=212), furnishing a reproducible baseline rather than evidence of the universal asymptotic.
+
+
 ## A discriminating experimental protocol
 
 **Geometry arm:** Test reflection closure vs pointwise fixedness using finite rational toy spectra. The off-axis countermodel is definitive for this abstract implication.
