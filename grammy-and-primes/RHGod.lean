@@ -1,6 +1,6 @@
 import Neoplatonic.RH
 import Neoplatonic.GodelScott
-import GrammyAndPrimes.SpectralSymmetry
+import Mathlib.Tactic
 
 /-!
 # RH and an ontological argument: dependency audit
@@ -83,20 +83,24 @@ theorem scott_spectral_bridge_iff_rh
   · intro rh _ _
     exact rh
 
-/-- Scott's consistent one-world theory admits a God-like being while the
-    independent toy spectrum is reflection-symmetric with off-axis points.
-    This refutes a proposed *structural* implication from Scott plus setwise
-    symmetry to spectral alignment. The toy is not a zeta-zero construction. -/
+/-- Scott's one-world theory admits a God-like being alongside a
+    reflection-symmetric, off-axis *toy* spectrum. This countermodel targets
+    the structural symmetry-to-alignment bridge, not the actual RH. -/
 theorem scott_model_with_off_axis_symmetric_toy :
     ∃ T : Neoplatonic.Godel.ScottTheory (fun (_ _ : Unit) => True) Unit,
       (∃ g : Unit, Neoplatonic.Godel.Godlike T.P g ()) ∧
-      (∀ b : Bool, ∃ c : Bool,
-        toyCoordinate c = mirror (toyCoordinate b)) ∧
-      (∃ b : Bool, toyCoordinate b ≠ (1 / 2 : ℚ)) := by
-  refine ⟨Neoplatonic.Godel.trivialScott, ?_, toy_closed_under_reflection,
-    toy_has_off_axis_point⟩
-  exact Neoplatonic.Godel.godlike_exists Neoplatonic.Godel.trivialScott
-    ⟨fun _ _ _ => trivial⟩ ()
+      (∃ coord : Bool → ℚ,
+        (∀ b : Bool, ∃ c : Bool, coord c = 1 - coord b) ∧
+        ∃ b : Bool, coord b ≠ (1 / 2 : ℚ)) := by
+  refine ⟨Neoplatonic.Godel.trivialScott, ?_, ?_⟩
+  · exact Neoplatonic.Godel.godlike_exists Neoplatonic.Godel.trivialScott
+      ⟨fun _ _ _ => trivial⟩ ()
+  · refine ⟨fun b => if b then (2 / 3 : ℚ) else (1 / 3 : ℚ), ?_, ?_⟩
+    · intro b
+      refine ⟨!b, ?_⟩
+      cases b <;> norm_num
+    · refine ⟨false, ?_⟩
+      norm_num
 
 /-- Scott's axioms propagate any proposition to an accessible world;
     by this point RH has been replaced with a world-indexed report. -/
