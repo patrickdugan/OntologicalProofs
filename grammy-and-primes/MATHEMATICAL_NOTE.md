@@ -58,6 +58,8 @@ Graham's number G is 3^E for some E ≥ 1. Taking m=E constructs four consecutiv
 
 This is an instance of standard irreducible-binomial theory over finite fields. It implies nothing about four consecutive **integer** primes.
 
+Small-degree falsification control: `polynomial_experiment.py` uses a polynomial Frobenius/GCD irreducibility test to verify the four noncube binomials over F7 at degrees 3, 9, and 27. It rejects x³−1 as reducible. These tests support the stated symbolic induction without attempting Graham-scale evaluation.
+
 ## 5. RH as a statement about zero locations, not twin correlations
 
 For the von Mangoldt function Λ, put S_X(θ) = sum_{n≤X} Λ(n) exp(2πinθ). Fourier orthogonality yields exactly
