@@ -31,6 +31,19 @@ theorem atheism_of_counterexample_to_rh (God : Prop)
     (bridge : God → RiemannHypothesis) (counter : ¬ RiemannHypothesis) : ¬ God :=
   fun god => counter (bridge god)
 
+/-- Naming an intermediate spectral or Hilbert-Pólya hypothesis adds no
+    inferential strength when that hypothesis is an unconstrained Prop.
+    A meaningful spectral proposal must independently construct and verify
+    its claimed operator or positivity condition. -/
+theorem unconstrained_intermediate_bridge_iff_direct (God : Prop) :
+    (∃ HP : Prop, (God → HP) ∧ (HP → RiemannHypothesis)) ↔
+      (God → RiemannHypothesis) := by
+  constructor
+  · rintro ⟨HP, hGodHP, hHPRH⟩
+    exact fun hg => hHPRH (hGodHP hg)
+  · intro h
+    exact ⟨RiemannHypothesis, h, fun rh => rh⟩
+
 /-- A model where the forward implication holds, RH is false, and God is true.
     This rules out the tempting but invalid converse in pure propositional logic. -/
 theorem false_antecedent_does_not_refute_consequent :
