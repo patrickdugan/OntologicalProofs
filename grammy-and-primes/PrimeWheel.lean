@@ -50,7 +50,7 @@ theorem factorial_pair_gap (H k : ℕ) (hk : 0 < k) :
   omega
 
 /-- The H = 5 wheel admits a composite/composite pair of gap two. -/
-example : 5.factorial * 1 - 1 = 119 ∧ 5.factorial * 1 + 1 = 121 := by
+example : (Nat.factorial 5) * 1 - 1 = 119 ∧ (Nat.factorial 5) * 1 + 1 = 121 := by
   decide
 
 end GrammyAndPrimes
