@@ -32,6 +32,8 @@ jobs:
         run: lake build Neoplatonic
       - name: Reproduce finite arithmetic tests
         run: python3 grammy-and-primes/experiment.py
+      - name: Verify finite Möbius cancellation checkpoints
+        run: python3 grammy-and-primes/mobius_experiment.py
       - name: Compile every new Lean script and report all errors
         shell: bash
         run: |
