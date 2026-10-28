@@ -1,0 +1,37 @@
+name: Grammy and Primes proof checks
+
+on:
+  push:
+    branches:
+      - research/grammy-and-primes-rh-ontology
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'grammy-and-primes/**'
+      - '.github/workflows/grammy-and-primes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+      - name: Check factorial wheel Lean proofs
+        run: lake env lean grammy-and-primes/PrimeWheel.lean
+      - name: Check RH/God dependency Lean proofs
+        run: lake env lean grammy-and-primes/RHGod.lean
+      - name: Check spectral symmetry Lean proofs
+        run: lake env lean grammy-and-primes/SpectralSymmetry.lean
+      - name: Reproduce finite arithmetic tests
+        run: python3 grammy-and-primes/experiment.py
