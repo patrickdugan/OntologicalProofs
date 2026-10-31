@@ -1,0 +1,25 @@
+{
+  "builder_revision": "c8d46591f983473023daf0232e9b413baaa02194",
+  "held_out_mechanisms": 2,
+  "independent_test_families": 2,
+  "mechanisms_total": 6,
+  "proof_revision": "81731cca741bdc24c559cfd68e0bef796200f787",
+  "source_files": {
+    "__init__.py": "91ddf97418cebca06e1e9cf599682e474597fa5c540a45fd8272424071ffba14",
+    "build_world.py": "00d6021ed54a03a937c2c7ed07e4b8e78054e1a6857063630b7687f94609814a",
+    "cluster.py": "ecd017cee74465f132fa0c1ee4e60a42b973eacd4bd9d1d4933254a8095d1cad",
+    "evaluate_model.py": "b758e0428e1c144642bd201f9d191a8489b55ff6a91ae6dca8d58a602206e77b",
+    "gym_adapter.py": "2017ba5b38e0ac4e3fe7eb7d5ac331fe25863d3bdae5dbe930f841c0e1cf9cd1",
+    "oca.py": "87608f890038feb70bb6cd868aa065a0a5fffb17a4783ff50a2c219f65adc819",
+    "tests/test_oca.py": "049736524760eff2fa2a3e82aaf5fab176ac31f553e9d6f7617e54b98ebd7732",
+    "train.py": "d292b38965edf06aefc20479e412dacc70eeaf870b6cdadaad7c497597c1db67",
+    "vendor/new_encounter.py": "6604f919a2af1725b60943ea460c8e2e20c7d5fc9f639d9c5c7b04b57c147464",
+    "vendor/sweepweave_validator.py": "cc49b9b51fa5b2ba542225d4df4ecd6b4c4e23883ce8a07040cbcbf84bfe09eb"
+  },
+  "splits": {"calibration": [3], "test": [4,5], "train": [0,1,2]},
+  "status": "DESIGN_FROZEN_TEST_UNSEALED",
+  "test_seed": "WITHHELD_BY_EVALUATOR",
+  "themes": 8,
+  "version": "OCA-SW-01b",
+  "warning": "Public toy mechanism library. Two test mechanisms do not support broad generalization claims."
+}

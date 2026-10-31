@@ -1,0 +1,29 @@
+{
+  "balance_floor_pass": true,
+  "effects_per_reaction": 5,
+  "encounters": 24,
+  "ending_counts": {
+    "page_end_0": 1000,
+    "page_end_1": 1085,
+    "page_end_2": 1031,
+    "page_end_3": 937,
+    "page_secret_spring": 947
+  },
+  "exporter": "local deterministic renderer, JSON-preserving effects; original upstream validator used byte-for-byte",
+  "native_campaigns": 5000,
+  "native_ui_check": "NOT_RUN",
+  "options_per_ordinary": 3,
+  "ordinary_encounters": 18,
+  "reactions_per_option": 2,
+  "secret_over_5pct": true,
+  "source_builder": "c8d46591f983473023daf0232e9b413baaa02194",
+  "validator": "PASS",
+  "witnesses": {
+    "page_end_0": [2,0,1,2,0,1,2,0,0,2,0,0,0,2,1,1,2,2,0],
+    "page_end_1": [1,0,1,0,1,2,1,2,2,2,1,1,0,2,1,0,0,2,0],
+    "page_end_2": [0,2,1,0,2,2,1,1,1,2,2,2,1,0,0,1,1,0,0],
+    "page_end_3": [2,1,0,2,1,0,0,1,2,1,1,1,1,2,1,2,0,1,0],
+    "page_secret_spring": [0,0,0,0,1,0,1,1,0,0,2,0,2,0,2,2,2,1,0]
+  },
+  "world_sha256": "213d262ada0b1722101436ff876bb6ae873f40bb2ce38f9285a2509a4a53e739"
+}

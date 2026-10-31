@@ -1,0 +1,8 @@
+{
+  "alignment_evidence": false,
+  "final_loss": 1.0264968872070312,
+  "initial_loss": 3.0910489559173584,
+  "pretrained_model": false,
+  "status": "TINY_CPU_PIPELINE_PASS",
+  "steps": 12
+}

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+worlds/common_spring.json
+worlds/common_spring.json.gz
+worlds/common_spring.swmd.md
+worlds/common_spring.swmd.min.md
+worlds/cards/
+worlds/encounters.jsonl
+worlds/authoring_ledger.json
+runs/
+private/
