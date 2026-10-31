@@ -1,0 +1,113 @@
+{
+  "domain": "synthetic_only",
+  "execution": {
+    "contracts": 21584,
+    "contracts_with_initial_state": 7088,
+    "contracts_with_reachable_effect": 4559,
+    "premise_deletion_witnesses": {
+      "mediation": {
+        "edge_mask": 1,
+        "edges": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "gate": 0,
+        "holds": {
+          "mediation": false,
+          "preserves": true,
+          "sound": true,
+          "starts": true
+        },
+        "initial": 1,
+        "invariant": 1,
+        "lawful": 0
+      },
+      "preserves": {
+        "edge_mask": 17,
+        "edges": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "gate": 5,
+        "holds": {
+          "mediation": true,
+          "preserves": false,
+          "sound": true,
+          "starts": true
+        },
+        "initial": 2,
+        "invariant": 2,
+        "lawful": 4
+      },
+      "sound": {
+        "edge_mask": 1,
+        "edges": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "gate": 1,
+        "holds": {
+          "mediation": true,
+          "preserves": true,
+          "sound": false,
+          "starts": true
+        },
+        "initial": 1,
+        "invariant": 1,
+        "lawful": 0
+      },
+      "starts": {
+        "edge_mask": 1,
+        "edges": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "gate": 1,
+        "holds": {
+          "mediation": true,
+          "preserves": true,
+          "sound": true,
+          "starts": false
+        },
+        "initial": 1,
+        "invariant": 0,
+        "lawful": 0
+      }
+    },
+    "systems": 1048576,
+    "unsafe_contracts": 0
+  },
+  "guidance": {
+    "decreases": 495,
+    "increases": 495,
+    "positive_event_cases": 1080,
+    "unchanged": 90,
+    "zero_probability_events_excluded": 9
+  },
+  "information": {
+    "obstructed": 196,
+    "view_duty_pairs": 256
+  },
+  "motivation": {
+    "candidate_cases": 5184,
+    "qualifying_maximizers": 324
+  },
+  "schema": "moral_realism_finite_audit_v1"
+}
