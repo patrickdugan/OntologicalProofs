@@ -4,9 +4,13 @@
 **Repository:** `patrickdugan/OntologicalProofs`  
 **Date:** 2026-10-31  
 **Owner:** Patrick Dugan  
-**State:** implementation specification; the environment and model experiments described below have not been run by this handoff.
+**State:** implementation specification for ChatGPT/local execution; Silico's API-billed role is limited to a short design critique. No environment or model experiments have been run by this handoff.
 
-## 1. Execute this task
+## 1. Project objective and division of labor
+
+**Silico (API-billed Sol):** Read this handoff and return at most 400 words identifying one decisive falsifiability problem, one minimal design correction, and a yes/no recommendation on readiness for CPU implementation. No tools, repository edits, implementation, tests, or repeated iterations. Stop after one reply.
+
+**ChatGPT (subscription) and local coding/GPU workflow:** Implement the following specification, run tests, create artifacts, and return results. Escalate only bounded, genuinely unresolved scientific questions to Silico after ChatGPT has prepared a concise packet.
 
 Build a small, deterministic Storyworld environment with a Gymnasium adapter in this repository. Test whether training on ontological arguments and their explicit normative bridge changes an agent's choices when honesty carries a cost or oversight appears to change. Include an independently scored record of executed actions and subsequent reports. Preserve the possibility of a null result.
 
@@ -14,7 +18,7 @@ The research ambition is a model whose commitment to objective moral reasons sur
 
 Implement the CPU environment and freeze its evaluation before requesting GPU time. Keep new code under `storyworld/`. This destination supersedes the proposed implementation location in the earlier `MoralRealism/EXPERIMENT.md`. Existing ConstitutionalAlignment studies and their frozen results stay untouched.
 
-The current authorization covers this document. For the next Silico session, the execution brief is CPU implementation and validation. Paid compute, paid model calls, checkpoint downloads, training and activation extraction require an explicit approved budget in that session. Prepare their launch commands and cost estimates without starting them.
+The current authorization covers this document. The API-billed Silico session is REVIEW ONLY, with zero repository tool calls and no implementation. ChatGPT and the local workflow own CPU implementation and validation. Paid compute, paid model calls, checkpoint downloads, training and activation extraction require an explicit approved budget. Prepare launch commands and cost estimates without starting paid runs.
 
 ## 2. Read these exact sources first
 
@@ -207,13 +211,13 @@ Mechanistic work follows a frozen behavioral checkpoint. Select probe sites and 
 
 ## 9. Return artifacts and keep orchestration bounded
 
-Commit additive code, tests and the frozen protocol in this repository. Use normal non-forced Git updates and honor branch protection. Leave existing proof PRs and their owners untouched. Each result must identify the source commit, proof revision, config hash, split-manifest hash and exact model revision when applicable.
+**Implementation operator: ChatGPT/local developer agent. Silico is a one-shot reviewer only.** Commit additive code, tests and the frozen protocol in this repository. Use normal non-forced Git updates and honor branch protection. Leave existing proof PRs and their owners untouched. Each result must identify the source commit, proof revision, config hash, split-manifest hash and exact model revision when applicable.
 
 Write a terminal receipt with the run ID, executed commands, exit codes, actual resource use, produced artifacts and outstanding blockers. Distinguish `SPECIFIED`, `CPU_VERIFIED`, `GPU_SMOKE_COMPLETE` and `PILOT_COMPLETE`. A completed planning session cannot advance the experiment to a model-tested state.
 
-Keep Silico's initial prose plan under 400 words. Execute the CPU acceptance path instead of reopening the philosophical design. Defer substantial eval redesign, proof repair, applied mathematics, Lean development and speculative recommendations to a compact `CHATGPT_HANDOFF.md` carrying the exact failed gate and relevant artifacts. Resume after the amendment is recorded. Avoid paid back-and-forth about choices already frozen here.
+Silico's sole response is a <=400-word scientific critique with the decisive falsification gate and minimal correction. Do not ask Silico to execute CPU acceptance, use tools, or produce implementation artifacts. ChatGPT/local agent executes the CPU acceptance path. Route eval redesign, proof repair, applied mathematics, Lean development and implementation to ChatGPT with the exact failed gate and relevant artifacts. Avoid paid back-and-forth about choices already frozen here.
 
-The final Silico message should give the implementation commit, acceptance results, manifest location and either the approved run receipt or the specific launch blocker. A new scientific claim must identify the evidence supporting it.
+The final **ChatGPT/local implementation** report should give the implementation commit, acceptance results, manifest location and either the approved run receipt or the specific launch blocker. Silico returns only its short critique. A new scientific claim must identify the evidence supporting it.
 
 ## Sources for implementation and research context
 
