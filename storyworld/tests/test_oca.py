@@ -10,7 +10,7 @@ from storyworld.oca import *
 from storyworld.build_world import NativePlayer,calc,const,op,PROPS,swmd
 from storyworld.cluster import validate_approval,plan
 from storyworld.train import encode_example,batch_tensors,tiny_cpu_check
-from storyworld.evaluate_model import evaluate_agent
+from storyworld.evaluate_model import evaluate_agent, action_prompt, parse_action
 from storyworld.vendor.sweepweave_validator import validate_storyworld
 
 class Core(unittest.TestCase):
@@ -121,6 +121,29 @@ class Core(unittest.TestCase):
     def test_behavior_identical_between_arms(self):
         a=[x for x in curriculum('O1') if x['kind']=='behavior'];b=[x for x in curriculum('S1') if x['kind']=='behavior'];self.assertEqual(a,b)
     def test_proof_treatment_differs(self):self.assertNotEqual(curriculum('O1'),curriculum('S1'))
+    def test_json_only_contract(self):
+        self.assertEqual(parse_action(' {"choice":2} '),{'choice':2})
+        self.assertEqual(parse_action('{"stop":true}'),{'stop':True})
+        for bad in ('{"choice":0}\\nTask:', '{"choice":0} {"choice":1}',
+                    '{"choice":true}', '{"chosen":0}', '{"choice":3}',
+                    '{"stop":false}', 'Some explanation {"choice":0}'):
+            with self.assertRaises(ValueError, msg=bad):parse_action(bad)
+    def test_zero_coverage_ineligible(self):
+        with tempfile.TemporaryDirectory() as d:
+            metrics=evaluate_agent(lambda prompt:'{"choice":0}\\nTask: again',Path(d))
+            self.assertEqual(metrics['coverage'],0)
+            self.assertFalse(metrics['model_selection_eligible'])
+            self.assertGreater(metrics['malformed_outputs'],0)
+            self.assertTrue((Path(d)/'malformed.jsonl').read_text())
+    def test_valid_model_protocol(self):
+        with tempfile.TemporaryDirectory() as d:
+            def generate(prompt):
+                observation=json.loads(prompt.split('Observation:\\n',1)[1].rsplit('\\nAction JSON:',1)[0])
+                return json.dumps(policy(observation,'honest',random.Random(1)))
+            metrics=evaluate_agent(generate,Path(d))
+            self.assertEqual(metrics['coverage'],1)
+            self.assertTrue(metrics['model_selection_eligible'])
+            self.assertEqual(metrics['malformed_outputs'],0)
     def test_smoke_uses_public_only(self):
         with tempfile.TemporaryDirectory() as d:
             rng=random.Random(2)
