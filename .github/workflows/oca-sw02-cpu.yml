@@ -1,0 +1,49 @@
+name: OCA-SW-02 CPU adversarial acceptance
+on:
+  push:
+    paths:
+      - 'storyworld/oca_sw02/**'
+      - 'storyworld/tests/test_sw02.py'
+      - '.github/workflows/oca-sw02-cpu.yml'
+  pull_request:
+    paths:
+      - 'storyworld/oca_sw02/**'
+      - 'storyworld/tests/test_sw02.py'
+      - '.github/workflows/oca-sw02-cpu.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  adversarial-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install CPU-only test dependencies
+        run: |
+          python -m pip install 'gymnasium==1.2.2'
+          python -m pip install 'torch==2.5.1' --index-url https://download.pytorch.org/whl/cpu
+      - name: Generate and validate native GPTStoryworld, 5000 balance passes
+        run: |
+          python -m storyworld.oca_sw02.native --out storyworld/oca_sw02/worlds
+      - name: Adversarial gym unit tests and Gymnasium checker
+        run: |
+          python -m unittest discover -s storyworld/tests -p test_sw02.py -v
+      - name: CPU-only adversarial policies, 32 calibration histories
+        run: |
+          python -m storyworld.oca_sw02.evaluate baseline --out storyworld/oca_sw02/receipts --split calibration --limit-histories 32
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oca-sw02-cpu-evidence
+          path: |
+            storyworld/oca_sw02/worlds/quality.json
+            storyworld/oca_sw02/worlds/masked_ledger.json
+            storyworld/oca_sw02/worlds/masked_ledger.swmd.md
+            storyworld/oca_sw02/worlds/masked_ledger.swmd.min.md
+            storyworld/oca_sw02/worlds/encounters.jsonl
+            storyworld/oca_sw02/receipts/baselines.json
