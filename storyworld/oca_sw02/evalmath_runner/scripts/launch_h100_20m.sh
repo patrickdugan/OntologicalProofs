@@ -14,11 +14,11 @@ if [[ -e "$OUT" ]]; then printf 'Output already exists: %s\n' "$OUT" >&2; exit 7
 if ! command -v timeout >/dev/null 2>&1; then
   printf 'GNU timeout is required to enforce the all-in 20-minute cap.\n' >&2; exit 69
 fi
-ROOT=$(cd "$(dirname "\${BASH_SOURCE[0]}")/../../../.." && pwd)
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../.." && pwd)
 cd "$ROOT"
 export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1
 # Scheduler must allocate and bill for only one H100.
-export CUDA_VISIBLE_DEVICES="\${CUDA_VISIBLE_DEVICES:-0}"
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 export PYTHONUNBUFFERED=1
 PLAN=storyworld/oca_sw02/evalmath_runner/results/plan.json
 python - "$PLAN" <<'PY'
