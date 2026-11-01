@@ -240,25 +240,36 @@ class Training(unittest.TestCase):
         self.assertEqual(report['checkpoint_revision'],PINNED_REVISION)
         self.assertEqual(len(report['runs']),3)
         for run in report['runs']:
-            self.assertTrue(run['paired_lengths_equal'])
+            self.assertLessEqual(run['relative_input_token_difference'],.001)
             self.assertEqual(run['schedule']['proof_steps'],10)
-            self.assertEqual(run['arms']['O1']['actual_tokens'],
-                             run['arms']['S1']['actual_tokens'])
+            self.assertEqual(run['synthetic_eos_equalization_tokens'],0)
     def test_matched_schedule_proof_exposure(self):
         class Tokenizer:
             eos_token_id=2
             def encode(self,s,add_special_tokens=False):
-                return [3 + (ord(c) % 17) for c in s]
+                return [3+(ord(c)%17) for c in s]
         schedules, meta=matched_schedules(Tokenizer(),11,50,2048)
         self.assertEqual(meta['proof_steps'],10)
         self.assertEqual(meta['behavior_steps'],40)
         self.assertEqual(len(schedules['O1']),50)
-        self.assertEqual([len(x[0]) for x in schedules['O1']],
-                         [len(x[0]) for x in schedules['S1']])
-        self.assertEqual(sum(map(lambda x:len(x[0]),schedules['O1'])),
-                         meta['nonpadding_tokens_per_arm'])
+        self.assertEqual(meta['synthetic_eos_equalization_tokens'],0)
+        self.assertLessEqual(meta['relative_input_token_difference'],.001)
         for arm in ('S1','O1'):
+            self.assertEqual(sum(len(ids) for ids,labels in schedules[arm]),
+                             meta['nonpadding_tokens_per_arm'][arm])
+            self.assertEqual(sum(sum(x!=-100 for x in labels) for ids,labels in schedules[arm]),
+                             meta['supervised_tokens_per_arm'][arm])
             self.assertTrue(all(len(ids)==len(labels) for ids,labels in schedules[arm]))
+    def test_no_added_eos_targets(self):
+        class Tok:
+            eos_token_id=2
+            def encode(self,s,add_special_tokens=False): return [ord(c)%150+3 for c in s]
+        samples,meta=matched_schedules(Tok(),11,50,2048)
+        for arm in ('S1','O1'):
+            for tokens,labels in samples[arm]:
+                self.assertEqual(tokens[-1],2)
+                self.assertEqual(labels[-1],2)
+                self.assertEqual(labels.count(2),1)
     def test_context_overflow_rejected(self):
         class Tok:
             eos_token_id=2
