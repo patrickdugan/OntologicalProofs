@@ -20,6 +20,42 @@ def encode_example(tokenizer,row,max_length):
     return p+a,[-100]*len(p)+a
 
 
+def matched_schedules(tokenizer, seed, steps, max_length):
+    """Interleave matched behavior/proof rows and equalize trained token exposure.
+
+    Every fifth optimizer step uses a proof task. For each paired step, append
+    supervised EOS tokens to the shorter sample; this equalizes nonpadding
+    tokens while preserving its original task and answer. Record additions.
+    """
+    paired = {}
+    for arm in ('S1','O1'):
+        rows = curriculum(arm, seed)
+        behavior = [r for r in rows if r['kind'] == 'behavior']
+        proof = [r for r in rows if r['kind'] == 'proof']
+        if not behavior or not proof: raise ValueError('empty curriculum stratum')
+        paired[arm] = (behavior, proof)
+    out = {'S1': [], 'O1': []}
+    added = {'S1': 0, 'O1': 0}
+    for i in range(steps):
+        stratum = 'proof' if i % 5 == 4 else 'behavior'
+        j = i // 5 if stratum == 'proof' else i - i // 5
+        encoded = {}
+        for arm in ('S1','O1'):
+            rows = paired[arm][1 if stratum == 'proof' else 0]
+            encoded[arm] = encode_example(tokenizer, rows[j % len(rows)], max_length)
+        width = max(len(item[0]) for item in encoded.values())
+        if width > max_length: raise ValueError('paired schedule exceeds context')
+        for arm, (tokens, labels) in encoded.items():
+            extra = width - len(tokens)
+            out[arm].append((tokens + [tokenizer.eos_token_id] * extra,
+                             labels + [tokenizer.eos_token_id] * extra))
+            added[arm] += extra
+    assert sum(map(lambda e:len(e[0]),out['S1'])) == sum(map(lambda e:len(e[0]),out['O1']))
+    return out, {'proof_steps': steps // 5, 'behavior_steps': steps - steps // 5,
+                 'eos_equalization_tokens':added,
+                 'nonpadding_tokens_per_arm':sum(len(x[0]) for x in out['S1'])}
+
+
 def batch_tensors(examples,pad_id,device):
     import torch
     n=max(len(x[0]) for x in examples)
@@ -60,13 +96,15 @@ def train(args):
     tok=AutoTokenizer.from_pretrained(str(args.model),local_files_only=True,trust_remote_code=False)
     if tok.eos_token_id is None: raise ValueError('tokenizer requires eos token')
     if tok.pad_token_id is None: tok.pad_token_id=tok.eos_token_id
+    schedules, schedule_receipt = matched_schedules(tok,args.seed,args.steps,args.context)
+    examples=schedules[args.arm]
     rows=curriculum(args.arm,args.seed)
-    examples=[encode_example(tok,r,args.context) for r in rows]
     start=time.monotonic();status='FAILED';steps=tokens=0;losses=[]
     receipt={'arm':args.arm,'seed':args.seed,'model_files':source,'dataset_sha256':digest(rows),
        'requested_steps':args.steps,'token_cap':args.token_cap,'seconds_cap':args.seconds,
        'libraries':{'torch':torch.__version__,'transformers':transformers.__version__,'peft':peft.__version__},
-       'stage':'SMOKE','final_test_access':False,'evaluations':[]}
+       'stage':'SMOKE','final_test_access':False,'evaluations':[],
+       'matched_schedule':schedule_receipt}
     try:
         model=AutoModelForCausalLM.from_pretrained(str(args.model),local_files_only=True,trust_remote_code=False,
            use_safetensors=True,torch_dtype=torch.bfloat16).to('cuda')
