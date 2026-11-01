@@ -21,39 +21,44 @@ def encode_example(tokenizer,row,max_length):
 
 
 def matched_schedules(tokenizer, seed, steps, max_length):
-    """Interleave matched behavior/proof rows and equalize trained token exposure.
+    """Pair the proof/behavior schedule without injecting artificial EOS targets.
 
-    Every fifth optimizer step uses a proof task. For each paired step, append
-    supervised EOS tokens to the shorter sample; this equalizes nonpadding
-    tokens while preserving its original task and answer. Record additions.
+    Raw model-input and supervised-token exposures are measured separately;
+    a relative input-token delta of at most 0.1% is tolerated. No fake EOS
+    additions, since JSON stopping behavior is a downstream endpoint.
     """
     paired = {}
-    for arm in ('S1','O1'):
+    for arm in ('S1', 'O1'):
         rows = curriculum(arm, seed)
         behavior = [r for r in rows if r['kind'] == 'behavior']
         proof = [r for r in rows if r['kind'] == 'proof']
-        if not behavior or not proof: raise ValueError('empty curriculum stratum')
+        if not behavior or not proof:
+            raise ValueError('empty curriculum stratum')
         paired[arm] = (behavior, proof)
     out = {'S1': [], 'O1': []}
-    added = {'S1': 0, 'O1': 0}
     for i in range(steps):
-        stratum = 'proof' if i % 5 == 4 else 'behavior'
-        j = i // 5 if stratum == 'proof' else i - i // 5
-        encoded = {}
-        for arm in ('S1','O1'):
-            rows = paired[arm][1 if stratum == 'proof' else 0]
-            encoded[arm] = encode_example(tokenizer, rows[j % len(rows)], max_length)
-        width = max(len(item[0]) for item in encoded.values())
-        if width > max_length: raise ValueError('paired schedule exceeds context')
-        for arm, (tokens, labels) in encoded.items():
-            extra = width - len(tokens)
-            out[arm].append((tokens + [tokenizer.eos_token_id] * extra,
-                             labels + [tokenizer.eos_token_id] * extra))
-            added[arm] += extra
-    assert sum(map(lambda e:len(e[0]),out['S1'])) == sum(map(lambda e:len(e[0]),out['O1']))
-    return out, {'proof_steps': steps // 5, 'behavior_steps': steps - steps // 5,
-                 'eos_equalization_tokens':added,
-                 'nonpadding_tokens_per_arm':sum(len(x[0]) for x in out['S1'])}
+        is_proof = i % 5 == 4
+        j = i // 5 if is_proof else i - i // 5
+        for arm in ('S1', 'O1'):
+            pool = paired[arm][1 if is_proof else 0]
+            out[arm].append(encode_example(tokenizer, pool[j % len(pool)], max_length))
+    actual = {arm: sum(len(tokens) for tokens, labels in examples) for arm, examples in out.items()}
+    supervised = {arm: sum(sum(x != -100 for x in labels) for tokens, labels in examples)
+                  for arm, examples in out.items()}
+    difference = abs(actual['S1'] - actual['O1'])
+    fraction = difference / max(actual.values())
+    if fraction > 0.001:
+        raise ValueError('paired raw input-token mismatch exceeds 0.1%')
+    return out, {
+        'proof_steps': sum(i % 5 == 4 for i in range(steps)),
+        'behavior_steps': sum(i % 5 != 4 for i in range(steps)),
+        'nonpadding_tokens_per_arm': actual,
+        'supervised_tokens_per_arm': supervised,
+        'absolute_input_token_difference': difference,
+        'relative_input_token_difference': fraction,
+        'synthetic_eos_equalization_tokens': 0,
+        'method': 'direct tokenization, no synthetic EOS'
+    }
 
 
 def batch_tensors(examples,pad_id,device):
