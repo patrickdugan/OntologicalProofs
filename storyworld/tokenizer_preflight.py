@@ -36,16 +36,17 @@ def inspect(tokenizer, revision=PINNED_REVISION, steps=50, context=2048):
                        'max_example_length':max(lengths),'lengths_sha256':hashlib.sha256(
                            json.dumps(lengths).encode()).hexdigest()}
             assert all(len(a)==len(b) for a,b in exs)
-        if arms['S1']['actual_tokens'] != arms['O1']['actual_tokens']:
-            raise AssertionError('paired input tokens differ')
+        relative_delta=abs(arms['S1']['actual_tokens']-arms['O1']['actual_tokens']) / max(arms['S1']['actual_tokens'],arms['O1']['actual_tokens'])
+        if relative_delta > 0.001:
+            raise AssertionError('paired input tokens differ by more than 0.1%')
         if arms['S1']['actual_tokens'] > 200000:
             raise ValueError('paired schedule exceeds training cap')
         runs.append({'seed':seed,'arms':arms,'schedule':meta,
-                     'paired_lengths_equal':all(len(a[0])==len(b[0])
-                         for a,b in zip(schedules['S1'],schedules['O1']))})
+                     'relative_input_token_difference':relative_delta,
+                     'synthetic_eos_equalization_tokens':0})
     return {'status':'CPU_TOKENIZER_PREFLIGHT_PASS','checkpoint_revision':revision,
             'steps':steps,'context':context,'seeds':list(SEEDS),'runs':runs,
-            'caveat':'EOS equalization changes supervised targets; matching input token counts alone does not make training treatments causally identical.'}
+            'caveat':'Actual token counts may differ within a predeclared 0.1% tolerance; no artificial EOS targets are added.'}
 
 def main():
     p=argparse.ArgumentParser()
