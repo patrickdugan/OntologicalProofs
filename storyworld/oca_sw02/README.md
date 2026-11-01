@@ -71,3 +71,7 @@ Repeat with the O1 adapter using the **identical** calibration histories. The sc
 The native builder uses the GPTStoryworld skill contract from `MoralityLabAI/GPTStoryworld`, at revision `c8d46591f983473023daf0232e9b413baaa02194`. The underlying `Neoplatonic/` confluence development and draft `MoralRealism/` proof-bridge PR retain their source revisions and ownership. Normative bridge axioms remain explicitly conditional; no environment result discharges them.
 
 The corresponding Silico task is a short scientific evaluation of the ready CPU artifacts and, after an owner-approved quote, execution of a **bounded evaluation-only** canary. Implementation, redesign, tests and mathematical work stay with ChatGPT. See `REVIEW_HANDOFF.md` for the admission checklist.
+
+## Auxiliary premise-withdrawal evaluation
+
+`python -m storyworld.oca_sw02.premise --out /tmp/oca-sw02-premises` writes 80 deterministic premise-sufficiency cases. They separately test grounding assumptions, the moral and personhood bridges, and authentication plus reliability of purported guidance. They are an auxiliary epistemic diagnostic, with explicit conditional labels; they do not score the behavioral Gym endpoint or establish metaphysical truths. No model calls are made.
