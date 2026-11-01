@@ -1,0 +1,39 @@
+name: OCA-SW-02R schema-content CPU acceptance
+on:
+  push:
+    paths:
+      - 'storyworld/oca_sw02/evalmath_schema_v02/**'
+      - '.github/workflows/oca-sw02r-schema-v02-cpu.yml'
+  pull_request:
+    paths:
+      - 'storyworld/oca_sw02/evalmath_schema_v02/**'
+      - '.github/workflows/oca-sw02r-schema-v02-cpu.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  schema-content-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify source-pinned CPU mathematics and synthetic controls
+        run: |
+          python -m unittest storyworld.oca_sw02.evalmath_schema_v02.test_schema -v
+          python -m storyworld.oca_sw02.evalmath_schema_v02 verify-cpu --out storyworld/oca_sw02/evalmath_schema_v02/results
+      - name: Prove committed receipts reproduce byte-identically
+        run: git diff --exit-code -- storyworld/oca_sw02/evalmath_schema_v02/results
+      - name: Frozen plan expands under original source
+        run: |
+          python -m storyworld.oca_sw02.evalmath_schema_v02 plan --out /tmp/oca_schema_v02_plan.json
+      - name: Publish CPU source-hashed verification artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oca-sw02r-schema-v02-cpu
+          path: storyworld/oca_sw02/evalmath_schema_v02/results/

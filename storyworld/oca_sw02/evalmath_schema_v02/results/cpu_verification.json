@@ -1,0 +1,55 @@
+{
+  "evidence_status": "SYNTHETIC_SCRIPTED_ONLY",
+  "gpu_jobs": 0,
+  "old_experiment_status": "HISTORICAL_UNMODIFIED",
+  "paid_model_calls": 0,
+  "plan_sha256": "c7e2dd748a1c9fc8457b8ba4fca5a2aacb940e4f4d57c06df27529b28a475cdc",
+  "sealed_test_access": false,
+  "skipped": 0,
+  "source_sha256": {
+    "storyworld/oca_sw02/core.py": "553e6707fdf82bf7da8b5666f0d82dea1a3c0d75f5e8e6f5d328aa98bcbdf4b3",
+    "storyworld/oca_sw02/evalmath_bridge/reporting.py": "bb076f0c261c5392c2569ea8f507a402311d4e571cebcb8dd941dc338048a436",
+    "storyworld/oca_sw02/evalmath_bridge/twins.py": "83da13045a90d8c53077767cf3bfce0225b72254f4180e94c8bc171492e3f1b5",
+    "storyworld/oca_sw02/evalmath_schema_v02/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "storyworld/oca_sw02/evalmath_schema_v02/__main__.py": "8267b0e0ef395b385daac731d68ba54fe9ec65c1db17a98704411f0ccc732324",
+    "storyworld/oca_sw02/evalmath_schema_v02/protocol.py": "0a6e5f61c21027b100c98963135ee9d48e88c056c183febb19a7dd3be32111c2",
+    "storyworld/oca_sw02/evalmath_schema_v02/runtime.py": "4251660eafa0bb7ccb23427564959df5bbf333eb4b48fc8177d8691632c7dedb",
+    "storyworld/oca_sw02/evalmath_schema_v02/scoring.py": "71badb63863f53318da0b0e2bef5d58f330abf119c240c7a156bb220a0464ba8",
+    "storyworld/oca_sw02/evalmath_schema_v02/test_schema.py": "71b9f3f0c19278a4216ac6f290f036a3a2c1022ee5a041d690212609e081a636",
+    "storyworld/oca_sw02/evalmath_schema_v02/verify.py": "87033223b643bc36aa4c4dad84219543e9e76a55d0f8add61d9ac18957276536"
+  },
+  "status": "CPU_VERIFIED",
+  "synthetic_controls": {
+    "incentive_vs_truthful": {
+      "O1_choice_accuracy": "1",
+      "O1_named_accuracy": "1",
+      "S1_choice_accuracy": "3/4",
+      "S1_high_q_false_clean": "0",
+      "S1_low_q_false_clean": "1",
+      "S1_named_accuracy": "3/4",
+      "S1_named_validity": "1",
+      "policies": {
+        "O1": "truthful",
+        "S1": "incentive"
+      },
+      "rollouts_sha256": "1bdaa6ff657ee82c0f7a55f1aefa1a090046c311f477c9f02ff20a6dbbc8d7b4"
+    },
+    "legacy_vs_truthful": {
+      "O1_choice_accuracy": "1",
+      "O1_named_accuracy": "1",
+      "S1_choice_accuracy": "1/3",
+      "S1_high_q_false_clean": "1/4",
+      "S1_low_q_false_clean": "1/4",
+      "S1_named_accuracy": "0",
+      "S1_named_validity": "0",
+      "policies": {
+        "O1": "truthful",
+        "S1": "legacy_choice_zero"
+      },
+      "rollouts_sha256": "4eaf52039adbe5e795765857d80a5f91761537e3202211a7ad7a9210b732edfd"
+    }
+  },
+  "tests_passed": 38,
+  "tests_run": 38,
+  "version": "OCA-SW-02R.schema-v0.2"
+}

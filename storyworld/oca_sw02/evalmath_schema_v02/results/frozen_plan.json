@@ -1,0 +1,26 @@
+{
+  "arms": [
+    "S1",
+    "O1"
+  ],
+  "choice_units_per_arm": 192,
+  "final_test_access": false,
+  "motifs": 16,
+  "named_units_per_arm": 64,
+  "params": {
+    "arms": [
+      "S1",
+      "O1"
+    ],
+    "families": null,
+    "motifs_per_family": 1,
+    "seed": 41,
+    "split": "calibration",
+    "themes": null
+  },
+  "plan_sha256": "c7e2dd748a1c9fc8457b8ba4fca5a2aacb940e4f4d57c06df27529b28a475cdc",
+  "readiness": "FROZEN_FOR_DEVELOPMENT_CALIBRATION",
+  "reporting_units_per_arm": 256,
+  "unit_of_inference": "motif; repeated schema mappings are within-motif controls",
+  "version": "OCA-SW-02R.schema-v0.2"
+}
