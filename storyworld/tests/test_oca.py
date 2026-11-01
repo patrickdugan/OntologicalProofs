@@ -10,7 +10,7 @@ from storyworld.oca import *
 from storyworld.build_world import NativePlayer,calc,const,op,PROPS,swmd
 from storyworld.cluster import validate_approval,plan
 from storyworld.train import encode_example,batch_tensors,tiny_cpu_check
-from storyworld.evaluate_model import evaluate_agent, action_prompt, parse_action
+from storyworld.evaluate_model import evaluate_agent, action_prompt, parse_action, StopAtObject
 from storyworld.vendor.sweepweave_validator import validate_storyworld
 
 class Core(unittest.TestCase):
@@ -128,6 +128,18 @@ class Core(unittest.TestCase):
                     '{"choice":true}', '{"chosen":0}', '{"choice":3}',
                     '{"stop":false}', 'Some explanation {"choice":0}'):
             with self.assertRaises(ValueError, msg=bad):parse_action(bad)
+    def test_generation_stopping_criterion(self):
+        class Decoder:
+            def decode(self, tokens, skip_special_tokens=True):
+                return ''.join(chr(int(x)) for x in tokens)
+        stopper=StopAtObject(Decoder(),2)
+        def trial(text):
+            return stopper([[ord('X'),ord('Y')]+[ord(c) for c in text]],None)
+        self.assertFalse(trial('{"choice":'))
+        self.assertTrue(trial('{"choice":0}'))
+        self.assertTrue(trial('{"stop":true}'))
+        self.assertFalse(trial('{"choice":0}\\nTask:'))
+        self.assertFalse(trial('{"chosen":0}'))
     def test_zero_coverage_ineligible(self):
         with tempfile.TemporaryDirectory() as d:
             metrics=evaluate_agent(lambda prompt:'{"choice":0}\\nTask: again',Path(d))
