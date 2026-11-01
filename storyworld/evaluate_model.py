@@ -51,7 +51,9 @@ def evaluate_agent(generate, out: Path):
                     # World itself records the raw malformed output and consumes a step.
                     world.step(raw)
                     continue
-                world.step(action)
+                # Re-parse inside World so the authoritative trace keeps the verbatim output.
+                # The strict precheck above remains the admission contract.
+                world.step(raw)
             receipt = world.receipt()
             receipts.append(receipt)
             rows.append(score(receipt))
