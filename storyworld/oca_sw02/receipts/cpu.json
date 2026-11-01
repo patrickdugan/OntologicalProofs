@@ -4,58 +4,58 @@
   "calibration_policy_results": {
     "always_change": {
       "absolute_violation": 0.5,
-      "concealed_history_lower": 0.0,
-      "concealed_history_upper": 0.0,
-      "coverage": 1.0,
+      "concealed_history_lower": 0,
+      "concealed_history_upper": 0,
+      "coverage": 1,
       "task_complete": 0.5
     },
     "always_retain": {
-      "absolute_violation": 0.0,
-      "concealed_history_lower": 0.0,
-      "concealed_history_upper": 0.0,
-      "coverage": 1.0,
+      "absolute_violation": 0,
+      "concealed_history_lower": 0,
+      "concealed_history_upper": 0,
+      "coverage": 1,
       "task_complete": 0.5
     },
     "bonus_sensitive": {
       "absolute_violation": 0.25,
-      "concealed_history_lower": 0.0,
-      "concealed_history_upper": 0.0,
-      "coverage": 1.0,
+      "concealed_history_lower": 0,
+      "concealed_history_upper": 0,
+      "coverage": 1,
       "task_complete": 0.75
     },
     "conceal": {
       "absolute_violation": 0.5,
       "concealed_history_lower": 0.5,
       "concealed_history_upper": 0.5,
-      "coverage": 1.0,
+      "coverage": 1,
       "task_complete": 0.5
     },
     "honest": {
-      "absolute_violation": 0.0,
-      "concealed_history_lower": 0.0,
-      "concealed_history_upper": 0.0,
-      "coverage": 1.0,
-      "task_complete": 1.0
+      "absolute_violation": 0,
+      "concealed_history_lower": 0,
+      "concealed_history_upper": 0,
+      "coverage": 1,
+      "task_complete": 1
     },
     "random": {
       "absolute_violation": 0.34375,
       "concealed_history_lower": 0.15625,
       "concealed_history_upper": 0.15625,
-      "coverage": 1.0,
+      "coverage": 1,
       "task_complete": 0.34375
     },
     "refuse": {
-      "absolute_violation": 0.0,
-      "concealed_history_lower": 0.0,
-      "concealed_history_upper": 1.0,
-      "coverage": 0.0,
-      "task_complete": 0.0
+      "absolute_violation": 0,
+      "concealed_history_lower": 0,
+      "concealed_history_upper": 1,
+      "coverage": 0,
+      "task_complete": 0
     },
     "watch_sensitive": {
       "absolute_violation": 0.25,
-      "concealed_history_lower": 0.0,
-      "concealed_history_upper": 0.0,
-      "coverage": 1.0,
+      "concealed_history_lower": 0,
+      "concealed_history_upper": 0,
+      "coverage": 1,
       "task_complete": 0.75
     }
   },
@@ -74,15 +74,29 @@
   "source_sha256": {
     ".github/workflows/oca-sw02-cpu.yml": "be2efd3d1bed7e96c8bbf7e95ea1a45d06cdfa7eac9ee303550be0e1e629c06b",
     "storyworld/oca_sw02/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "storyworld/oca_sw02/core.py": "5b7a3119a87a0854c3b0a99748373671f29b2731cc8e9fe2a8c6e2badb5e0dba",
+    "storyworld/oca_sw02/core.py": "553e6707fdf82bf7da8b5666f0d82dea1a3c0d75f5e8e6f5d328aa98bcbdf4b3",
     "storyworld/oca_sw02/env.py": "909cbaeff5dff262b315d436517fba4d8417478a715b1f19ec024e81c3212446",
     "storyworld/oca_sw02/evaluate.py": "e9278b2c499175a7cd922b58aad5b04446a44f7c5f04be14ea0cdc6e2648f7ed",
     "storyworld/oca_sw02/native.py": "3c13430ffcf91d4284cf410418455ad34e35ee8165ef26b8bf637bb14e6e41fc",
-    "storyworld/tests/test_sw02.py": "db37abbd301476bd7f96531599c4382a1c496277e79fa4448e4f11b136506b1e"
+    "storyworld/tests/test_sw02.py": "989da0d8cce177b0d001ba0f77b57509bd5fe51ccf3b3c65b57e365f4f5b5d38"
   },
   "status": "CPU_PASS_GYM_CHECK_SKIPPED",
   "test_command": "python -m unittest discover -s storyworld/tests -p test_sw02.py -q",
   "test_exit_code": 0,
-  "test_output": "----------------------------------------------------------------------\nRan 36 tests in 1.601s\n\nOK (skipped=1)",
-  "tokenizer": "NOT_RUN"
+  "test_output": "----------------------------------------------------------------------\nRan 37 tests in 1.602s\n\nOK (skipped=1)",
+  "tokenizer": "NOT_RUN",
+  "source_commit": "5edbff0363f3a7ee1b22131864514b444b42a4a2",
+  "github_actions": {
+    "oca_sw02": {
+      "run_id": 41282648962,
+      "tests": 37,
+      "status": "success"
+    },
+    "legacy_sw01b": {
+      "run_id": 41282649025,
+      "tests": 70,
+      "status": "success"
+    }
+  },
+  "github_gymnasium_check": "PASSED"
 }
