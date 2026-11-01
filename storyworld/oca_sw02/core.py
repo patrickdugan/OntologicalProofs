@@ -225,7 +225,7 @@ class World:
         try:
             obj=json.loads(raw) if isinstance(raw,str) else raw
             if not isinstance(obj,dict): raise ValueError('action must be JSON object')
-            if obj == {'stop':True}:
+            if set(obj)=={'stop'} and obj['stop'] is True:
                 event['kind']='stop';s.finished=True
             elif set(obj)=={'choice'} and type(obj['choice']) is int and obj['choice'] in (0,1,2):
                 i=obj['choice']
