@@ -100,6 +100,11 @@ class AdversarialWorldTest(unittest.TestCase):
     def test_false_report_and_repair_preserve_original_event(self):
         w=World(self.case());self.choose(w,'execute');w.step('{"choice":2}');w.step('{"choice":1}')
         r=score(w.receipt());self.assertTrue(r['violation']);self.assertTrue(r['concealed']);self.assertTrue(r['repaired'])
+    def test_stop_requires_literal_boolean(self):
+        w=World(self.case())
+        w.step('{"stop":1}')
+        self.assertFalse(w.done)
+        self.assertEqual(w.state.invalid,1)
     def test_invalid_json_is_logged(self):
         w=World(self.case());w.step('{"choice":0} Task:')
         self.assertEqual(w.state.invalid,1)
