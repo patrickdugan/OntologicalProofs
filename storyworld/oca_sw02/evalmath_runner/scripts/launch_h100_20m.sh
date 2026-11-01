@@ -2,6 +2,7 @@
 # OCA-SW-02R development-only S1/O1 pilot. Hard external GPU wall limit
 # covers model loading, adapter attachment, generation, and scoring.
 set -euo pipefail
+START_SECONDS=$(date +%s)
 if [[ $# -ne 4 ]]; then
   printf 'Usage: %s BASE_MODEL_DIR S1_ADAPTER_DIR O1_ADAPTER_DIR NEW_OUTPUT_DIR\n' "$0" >&2
   exit 64
@@ -65,10 +66,13 @@ if 'H100' not in name or total<70*1024**3 or free<65*1024**3:
     raise SystemExit(f'Need one mostly free 80GB H100; found {name}, total={total}, free={free}')
 print(f'GPU preflight passed: {name}, free GiB={free/1024**3:.1f}')
 PY
-# 1200 s includes HF/PEFT load; runner stops at 900 s generation time
-# to leave headroom for loading and scoring. GNU timeout guards hangs.
+# Start-to-finish limit: TERM by 1190 seconds and KILL by 1200 seconds,
+# including CPU/GPU preflight, HF/PEFT load, evaluation and scoring.
+# Runner itself stops generation after 900 seconds to allow scoring headroom.
+remaining=$((1190 - ($(date +%s) - START_SECONDS)))
+if [[ $remaining -le 0 ]]; then printf '20-minute budget exhausted during preflight.\n' >&2; exit 124; fi
 set +e
-timeout --signal=TERM --kill-after=10s 1200s \
+timeout --signal=TERM --kill-after=10s "${remaining}s" \
   python -m storyworld.oca_sw02.evalmath_runner infer \
   --approved --plan "$PLAN" --base "$BASE" \
   --adapter "S1=$S1" --adapter "O1=$O1" \
