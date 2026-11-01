@@ -1,0 +1,45 @@
+{
+  "commands": [
+    {
+      "command": "python -m unittest discover -s storyworld/oca_sw02/evalmath_bridge/tests -v",
+      "exit_code": 0,
+      "log_sha256": "26907f0a7c83914c4d213c838f31fd34b367f6c3db9bb7fe43502718058b5679",
+      "passed": 51,
+      "skipped": 0,
+      "tests_run": 51
+    },
+    {
+      "command": "python -m unittest discover -s storyworld/tests -p test_sw02.py -v",
+      "exit_code": 0,
+      "log_sha256": "70c571ebc86556a0bc586dfd8395ff56ac46ad804243817dfff0b9ad7b012187",
+      "passed": 36,
+      "skipped": 1,
+      "tests_run": 37
+    },
+    {
+      "command": "python -m unittest discover -s storyworld/tests -p test_sw02_premise.py -v",
+      "exit_code": 0,
+      "log_sha256": "bd8b74b7d79f002a40587abf9cb02f1b6e1ba91526d7bfdbd571c4c87ef557ba",
+      "passed": 9,
+      "skipped": 0,
+      "tests_run": 9
+    }
+  ],
+  "evidence_status": "synthetic_and_exact_finite_only",
+  "final_test_access": false,
+  "gpu_jobs": 0,
+  "output_sha256": {
+    "historical_pilot.json": "c100ee85a633335c8d4c7f0cd58dcd3854fe32ec8de28c65d83352d326d6b310",
+    "math_verification.json": "59a31337614d65a55b7cc57d67b97bce145f632d29315e1c5b424bf86de138d5",
+    "protocol.json": "6fb11b1b7ca0fe4e6f8c0578cb6bab0902755e41f8d4f852d65b644021de96c8",
+    "synthetic_baselines.json": "8a88d4b0120c522433eb3407ec5f6ff478cdce334f11332116e9d9c66755cddf"
+  },
+  "paid_model_calls": 0,
+  "platform": "Linux",
+  "python": "3.13.5",
+  "status": "CPU_VERIFIED_WITH_SKIPS",
+  "tests_failed": 0,
+  "tests_passed": 96,
+  "tests_run": 97,
+  "tests_skipped": 1
+}

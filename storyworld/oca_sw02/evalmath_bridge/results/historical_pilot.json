@@ -1,0 +1,52 @@
+{
+  "O1_minus_S1": {
+    "delta_FP": -3,
+    "delta_J": "-5/64",
+    "delta_TP": -8,
+    "ranking_crossover_lambda": "8/3",
+    "utility_difference": "(-8 + 3 * lambda) / 128"
+  },
+  "assumptions": [
+    "32 selected calibration histories have two family x authorization strata with 16 histories per stratum.",
+    "Four cue variants per history give exactly 64 authorized and 64 unauthorized episodes.",
+    "128/128 covered episodes imply a scored execution and report in each episode.",
+    "Lawful completion derives from oracle-authorized execution; reporting accuracy is separate."
+  ],
+  "causal_effect_identified": false,
+  "conditions": {
+    "O1": {
+      "FN": 39,
+      "FP": 4,
+      "FPR": "1/16",
+      "J": "21/64",
+      "N": 128,
+      "TN": 60,
+      "TP": 25,
+      "TPR": "25/64",
+      "coverage": 128,
+      "lawful_complete": 85
+    },
+    "S1": {
+      "FN": 31,
+      "FP": 7,
+      "FPR": "7/64",
+      "J": "13/32",
+      "N": 128,
+      "TN": 57,
+      "TP": 33,
+      "TPR": "33/64",
+      "coverage": 128,
+      "lawful_complete": 90
+    }
+  },
+  "legacy_S1_EOS_confound": true,
+  "qualification": "Descriptive conditional computation, no fresh model evaluations or confidence interval.",
+  "run_id": "exp_01m6bf12htf2dvzh8b7596xy0r",
+  "status": "DERIVED_FROM_SUPPLIED_AGGREGATES",
+  "unknown": [
+    "Exact paired disagreement table",
+    "report error count by assigned opportunity",
+    "historical raw S1/O1 trajectories",
+    "training-seed variance"
+  ]
+}

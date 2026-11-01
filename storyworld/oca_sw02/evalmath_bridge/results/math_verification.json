@@ -1,0 +1,19 @@
+{
+  "covariance_example": "3/2",
+  "crossing_probability": "11/64",
+  "crossing_threshold": 2,
+  "integer_allocation_example": {
+    "budget": 12,
+    "counts": [
+      4,
+      4
+    ],
+    "proof": "FINITE_EXHAUSTIVE_OPTIMUM",
+    "spent": 12,
+    "variance": "5/16"
+  },
+  "null_horizon": 6,
+  "prepeek_mutant_expectation": "5/4",
+  "status": "EXACT_FINITE_CPU_MATH",
+  "ville_bound": "1/2"
+}
