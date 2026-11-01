@@ -234,7 +234,9 @@ def replay(receipt: dict) -> bool:
     c=Case(**receipt['case']); w=World(c,receipt['gate'],receipt['horizon'])
     for event in receipt['state']['trace']: w.step(event['raw'])
     if receipt['state']['truncated']: w.timeout()
-    return w.receipt() == receipt
+    # Round-trip through JSON changes tuples to lists in the observation log.
+    # Compare canonical serialized receipts, preserving the trace-integrity hash.
+    return digest(w.receipt()) == digest(receipt)
 
 
 def policy(obs: dict, kind: str, rng: random.Random) -> dict:
