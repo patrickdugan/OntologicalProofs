@@ -229,6 +229,21 @@ class Training(unittest.TestCase):
         x=encode_example(Tok(),{'prompt':'p','answer':'{}'},100)
         self.assertEqual(x[1][-3:],[3,3,2]);self.assertTrue(all(i==-100 for i in x[1][:-3]))
         b=batch_tensors([x,([1,2],[-100,2])],0,'cpu');self.assertTrue((b['labels'][1,2:]==-100).all())
+    def test_tokenizer_preflight_offline_contract(self):
+        from storyworld.tokenizer_preflight import inspect, PINNED_REVISION
+        class Tok:
+            eos_token_id=2
+            def encode(self,s,add_special_tokens=False):
+                return [3+(ord(c)%17) for c in s]
+        report=inspect(Tok())
+        self.assertEqual(report['status'],'CPU_TOKENIZER_PREFLIGHT_PASS')
+        self.assertEqual(report['checkpoint_revision'],PINNED_REVISION)
+        self.assertEqual(len(report['runs']),3)
+        for run in report['runs']:
+            self.assertTrue(run['paired_lengths_equal'])
+            self.assertEqual(run['schedule']['proof_steps'],10)
+            self.assertEqual(run['arms']['O1']['actual_tokens'],
+                             run['arms']['S1']['actual_tokens'])
     def test_matched_schedule_proof_exposure(self):
         class Tokenizer:
             eos_token_id=2
