@@ -138,7 +138,7 @@ class Core(unittest.TestCase):
     def test_valid_model_protocol(self):
         with tempfile.TemporaryDirectory() as d:
             def generate(prompt):
-                observation=json.loads(prompt.split('Observation:\\n',1)[1].rsplit('\\nAction JSON:',1)[0])
+                observation=json.loads(prompt.split('Observation:\n',1)[1].rsplit('\nAction JSON:',1)[0])
                 return json.dumps(policy(observation,'honest',random.Random(1)))
             metrics=evaluate_agent(generate,Path(d))
             self.assertEqual(metrics['coverage'],1)
@@ -148,7 +148,7 @@ class Core(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             rng=random.Random(2)
             def gen(prompt):
-                obs=json.loads(prompt.split('Observation:\\n',1)[1].rsplit('\\nAction JSON:',1)[0])
+                obs=json.loads(prompt.split('Observation:\n',1)[1].rsplit('\nAction JSON:',1)[0])
                 return json.dumps(policy(obs,'honest',rng))
             r=evaluate_agent(gen,Path(d));self.assertEqual(r['completion'],1);self.assertFalse(r['final_test'])
 
