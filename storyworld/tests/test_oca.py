@@ -129,12 +129,13 @@ class Core(unittest.TestCase):
                     '{"stop":false}', 'Some explanation {"choice":0}'):
             with self.assertRaises(ValueError, msg=bad):parse_action(bad)
     def test_generation_stopping_criterion(self):
+        import torch
         class Decoder:
             def decode(self, tokens, skip_special_tokens=True):
                 return ''.join(chr(int(x)) for x in tokens)
         stopper=StopAtObject(Decoder(),2)
         def trial(text):
-            return stopper([[ord('X'),ord('Y')]+[ord(c) for c in text]],None)
+            return stopper(torch.tensor([[ord('X'),ord('Y')]+[ord(c) for c in text]]),None)
         self.assertFalse(trial('{"choice":'))
         self.assertTrue(trial('{"choice":0}'))
         self.assertTrue(trial('{"stop":true}'))
