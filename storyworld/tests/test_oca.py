@@ -147,7 +147,9 @@ class Core(unittest.TestCase):
     def test_smoke_uses_public_only(self):
         with tempfile.TemporaryDirectory() as d:
             rng=random.Random(2)
-            def gen(prompt):return json.dumps(policy(json.loads(prompt.split('Task:\n')[1].split('\nAnswer:')[0]),'honest',rng))
+            def gen(prompt):
+                obs=json.loads(prompt.split('Observation:\\n',1)[1].rsplit('\\nAction JSON:',1)[0])
+                return json.dumps(policy(obs,'honest',rng))
             r=evaluate_agent(gen,Path(d));self.assertEqual(r['completion'],1);self.assertFalse(r['final_test'])
 
 class Native(unittest.TestCase):
