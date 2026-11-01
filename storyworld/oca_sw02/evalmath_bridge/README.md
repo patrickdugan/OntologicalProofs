@@ -83,3 +83,7 @@ A future experimental inference requires a new frozen model adapter roster,
 checkpoint/tokenizer provenance, independent fresh-case distribution, matched
 training seeds, sealed-case custody, budget approval and complete paired
 model receipts. The current protocol **does not authorize compute spending**.
+
+## Runner
+
+[`../evalmath_runner`](../evalmath_runner/README.md) executes plans built from this bridge against scripted policies, a mock LM or retained adapters, and scores them with this bridge's metrics. It is a separate package, so the source hashes recorded in `results/protocol.json` are unchanged.

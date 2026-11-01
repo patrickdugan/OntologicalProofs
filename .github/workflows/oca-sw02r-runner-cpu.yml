@@ -1,0 +1,52 @@
+name: OCA-SW-02R runner CPU
+on:
+  push:
+    paths:
+      - 'storyworld/**'
+      - '.github/workflows/oca-sw02r-runner-cpu.yml'
+  pull_request:
+    paths:
+      - 'storyworld/**'
+      - '.github/workflows/oca-sw02r-runner-cpu.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  runner-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install CPU-only dependencies (no weights are downloaded)
+        run: |
+          python -m pip install 'gymnasium==1.2.2'
+          python -m pip install 'torch==2.5.1' --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install 'transformers==4.46.3' 'peft==0.13.2'
+      - name: Rescore committed CPU receipts before regeneration
+        run: python -m unittest storyworld.oca_sw02.evalmath_runner.tests.test_runner.CommittedReceiptTests -v
+      - name: Every Storyworld/OCA suite, runner suite and CPU demo
+        run: python -m storyworld.oca_sw02.evalmath_runner.verify --out /tmp/oca-sw02r-runner
+      - name: Assert complete execution without skipped tests
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('/tmp/oca-sw02r-runner/cpu_verification.json'))
+          assert r['status']=='CPU_VERIFIED',r['status']
+          assert r['tests_skipped']==0 and r['tests_failed']==0 and r['tests_run']>=224,r
+          assert not r['gpu_jobs'] and not r['paid_model_calls'] and not r['final_test_access'] and not r['weights_loaded']
+          committed=json.load(open('storyworld/oca_sw02/evalmath_runner/results/cpu_demo_receipt.json'))
+          fresh=json.load(open('/tmp/oca-sw02r-runner/cpu_demo_receipt.json'))
+          assert committed['plan_sha256']==fresh['plan_sha256']
+          for k in committed['runs']:
+              assert committed['runs'][k]['sha256']['rollouts.jsonl']==fresh['runs'][k]['sha256']['rollouts.jsonl'],k
+          print(r['status'],r['tests_run'],'tests; rollouts reproduce committed hashes')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oca-sw02r-runner-cpu-receipts
+          path: /tmp/oca-sw02r-runner/

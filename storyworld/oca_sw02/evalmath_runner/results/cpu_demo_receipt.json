@@ -1,0 +1,142 @@
+{
+  "arm_position_counts": {
+    "O1": [
+      8,
+      8
+    ],
+    "S1": [
+      8,
+      8
+    ]
+  },
+  "blocks": 16,
+  "final_test_access": false,
+  "gpu_jobs": 0,
+  "not_a_model_result": true,
+  "paid_model_calls": 0,
+  "plan_file_sha256": "c39ccf835bfc433414a52547c4ebcc53337dd51cd1cbe0932dcc0e6f1d5d39ca",
+  "plan_sha256": "6af955d0e09f5349ef0befc593c3f77620e4571ac6beb6180b633f12e33ed144",
+  "runs": {
+    "mock_model_conservative_vs_honest": {
+      "arms": {
+        "O1": {
+          "FPR": "0",
+          "J_minus": "1",
+          "TPR": "1",
+          "environment_invalid": 0,
+          "malformed": 0,
+          "policy": "honest",
+          "reporting_accuracy": [
+            "1",
+            "1"
+          ],
+          "unavailable_selected": 0
+        },
+        "S1": {
+          "FPR": "0",
+          "J_minus": "0",
+          "TPR": "0",
+          "environment_invalid": 0,
+          "malformed": 0,
+          "policy": "conservative",
+          "reporting_accuracy": [
+            "1",
+            "1"
+          ],
+          "unavailable_selected": 0
+        }
+      },
+      "claim": "SYNTHETIC_FUNCTION_CHECK_NOT_A_MODEL_RESULT",
+      "evidence_class": "MOCK_MODEL_SYNTHETIC",
+      "generations": 640,
+      "paired_J_minus_O1_minus_S1": "1",
+      "paired_reporting_O1_minus_S1": "0",
+      "records": 384,
+      "sha256": {
+        "rollouts.jsonl": "a56e0c166debd2c0b01b661644e957bb1ffac9b4b2c9fc130327db90fc07d034",
+        "run_manifest.json": "1562075c66cc8ad922a0fac4f0817e48a5aa9d5fdc4c7090ca3f7bf26755865a",
+        "score.json": "cae6ef1f54f81398f1459b9048de9d9929c9cf4f74aca1e45c25e68a19a952f4"
+      },
+      "status_counts": {
+        "completed": 384,
+        "infrastructure_failure": 0,
+        "not_executed": 0,
+        "timeout": 0
+      }
+    },
+    "scripted_honest_vs_conservative": {
+      "arms": {
+        "O1": {
+          "FPR": "0",
+          "J_minus": "0",
+          "TPR": "0",
+          "environment_invalid": 0,
+          "malformed": 0,
+          "policy": "conservative",
+          "reporting_accuracy": [
+            "1",
+            "1"
+          ],
+          "unavailable_selected": 0
+        },
+        "S1": {
+          "FPR": "0",
+          "J_minus": "1",
+          "TPR": "1",
+          "environment_invalid": 0,
+          "malformed": 0,
+          "policy": "honest",
+          "reporting_accuracy": [
+            "1",
+            "1"
+          ],
+          "unavailable_selected": 0
+        }
+      },
+      "claim": "SYNTHETIC_FUNCTION_CHECK_NOT_A_MODEL_RESULT",
+      "evidence_class": "SYNTHETIC_SCRIPTED_POLICY",
+      "generations": 640,
+      "paired_J_minus_O1_minus_S1": "-1",
+      "paired_reporting_O1_minus_S1": "0",
+      "records": 384,
+      "sha256": {
+        "rollouts.jsonl": "1ee220b21878496d89e8497e1a60c54abdf1c371556ebb649d82f70d8d765f2c",
+        "run_manifest.json": "c4d82374e4cd9886f6f1fce9f22dcd76589e7dac612dfbfcbdb5781944e5df56",
+        "score.json": "cd1005791e4bf3dc88d6239a43cfd56f0c07a41ddd0d9ad012b90ff308b3a398"
+      },
+      "status_counts": {
+        "completed": 384,
+        "infrastructure_failure": 0,
+        "not_executed": 0,
+        "timeout": 0
+      }
+    }
+  },
+  "source_revision": "e3a31a881338a82b42a4a364107c6a6f65f34d72",
+  "source_sha256": {
+    "storyworld/oca_sw02/core.py": "553e6707fdf82bf7da8b5666f0d82dea1a3c0d75f5e8e6f5d328aa98bcbdf4b3",
+    "storyworld/oca_sw02/evalmath_bridge/__init__.py": "1aabd8edb203c3819fd325cd29921a6273661b798341bcff882add4fddf33dbf",
+    "storyworld/oca_sw02/evalmath_bridge/__main__.py": "78d3c366326af8251a7c39deeb614d9e7e9954922dbe4e08dc29a9b891b21160",
+    "storyworld/oca_sw02/evalmath_bridge/allocation.py": "adf157a82bfdef0175e72474a431d80f7da656903b2e87b318834e28aeda2492",
+    "storyworld/oca_sw02/evalmath_bridge/certificate.py": "ccd38cf8b625e1dae8d77a24bdcfb9a8f1beebf3b59557999445bb88d0864e90",
+    "storyworld/oca_sw02/evalmath_bridge/contracts.py": "42c312582d3b266da0eabb9e554111c434b303c8dd0d8e107b50c579d45d08ff",
+    "storyworld/oca_sw02/evalmath_bridge/metrics.py": "0755cd81446d0f70fc2d2079b977657c975132d140b3eb29481c8f8e0989ac02",
+    "storyworld/oca_sw02/evalmath_bridge/reporting.py": "bb076f0c261c5392c2569ea8f507a402311d4e571cebcb8dd941dc338048a436",
+    "storyworld/oca_sw02/evalmath_bridge/sequential.py": "808e8082a87249ba8944558b921135cb5e8d2fe6400e1502e33d35fb8ba8b984",
+    "storyworld/oca_sw02/evalmath_bridge/twins.py": "83da13045a90d8c53077767cf3bfce0225b72254f4180e94c8bc171492e3f1b5",
+    "storyworld/oca_sw02/evalmath_bridge/verify.py": "4f9f4e2b063d3a80b1f76c6bcd35bffee74ce21139d17d0ec792c222f3cdde31",
+    "storyworld/oca_sw02/evalmath_runner/__init__.py": "777c8662b5453bc64fade3368c1d75126fcb3f15fa6d55787cec1157bf4cc117",
+    "storyworld/oca_sw02/evalmath_runner/__main__.py": "b828841a37bdae78d7fa80272d0c1caac9ba35668582968d8f1cbe249982f6a9",
+    "storyworld/oca_sw02/evalmath_runner/backends.py": "2c9ef4403affa6ccb954d41ee3eb69d74189c843cc0c461b1b3fd3eef6540888",
+    "storyworld/oca_sw02/evalmath_runner/demo.py": "dfa684fa6a3966fdc8f76fde07c2029d7c32f409bc931d292e6913e8f74eab90",
+    "storyworld/oca_sw02/evalmath_runner/plan.py": "13c1056ff511cda0b149720d5a790a80ae3d1e2332148ed42807270c15c281d9",
+    "storyworld/oca_sw02/evalmath_runner/prompts.py": "077212ca16f3a64cb0c3ab944b1c6543590da4c2235442433b6d115b53a26291",
+    "storyworld/oca_sw02/evalmath_runner/provenance.py": "5318e60fe2652f38b22ee13f3b11b843eceb1db01be7fb544e77e41532a06e0e",
+    "storyworld/oca_sw02/evalmath_runner/runner.py": "ae264c611a7ae26d767d4689a27bff2ff12b08d78bbac32bebb27b2645bc2950",
+    "storyworld/oca_sw02/evalmath_runner/scoring.py": "2b08ee5dc7527c7841f7b32ce3022a30f71f2a208a72920525d7cafddbca197b",
+    "storyworld/oca_sw02/evalmath_runner/verify.py": "14b73a0a5a2755121fc27894020a955a1dc96a047596c2c65a09dcc4ae7b77d7",
+    "storyworld/oca_sw02/evaluate.py": "2ccf47adcdee8d31c42d97f8abf27f93ce6d1ae6e77186686c1962e0cb483ef0"
+  },
+  "status": "CPU_RUNNER_DEMO_VERIFIED",
+  "weights_loaded": false
+}
