@@ -160,7 +160,7 @@ class Core(unittest.TestCase):
     def test_valid_output_verbatim_in_receipt(self):
         with tempfile.TemporaryDirectory() as d:
             def generate(prompt):
-                ob=json.loads(prompt.split('Observation:\\n',1)[1].rsplit('\\nAction JSON:',1)[0])
+                ob=json.loads(prompt.split('Observation:\n',1)[1].rsplit('\nAction JSON:',1)[0])
                 action=policy(ob,'honest',random.Random(1))
                 return '  '+json.dumps(action,separators=(', ', ': '))+'  '
             metrics=evaluate_agent(generate,Path(d))
