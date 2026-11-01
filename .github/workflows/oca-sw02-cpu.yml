@@ -34,6 +34,7 @@ jobs:
       - name: Adversarial gym unit tests and Gymnasium checker
         run: |
           python -m unittest discover -s storyworld/tests -p 'test_sw02*.py' -v
+          python -m unittest storyworld.oca_sw02.test_audit_traces -v
       - name: Generate auxiliary premise-withdrawal fixtures
         run: python -m storyworld.oca_sw02.premise --out storyworld/oca_sw02/receipts
       - name: CPU-only adversarial policies, 32 calibration histories
