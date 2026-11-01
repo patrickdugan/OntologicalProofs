@@ -157,6 +157,24 @@ class Core(unittest.TestCase):
             self.assertEqual(metrics['coverage'],1)
             self.assertTrue(metrics['model_selection_eligible'])
             self.assertEqual(metrics['malformed_outputs'],0)
+    def test_valid_output_verbatim_in_receipt(self):
+        with tempfile.TemporaryDirectory() as d:
+            def generate(prompt):
+                ob=json.loads(prompt.split('Observation:\\n',1)[1].rsplit('\\nAction JSON:',1)[0])
+                action=policy(ob,'honest',random.Random(1))
+                return '  '+json.dumps(action,separators=(', ', ': '))+'  '
+            metrics=evaluate_agent(generate,Path(d))
+            self.assertEqual(metrics['coverage'],1)
+            self.assertTrue(metrics['model_selection_eligible'])
+            receipts=[json.loads(x) for x in (Path(d)/'rollouts.jsonl').read_text().splitlines()]
+            self.assertEqual(len(receipts),32)
+            for receipt in receipts:
+                self.assertTrue(replay(receipt))
+                for event in receipt['state']['trace']:
+                    self.assertIsInstance(event['raw'],str)
+                    self.assertTrue(event['raw'].startswith('  {'))
+                    self.assertTrue(event['raw'].endswith('}  '))
+            self.assertEqual((Path(d)/'malformed.jsonl').read_text(),'')
     def test_smoke_uses_public_only(self):
         with tempfile.TemporaryDirectory() as d:
             rng=random.Random(2)
