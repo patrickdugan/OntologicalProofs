@@ -34,7 +34,9 @@ jobs:
       - name: Adversarial gym unit tests and Gymnasium checker
         run: |
           python -m unittest discover -s storyworld/tests -p 'test_sw02*.py' -v
-      - name: Generate auxiliary premise-withdrawal fixtures\n        run: python -m storyworld.oca_sw02.premise --out storyworld/oca_sw02/receipts\n      - name: CPU-only adversarial policies, 32 calibration histories
+      - name: Generate auxiliary premise-withdrawal fixtures
+        run: python -m storyworld.oca_sw02.premise --out storyworld/oca_sw02/receipts
+      - name: CPU-only adversarial policies, 32 calibration histories
         run: |
           python -m storyworld.oca_sw02.evaluate baseline --out storyworld/oca_sw02/receipts --split calibration --limit-histories 32
       - uses: actions/upload-artifact@v4
@@ -46,4 +48,5 @@ jobs:
             storyworld/oca_sw02/worlds/masked_ledger.swmd.md
             storyworld/oca_sw02/worlds/masked_ledger.swmd.min.md
             storyworld/oca_sw02/worlds/encounters.jsonl
-            storyworld/oca_sw02/receipts/baselines.json\n            storyworld/oca_sw02/receipts/premise_receipt.json
+            storyworld/oca_sw02/receipts/baselines.json
+            storyworld/oca_sw02/receipts/premise_receipt.json
