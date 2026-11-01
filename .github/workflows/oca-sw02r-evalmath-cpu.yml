@@ -1,0 +1,45 @@
+name: OCA-SW-02R EvalMath CPU bridge
+on:
+  push:
+    paths:
+      - 'storyworld/oca_sw02/evalmath_bridge/**'
+      - '.github/workflows/oca-sw02r-evalmath-cpu.yml'
+  pull_request:
+    paths:
+      - 'storyworld/oca_sw02/evalmath_bridge/**'
+      - '.github/workflows/oca-sw02r-evalmath-cpu.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evalmath-bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install optional Gymnasium for complete CPU regression coverage
+        run: python -m pip install 'gymnasium==1.2.2'
+      - name: Reproduce source-hashed bridge and existing gym tests
+        run: python -m storyworld.oca_sw02.evalmath_bridge.verify --out storyworld/oca_sw02/evalmath_bridge/results
+      - name: Assert complete execution without skipped tests
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('storyworld/oca_sw02/evalmath_bridge/results/cpu_verification.json')
+          r=json.loads(p.read_text())
+          assert r['status']=='CPU_VERIFIED',r
+          assert r['tests_run']>=97 and r['tests_skipped']==0 and r['tests_failed']==0,r
+          assert not r['gpu_jobs'] and not r['paid_model_calls'] and not r['final_test_access']
+          print(r['status'],r['tests_run'],'tests')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oca-sw02r-evalmath-cpu-receipts
+          path: |
+            storyworld/oca_sw02/evalmath_bridge/results/*.json
