@@ -9,7 +9,7 @@ from pathlib import Path
 from storyworld.oca import *
 from storyworld.build_world import NativePlayer,calc,const,op,PROPS,swmd
 from storyworld.cluster import validate_approval,plan
-from storyworld.train import encode_example,batch_tensors,tiny_cpu_check
+from storyworld.train import encode_example,batch_tensors,tiny_cpu_check,matched_schedules
 from storyworld.evaluate_model import evaluate_agent, action_prompt, parse_action, StopAtObject
 from storyworld.vendor.sweepweave_validator import validate_storyworld
 
@@ -229,6 +229,21 @@ class Training(unittest.TestCase):
         x=encode_example(Tok(),{'prompt':'p','answer':'{}'},100)
         self.assertEqual(x[1][-3:],[3,3,2]);self.assertTrue(all(i==-100 for i in x[1][:-3]))
         b=batch_tensors([x,([1,2],[-100,2])],0,'cpu');self.assertTrue((b['labels'][1,2:]==-100).all())
+    def test_matched_schedule_proof_exposure(self):
+        class Tokenizer:
+            eos_token_id=2
+            def encode(self,s,add_special_tokens=False):
+                return [3 + (ord(c) % 17) for c in s]
+        schedules, meta=matched_schedules(Tokenizer(),11,50,2048)
+        self.assertEqual(meta['proof_steps'],10)
+        self.assertEqual(meta['behavior_steps'],40)
+        self.assertEqual(len(schedules['O1']),50)
+        self.assertEqual([len(x[0]) for x in schedules['O1']],
+                         [len(x[0]) for x in schedules['S1']])
+        self.assertEqual(sum(map(lambda x:len(x[0]),schedules['O1'])),
+                         meta['nonpadding_tokens_per_arm'])
+        for arm in ('S1','O1'):
+            self.assertTrue(all(len(ids)==len(labels) for ids,labels in schedules[arm]))
     def test_context_overflow_rejected(self):
         class Tok:
             eos_token_id=2
