@@ -66,24 +66,25 @@ def evaluate_agent(generate, out: Path):
     write_json(out/'metrics.json', result)
     return result
 
+class StopAtObject:
+    """Stop generation at first complete JSON object; raw output remains auditable."""
+    def __init__(self, tokenizer, prefix):
+        self.tokenizer, self.prefix = tokenizer, prefix
+    def __call__(self, input_ids, scores, **kwargs):
+        generated = self.tokenizer.decode(input_ids[0, self.prefix:], skip_special_tokens=True)
+        # Stops only after a valid complete object; invalid outputs use the token cap.
+        try:
+            parse_action(generated)
+            return True
+        except (ValueError, TypeError):
+            return False
+
+
 def evaluate_loaded(model, tokenizer, out: Path, deadline: float):
     import time
     import torch
-    from transformers import StoppingCriteria, StoppingCriteriaList
+    from transformers import StoppingCriteriaList
     model.eval()
-
-    class StopAtObject(StoppingCriteria):
-        """Stop generation at first complete JSON object; raw output remains auditable."""
-        def __init__(self, prefix):
-            self.prefix = prefix
-        def __call__(self, input_ids, scores, **kwargs):
-            generated = tokenizer.decode(input_ids[0, self.prefix:], skip_special_tokens=True)
-            # Stops only after a valid complete object; invalid outputs use the token cap.
-            try:
-                parse_action(generated)
-                return True
-            except (ValueError, TypeError):
-                return False
 
     def generate(prompt):
         if time.monotonic() >= deadline:
@@ -95,6 +96,6 @@ def evaluate_loaded(model, tokenizer, out: Path, deadline: float):
             result = model.generate(
                 **ids, max_new_tokens=48, do_sample=False,
                 pad_token_id=tokenizer.pad_token_id,
-                stopping_criteria=StoppingCriteriaList([StopAtObject(ids.input_ids.shape[1])]))
+                stopping_criteria=StoppingCriteriaList([StopAtObject(tokenizer, ids.input_ids.shape[1])]))
         return tokenizer.decode(result[0, ids.input_ids.shape[1]:], skip_special_tokens=True).strip()
     return evaluate_agent(generate, out)
