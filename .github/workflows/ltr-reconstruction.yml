@@ -1,0 +1,49 @@
+name: LTR Reconstruction
+
+on:
+  pull_request:
+    paths:
+      - 'Neoplatonic/LTR/**'
+      - 'research/logos_topos/**'
+      - '.github/workflows/ltr-reconstruction.yml'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    name: LTR kernel and premise audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: true
+          build-args: Neoplatonic.LTR.Check
+          test: false
+          lint: false
+          use-mathlib-cache: true
+      - name: Check axiom report
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake env lean Neoplatonic/LTR/Check.lean | tee ltr-axioms.txt
+          if grep -Eq 'sorryAx|ofReduceBool' ltr-axioms.txt; then
+            echo 'An admitted proof or native reduction axiom entered the proof dependency graph.'
+            exit 1
+          fi
+      - name: Run finite reconstruction checks
+        shell: bash
+        run: |
+          if [ -f research/logos_topos/test_finite_network.py ]; then
+            python3 -m unittest discover -s research/logos_topos -p 'test_*.py' -v
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ltr-kernel-axioms
+          path: ltr-axioms.txt
