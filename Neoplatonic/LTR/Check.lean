@@ -2,7 +2,7 @@ import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
-import Neoplatonic.LTR.RealBounds
+import Neoplatonic.LTR.ObservableHalting
 
 open Neoplatonic.LTR
 
@@ -96,3 +96,6 @@ open Neoplatonic.LTR
 
 #print axioms realLipschitz_iff_dyadic
 #print axioms finite_real_lipschitz_undecidable
+
+#print axioms realMetricBound_iff_observableBound
+#print axioms finite_observable_pullback_undecidable
