@@ -22,6 +22,41 @@ structure Atlas (X : Type u) (I : Type v) (A : Type w) where
   covered : ∀ x, ∃ i, covers i x
   overlap : ∀ i j x, covers i x → covers j x → localValue i x = localValue j x
 
+/-- An Alexandrov-style open subset of the reachability preorder:
+    membership is upward closed along grounding/manifestation. -/
+def GroundUpwardClosed {α : Type u}
+    (prior : α → α → Prop) (U : Set α) : Prop :=
+  ∀ x y : α, x ∈ U → Reach prior x y → y ∈ U
+
+/-- Universal grounding is exactly the statement that every upward-closed
+    open context containing the origin covers every form. -/
+theorem universal_origin_iff_open_saturation {α : Type u}
+    (prior : α → α → Prop) (g : α) :
+    (∀ x : α, Reach prior g x) ↔
+      (∀ U : Set α, GroundUpwardClosed prior U →
+        g ∈ U → U = Set.univ) := by
+  constructor
+  · intro hg U hOpen hgU
+    ext x
+    simp only [Set.mem_univ, iff_true]
+    exact hOpen g x hgU (hg x)
+  · intro hAll x
+    let U : Set α := {y | Reach prior g y}
+    have hOpen : GroundUpwardClosed prior U := by
+      intro a b ha hab
+      exact reach_trans ha hab
+    have heq : U = Set.univ := hAll U hOpen (Reach.refl g)
+    have hx : x ∈ U := by rw [heq]; trivial
+    exact hx
+
+/-- The unique first principle saturates all of its upward-open contexts. -/
+theorem first_principle_saturates_open {α : Type u}
+    {prior : α → α → Prop} {g : α}
+    (hg : FirstPrinciple prior g) :
+    ∀ U : Set α, GroundUpwardClosed prior U →
+      g ∈ U → U = Set.univ :=
+  (universal_origin_iff_open_saturation prior g).mp hg.2
+
 namespace Atlas
 
 variable {X : Type u} {I : Type v} {A : Type w}
@@ -108,25 +143,25 @@ theorem total_divergence_zero {V : Type*} [Fintype V]
           simp only [mul_sub, Finset.sum_sub_distrib]
     _ = 0 := sub_eq_zero.mpr hswap
 
+/-- The finite weighted graph Laplacian, with an explicit vertex parameter
+so the nested binder has a fixed type before summation elaboration. -/
+def graphLaplacian {V : Type*} [Fintype V]
+    (weight : V → V → ℤ) (potential : V → ℤ) (v : V) : ℤ :=
+  ∑ u : V, weight v u * (potential v - potential u)
+
 /-- Potential-driven redistribution preserves total curvature. -/
 theorem total_curvature_stable {V : Type*} [Fintype V]
     (K : V → ℤ) (weight : V → V → ℤ)
     (symmetric : ∀ v u, weight v u = weight u v)
     (potential : V → ℤ) :
-    (∑ v : V, K v - (∑ u : V,
-      weight v u * (potential v - potential u))) =
+    (∑ v : V, K v - graphLaplacian weight potential v) =
     (∑ v : V, K v) := by
   classical
-  calc
-    (∑ v : V, K v - (∑ u : V,
-      weight v u * (potential v - potential u))) =
-        (∑ v : V, K v) -
-        (∑ v : V, ∑ u : V,
-          weight v u * (potential v - potential u)) := by
-            rw [Finset.sum_sub_distrib]
-    _ = ∑ v : V, K v := by
-      rw [total_divergence_zero weight symmetric potential]
-      ring
+  have hsum : (∑ v : V, graphLaplacian weight potential v) = 0 := by
+    simpa only [graphLaplacian] using
+      (total_divergence_zero weight symmetric potential)
+  rw [Finset.sum_sub_distrib, hsum]
+  ring
 
 /-- The curvature of a closed triangulation has a fixed global total
 under any symmetric potential redistribution. -/
@@ -134,11 +169,10 @@ theorem potential_preserves_euler {V : Type*} [Fintype V]
     (T : ClosedTriCounts V) (weight : V → V → ℤ)
     (symmetric : ∀ v u, weight v u = weight u v)
     (potential : V → ℤ) :
-    (∑ v : V, defect T v - (∑ u : V,
-      weight v u * (potential v - potential u))) = 6 * euler T := by
+    (∑ v : V, defect T v - graphLaplacian weight potential v) =
+      6 * euler T := by
   calc
-    (∑ v : V, defect T v - (∑ u : V,
-      weight v u * (potential v - potential u))) =
+    (∑ v : V, defect T v - graphLaplacian weight potential v) =
       ∑ v : V, defect T v :=
         total_curvature_stable (defect T) weight symmetric potential
     _ = 6 * euler T := discrete_gauss_bonnet T
