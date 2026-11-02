@@ -1,6 +1,8 @@
 import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
+import Neoplatonic.LTR.Filtered
+import Neoplatonic.LTR.SpectralBridge
 
 open Neoplatonic.LTR
 
@@ -36,3 +38,26 @@ open Neoplatonic.LTR
 #print axioms realized_cover_noncomputable
 #print axioms finite_extension_preserves_independence
 #print axioms no_homeomorphism_invariant_metric
+#print axioms markedDistance_nonneg
+#print axioms markedDistance_self
+#print axioms markedDistance_symm
+#print axioms markedDistance_ultrametric
+#print axioms markedDistance_separates
+#print axioms prefixAgreement_mono
+#print axioms translationDelay_id
+#print axioms translationDelay_comp
+#print axioms translationDelay_mono
+#print axioms firstDifference_le_of_delay
+#print axioms markedDistance_le_of_delay
+#print axioms markedDistance_reverse_of_inverse
+#print axioms zero_delay_isometry
+#print axioms observable_pullback_of_delay
+#print axioms metric_bound_iff_observable_bound
+#print axioms metric_recovery_witness
+#print axioms observable_pullback_comp
+#print axioms massDirac_commutator
+#print axioms massDirac_commutator_independent
+#print axioms massDirac_square
+#print axioms massDirac_symmetric
+#print axioms commutator_energy
+#print axioms mass_resolvent_bound
