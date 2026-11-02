@@ -34,6 +34,35 @@ does not determine the local curvature field.
    curvature depends on the metric. In a finite closed triangular cellulation,
    the incidence relations imply `Σ_v (6 − deg(v)) = 6(V−E+F)`.
 
+## A stronger literal Logos-to-Topos identity: truth values are opens
+
+For a topological space X, the sheaf topos Sh(X) has a terminal object 1
+and subobject classifier Ω. Its subterminal objects correspond to open
+subsets of X:
+
+    Sub_Sh(X)(1) ≅ Open(X).
+
+The Heyting implication of opens is the interior of the material
+implication's underlying set:
+
+    U ⇒ V = int((X \\ U) ∪ V).
+
+This is a precise account in which *propositional truth values take
+topological form*. It is intuitionistic/topological logic, and the full
+semantics of predicates over arbitrary objects requires their associated
+sheaf/subobject structures.
+
+For a geometric theory T with classifying topos Set[T], a model of T
+internal to E corresponds to a geometric morphism E → Set[T].
+The classification concerns geometric theories; extending it to arbitrary
+logic requires extra constructions. Sources: Fong–Spivak, *Seven Sketches
+in Compositionality*, §7.4, and Olivia Caramello, *Theories, Sites, Toposes*.
+
+This algebraic identity belongs between Yoneda representation and
+curvature: *logical truth as opens*, *forms as sheaf sections*, and
+*curvature as differential data carried by a realization*. All three
+layers are needed to give the thesis substantive meaning.
+
 ## New Lean scaffold
 
 `Atlas.unique_gluing` constructs the unique global map from locally compatible
