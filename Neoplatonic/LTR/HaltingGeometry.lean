@@ -112,4 +112,30 @@ theorem finite_geometric_distortion_undecidable :
     simp
   exact (ComputablePred.halting_problem 0) hhalting
 
+
+/-- Direct geometric form of the halting reduction. For the standard
+dyadic first-disagreement metric, deciding the existence of any integer
+power-of-two Lipschitz bound is undecidable on this computably specified
+family of total Cantor-space maps. -/
+theorem dyadic_geometric_distortion_undecidable :
+    ¬ ComputablePred (fun e : Nat.Partrec.Code =>
+      ∃ c : ℕ, ∀ x y : ℕ → Bool,
+        markedDistance (fun z : ℕ → Bool => z)
+          (acceleratedStream (stagedHalting e) x)
+          (acceleratedStream (stagedHalting e) y) ≤
+          (2 : ℝ)^c * markedDistance (fun z : ℕ → Bool => z) x y) := by
+  intro hgeom
+  apply finite_geometric_distortion_undecidable
+  apply ComputablePred.of_eq hgeom
+  intro e
+  constructor
+  · rintro ⟨c, hc⟩
+    exact ⟨c, (translationDelay_iff_distance_bound
+      (fun z : ℕ → Bool => z) (fun z : ℕ → Bool => z)
+      (acceleratedStream (stagedHalting e)) c).mpr hc⟩
+  · rintro ⟨c, hc⟩
+    exact ⟨c, (translationDelay_iff_distance_bound
+      (fun z : ℕ → Bool => z) (fun z : ℕ → Bool => z)
+      (acceleratedStream (stagedHalting e)) c).mp hc⟩
+
 end Neoplatonic.LTR
