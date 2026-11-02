@@ -1,9 +1,12 @@
 # Logos reduces to Topos: a conditional mathematical program
 
-**Status:** philosophical proposal plus Lean proof scaffold. The new Lean file
-`Neoplatonic/LogosTopos.lean` is uncompiled pending GitHub CI on the repository's
-pinned Lean 4.35/mathlib toolchain. Existing results in `Neoplatonic/LocalConfluence.lean`
-were documented as compiler-checked on 2026-10-18.
+**Status:** philosophical proposal plus **compiler-verified conditional Lean lemmas**.
+`Neoplatonic/LogosTopos.lean` was kernel-checked with the repository's
+pinned Lean 4.35/mathlib toolchain by successful GitHub Actions run
+[41467480702](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41467480702)
+at code commit `4b2d8f3476f347cbb3070c11bce5b5a9f7c4a0b4`. There are no `sorry`
+or theorem-level `axiom` declarations in this new file. Existing results in
+`Neoplatonic/LocalConfluence.lean` were documented as compiler-checked on 2026-10-18.
 
 ## Core thesis and disambiguation
 
@@ -111,6 +114,29 @@ nontrivial holonomy on non-simply-connected spaces.
 `one_ground_many_forms` exhibits two different functions despite the
 unique root of the natural-number grounding model. The stronger claim
 that one root determines one realized form would be false.
+
+## Chern–Weil as the next geometric strengthening
+
+Given a smooth complex line bundle L with a compatible connection ∇,
+its curvature two-form F_∇ represents the real image of a topological
+characteristic class, in one common sign convention:
+
+    c₁(L)_ℝ = [(i / 2π) F_∇].
+
+This is an exact theorem of differential geometry. Its connection-independent
+cohomology class gives a stronger route from *local curvature* to a *global
+topological invariant*. General Chern–Weil theory similarly produces characteristic
+classes from invariant polynomials in the curvature of vector-bundle
+connections.
+
+For the theological analogy, the missing formal structures are: an
+actual category of contexts/forms, a specified vector bundle over its
+geometric realization, a connection defining how forms transport across
+contexts, and a philosophically justified invariant. No characteristic
+class alone determines whether a judgment is morally just.
+
+Reference: A. Moroianu, *Lectures on Kähler Geometry*, ch. 16,
+https://doi.org/10.1017/CBO9780511618666.017 .
 
 ## Mercy as curvature
 
