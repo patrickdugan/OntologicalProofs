@@ -12,7 +12,8 @@ than treating arithmetic undecidability as an external assumption. Mathlib
 contains a universal partial-recursive code evaluator and proves the halting
 problem is undecidable for these actual codes.
 
-Lean source: Neoplatonic/LTR/HaltingGeometry.lean.
+Lean source: Neoplatonic/LTR/HaltingGeometry.lean, RealBounds.lean,
+and ObservableHalting.lean.
 Supporting modules: Acceleration.lean, DepthProfile.lean, Quantitative.lean.
 The kernel workflow is the verification authority. All statements about
 effectivity below refer to the specified program-code presentation.
@@ -84,9 +85,10 @@ constant would decide the complement of the halting problem. This is
 impossible by mathlib's ComputablePred.halting_problem.
 
 A general finite real Lipschitz bound is equivalent to a finite dyadic
-bound, since every finite nonnegative real number is dominated by some
-power of 2. This Archimedean step is a written argument in this release;
-the Lean undecidability statement directly quantifies over dyadic bounds.
+bound because every real number is dominated by some power of 2. This
+Archimedean step and the resulting undecidability theorem are also
+kernel-checked in RealBounds.lean. The code now proves the impossibility
+of deciding the existence of any finite real Lipschitz constant.
 
 ## 4. A single observable can witness the obstruction
 
@@ -103,6 +105,13 @@ unbounded. In the nonhalting case F_e=id, so the pullback is 1-Lipschitz.
 This gives a fixed-observable manifestation of the obstruction. Its
 explicit unbounded-ratio proof is recorded here; formalization as a
 standalone Lean theorem is a follow-up.
+
+The uniform observable-pullback version is already formalized in
+ObservableHalting.lean. It proves that no algorithm can decide whether
+there exists a common finite bound C that works for the pullbacks of all
+real unit-Lipschitz observables. The proof recovers the original metric
+bound using distance-to-target observables, then invokes the verified
+halting obstruction. Its kernel verification is part of the LTR CI suite.
 
 In any spectral realization with commutator seminorm equal to the
 Lipschitz seminorm, the question of whether this pullback remains in the
