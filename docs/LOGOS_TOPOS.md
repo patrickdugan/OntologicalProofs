@@ -63,6 +63,32 @@ curvature: *logical truth as opens*, *forms as sheaf sections*, and
 *curvature as differential data carried by a realization*. All three
 layers are needed to give the thesis substantive meaning.
 
+## New exact bridge: the One as a topological saturation point
+
+For the reachability preorder R induced by an ontological grounding relation,
+call a set U *upward open* when x ∈ U and R(x,y) imply y ∈ U.
+These are the open sets of the Alexandrov topology associated with R
+(we implement the upward-open predicate, not yet the full
+`TopologicalSpace` instance, in Lean).
+
+For a distinguished source g:
+
+    (∀x, R(g,x))  ↔
+      (∀U, upwardOpen(U) ∧ g∈U ⇒ U=univ).
+
+`universal_origin_iff_open_saturation` proves this biconditional.
+`first_principle_saturates_open` specializes it to the One given by
+`FirstPrinciple`. This is a genuine and reversible logical-to-topological
+translation of *universal grounding*, more direct than the general
+Yoneda embedding. Uniqueness of a root additionally uses the repository's
+grounding axioms, as before. The theorem does not collapse all forms to
+one identical object or define curvature.
+
+The posetal/Alexandrov topology forgets distinctions between multiple
+paths from the One to the same manifest form. A connection on a path-sensitive
+category, or an enriched construction, is required to represent curvature
+and holonomy across different explanatory routes.
+
 ## New Lean scaffold
 
 `Atlas.unique_gluing` constructs the unique global map from locally compatible
