@@ -45,7 +45,7 @@ subsets of X:
 The Heyting implication of opens is the interior of the material
 implication's underlying set:
 
-    U ⇒ V = int((X \\ U) ∪ V).
+    U ⇒ V = int((X \ U) ∪ V).
 
 This is a precise account in which *propositional truth values take
 topological form*. It is intuitionistic/topological logic, and the full
