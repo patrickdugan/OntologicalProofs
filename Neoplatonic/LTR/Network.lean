@@ -133,12 +133,15 @@ theorem empty_pullback_iff
     f ⁻¹' U = ∅ ↔ U = ∅ := by
   constructor
   · intro h
-    apply Set.eq_empty_iff_forall_not_mem.mpr
-    intro y hy
-    obtain ⟨x, rfl⟩ := hf y
-    have hx : x ∈ f ⁻¹' U := hy
-    rw [h] at hx
-    exact hx
+    ext y
+    constructor
+    · intro hy
+      obtain ⟨x, rfl⟩ := hf y
+      have hx : x ∈ f ⁻¹' U := hy
+      rw [h] at hx
+      exact hx
+    · intro hy
+      exact False.elim hy
   · intro h
     rw [h]
     rfl
@@ -149,7 +152,7 @@ theorem nontrivial_pullback_iff
     (hf : Function.Surjective f) (U : Set Y) :
     (f ⁻¹' U ≠ ∅ ∧ f ⁻¹' U ≠ Set.univ) ↔
       (U ≠ ∅ ∧ U ≠ Set.univ) := by
-  rw [empty_pullback_iff f hf U, cover_pullback_iff f hf U]
+  simp only [ne_eq, empty_pullback_iff f hf U, cover_pullback_iff f hf U]
 
 /-- Conversely, reflecting coverage for every subset forces surjectivity.
 For reflection restricted to clopens, additional Stone-space assumptions are
