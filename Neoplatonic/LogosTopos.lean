@@ -154,10 +154,11 @@ theorem total_curvature_stable {V : Type*} [Fintype V]
     (K : V → ℤ) (weight : V → V → ℤ)
     (symmetric : ∀ v u, weight v u = weight u v)
     (potential : V → ℤ) :
-    (∑ v : V, K v - graphLaplacian weight potential v) =
-    (∑ v : V, K v) := by
+    (Finset.univ.sum (fun v : V => K v - graphLaplacian weight potential v)) =
+    (Finset.univ.sum (fun v : V => K v)) := by
   classical
-  have hsum : (∑ v : V, graphLaplacian weight potential v) = 0 := by
+  have hsum :
+      (Finset.univ.sum (fun v : V => graphLaplacian weight potential v)) = 0 := by
     simpa only [graphLaplacian] using
       (total_divergence_zero weight symmetric potential)
   rw [Finset.sum_sub_distrib, hsum]
@@ -169,11 +170,13 @@ theorem potential_preserves_euler {V : Type*} [Fintype V]
     (T : ClosedTriCounts V) (weight : V → V → ℤ)
     (symmetric : ∀ v u, weight v u = weight u v)
     (potential : V → ℤ) :
-    (∑ v : V, defect T v - graphLaplacian weight potential v) =
+    (Finset.univ.sum (fun v : V =>
+      defect T v - graphLaplacian weight potential v)) =
       6 * euler T := by
   calc
-    (∑ v : V, defect T v - graphLaplacian weight potential v) =
-      ∑ v : V, defect T v :=
+    (Finset.univ.sum (fun v : V =>
+      defect T v - graphLaplacian weight potential v)) =
+      (Finset.univ.sum (fun v : V => defect T v)) :=
         total_curvature_stable (defect T) weight symmetric potential
     _ = 6 * euler T := discrete_gauss_bonnet T
 
