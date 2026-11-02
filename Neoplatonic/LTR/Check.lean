@@ -91,3 +91,5 @@ open Neoplatonic.LTR
 #print axioms stagedHalting_exists_iff_dom
 #print axioms stagedHalting_finite_delay_iff
 #print axioms finite_geometric_distortion_undecidable
+
+#print axioms dyadic_geometric_distortion_undecidable
