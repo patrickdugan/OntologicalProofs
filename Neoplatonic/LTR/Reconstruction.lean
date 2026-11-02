@@ -26,8 +26,8 @@ theorem independence_survives_realization
       (f ⁻¹' T.typesWith φ).Nonempty ∧
       f ⁻¹' T.typesWith φ ≠ Set.univ := by
   rw [independent_iff_nontrivial_locus]
-  simp only [Set.nonempty_iff_ne_empty]
-  rw [empty_pullback_iff f hf, cover_pullback_iff f hf]
+  simp only [Set.nonempty_iff_ne_empty, ne_eq,
+    empty_pullback_iff f hf, cover_pullback_iff f hf]
 
 /-- A continuous realization also preserves the clopen structure. -/
 theorem realized_locus_isClopen
