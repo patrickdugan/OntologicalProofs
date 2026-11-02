@@ -59,6 +59,7 @@ theorem acceleratedStream_no_delay (H : ℕ → Bool)
     simp [acceleratedStream, hn, x]
   have hy : acceleratedStream H y n = true := by
     simp [acceleratedStream, hn, y]
+  change acceleratedStream H x n = acceleratedStream H y n at hout
   rw [hx, hy] at hout
   cases hout
 
@@ -73,7 +74,7 @@ theorem acceleratedStream_finite_delay_iff (H : ℕ → Bool)
   constructor
   · rintro ⟨c, hc⟩ n
     cases hv : H n with
-    | false => exact hv
+    | false => rfl
     | true =>
         have hbad := acceleratedStream_no_delay H hmono ⟨n, hv⟩ c
         exact False.elim (hbad hc)
