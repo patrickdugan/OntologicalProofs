@@ -1,5 +1,6 @@
 import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.Obstruction
+import Neoplatonic.LTR.MetricObstruction
 
 open Neoplatonic.LTR
 
@@ -34,3 +35,4 @@ open Neoplatonic.LTR
 #print axioms realized_cover_computable_iff
 #print axioms realized_cover_noncomputable
 #print axioms finite_extension_preserves_independence
+#print axioms no_homeomorphism_invariant_metric
