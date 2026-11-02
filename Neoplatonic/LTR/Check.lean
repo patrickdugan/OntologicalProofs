@@ -1,8 +1,7 @@
 import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
-import Neoplatonic.LTR.Filtered
-import Neoplatonic.LTR.SpectralBridge
+import Neoplatonic.LTR.Quantitative
 
 open Neoplatonic.LTR
 
@@ -61,3 +60,7 @@ open Neoplatonic.LTR
 #print axioms massDirac_symmetric
 #print axioms commutator_energy
 #print axioms mass_resolvent_bound
+#print axioms prefixAgreement_iff_distance_le
+#print axioms translationDelay_iff_distance_bound
+#print axioms markedDistance_observable_bound
+#print axioms translationDelay_iff_observable_bound
