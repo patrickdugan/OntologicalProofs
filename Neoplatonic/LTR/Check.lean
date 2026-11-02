@@ -2,7 +2,7 @@ import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
-import Neoplatonic.LTR.HaltingGeometry
+import Neoplatonic.LTR.RealBounds
 
 open Neoplatonic.LTR
 
@@ -93,3 +93,6 @@ open Neoplatonic.LTR
 #print axioms finite_geometric_distortion_undecidable
 
 #print axioms dyadic_geometric_distortion_undecidable
+
+#print axioms realLipschitz_iff_dyadic
+#print axioms finite_real_lipschitz_undecidable
