@@ -113,13 +113,13 @@ theorem total_curvature_stable {V : Type*} [Fintype V]
     (K : V → ℤ) (weight : V → V → ℤ)
     (symmetric : ∀ v u, weight v u = weight u v)
     (potential : V → ℤ) :
-    (∑ v : V, K v - ∑ u : V,
-      weight v u * (potential v - potential u)) =
+    (∑ v : V, K v - (∑ u : V,
+      weight v u * (potential v - potential u))) =
     (∑ v : V, K v) := by
   classical
   calc
-    (∑ v : V, K v - ∑ u : V,
-      weight v u * (potential v - potential u)) =
+    (∑ v : V, K v - (∑ u : V,
+      weight v u * (potential v - potential u))) =
         (∑ v : V, K v) -
         (∑ v : V, ∑ u : V,
           weight v u * (potential v - potential u)) := by
@@ -134,11 +134,11 @@ theorem potential_preserves_euler {V : Type*} [Fintype V]
     (T : ClosedTriCounts V) (weight : V → V → ℤ)
     (symmetric : ∀ v u, weight v u = weight u v)
     (potential : V → ℤ) :
-    (∑ v : V, defect T v - ∑ u : V,
-      weight v u * (potential v - potential u)) = 6 * euler T := by
+    (∑ v : V, defect T v - (∑ u : V,
+      weight v u * (potential v - potential u))) = 6 * euler T := by
   calc
-    (∑ v : V, defect T v - ∑ u : V,
-      weight v u * (potential v - potential u)) =
+    (∑ v : V, defect T v - (∑ u : V,
+      weight v u * (potential v - potential u))) =
       ∑ v : V, defect T v :=
         total_curvature_stable (defect T) weight symmetric potential
     _ = 6 * euler T := discrete_gauss_bonnet T
