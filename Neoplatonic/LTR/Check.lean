@@ -1,7 +1,8 @@
 import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
-import Neoplatonic.LTR.Quantitative
+import Neoplatonic.LTR.TheoryMaps
+import Neoplatonic.LTR.Acceleration
 
 open Neoplatonic.LTR
 
@@ -64,3 +65,24 @@ open Neoplatonic.LTR
 #print axioms translationDelay_iff_distance_bound
 #print axioms markedDistance_observable_bound
 #print axioms translationDelay_iff_observable_bound
+
+#print axioms leastDepth_sound
+#print axioms leastDepth_le
+#print axioms leastDepth_zero
+#print axioms leastDepth_mono
+#print axioms leastDepth_sharp
+#print axioms translationDelay_iff_leastDepth_le
+#print axioms leastDepth_bound_iff_metric_bound
+#print axioms leastDepth_bound_iff_observable_bound
+#print axioms exists_delay_iff_bounded_depth_excess
+#print axioms acceleratedStream_id
+#print axioms acceleratedStream_zero_delay
+#print axioms acceleratedStream_no_delay
+#print axioms acceleratedStream_finite_delay_iff
+#print axioms no_uniform_finite_delay_decider
+#print axioms SentenceTranslation.preimage_locus
+#print axioms SentenceTranslation.entailment_iff_of_surjective
+#print axioms SentenceTranslation.independent_iff_of_surjective
+#print axioms sentenceMark_of_translation
+#print axioms sentenceTranslation_delay
+#print axioms sentenceTranslation_distortion
