@@ -1,0 +1,109 @@
+# Logos reduces to Topos: a conditional mathematical program
+
+**Status:** philosophical proposal plus Lean proof scaffold. The new Lean file
+`Neoplatonic/LogosTopos.lean` is uncompiled pending GitHub CI on the repository's
+pinned Lean 4.35/mathlib toolchain. Existing results in `Neoplatonic/LocalConfluence.lean`
+were documented as compiler-checked on 2026-10-18.
+
+## Core thesis and disambiguation
+
+The proposal is that *intelligible forms are determined by their invariant
+relationships and are realized through context-dependent geometry*. An
+ontological source can ground the structure, but the source is a metaphysical
+interpretation of a root, not a mathematical property of a bare point.
+
+`Topos` has a precise mathematical meaning: a category of sheaves/presheaves
+supporting an internal logic. It is not interchangeable with a topological
+space. Curvature in turn requires metric/connection data on the space of
+manifestations. Topology constrains certain global curvature integrals but
+does not determine the local curvature field.
+
+## Three established mathematical pillars
+
+1. **Confluence and the One.** `Neoplatonic.confluent_unique_first_principle`
+   shows uniqueness of an ungrounded ancestor under well-foundedness, a
+   common-effect condition, and local ancestral coherence. It identifies
+   neither the root with God nor its properties with divine attributes.
+2. **Yoneda and relational representation.** The Yoneda embedding
+   `Y : C ⥤ (Cᵒᵖ ⥤ Type)` is fully faithful. `CategoryTheory.Yoneda.fullyFaithful`
+   is already in mathlib, expressing the exact recovery of morphisms from
+   natural transformations. For a small category, presheaves form a topos.
+   This is the rigorous sense in which relational form admits a topos model.
+3. **Gauss–Bonnet.** On a closed oriented surface, `∫ K dA = 2π χ(M)`.
+   The integrated curvature is topologically fixed, although the pointwise
+   curvature depends on the metric. In a finite closed triangular cellulation,
+   the incidence relations imply `Σ_v (6 − deg(v)) = 6(V−E+F)`.
+
+## New Lean scaffold
+
+`Atlas.unique_gluing` constructs the unique global map from locally compatible
+values on a covering family, a simplified sheaf-gluing model.
+
+`discrete_gauss_bonnet` establishes the discrete curvature/Euler formula
+from two incidence-count assumptions: `Σ deg = 2E` and `3F = 2E`.
+The next stage should derive these from explicit vertices, edges, faces,
+and incidences.
+
+`total_divergence_zero` proves `Σ_v Δ_w φ(v) = 0` for symmetric graph
+weights, and `potential_preserves_euler` derives conservation of summed
+curvature under a potential redistribution.
+
+`translation_holonomy_obstruction` produces a three-step loop of local
+translations whose parallel values cannot glue into one globally consistent
+value. **Curvature and holonomy differ:** even flat connections may have
+nontrivial holonomy on non-simply-connected spaces.
+
+`one_ground_many_forms` exhibits two different functions despite the
+unique root of the natural-number grounding model. The stronger claim
+that one root determines one realized form would be false.
+
+## Mercy as curvature
+
+An exact smooth model is a conformal change `g_M = exp(2φ) g_J` on a closed
+oriented 2-manifold. Its curvature density obeys
+`K_M dA_M = (K_J − Δ_g φ) dA_J`, whence the global curvature integral is
+unchanged. The finite graph proof is an algebraic analogue, **not a proof
+of the differential-geometric conformal identity**.
+
+Interpreting `φ` as mercy is a separate normative hypothesis. Preserving
+Euler characteristic cannot by itself guarantee that victims' rights are
+honored. An admissible moral transformation needs independently specified
+rights, proportionality, restitution, and responsibility constraints.
+
+## Stronger Logos–Topos conjecture
+
+Fix a category `Forms` of admissible manifestations and a site of situations
+`(Contexts, J)`. Seek a functor `R : Forms ⥤ Sh(Contexts, J)` that is fully
+faithful and compatible with grounding (`natural` with respect to the grounding
+arrows) and transport. Then a form is recoverable from its relational data
+in the sheaf topos, while the connection's holonomy tells us when locally
+parallel realizations can be globally compatible. The source-to-form
+bridge remains a substantive mathematical and metaphysical assumption.
+
+One can also exploit the classifying topos of a **geometric theory** `T`:
+models of `T` in `E` correspond to geometric morphisms `E → Set[T]`.
+This does not apply without qualification to arbitrary classical logic.
+
+## Countermodels and next proof obligations
+
+- Same topological 2-sphere with differently scaled round metrics: topology
+  fixed, Gaussian curvature changes. An all-forms-from-*bare*-topology
+  claim is false.
+- Unique root + two distinct Boolean-valued maps: the One does not fix a
+  unique form.
+- A three-edge transport loop with +1 on each edge: local assignments
+  possible, globally parallel section impossible.
+- Derive graph incidence certificates from actual edge/face datasets.
+- Link the finite graph Laplacian to a discrete conformal geometry, with
+  rigorously stated convergence to the smooth model if desired.
+- Formalize a faithful functor from a nontrivial category of admissible
+  forms into a sheaf topos, and distinguish required bridge axioms.
+
+## Sources
+
+- `patrickdugan/OntologicalProofs`: `Neoplatonic/LocalConfluence.lean`, `README.md`.
+- mathlib docs: `Mathlib/CategoryTheory/Yoneda`,
+  `Mathlib/Topology/Sheaves/Sheaf`, `Mathlib/CategoryTheory/Topos/Sheaf`.
+- Chris Wendl, *Connections*, Gauss–Bonnet chapter,
+  https://www.math.hu-berlin.de/~wendl/pub/connections_chapter6_2.pdf
+- F. W. Lawvere, *Continuously Variable Sets; Algebraic Geometry = Geometric Logic* (1975).
