@@ -2,7 +2,7 @@ import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
-import Neoplatonic.LTR.Acceleration
+import Neoplatonic.LTR.HaltingGeometry
 
 open Neoplatonic.LTR
 
@@ -86,3 +86,8 @@ open Neoplatonic.LTR
 #print axioms sentenceMark_of_translation
 #print axioms sentenceTranslation_delay
 #print axioms sentenceTranslation_distortion
+
+#print axioms stagedHalting_mono
+#print axioms stagedHalting_exists_iff_dom
+#print axioms stagedHalting_finite_delay_iff
+#print axioms finite_geometric_distortion_undecidable
