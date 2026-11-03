@@ -45,7 +45,7 @@ theorem maximalDiracDomain_dense (mass scale : ℕ → ℝ) :
   intro ψ ε hε
   obtain ⟨s, hs⟩ := finiteBlockTruncation_approx ψ ε hε
   refine ⟨finiteBlockTruncation ψ s, ?_, ?_⟩
-  · simpa only [Metric.mem_ball, dist_eq_norm] using hs
+  · simpa only [Metric.mem_ball, dist_eq_norm, norm_sub_rev] using hs
   · exact finiteBlockTruncation_mem_maximalDiracDomain mass scale ψ s
 
 end Neoplatonic.LTR
