@@ -36,16 +36,18 @@ theorem liftedAtom_mem_encode (bits : ℕ → Bool) (n : ℕ) :
       Unit ⊨ liftedAtom n
     rw [FirstOrder.Language.Theory.CompleteType.mem_typeOf]
     exact FirstOrder.Language.Formula.realize_equivSentence_symm
-      (liftedAtom n) (fun e : Empty => (e.elim : Unit))
+      Unit (liftedAtom n) (fun e : Empty => (e.elim : Unit))
   calc
     liftedAtom n ∈ encode bits ↔ Unit ⊨ liftedAtom n := hmem
     _ ↔ Unit ⊨ atom n :=
-      (L.lhomWithConstants Empty).realize_onSentence (atom n)
+      (L.lhomWithConstants Empty).realize_onSentence Unit (atom n)
     _ ↔ bits n = true := unit_realizes_atom bits n
 
 /-- Read the truth assignment encoded by a complete type. -/
 noncomputable def decode (p : T.CompleteType Empty) : ℕ → Bool :=
-  fun n => decide (liftedAtom n ∈ p)
+  fun n => by
+    classical
+    exact decide (liftedAtom n ∈ p)
 
 /-- All Boolean assignments are recovered exactly from their first-order
 complete types. -/
