@@ -1,13 +1,25 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.17 (November 3, 2026)
+## Current proof status: LTR v0.21 (November 3, 2026)
 
-The repository now kernel-verifies a compact-resolvent complex spectral triple on compact metric spaces with an explicit countable dense marking. A faithful complex star-algebra representation of $C(X,\mathbb C)$ acts on $H=\ell^2(\mathbb N,\mathbb C^2)$. The dense star subalgebra $\operatorname{Lip}(X,\mathbb C)$ preserves the maximal domain of a closed, self-adjoint block Dirac operator and admits bounded commutators. The actual ordinary resolvent has verified two-sided inverse equations and is compact.
+The program now has a kernel-verified compact complex spectral triple built
+on Mathlib's genuine first-order Stone completion space for a satisfiable
+countable-language theory with an independent sentence. A classically
+chosen compatible metric and dense sequence of completed theories are
+connected to the explicit all-dense-pairs marking. The complex Lipschitz
+star subalgebra is dense, the representation faithful, the Dirac densely
+defined and self-adjoint, the ordinary resolvent compact, and the bounded
+commutators verified. Exact Connes-style recovery holds for the chosen metric.
 
-For reciprocal-distance couplings along marked edges that cover every ordered distinct pair of dense-sequence values, the norm-one complex commutator ball recovers the entire metric. The complex distance-to-target function attains equality.
+The scalar spectral-energy series converges for every positive real
+exponent, uniformly in the coupling sequence. A global operator trace
+proof remains to formalize before asserting Schatten p-summability.
 
-See the [LTR v0.17 spectral-triple proof ledger](INFINITE_DIRAC_V17.md), [successful spectral-triple audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41644762120), and earlier [LTR v0.12 ledger](INFINITE_DIRAC_V12.md). Remaining work includes constructing the prescribed marking on actual logical Stone spaces, sentence-labelled reconstruction, compatibility under interpretations, and p-summability.
-
+See [LTR v0.21 proof ledger](INFINITE_DIRAC_V21.md) and the
+[successful logical Stone spectral triple audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41662893418).
+Further tasks concern effective metrics from sentence codes, interpretation
+compatibility, global trace and dimension spectrum, and logical-label
+reconstruction.
 
 ## Mathematical objective
 
@@ -135,7 +147,7 @@ A related finite-approximation obstruction follows by reduction. If a uniformly 
 | Metric symmetry obstruction | Lean under explicit homogeneity/accumulation | Formal Cantor specialization |
 | Cantor collapse | Written proof from standard ingredients | Full formalization and literature comparison |
 | Projection norm obstruction | Written proof | Effective C*-presentation in Lean |
-| Spectral reconstruction | Dense complex Lipschitz star subalgebra, faithful representation, self-adjoint Dirac, compact resolvent, bounded commutators and exact conditional metric recovery verified in LTR v0.17 | Explicit logical Stone marking, interpretation compatibility and summability |
+| Spectral reconstruction | Actual logical complete-type Stone spectral triple with dense complex Lipschitz algebra, faithful representation, self-adjoint Dirac and compact resolvent verified in LTR v0.21 | Effective sentence-derived metric, interpretation compatibility and global trace-class formalization |
 
 The present contribution is a verified foundation and a sharply stated research problem. Stone duality, compactness, and their displayed corollaries are established mathematics. The project has not established novelty for a general reconstruction theorem. An original result would need additional invariant content, effective complexity bounds, or a genuine obstruction theorem for a specified class of interconnected theories.
 
