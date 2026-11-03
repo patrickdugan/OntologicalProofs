@@ -118,7 +118,7 @@ theorem compactComplexLipschitz_separatesPoints
     ⟨fun z => (dist z y : ℂ), by fun_prop⟩
   have hf : f ∈ compactComplexLipschitzStarSubalgebra X :=
     complexDistanceToPoint_mem_lipschitz y
-  refine ⟨f, hf, ?_⟩
+  refine ⟨(f : X → ℂ), ⟨f, hf, rfl⟩, ?_⟩
   change (dist x y : ℂ) ≠ (dist y y : ℂ)
   simp only [dist_self, Complex.ofReal_zero]
   intro h
