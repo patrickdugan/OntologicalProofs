@@ -56,7 +56,11 @@ theorem complexHilbertBlock_norm_le_operator
           lp.singleContinuousLinearMap_apply
             (𝕜 := ℂ) (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
             (p := 2) j v]
-      _ = ‖v‖ := lp.norm_single (by norm_num : 0 < (2 : ENNReal)) j v
+      _ = ‖v‖ := by
+        exact lp.norm_single
+          (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
+          (p := (2 : ENNReal))
+          (by norm_num : 0 < (2 : ENNReal)) j v
       _ ≤ 1 * ‖v‖ := by simp
   have hInner : ‖F.comp S‖ ≤ ‖F‖ := by
     calc
