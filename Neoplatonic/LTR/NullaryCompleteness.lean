@@ -22,6 +22,7 @@ open FirstOrder.Language
 @[instance_reducible]
 def expandedUnitStructure (bits : ℕ → Bool) : L[[Empty]].Structure Unit := by
   letI : L.Structure Unit := unitStructure bits
+  letI : Unit ⊨ T := unit_models_T bits
   letI : (constantsOn Empty).Structure Unit :=
     constantsOn.structure (fun e : Empty => (e.elim : Unit))
   exact inferInstance
