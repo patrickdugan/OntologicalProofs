@@ -20,7 +20,7 @@ namespace Neoplatonic.LTR
 /-- The real symmetric 2-by-2 mass-shifted Dirac matrix is Hermitian. -/
 theorem massDirac_isHermitian (mass scale : ℝ) :
     (massDirac mass scale).IsHermitian := by
-  change (massDirac mass scale)ᴴ = massDirac mass scale
+  change (massDirac mass scale).conjTranspose = massDirac mass scale
   ext i j
   fin_cases i <;> fin_cases j <;>
     simp [massDirac, Matrix.conjTranspose_apply] <;> ring
