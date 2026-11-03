@@ -60,10 +60,13 @@ noncomputable def modelIsoUnit (M : Type*) [L.Structure M]
   · intro n r xs
     cases n with
     | zero =>
+        change ℕ at r
         change (modelBits M r = true) ↔
-          @RelMap L M _ 0 r xs
-        rw [modelBits_iff]
-        rfl
+          @RelMap L M _ 0 (predSym r) xs
+        rw [modelBits_iff M r]
+        congr 1
+        funext i
+        exact Fin.elim0 i
     | succ n => exact nomatch r
 
 /-- The entire first-order sentence theory of a singleton model is
