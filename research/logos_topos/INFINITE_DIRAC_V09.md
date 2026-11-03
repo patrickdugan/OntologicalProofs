@@ -70,61 +70,81 @@ finite sums and norm closure of compact continuous linear maps.
 `chosenComplexSquaredResolvent_isCompact`.
 CI: https://github.com/patrickdugan/OntologicalProofs/actions/runs/41595551235
 
-### Additional complex formalization under CI
+### Kernel-verified compact squared resolvent of the maximal complex D
 
-`ComplexWeightedDiracRange.lean` contains pointwise energy estimates
+`ComplexWeightedDiracRange.lean` proves the energy estimates
+
 \[
-\|D_j(w_jv)\|\le\|v\|,\quad
-\|D_j^2(w_jv)\|\le\|v\|.
+\|D_j(w_jv)\|\le\|v\|,\qquad \|D_j^2(w_jv)\|\le\|v\|.
 \]
-These establish \(R_C(H_C)\subseteq\operatorname{Dom}(D^2)\)
-when the full statements pass the Lean audit.
 
-`ComplexSquaredResolventIdentity.lean` defines exact two-sided
-equations for \((I+D^2)^{-1}\) with explicit domain witnesses.
-`ComplexOrdinaryResolventBlock.lean` contains the complex block
-candidate \((D_j-iI)^{-1}\) and its two inverse equations.
-Their final status requires passing CI at the actual branch head.
+It follows that \(R_C(H_C)\subseteq\operatorname{Dom}(D^2)\).
+`ComplexSquaredResolventIdentity.lean` then verifies the equations
+\((I+D^2)R_C=I_H\) and
+\(R_C(I+D^2)=I_{\operatorname{Dom}(D^2)}\),
+with all unbounded applications explicitly guarded by Lean domain proofs.
+Thus the previously proved compact \(R_C\) is exactly
+\((I+D^2)^{-1}\) in the partial-operator sense.
 
-### Ordinary resolvent: classical analytic proof and Lean target
+**Verified:** `chosenComplexSquaredResolvent_D_mem_maximalComplexDiracDomain`,
+`chosenComplexSquaredResolvent_right_inverse` and
+`chosenComplexSquaredResolvent_left_inverse`.
+CI: https://github.com/patrickdugan/OntologicalProofs/actions/runs/41597215665
+
+### Kernel-verified ordinary compact resolvent at i
 
 For each complex block,
 
 \[
-Q_j = (D_j-iI)^{-1}
-    = \frac{D_j+iI}{1+\mu_j^2}.
+Q_j=(D_j-iI)^{-1}=\frac{D_j+iI}{1+\mu_j^2}.
 \]
 
-As \(D_j\) is Hermitian and \(D_j^2=\mu_j^2 I\),
+`ComplexOrdinaryResolventBlock.lean` verifies both finite-dimensional
+inverse equations. `ComplexOrdinaryResolventGlobal.lean` constructs a
+bounded complex-linear map \(Q=\bigoplus_j Q_j\) on the *infinite*
+Hilbert space. It proves
+\(Q(H_C)\subseteq\operatorname{Dom}(D)\) and the exact equations
 
 \[
-Q_j^*Q_j = \frac{I}{1+\mu_j^2},
-\qquad
-\|Q_j\|=(1+\mu_j^2)^{-1/2}.
+(D-iI)Q\psi=\psi\quad(\psi\in H_C),\qquad
+Q(D-iI)\psi=\psi\quad(\psi\in\operatorname{Dom}(D)).
 \]
 
-Hence the bounded direct sum \(Q=\bigoplus_jQ_j\) has finite-rank
-cutoffs with
+**Verified:** `chosenComplexOrdinaryResolvent_right_inverse`,
+`chosenComplexOrdinaryResolvent_left_inverse`.
+CI: https://github.com/patrickdugan/OntologicalProofs/actions/runs/41598681662
+
+`ComplexOrdinaryResolventDecay.lean` proves for all \(j\ge N\)
+and arbitrary real scales \(s_j\) that
 
 \[
-\|Q-Q_N\|
-\le(1+4^N)^{-1/2}\to0,
+\|Q_j\|\le \frac{2}{2^j}\le\frac{2}{2^N}.
 \]
-and is compact.
 
-Moreover, \(D_jQ_j\) has norm
-\(\mu_j/\sqrt{1+\mu_j^2}\le1\).
-Thus \(Q(H_C)\subseteq\operatorname{Dom}(D)\),
-and the block identities give
+`ComplexOrdinaryResolventFiniteRank.lean` defines the first-\(N\)-block
+cutoff \(Q_N\) as a sum of compact finite-dimensional coordinate
+operators. `ComplexOrdinaryResolventCompact.lean` establishes their
+exact cutoff identity and operator-norm error bound
+
 \[
-(D-iI)Q=I_{H_C},
-\quad
-Q(D-iI)=I_{\operatorname{Dom}(D)}.
+\boxed{\|Q-Q_N\|\le\frac{2}{2^N}\longrightarrow0}.
 \]
 
-This gives the exact **ordinary compact resolvent**
-at \(i\) analytically. Lean still needs the bounded block direct sum,
-tail compactness and global domain-correct inverse equations.
+The norm-closedness theorem for compact operators now yields
+
+\[
+\boxed{\operatorname{IsCompactOperator} Q},\qquad
+Q=(D-iI)^{-1}.
+\]
+
+**Verified:** `chosenComplexOrdinaryResolvent_isCompact`.
+Full kernel build and axiom audit:
+https://github.com/patrickdugan/OntologicalProofs/actions/runs/41599306612
+
+The classical sharp block norm is
+\(\|Q_j\|=(1+\mu_j^2)^{-1/2}\); the Lean proof uses the coarser
+explicit bound \(2/2^j\), sufficient for compactness. This distinction
+matters when recording which quantitative statements are formalized.
 
 ### Next stages
 
