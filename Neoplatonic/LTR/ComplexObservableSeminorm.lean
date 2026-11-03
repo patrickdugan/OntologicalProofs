@@ -58,20 +58,21 @@ theorem complexHilbertBlock_norm_le_operator
             (p := 2) j v]
       _ = ‖v‖ := lp.norm_single (by norm_num : 0 < (2 : ENNReal)) j v
       _ ≤ 1 * ‖v‖ := by simp
+  have hInner : ‖F.comp S‖ ≤ ‖F‖ := by
+    calc
+      ‖F.comp S‖ ≤ ‖F‖ * ‖S‖ :=
+        ContinuousLinearMap.opNorm_comp_le F S
+      _ ≤ ‖F‖ * 1 :=
+        mul_le_mul_of_nonneg_left hSingle (norm_nonneg F)
+      _ = ‖F‖ := mul_one _
   calc
     ‖T j‖ = ‖E.comp (F.comp S)‖ := congrArg norm hcomp
-    _ ≤ ‖E‖ * ‖F.comp S‖ := ContinuousLinearMap.opNorm_comp_le _ _
-    _ ≤ ‖E‖ * (‖F‖ * ‖S‖) :=
-      mul_le_mul_of_nonneg_left
-        (ContinuousLinearMap.opNorm_comp_le _ _) (norm_nonneg E)
-    _ ≤ 1 * (‖F‖ * ‖S‖) :=
-      mul_le_mul_of_nonneg_right hEval
-        (mul_nonneg (norm_nonneg F) (norm_nonneg S))
-    _ ≤ 1 * (‖F‖ * 1) :=
-      mul_le_mul_of_nonneg_left
-        (mul_le_mul_of_nonneg_left hSingle (norm_nonneg F))
-        (by norm_num)
-    _ = ‖F‖ := by ring
+    _ ≤ ‖E‖ * ‖F.comp S‖ :=
+      ContinuousLinearMap.opNorm_comp_le E (F.comp S)
+    _ ≤ 1 * ‖F.comp S‖ :=
+      mul_le_mul_of_nonneg_right hEval (norm_nonneg (F.comp S))
+    _ = ‖F.comp S‖ := one_mul _
+    _ ≤ ‖F‖ := hInner
 
 /-- Any individual marked-edge commutator norm is bounded above
 by the norm of the global bounded Hilbert commutator. -/
