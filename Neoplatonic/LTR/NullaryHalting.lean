@@ -48,6 +48,6 @@ theorem haltingRename_realizes_atom (e : Nat.Partrec.Code)
        acceleratedStream (stagedHalting e) bits n = true := by
   letI : L.Structure Unit := unitStructure bits
   rw [haltingRename, rename_atom, unit_realizes_atom]
-  rw [haltingIndex_stream]
+  rw [haltingIndex_stream e bits n]
 
 end Neoplatonic.LTR.Nullary
