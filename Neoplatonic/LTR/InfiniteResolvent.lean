@@ -24,6 +24,7 @@ proof obligations. The compactness implication itself is kernel checked.
 namespace Neoplatonic.LTR
 
 open Filter
+open scoped Topology
 
 /-- Canonical scalar tail bound for the squared resolvent. -/
 noncomputable def squaredResolventTail (n : ℕ) : ℝ :=
