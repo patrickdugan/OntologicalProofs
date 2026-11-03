@@ -12,6 +12,7 @@ import Neoplatonic.LTR.LogicalPullback
 import Neoplatonic.LTR.NetworkSpectral
 import Neoplatonic.LTR.ComplexConservativeSpectral
 import Neoplatonic.LTR.InfiniteDiracCore
+import Neoplatonic.LTR.InfiniteResolvent
 
 open Neoplatonic.LTR
 
@@ -210,3 +211,8 @@ open Neoplatonic.LTR
 #print axioms coreDirac_support_subset
 #print axioms coreDiracForm_symmetric
 #print axioms realDiracPair_square
+
+#print axioms squaredResolventTail_nonneg
+#print axioms squaredResolventTail_tendsto
+#print axioms block_squaredResolvent_le_tail
+#print axioms compact_of_squaredResolvent_tail
