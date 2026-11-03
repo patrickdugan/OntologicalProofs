@@ -125,7 +125,6 @@ open Neoplatonic.LTR
 
 #print axioms Nullary.subsingleton_of_model_T
 #print axioms Nullary.modelBits_iff
-#print axioms Nullary.modelBits_atom
 #print axioms Nullary.all_sentences_of_modelBits
 
 #print axioms Nullary.expandedModelIsoUnit
