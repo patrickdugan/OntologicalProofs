@@ -89,6 +89,6 @@ theorem complexObservableBlock_commutator
       (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ)) A)
     (complexDirac_observable_commutator mass scale a b)
   simpa [complexEuclideanDiracBlock, complexObservableBlock,
-    map_mul, map_sub] using h
+    map_mul, map_sub, ContinuousLinearMap.mul_def] using h
 
 end Neoplatonic.LTR
