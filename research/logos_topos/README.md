@@ -1,12 +1,13 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.11 (November 3, 2026)
+## Current proof status: LTR v0.12 (November 3, 2026)
 
-The infinite complex Dirac on \(\ell^2(\mathbb N,\mathbb C^2)\) is kernel-verified as densely defined, closed, self-adjoint, and possessing a compact ordinary resolvent. See [v0.10 operator-theory ledger](INFINITE_DIRAC_V10.md).
+The complex Hilbert Dirac on $\ell^2(\mathbb N,\mathbb C^2)$ is kernel-verified as densely defined, closed, self-adjoint, and possessing a compact ordinary resolvent. Its bounded commutator seminorm is the optimal uniform marked-edge gradient bound. For reciprocal-distance couplings along all distinct pairs of a countable dense marking, the norm-one real commutator ball recovers the metric of the full completion space by continuity.
 
-LTR v0.11 adds the bounded complex Hilbert representation of real marked two-point observables, domain invariance and a bounded infinite commutator under a uniform edge-gradient cap. The represented continuous real observables are faithful when the marking contains a countable dense sequence. Separately, the dense-marked gradient condition is proved equivalent to global Lipschitz continuity, and the distance-to-target function attains the numerical dual-metric witness. See the [v0.11 ledger](INFINITE_DIRAC_V11.md) and [successful full Lean kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41607111079).
+For compact $X$, the canonical representation of continuous real functions is bounded, faithful under a dense marking, unital, additive, multiplicative, and sends each real observable to a self-adjoint complex-linear operator. The real self-adjoint function-algebra reconstruction is now verified.
 
-The *optimal* global Hilbert commutator norm lower bound and hence complete Connes-distance recovery by the operator norm are staged and remain unverified. A bundled complex C(X) representation, its Lipschitz algebra, and the particular marked logical Stone-space instance are further obligations. The historical v0.1 sections below retain the original logical-reconstruction scope.
+See [LTR v0.12 mathematical proof ledger](INFINITE_DIRAC_V12.md) and [successful full kernel, axiom and finite-test audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41619858133). Further tasks are the full complex-valued C(X) star-algebra bundle, the specific logical Stone-space marking, sentence-labelled reconstruction and interpretation compatibility, and spectral summability.
+
 
 ## Mathematical objective
 
