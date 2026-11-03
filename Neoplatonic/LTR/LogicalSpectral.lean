@@ -41,19 +41,21 @@ noncomputable def logicalProjection
 /-- At a completion containing the sentence, its observable has value 1. -/
 theorem logicalProjection_apply_mem
     (φ : (L.withConstants α).Sentence) (p : T.CompleteType α)
-    (h : φ ∈ p) : logicalProjection φ p = 1 := by
-  simp [logicalProjection, FirstOrder.Language.Theory.typesWith, h]
+    (h : φ ∈ p) : logicalProjection (T := T) φ p = 1 := by
+  change (T.typesWith φ).indicator (fun _ => (1 : ℝ)) p = 1
+  rw [Set.indicator_of_mem (show p ∈ T.typesWith φ from h)]
 
 /-- At a completion refuting the sentence, its observable has value 0. -/
 theorem logicalProjection_apply_not_mem
     (φ : (L.withConstants α).Sentence) (p : T.CompleteType α)
-    (h : φ ∉ p) : logicalProjection φ p = 0 := by
-  simp [logicalProjection, FirstOrder.Language.Theory.typesWith, h]
+    (h : φ ∉ p) : logicalProjection (T := T) φ p = 0 := by
+  change (T.typesWith φ).indicator (fun _ => (1 : ℝ)) p = 0
+  rw [Set.indicator_of_notMem (show p ∉ T.typesWith φ from h)]
 
 /-- The logical truth observable is an idempotent in the function algebra. -/
 theorem logicalProjection_idempotent
     (φ : (L.withConstants α).Sentence) :
-    logicalProjection φ * logicalProjection φ = logicalProjection φ := by
+    logicalProjection (T := T) φ * logicalProjection (T := T) φ = logicalProjection (T := T) φ := by
   ext p
   by_cases hp : φ ∈ p
   · simp [logicalProjection_apply_mem φ p hp]
@@ -62,7 +64,7 @@ theorem logicalProjection_idempotent
 /-- An idempotent truth observable has norm at most one. -/
 theorem logicalProjection_norm_le_one
     (φ : (L.withConstants α).Sentence) :
-    ‖logicalProjection φ‖ ≤ 1 := by
+    ‖logicalProjection (T := T) φ‖ ≤ 1 := by
   apply (ContinuousMap.norm_le _ (by norm_num)).2
   intro p
   by_cases hp : φ ∈ p
@@ -73,17 +75,17 @@ theorem logicalProjection_norm_le_one
 theorem logicalProjection_norm_one_of_nonempty
     (φ : (L.withConstants α).Sentence)
     (h : (T.typesWith φ).Nonempty) :
-    ‖logicalProjection φ‖ = 1 := by
+    ‖logicalProjection (T := T) φ‖ = 1 := by
   obtain ⟨p, hp⟩ := h
-  apply le_antisymm (logicalProjection_norm_le_one φ)
-  have hbound := (logicalProjection φ).norm_coe_le_norm p
+  apply le_antisymm (logicalProjection_norm_le_one (T := T) φ)
+  have hbound := (logicalProjection (T := T) φ).norm_coe_le_norm p
   have hmem : φ ∈ p := hp
   simpa [logicalProjection_apply_mem φ p hmem] using hbound
 
 /-- Empty truth locus makes the continuous observable identically zero. -/
 theorem logicalProjection_eq_zero_of_empty
     (φ : (L.withConstants α).Sentence)
-    (h : T.typesWith φ = ∅) : logicalProjection φ = 0 := by
+    (h : T.typesWith φ = ∅) : logicalProjection (T := T) φ = 0 := by
   ext p
   have hp : φ ∉ p := by
     intro hφ
@@ -95,17 +97,17 @@ theorem logicalProjection_eq_zero_of_empty
 /-- The observable norm is zero precisely when the truth locus is empty. -/
 theorem logicalProjection_norm_zero_iff
     (φ : (L.withConstants α).Sentence) :
-    ‖logicalProjection φ‖ = 0 ↔ T.typesWith φ = ∅ := by
+    ‖logicalProjection (T := T) φ‖ = 0 ↔ T.typesWith φ = ∅ := by
   constructor
   · intro hnorm
     by_contra hne
     have hnonempty : (T.typesWith φ).Nonempty :=
       Set.nonempty_iff_ne_empty.mpr hne
-    have hone := logicalProjection_norm_one_of_nonempty φ hnonempty
+    have hone := logicalProjection_norm_one_of_nonempty (T := T) φ hnonempty
     rw [hnorm] at hone
     norm_num at hone
   · intro h
-    rw [logicalProjection_eq_zero_of_empty φ h]
+    rw [logicalProjection_eq_zero_of_empty (T := T) φ h]
     exact norm_zero
 
 /-- Refutation-projector norm 0 is equivalent to semantic consequence.
@@ -116,7 +118,7 @@ theorem refutation_norm_zero_iff_entails
     ‖logicalProjection (T := T) φ.not‖ = 0 ↔
       (L.lhomWithConstants α).onTheory T ⊨ᵇ φ := by
   rw [logicalProjection_norm_zero_iff, locus_not]
-  rw [Set.compl_eq_empty_iff]
+  rw [Set.compl_empty_iff]
   exact locus_eq_univ (T := T) φ
 
 /-- If the sentence is independent, both its truth and refutation
@@ -125,11 +127,13 @@ theorem independent_norms
     (φ : (L.withConstants α).Sentence) (h : Independent T φ) :
     ‖logicalProjection (T := T) φ‖ = 1 ∧
       ‖logicalProjection (T := T) φ.not‖ = 1 := by
-  have hsplit := (independent_iff_nontrivial_locus φ).mp h
+  have hsplit := (independent_iff_nontrivial_locus (T := T) φ).mp h
   constructor
   · exact logicalProjection_norm_one_of_nonempty φ hsplit.1
-  · apply logicalProjection_norm_one_of_nonempty
+  · apply logicalProjection_norm_one_of_nonempty (T := T)
     rw [locus_not]
-    exact Set.nonempty_compl.mpr hsplit.2
+    exact Set.nonempty_iff_ne_empty.mpr (by
+      intro hn
+      exact hsplit.2 (Set.compl_empty_iff.mp hn))
 
 end Neoplatonic.LTR
