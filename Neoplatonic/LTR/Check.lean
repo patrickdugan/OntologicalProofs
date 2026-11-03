@@ -28,6 +28,7 @@ import Neoplatonic.LTR.ComplexValuedDenseMetric
 import Neoplatonic.LTR.ComplexCompactSpectralMetric
 import Neoplatonic.LTR.ComplexLipschitzAlgebra
 import Neoplatonic.LTR.ComplexMetricSpectralTriple
+import Neoplatonic.LTR.DensePairMarking
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -466,6 +467,11 @@ open Neoplatonic.LTR
 #print axioms compactComplexLipschitz_has_commutator_bound
 #print axioms compactComplexMarkedSpectralTriple
 #print axioms compactComplexMarkedSpectralTriple_metric_recovery
+#print axioms densePair_distinct
+#print axioms densePair_covers
+#print axioms densePair_endpointCover
+#print axioms explicitDensePairSpectralTriple
+#print axioms explicitDensePairSpectralTriple_metric_recovery
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
