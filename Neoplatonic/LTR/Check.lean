@@ -23,7 +23,7 @@ import Neoplatonic.LTR.ComplexObservableSeminorm
 import Neoplatonic.LTR.ComplexMarkedCommutatorCriterion
 import Neoplatonic.LTR.ComplexDenseConnesDistance
 import Neoplatonic.LTR.ComplexCompactRealSelfAdjoint
-import Neoplatonic.LTR.ComplexValuedDiracCommutatorGlobal
+import Neoplatonic.LTR.ComplexValuedDiracSeminorm
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -443,6 +443,10 @@ open Neoplatonic.LTR
 #print axioms complexDirac_complexValuedObservable_block_action
 #print axioms complexValuedPairObservable_preserves_maximalDiracDomain
 #print axioms complexValuedPairObservable_unbounded_commutator
+#print axioms complexValuedPairCommutatorBlock_norm_le_global
+#print axioms complexValuedPairCommutator_edge_le_norm
+#print axioms complexValuedPairCommutatorCLM_eq_of_bounds
+#print axioms complexValuedPairCommutator_norm_le_iff
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
