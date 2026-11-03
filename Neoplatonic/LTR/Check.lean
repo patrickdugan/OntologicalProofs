@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.InfiniteSquaredResolventIdentity
+import Neoplatonic.LTR.ComplexDiracBlock
 
 open Neoplatonic.LTR
 
@@ -286,3 +286,7 @@ open Neoplatonic.LTR
 #print axioms chosenSquaredResolvent_D_mem_maximalDiracDomain
 #print axioms chosenSquaredResolvent_right_inverse
 #print axioms chosenSquaredResolvent_left_inverse
+#print axioms complexMassDirac_square
+#print axioms complexMassDirac_isHermitian
+#print axioms complexEuclideanDiracBlock_isSelfAdjoint
+#print axioms complexEuclideanDiracBlock_square
