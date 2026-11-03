@@ -52,7 +52,7 @@ theorem complexObservableBlock_mul
     (fun A : Matrix (Fin 2) (Fin 2) ℂ =>
       (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ)) A)
     (complexDiagonalObservable_mul a b c d)
-  simpa [complexObservableBlock, map_mul] using h
+  simpa [complexObservableBlock, map_mul, ContinuousLinearMap.mul_def] using h
 
 /-- The pairwise constant-one observable is the identity endomorphism. -/
 theorem complexObservableBlock_one :
