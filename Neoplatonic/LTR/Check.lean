@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.ComplexOrdinaryResolventFiniteRank
+import Neoplatonic.LTR.ComplexOrdinaryResolventCompact
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -342,3 +342,10 @@ open Neoplatonic.LTR
 #print axioms complexSingleOrdinaryResolventBlock_compact
 #print axioms finiteComplexOrdinaryResolvent_compact
 #print axioms finiteComplexOrdinaryResolvent_apply
+#print axioms complexOrdinaryResolventTailBound_nonneg
+#print axioms chosenComplexOrdinaryResolventTailCLM_norm_le
+#print axioms chosenComplexOrdinaryResolventTailCLM_apply
+#print axioms finiteComplexOrdinaryResolvent_eq_cutoff
+#print axioms complexOrdinaryResolvent_finite_norm_bound
+#print axioms complexOrdinaryResolventTailBound_tendsto
+#print axioms chosenComplexOrdinaryResolvent_isCompact
