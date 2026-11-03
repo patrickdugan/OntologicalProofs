@@ -42,7 +42,7 @@ theorem continuous_decode : Continuous decode := by
     | true =>
         rw [ht]
         exact hc.2
-  apply continuous_iff_isOpen.mpr
+  apply continuous_def.mpr
   intro s hs
   have heq : (fun p : T.CompleteType Empty => decode p n) ⁻¹' s =
       ⋃ b : s, {p : T.CompleteType Empty | decode p n = b.val} := by
@@ -83,6 +83,11 @@ theorem cantorHomeomorph_apply (p : T.CompleteType Empty) :
 theorem cantorHomeomorph_symm_apply (b : ℕ → Bool) :
     cantorHomeomorph.symm b = encode b := by
   apply decode_bijective.1
-  simpa [cantorHomeomorph_apply] using (decode_encode b).symm
+  have hleft : decode (cantorHomeomorph.symm b) = b := by
+    change cantorHomeomorph (cantorHomeomorph.symm b) = b
+    exact cantorHomeomorph.apply_symm_apply b
+  calc
+    decode (cantorHomeomorph.symm b) = b := hleft
+    _ = decode (encode b) := (decode_encode b).symm
 
 end Neoplatonic.LTR.Nullary
