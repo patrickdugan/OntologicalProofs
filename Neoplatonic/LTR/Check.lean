@@ -5,6 +5,7 @@ import Neoplatonic.LTR.TheoryMaps
 import Neoplatonic.LTR.ObservableHalting
 import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
+import Neoplatonic.LTR.NullaryTypes
 
 open Neoplatonic.LTR
 
@@ -113,3 +114,7 @@ open Neoplatonic.LTR
 #print axioms Nullary.not_entails_atom
 #print axioms Nullary.not_entails_not_atom
 #print axioms Nullary.independent_atom
+
+#print axioms Nullary.liftedAtom_mem_encode
+#print axioms Nullary.decode_encode
+#print axioms Nullary.encode_injective
