@@ -23,16 +23,19 @@ theorem complexEuclideanDiracBlock_norm_sq
   let D := complexEuclideanDiracBlock mass scale
   have hsym := ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.mp
     (complexEuclideanDiracBlock_isSelfAdjoint mass scale)
+  apply Complex.ofReal_injective
   calc
-    ‖D v‖ ^ 2 = Complex.re (inner ℂ (D v) (D v)) :=
-      by simpa only using (norm_sq_eq_re_inner (𝕜 := ℂ) (D v))
-    _ = Complex.re (inner ℂ v (D (D v))) := congrArg Complex.re (hsym v (D v))
-    _ = Complex.re (inner ℂ v
-        (((mass ^ 2 + scale ^ 2 : ℝ) : ℂ) • v)) := by
+    ((‖D v‖ ^ 2 : ℝ) : ℂ) = inner ℂ (D v) (D v) := by
+      rw [inner_self_eq_norm_sq_to_K]
+      norm_cast
+    _ = inner ℂ v (D (D v)) := hsym v (D v)
+    _ = inner ℂ v
+        (((mass ^ 2 + scale ^ 2 : ℝ) : ℂ) • v) := by
       rw [complexEuclideanDiracBlock_square]
-    _ = (mass ^ 2 + scale ^ 2) * ‖v‖ ^ 2 := by
+    _ = (((mass ^ 2 + scale ^ 2) * ‖v‖ ^ 2 : ℝ) : ℂ) := by
       rw [inner_smul_right, inner_self_eq_norm_sq_to_K]
-      simp only [← Complex.ofReal_pow, ← Complex.ofReal_mul, Complex.ofReal_re]
+      push_cast
+      ring
 
 /-- Uniform norm bound for one complex Dirac block composed with w. -/
 theorem weightedComplexEuclideanDiracBlock_norm_le
