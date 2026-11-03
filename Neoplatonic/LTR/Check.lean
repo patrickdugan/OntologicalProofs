@@ -9,6 +9,7 @@ import Neoplatonic.LTR.NullaryTopology
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
+import Neoplatonic.LTR.ConservativeSpectral
 
 open Neoplatonic.LTR
 
@@ -181,3 +182,6 @@ open Neoplatonic.LTR
 #print axioms nullary_atomic_projection_lipschitz_sharp
 
 #print axioms logicalProjection_syntax_pullback
+
+#print axioms continuous_surjection_preserves_norm
+#print axioms conservative_truth_projection_norm
