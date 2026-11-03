@@ -1,4 +1,4 @@
-# LTR-04b: A one-axiom first-order realization of Cantor-stream geometry
+# LTR v0.5: One-axiom first-order Cantor reconstruction
 
 ## Mathematical construction
 
@@ -171,6 +171,8 @@ which also passed the axiom-dependency audit.
 | Full complete-type Cantor homeomorphism | Lean, CI run 41567197901 |
 | Halting-hard Lipschitz regularity on actual complete theories | Lean, CI run 41567588126 |
 | Continuity of syntactic endomorphisms | Lean, CI run 41567588126 |
+| Continuous first-order syntactic endomorphisms | Lean, CI run 41567588126 |
+| Undecidability of their finite Lipschitz regularity | Lean, CI run 41567588126 |
 | Infinite-dimensional spectral operator analysis | Written proof, Lean open |
 
 The CI axiom audit now covers 123 distinct named declarations, including
