@@ -38,14 +38,16 @@ theorem complexPairCommutatorBlock_norm_le_global
         complexPairCommutatorBlock mass scale left right j v
     rw [complexPairCommutatorCLM_apply]
     simp
+  have hp : (2 : ENNReal) ≠ 0 := by norm_num
+  have hp_pos : 0 < (2 : ENNReal) := by norm_num
   calc
     ‖B v‖ = ‖(C (lp.single 2 j v)) j‖ := by rw [hcoord]
     _ ≤ ‖C (lp.single 2 j v)‖ :=
-      lp.norm_apply_le_norm (by norm_num : (2 : ℝ≥0∞) ≠ 0)
+      lp.norm_apply_le_norm hp
         (C (lp.single 2 j v)) j
     _ ≤ ‖C‖ * ‖lp.single 2 j v‖ := C.le_opNorm _
     _ = ‖C‖ * ‖v‖ := by
-      rw [lp.norm_single (by norm_num : 0 < (2 : ℝ≥0∞))]
+      rw [lp.norm_single hp_pos]
 
 /-- Every edge Lipschitz quotient is at most the global commutator norm. -/
 theorem complexPairCommutator_edge_le_norm
