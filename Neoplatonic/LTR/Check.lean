@@ -26,6 +26,7 @@ import Neoplatonic.LTR.ComplexCompactRealSelfAdjoint
 import Neoplatonic.LTR.ComplexValuedDiracSeminorm
 import Neoplatonic.LTR.ComplexValuedDenseMetric
 import Neoplatonic.LTR.ComplexCompactSpectralMetric
+import Neoplatonic.LTR.ComplexLipschitzAlgebra
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -458,6 +459,10 @@ open Neoplatonic.LTR
 #print axioms compactComplexStarAlgHom_unbounded_commutator
 #print axioms compactComplexStarAlgHom_metric_witness
 #print axioms compactComplexStarAlgHom_faithful_metric_witness
+#print axioms complexDistanceToPoint_mem_lipschitz
+#print axioms compactComplexLipschitz_separatesPoints
+#print axioms compactComplexLipschitz_dense
+#print axioms compactComplexLipschitz_has_commutator_bound
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
