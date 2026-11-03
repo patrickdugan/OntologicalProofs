@@ -59,7 +59,7 @@ theorem complexOrdinaryResolventBlock_norm_le
 noncomputable def chosenComplexOrdinaryResolventCLM (scale : ℕ → ℝ) :
     ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert :=
   lp.mapCLM 2 (fun j => complexOrdinaryResolventBlock scale j)
-    2 (by norm_num)
+    (by norm_num : (0 : ℝ) ≤ 2)
     (fun j => complexOrdinaryResolventBlock_norm_le scale j)
 
 /-- Its jth coordinate is exactly Q_j applied to the jth input. -/
@@ -67,8 +67,10 @@ theorem chosenComplexOrdinaryResolventCLM_apply
     (scale : ℕ → ℝ) (ψ : ComplexDiracBlockHilbert) (j : ℕ) :
     chosenComplexOrdinaryResolventCLM scale ψ j =
       complexOrdinaryResolventBlock scale j (ψ j) := by
+  change complexOrdinaryResolventBlock scale j (ψ j) = _
   rfl
 
+set_option maxHeartbeats 1000000 in
 /-- Uniform bound on D_j Q_j from the weighted D and D² estimates. -/
 theorem complexOrdinaryResolventBlock_D_norm_le
     (scale : ℕ → ℝ) (j : ℕ)
@@ -77,9 +79,14 @@ theorem complexOrdinaryResolventBlock_D_norm_le
       (complexOrdinaryResolventBlock scale j v)‖ ≤ 2 * ‖v‖ := by
   let D := complexEuclideanDiracBlock ((2 : ℝ) ^ j) (scale j)
   let w : ℂ := ((chosenSquaredResolventWeight scale j : ℝ) : ℂ)
-  rw [complexOrdinaryResolventBlock_apply, map_add, map_smul]
+  have hformula : D (complexOrdinaryResolventBlock scale j v) =
+      D (D (w • v)) + Complex.I • (D (w • v)) := by
+    rw [complexOrdinaryResolventBlock_apply, map_add, map_smul]
+  rw [hformula]
   have hnormI :
-      ‖Complex.I • (D (w • v))‖ = ‖D (w • v)‖ := by simp
+      ‖Complex.I • (D (w • v))‖ = ‖D (w • v)‖ := by
+    rw [norm_smul]
+    simp
   calc
     ‖D (D (w • v)) + Complex.I • (D (w • v))‖ ≤
       ‖D (D (w • v))‖ + ‖Complex.I • (D (w • v))‖ :=
@@ -115,6 +122,8 @@ theorem chosenComplexOrdinaryResolvent_right_inverse
       Complex.I • chosenComplexOrdinaryResolventCLM scale ψ = ψ := by
   apply lp.ext
   funext j
+  simp only [lp.coeFn_sub, Pi.sub_apply, lp.coeFn_smul, Pi.smul_apply]
+  rw [chosenComplexOrdinaryResolventCLM_apply]
   change complexEuclideanDiracBlock ((2 : ℝ) ^ j) (scale j)
       (complexOrdinaryResolventBlock scale j (ψ j)) -
       Complex.I • complexOrdinaryResolventBlock scale j (ψ j) = ψ j
@@ -129,6 +138,8 @@ theorem chosenComplexOrdinaryResolvent_left_inverse
         Complex.I • ψ) = ψ := by
   apply lp.ext
   funext j
+  rw [chosenComplexOrdinaryResolventCLM_apply]
+  simp only [lp.coeFn_sub, Pi.sub_apply, lp.coeFn_smul, Pi.smul_apply]
   change complexOrdinaryResolventBlock scale j
       (complexEuclideanDiracBlock ((2 : ℝ) ^ j) (scale j) (ψ j) -
         Complex.I • ψ j) = ψ j
