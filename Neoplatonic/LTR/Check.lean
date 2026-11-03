@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.ComplexDiracDomain
+import Neoplatonic.LTR.ComplexDiracSelfAdjoint
 
 open Neoplatonic.LTR
 
@@ -295,3 +295,11 @@ open Neoplatonic.LTR
 #print axioms complexFiniteBlockTruncation_approx
 #print axioms complexFiniteBlockTruncation_mem_maximalComplexDiracDomain
 #print axioms maximalComplexDiracDomain_dense
+#print axioms maximalComplexDiracPMap_graph_eq
+#print axioms maximalComplexDiracPMap_isClosed
+#print axioms maximalComplexDiracPMap_formalSymmetric
+#print axioms complexSingleBlock_mem_maximalComplexDiracDomain
+#print axioms maximalComplexDiracPMap_singleBlock_apply
+#print axioms maximalComplexDiracPMap_adjoint_apply_coord
+#print axioms maximalComplexDiracPMap_adjoint_domain_le
+#print axioms maximalComplexDiracPMap_isSelfAdjoint
