@@ -40,11 +40,12 @@ theorem squaredResolventTail_tendsto :
     Tendsto squaredResolventTail atTop (𝓝 (0 : ℝ)) := by
   have hp : Tendsto (fun n : ℕ => (4 : ℝ)^n) atTop atTop :=
     tendsto_pow_atTop_atTop_of_one_lt (by norm_num)
-  have ha : Tendsto (fun n : ℕ => (4 : ℝ)^n + 1) atTop atTop :=
-    tendsto_atTop_add_const_right atTop 1 hp
-  have hz : Tendsto (fun n : ℕ => ((4 : ℝ)^n + 1)⁻¹)
+  have ha : Tendsto (fun n : ℕ => 1 + (4 : ℝ)^n) atTop atTop :=
+    tendsto_atTop_add_const_left atTop 1 hp
+  have hz : Tendsto (fun n : ℕ => (1 + (4 : ℝ)^n)⁻¹)
       atTop (𝓝 (0 : ℝ)) := tendsto_inv_atTop_zero.comp ha
-  simpa [squaredResolventTail, add_comm] using hz
+  change Tendsto (fun n : ℕ => (1 + (4 : ℝ)^n)⁻¹) atTop (𝓝 (0 : ℝ))
+  exact hz
 
 /-- Exact bound on the squared resolvent coefficient at any block,
 provided its mass is at least 2^j. Arbitrary off-diagonal couplings
