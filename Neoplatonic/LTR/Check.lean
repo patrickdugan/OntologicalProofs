@@ -7,7 +7,7 @@ import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
 import Neoplatonic.LTR.NullaryContinuity
-import Neoplatonic.LTR.LogicalDirac
+import Neoplatonic.LTR.EffectiveSpectral
 
 open Neoplatonic.LTR
 
@@ -166,3 +166,7 @@ open Neoplatonic.LTR
 #print axioms massDirac_commutator_zero_iff_eq
 #print axioms logicalProjection_values_eq_iff
 #print axioms logicalDirac_commutator_zero_iff
+
+#print axioms refutation_norm_one_iff_not_entails
+#print axioms refutation_norm_computable_iff_entailment
+#print axioms refutation_norm_undecidable_of_entailment
