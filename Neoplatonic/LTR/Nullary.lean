@@ -34,21 +34,23 @@ def L : FirstOrder.Language where
 
 /-- A concrete sentence naming the n-th nullary relation. -/
 def atom (n : ℕ) : L.Sentence :=
-  (n : L.Relations 0).formula (fun i : Fin 0 => Fin.elim0 i)
+  FirstOrder.Language.Relations.formula (L := L) (α := Empty)
+    (n : L.Relations 0) (fun i : Fin 0 => Fin.elim0 i)
 
 /-- Exactly one nonlogical axiom: there are no two distinct individuals. -/
-def T : L.Theory := { (L.Sentence.cardGe 2).not }
+def T : L.Theory := { (FirstOrder.Language.Sentence.cardGe L 2).not }
 
 theorem finite_axioms : Set.Finite T :=
   Set.finite_singleton _
 
 /-- Each Boolean sequence determines a model on the one-element domain. -/
+@[instance_reducible]
 def unitStructure (bits : ℕ → Bool) : L.Structure Unit where
-  funMap := fun {n} f _ => isEmptyElim f
+  funMap := fun {n} f _ => nomatch f
   RelMap := fun {n} r _ =>
-    match n with
-    | 0 => bits r = true
-    | _ + 1 => isEmptyElim r
+    match n, r with
+    | 0, k => bits k = true
+    | _ + 1, r => nomatch r
 
 theorem unit_realizes_atom (bits : ℕ → Bool) (n : ℕ) :
     (letI : L.Structure Unit := unitStructure bits
@@ -70,16 +72,17 @@ noncomputable def encode (bits : ℕ → Bool) : T.CompleteType Empty := by
 
 /-- Syntactic substitution P_n -> P_(σ n), acting on all formulas. -/
 def rename (σ : ℕ → ℕ) : L →ᴸ L where
-  onFunction := fun {n} f => isEmptyElim f
-  onRelation := by
-    intro n r
-    cases n with
-    | zero => exact σ r
-    | succ n => exact isEmptyElim r
+  onFunction := fun {n} f => nomatch f
+  onRelation := fun {n} r =>
+    match n, r with
+    | 0, k => σ k
+    | _ + 1, r => nomatch r
 
 /-- The action on atomic sentences is a literal syntactic equality. -/
 theorem rename_atom (σ : ℕ → ℕ) (n : ℕ) :
     (rename σ).onSentence (atom n) = atom (σ n) := by
-  rfl
+  simp [atom, rename, FirstOrder.Language.Relations.formula,
+    FirstOrder.Language.LHom.onSentence, FirstOrder.Language.LHom.onFormula,
+    FirstOrder.Language.LHom.onBoundedFormula, L, relations]
 
 end Neoplatonic.LTR.Nullary
