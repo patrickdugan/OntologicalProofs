@@ -24,12 +24,11 @@ theorem singleSquaredResolventBlock_apply
     (scale : ℕ → ℝ) (i : ℕ)
     (ψ : DiracBlockHilbert) (j : ℕ) :
     (singleSquaredResolventBlock scale i ψ) j =
-      (lp.single 2 i
-        (chosenSquaredResolventWeight scale i • ψ i)) j := by
-  simp only [singleSquaredResolventBlock,
-    ContinuousLinearMap.comp_apply,
-    lp.singleContinuousLinearMap_apply, lp.evalCLM_apply]
-  simp [scalarBlockCLM]
+      ((lp.single (E := fun _ : ℕ => EuclideanSpace ℝ (Fin 2))
+          2 i (chosenSquaredResolventWeight scale i • ψ i)) :
+          DiracBlockHilbert) j := by
+  simp [singleSquaredResolventBlock, scalarBlockCLM,
+    lp.evalCLM, lp.evalₗ]
 
 /-- The finite sum of compact block operators is the first-N cutoff. -/
 theorem finiteSquaredResolvent_apply
@@ -48,9 +47,7 @@ theorem finiteSquaredResolvent_apply
       scalarBlockCLM]
   rw [hsum]
   simp only [lp.coeFn_sum, Finset.sum_apply, lp.coeFn_single]
-  rw [Finset.sum_pi_single]
-  simp only [Finset.mem_range]
-  by_cases hj : j < N <;> simp [hj]
+  simp [Finset.sum_pi_single, Finset.mem_range]
 
 /-- The explicit finite-rank cutoff agrees with R minus the tail. -/
 theorem finiteSquaredResolvent_eq_cutoff
@@ -58,7 +55,10 @@ theorem finiteSquaredResolvent_eq_cutoff
     finiteSquaredResolvent scale N =
       chosenSquaredResolventCLM scale -
         chosenSquaredResolventTailCLM scale N := by
-  ext ψ j
+  apply ContinuousLinearMap.ext
+  intro ψ
+  apply lp.ext
+  funext j
   exact (finiteSquaredResolvent_apply scale N ψ j).trans
     (squaredResolventCutoff_apply scale N ψ j).symm
 
