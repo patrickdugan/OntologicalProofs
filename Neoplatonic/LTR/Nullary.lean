@@ -61,7 +61,8 @@ theorem unit_realizes_atom (bits : ℕ → Bool) (n : ℕ) :
     (letI : L.Structure Unit := unitStructure bits
      Unit ⊨ atom n) ↔ bits n = true := by
   letI : L.Structure Unit := unitStructure bits
-  simp [atom, unitStructure, L, relations]
+  change (bits n = true) ↔ (bits n = true)
+  rfl
 
 theorem unit_models_T (bits : ℕ → Bool) :
     (letI : L.Structure Unit := unitStructure bits
@@ -87,6 +88,7 @@ def rename (σ : ℕ → ℕ) : L →ᴸ L where
 theorem rename_atom (σ : ℕ → ℕ) (n : ℕ) :
     (rename σ).onSentence (atom n) = atom (σ n) := by
   simp [atom, predSym, rename, FirstOrder.Language.Relations.formula,
+    FirstOrder.Language.Relations.boundedFormula,
     FirstOrder.Language.LHom.onSentence, FirstOrder.Language.LHom.onFormula,
     FirstOrder.Language.LHom.onBoundedFormula, L, relations]
 
