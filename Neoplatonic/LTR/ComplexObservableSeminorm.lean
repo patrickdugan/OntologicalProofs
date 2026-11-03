@@ -18,6 +18,7 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
+set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1000000 in
 /-- The norm of a coordinatewise bounded operator on a complex
 ℓ² direct sum dominates the operator norm on each coordinate.
