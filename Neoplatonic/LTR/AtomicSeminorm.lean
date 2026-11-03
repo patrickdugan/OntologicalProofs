@@ -89,8 +89,6 @@ theorem bitObservable_lipschitz_sharp (n : ℕ) :
     have h := congrFun heq n
     simp [singleTrueBit] at h
   rw [PiNat.dist_eq_of_ne hne, firstDifference_singleTrueBit]
-  simp [bitObservable, singleTrueBit]
-  rw [← mul_pow]
-  norm_num
+  simp [bitObservable, singleTrueBit, ← mul_pow]
 
 end Neoplatonic.LTR
