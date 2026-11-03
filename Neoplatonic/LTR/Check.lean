@@ -5,7 +5,7 @@ import Neoplatonic.LTR.TheoryMaps
 import Neoplatonic.LTR.ObservableHalting
 import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
-import Neoplatonic.LTR.NullaryExpanded
+import Neoplatonic.LTR.NullaryCompleteness
 
 open Neoplatonic.LTR
 
@@ -128,3 +128,8 @@ open Neoplatonic.LTR
 #print axioms Nullary.all_sentences_of_modelBits
 
 #print axioms Nullary.expandedModelIsoUnit
+
+#print axioms Nullary.mem_encode_iff
+#print axioms Nullary.encode_surjective
+#print axioms Nullary.encode_bijective
+#print axioms Nullary.encode_decode
