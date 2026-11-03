@@ -22,7 +22,7 @@ namespace Neoplatonic.LTR
 open scoped lp
 
 /-- Infinite real Hilbert direct sum of two-component blocks. -/
-abbrev DiracBlockHilbert :=
+noncomputable abbrev DiracBlockHilbert :=
   lp (fun _ : ℕ => EuclideanSpace ℝ (Fin 2)) 2
 
 /-- Scalar action on a single finite-dimensional Euclidean block. -/
