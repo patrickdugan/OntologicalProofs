@@ -23,7 +23,7 @@ import Neoplatonic.LTR.ComplexObservableSeminorm
 import Neoplatonic.LTR.ComplexMarkedCommutatorCriterion
 import Neoplatonic.LTR.ComplexDenseConnesDistance
 import Neoplatonic.LTR.ComplexCompactRealSelfAdjoint
-import Neoplatonic.LTR.ComplexValuedObservableHilbert
+import Neoplatonic.LTR.ComplexValuedObservableAlgebra
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -416,6 +416,15 @@ open Neoplatonic.LTR
 #print axioms compactComplexObservableBound_nonneg
 #print axioms compactComplexObservableBound_apply
 #print axioms compactComplexObservablePi_apply
+#print axioms complexValuedObservableMatrix_zero
+#print axioms complexValuedObservableBlock_zero
+#print axioms complexValuedObservableMatrix_smul
+#print axioms complexValuedObservableBlock_smul
+#print axioms compactComplexObservablePi_mul
+#print axioms compactComplexObservablePi_add
+#print axioms compactComplexObservablePi_one
+#print axioms compactComplexObservablePi_zero
+#print axioms compactComplexObservablePi_smul
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
