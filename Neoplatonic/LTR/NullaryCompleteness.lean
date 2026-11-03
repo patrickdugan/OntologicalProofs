@@ -34,6 +34,7 @@ theorem mem_encode_iff (bits : ℕ → Bool) (φ : L[[Empty]].Sentence) :
     @FirstOrder.Language.Sentence.Realize L[[Empty]] Unit
       (expandedUnitStructure bits) φ := by
   letI : L.Structure Unit := unitStructure bits
+  letI : Unit ⊨ T := unit_models_T bits
   letI : (constantsOn Empty).Structure Unit :=
     constantsOn.structure (fun e : Empty => (e.elim : Unit))
   letI : L[[Empty]].Structure Unit := inferInstance
