@@ -83,8 +83,9 @@ theorem complexDirac_observable_block_action
         complexObservableBlock a b (complexEuclideanDiracBlock mass scale v) =
       (((complexEuclideanDiracBlock mass scale).comp (complexObservableBlock a b)) -
         ((complexObservableBlock a b).comp (complexEuclideanDiracBlock mass scale))) v := rfl
-  exact (sub_eq_iff_eq_add.mp h)
+  exact (sub_eq_iff_eq_add.mp h).trans (add_comm _ _)
 
+set_option maxHeartbeats 2000000 in
 /-- A bounded observable satisfying the edge-quotient estimate maps
 the maximal unbounded Dirac domain into itself. -/
 theorem complexPairObservable_preserves_maximalDiracDomain
@@ -133,6 +134,11 @@ theorem complexPairObservable_unbounded_commutator
   apply lp.ext
   funext j
   simp only [lp.coeFn_sub, Pi.sub_apply]
+  change complexEuclideanDiracBlock (mass j) (scale j)
+      ((complexPairObservableCLM left right M hM hBound ψ) j) -
+    (complexPairObservableCLM left right M hM hBound
+      ((maximalComplexDiracPMap mass scale) ⟨ψ,hψ⟩)) j =
+    (complexPairCommutatorCLM mass scale left right L hL hEdge ψ) j
   rw [complexPairObservableCLM_apply,
     complexPairObservableCLM_apply,
     complexPairCommutatorCLM_apply]
