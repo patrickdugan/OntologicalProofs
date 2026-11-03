@@ -22,7 +22,7 @@ theorem subsingleton_of_model_T (M : Type*) [L.Structure M]
     [Nonempty M] [M ⊨ T] : Subsingleton M := by
   have haxiom : M ⊨ (FirstOrder.Language.Sentence.cardGe L 2).not := by
     exact FirstOrder.Language.Theory.realize_sentence_of_mem T (by simp [T])
-  have hsmall : ¬ (2 : Cardinal) ≤ #M := by
+  have hsmall : ¬ (2 : Cardinal) ≤ Cardinal.mk M := by
     simpa [FirstOrder.Language.Sentence.realize_not,
       FirstOrder.Language.Sentence.realize_cardGe] using haxiom
   constructor
@@ -47,16 +47,16 @@ theorem modelBits_iff (M : Type*) [L.Structure M] (n : ℕ) :
 /-- The original model's nullary sentences have these truth values. -/
 theorem modelBits_atom (M : Type*) [L.Structure M] (n : ℕ) :
     (M ⊨ atom n) ↔ modelBits M n = true := by
-  rw [modelBits_iff]
-  change _ ↔ _
-  simp [atom, FirstOrder.Language.Relations.formula,
-    FirstOrder.Language.Relations.boundedFormula]
+  change (@RelMap L M _ 0 (predSym n)
+      (fun i : Fin 0 => Fin.elim0 i)) ↔ modelBits M n = true
+  exact (modelBits_iff M n).symm
 
 /-- A nonempty subsingleton structure is isomorphic to its Boolean singleton model. -/
 noncomputable def modelIsoUnit (M : Type*) [L.Structure M]
-    [Nonempty M] [Subsingleton M] : M ≃[L] Unit := by
+    [Nonempty M] [Subsingleton M] :
+    @FirstOrder.Language.Equiv L M Unit inferInstance (unitStructure (modelBits M)) := by
   classical
-  letI : Inhabited M := Classical.inhabited_of_nonempty' inferInstance
+  letI : Inhabited M := Classical.inhabited_of_nonempty'
   letI : Unique M := Unique.mk' M
   letI : L.Structure Unit := unitStructure (modelBits M)
   refine { Equiv.ofUnique M Unit with
