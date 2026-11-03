@@ -103,10 +103,11 @@ theorem denseMarkedConnesDistance_witness
   · intro a ha hedge
     exact ((denseMarkedEdgeUnitBound_iff_lipschitz
       q hq left right hdistinct hcover a ha).mp hedge) x y
-  · refine ⟨fun z => dist z y, continuous_dist_right y, ?_, ?_⟩
+  · have hcont : Continuous (fun z : X => dist z y) := by fun_prop
+    refine ⟨fun z => dist z y, hcont, ?_, ?_⟩
     · apply (denseMarkedEdgeUnitBound_iff_lipschitz
         q hq left right hdistinct hcover
-        (fun z => dist z y) (continuous_dist_right y)).mpr
+        (fun z => dist z y) hcont).mpr
       intro p r
       exact abs_dist_sub_le p r y
     · simp only [dist_self, sub_zero, abs_of_nonneg dist_nonneg]
