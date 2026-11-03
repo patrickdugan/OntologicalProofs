@@ -1,5 +1,5 @@
 import Neoplatonic.LTR.NullaryCompleteness
-import Neoplatonic.LTR.HaltingGeometry
+import Neoplatonic.LTR.RealBounds
 
 /-!
 # A halting-hard geometric property of first-order theory endomorphisms
