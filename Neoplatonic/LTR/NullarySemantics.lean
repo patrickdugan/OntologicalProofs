@@ -22,7 +22,13 @@ theorem rename_reduct (σ : ℕ → ℕ) (bits : ℕ → Bool) :
     (letI : L.Structure Unit := unitStructure bits
      (rename σ).reduct Unit) = unitStructure (bits ∘ σ) := by
   letI : L.Structure Unit := unitStructure bits
-  rfl
+  apply FirstOrder.Language.Structure.ext
+  · intro n f xs
+    exact isEmptyElim f
+  · intro n r xs
+    cases n with
+    | zero => rfl
+    | succ n => exact isEmptyElim r
 
 /-- Full first-order sentence semantics, independent of the formula's
 quantifier structure. -/
@@ -40,7 +46,8 @@ theorem rename_realizes_sentence (σ : ℕ → ℕ)
       ((rename σ).reduct Unit) (unitStructure bits)
       (rename σ)
       (FirstOrder.Language.LHom.isExpansionOn_reduct (rename σ) Unit) φ
-  simpa only [rename_reduct σ bits] using h
+  rw [rename_reduct σ bits] at h
+  exact h
 
 /-- A halting-index syntactic substitution realizes exactly the full
 first-order theory of the transformed Cantor stream. -/
@@ -54,7 +61,11 @@ theorem haltingRename_realizes_sentence
       acceleratedStream (stagedHalting e) bits := by
     funext n
     exact haltingIndex_stream e bits n
-  simpa only [haltingRename, hb] using
-    (rename_realizes_sentence (haltingIndex e) bits φ)
+  change @FirstOrder.Language.Sentence.Realize L Unit (unitStructure bits)
+      ((rename (haltingIndex e)).onSentence φ) ↔
+    @FirstOrder.Language.Sentence.Realize L Unit
+      (unitStructure (acceleratedStream (stagedHalting e) bits)) φ
+  rw [← hb]
+  exact rename_realizes_sentence (haltingIndex e) bits φ
 
 end Neoplatonic.LTR.Nullary
