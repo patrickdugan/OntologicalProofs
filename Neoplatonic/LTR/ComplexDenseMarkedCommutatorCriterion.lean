@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.ComplexDenseMarkedMetric
+import Neoplatonic.LTR.ComplexObservableSeminorm
 
 /-!
 # Exact complex commutator norm criterion for dense marked metrics
