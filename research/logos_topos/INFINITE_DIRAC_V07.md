@@ -94,15 +94,30 @@ unbounded maximal-domain D needs the domain theorem from section 1.
 The finite-support core is now proved dense in the real Hilbert direct
 sum (H_R=ell^2(mathbb N,mathbb R^2)) by
 `DiracBlockCoreDense.lean`, CI run 41580234858.
-The file `UnboundedDiracPMap.lean` additionally defines genuine
-Euclidean two-point matrix blocks and proposes the maximal domain
+The file `UnboundedDiracPMap.lean` defines genuine
+Euclidean two-point matrix blocks and proves that the maximal domain
 
     Dom(D) = {ψ in H_R : (D_j ψ_j)_j is square-summable}
 
-as a real submodule of (H_R), with the associated
+is a real submodule of (H_R), with the associated
 `LinearPMap` (mathlib's partially defined linear operator type).
-The CI build of that new module is the verification authority; its
-closedness and self-adjointness still require separate theorems.
+This construction passed the kernel and axiom audit in run 41580912364.
+
+`UnboundedDiracDense.lean` proves the *maximal* domain is dense, by
+putting all finite-block truncations in the domain and using the
+Hilbert-space approximation theorem.
+
+`UnboundedDiracClosed.lean` identifies the graph with the closed
+intersection of coordinate equalizers
+({(psi,eta):eta_j=D_jpsi_j}), using continuity of the
+block evaluations. Thus the maximal-domain operator is closed.
+Both the domain-density and closed-graph theorems passed the Lean
+kernel and axiom audit in run 41581509443.
+
+The self-adjointness criterion still requires equality between
+the operator and its maximal adjoint. `EuclideanDiracAdjoint.lean`
+and `InfiniteDiracSymmetry.lean` are the current formal symmetry
+targets; inspect CI before citing them as verified.
 
 ## 3. Compact resolvent and spectral summability
 
@@ -185,9 +200,12 @@ unmarked Dirac spectrum do not recover the complete syntax.
 | Finite-rank Hilbert block maps compact | Lean |
 | Exact cutoff identity and compact squared resolvent | Lean; CI runs 41580149320, 41580342867 |
 | Finite-support block-core dense in actual ℓ² Hilbert space | Lean, CI run 41580234858 |
-| Maximal-domain unbounded LinearPMap on actual Hilbert space | Submitted in UnboundedDiracPMap.lean, check CI |
+| Maximal-domain unbounded LinearPMap on actual Hilbert space | Lean, CI run 41580912364 |
+| Dense maximal domain and closed graph | Lean, CI run 41581509443 |
+| Formal symmetry on maximal domain | Submitted in InfiniteDiracSymmetry, check CI |
 | Identification of R as (I+D²)⁻¹ on maximal domain | Written argument |
-| D closed and self-adjoint | Written argument |
+| D closed | Lean, CI run 41581509443 |
+| D self-adjoint, adjoint-domain equality | Written argument |
 | Compact ordinary resolvent (D-i)^(-1) | Written argument |
 | Bounded commutators and Connes distance recovery | Written analytic proof, finite Lean algebra |
 
