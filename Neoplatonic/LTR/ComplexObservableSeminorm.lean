@@ -18,6 +18,7 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
+set_option maxHeartbeats 1000000 in
 /-- The norm of a coordinatewise bounded operator on a complex
 ℓ² direct sum dominates the operator norm on each coordinate.
 Use the norm-one evaluation and insertion maps to avoid large
@@ -48,9 +49,14 @@ theorem complexHilbertBlock_norm_le_operator
   have hSingle : ‖S‖ ≤ 1 := by
     apply ContinuousLinearMap.opNorm_le_bound S (by norm_num)
     intro v
-    change ‖lp.single 2 j v‖ ≤ 1 * ‖v‖
-    rw [lp.norm_single (by norm_num : 0 < (2 : ENNReal))]
-    simp
+    calc
+      ‖S v‖ = ‖lp.single 2 j v‖ := by
+        rw [show S v = lp.single 2 j v from
+          lp.singleContinuousLinearMap_apply
+            (𝕜 := ℂ) (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
+            (p := 2) j v]
+      _ = ‖v‖ := lp.norm_single (by norm_num : 0 < (2 : ENNReal)) j v
+      _ ≤ 1 * ‖v‖ := by simp
   calc
     ‖T j‖ = ‖E.comp (F.comp S)‖ := congrArg norm hcomp
     _ ≤ ‖E‖ * ‖F.comp S‖ := ContinuousLinearMap.opNorm_comp_le _ _
