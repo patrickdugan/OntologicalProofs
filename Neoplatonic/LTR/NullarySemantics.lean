@@ -23,9 +23,9 @@ theorem rename_reduct (σ : ℕ → ℕ) (bits : ℕ → Bool) :
      (rename σ).reduct Unit) = unitStructure (bits ∘ σ) := by
   letI : L.Structure Unit := unitStructure bits
   apply FirstOrder.Language.Structure.ext
-  · intro n f xs
+  · funext n f xs
     exact isEmptyElim f
-  · intro n r xs
+  · funext n r xs
     cases n with
     | zero => rfl
     | succ n => exact isEmptyElim r
