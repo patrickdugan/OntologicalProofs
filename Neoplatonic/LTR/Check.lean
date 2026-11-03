@@ -8,6 +8,7 @@ import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
+import Neoplatonic.LTR.LogicalPullback
 
 open Neoplatonic.LTR
 
@@ -178,3 +179,5 @@ open Neoplatonic.LTR
 #print axioms nullary_atomic_projection_eq_bitObservable
 #print axioms nullary_atomic_projection_lipschitz
 #print axioms nullary_atomic_projection_lipschitz_sharp
+
+#print axioms logicalProjection_syntax_pullback
