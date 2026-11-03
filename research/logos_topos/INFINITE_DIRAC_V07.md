@@ -79,9 +79,10 @@ whence
 
 By mathlib's norm-closed compact-operator theorem,
 R is compact. The module InfiniteSquaredResolventCompact.lean is
-the single authoritative Lean proof of this final statement. Check its
-CI result for kernel verification; until passing, record this as a
-written derivation supported by the individually checked components.
+the single authoritative kernel-checked proof of this theorem.
+The full audit passed in GitHub Actions run 41580149320, and a
+later combined audit with the finite-block Hilbert density theorem
+passed in run 41580342867.
 
 The statement proved concerns an *actual bounded compact candidate* for
 (I+D²)^(-1) on the real Hilbert sum. Identifying it as the inverse of an
@@ -162,11 +163,11 @@ unmarked Dirac spectrum do not recover the complete syntax.
 |---|---|
 | Finite block algebra, square, symmetry | Lean |
 | Linear algebraic Dirac operator on Finsupp core | Lean |
-| Finite-coordinate density in ℓ² | Lean |
+| Finite-coordinate density in ℓ² and two-component block core | Lean; CI run 41580342867 |
 | Scalar Hilbert block-diagonal maps | Lean |
 | Geometric squared-resolvent scalar tail | Lean |
 | Finite-rank Hilbert block maps compact | Lean |
-| Exact cutoff identity and compact squared resolvent | Check CI of InfiniteSquaredResolventCompact |
+| Exact cutoff identity and compact squared resolvent | Lean; CI runs 41580149320, 41580342867 |
 | Densely defined maximal-domain unbounded operator | Written argument |
 | D closed and self-adjoint | Written argument |
 | Compact ordinary resolvent (D-i)^(-1) | Written argument |
