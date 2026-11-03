@@ -38,10 +38,12 @@ noncomputable def complexEdgeRotationCLM :
 theorem complexEdgeRotationCLM_star_mul_self :
     star complexEdgeRotationCLM * complexEdgeRotationCLM =
       (1 : EuclideanSpace ℂ (Fin 2) →L[ℂ] EuclideanSpace ℂ (Fin 2)) := by
-  change (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ))
-    (star complexEdgeRotationMatrix * complexEdgeRotationMatrix) = _
-  rw [complexEdgeRotationMatrix_star_mul_self]
-  exact map_one _
+  have h := congrArg
+    (fun A : Matrix (Fin 2) (Fin 2) ℂ =>
+      (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ)) A)
+    complexEdgeRotationMatrix_star_mul_self
+  simpa [complexEdgeRotationCLM, map_mul, map_star,
+    ContinuousLinearMap.mul_def] using h
 
 /-- The fixed complex Euclidean edge rotation has exact norm one. -/
 theorem complexEdgeRotationCLM_norm_eq_one :
@@ -79,6 +81,7 @@ theorem complexObservableBlock_commutator_norm
       |scale * (b - a)| := by
   rw [complexObservableBlock_commutator_eq_smul_rotation,
     norm_smul, complexEdgeRotationCLM_norm_eq_one, mul_one]
-  simp
+  exact (Complex.norm_real (scale * (b - a))).trans
+    (Real.norm_eq_abs _)
 
 end Neoplatonic.LTR
