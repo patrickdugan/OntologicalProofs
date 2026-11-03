@@ -18,7 +18,7 @@ import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
 import Neoplatonic.LTR.ComplexDenseMarkedMetric
-import Neoplatonic.LTR.ComplexObservableFaithful
+import Neoplatonic.LTR.ComplexDenseObservableFaithful
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -388,3 +388,5 @@ open Neoplatonic.LTR
 #print axioms complexDiagonalObservable_eq_zero_iff
 #print axioms complexObservableBlock_eq_zero_iff
 #print axioms complexPairObservableCLM_eq_zero_values
+#print axioms continuous_real_eq_zero_of_dense_sequence
+#print axioms complexDenseObservable_faithful
