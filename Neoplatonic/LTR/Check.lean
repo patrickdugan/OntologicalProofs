@@ -138,3 +138,8 @@ open Neoplatonic.LTR
 #print axioms Nullary.decode_bijective
 #print axioms Nullary.cantorHomeomorph_apply
 #print axioms Nullary.cantorHomeomorph_symm_apply
+
+#print axioms Nullary.decode_coordinate_clopen
+#print axioms Nullary.decode_coordinate_continuous
+#print axioms Nullary.decode_continuous
+#print axioms Nullary.decode_bijective
