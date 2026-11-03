@@ -3,6 +3,7 @@ import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
 import Neoplatonic.LTR.ObservableHalting
+import Neoplatonic.LTR.Nullary
 
 open Neoplatonic.LTR
 
@@ -99,3 +100,8 @@ open Neoplatonic.LTR
 
 #print axioms realMetricBound_iff_observableBound
 #print axioms finite_observable_pullback_undecidable
+
+#print axioms Nullary.finite_axioms
+#print axioms Nullary.unit_realizes_atom
+#print axioms Nullary.unit_models_T
+#print axioms Nullary.rename_atom
