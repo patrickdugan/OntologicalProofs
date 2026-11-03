@@ -53,10 +53,14 @@ noncomputable def expandedModelIsoUnit (M : Type*)
     | inl r =>
         cases n with
         | zero =>
-            change modelBits M r = true ↔
-              @RelMap L M _ 0 r xs
-            rw [modelBits_iff]
-            rfl
+            change ℕ at r
+            change (modelBits M r = true) ↔
+              @RelMap L M _ 0 (predSym r) xs
+            rw [modelBits_iff M r]
+            have hxs : (fun i : Fin 0 => (Fin.elim0 i : M)) = xs := by
+              funext i
+              exact Fin.elim0 i
+            rw [hxs]
         | succ n => exact nomatch r
     | inr r => exact nomatch r
 
