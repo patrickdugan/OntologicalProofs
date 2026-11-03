@@ -1,4 +1,4 @@
-import Neoplatonic.LTR.ComplexMarkedCommutatorCriterion
+import Neoplatonic.LTR.ComplexMarkedMetric
 import Mathlib.Topology.Constructions.SumProd
 
 /-!
