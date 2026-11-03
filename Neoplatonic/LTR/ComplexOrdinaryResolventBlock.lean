@@ -42,18 +42,23 @@ theorem complexOrdinaryResolventBlock_right_inverse
       D (w • v) + Complex.I • (w • v) :=
     complexOrdinaryResolventBlock_apply scale j v
   have hI : Complex.I * Complex.I = (-1 : ℂ) := Complex.I_mul_I
+  have hiw : Complex.I * (Complex.I * w) = -w := by
+    rw [← mul_assoc, hI]
+    simp
+  have hblock : D (D (w • v)) + w • v = v := by
+    simpa only [add_comm] using
+      complexSquaredResolventWeight_block_inverse scale j v
   calc
     D (complexOrdinaryResolventBlock scale j v) -
         Complex.I • (complexOrdinaryResolventBlock scale j v) =
       D (D (w • v) + Complex.I • (w • v)) -
         Complex.I • (D (w • v) + Complex.I • (w • v)) := by rw [hq]
-    _ = D (D (w • v)) + (w • v) := by
-      rw [map_add, map_smul, smul_add, smul_smul, hI]
+    _ = D (D (w • v)) + w • v := by
+      simp only [map_add, map_smul, smul_add, smul_smul]
+      rw [hiw]
       simp only [neg_smul]
       abel
-    _ = v := by
-      simpa only [add_comm] using
-        complexSquaredResolventWeight_block_inverse scale j v
+    _ = v := hblock
 
 /-- The ordinary resolvent is also a left inverse of D_j - iI. -/
 theorem complexOrdinaryResolventBlock_left_inverse
@@ -64,15 +69,24 @@ theorem complexOrdinaryResolventBlock_left_inverse
   let D := complexEuclideanDiracBlock ((2 : ℝ) ^ j) (scale j)
   let w : ℂ := ((chosenSquaredResolventWeight scale j : ℝ) : ℂ)
   have hI : Complex.I * Complex.I = (-1 : ℂ) := Complex.I_mul_I
+  have hiw : Complex.I * (Complex.I * w) = -w := by
+    rw [← mul_assoc, hI]
+    simp
+  have hblock : w • D (D v) + w • v = v := by
+    have h := complexSquaredResolventWeight_block_inverse scale j v
+    rw [map_smul, map_smul] at h
+    simpa only [add_comm] using h
   rw [complexOrdinaryResolventBlock_apply]
   change D (w • (D v - Complex.I • v)) +
     Complex.I • (w • (D v - Complex.I • v)) = v
-  rw [smul_sub, smul_smul, map_sub, map_smul, map_smul,
-    smul_sub, smul_smul, smul_smul]
-  have hcomm : w * Complex.I = Complex.I * w := mul_comm _ _
-  rw [hcomm, mul_assoc, hI]
-  simp only [neg_smul]
-  have hblock := complexSquaredResolventWeight_block_inverse scale j v
-  simpa [w, D, smul_smul, add_comm, add_left_comm, add_assoc, sub_eq_add_neg] using hblock
+  calc
+    D (w • (D v - Complex.I • v)) +
+        Complex.I • (w • (D v - Complex.I • v)) =
+      w • D (D v) + w • v := by
+        simp only [smul_sub, map_sub, map_smul, smul_smul]
+        rw [mul_comm w Complex.I, hiw]
+        simp only [neg_smul]
+        abel
+    _ = v := hblock
 
 end Neoplatonic.LTR
