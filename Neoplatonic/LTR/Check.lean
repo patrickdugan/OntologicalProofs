@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.ComplexObservableSeminorm
+import Neoplatonic.LTR.ComplexMarkedMetric
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -376,3 +376,7 @@ open Neoplatonic.LTR
 #print axioms complexPairCommutator_edge_le_norm
 #print axioms complexPairCommutatorCLM_eq_of_bounds
 #print axioms complexPairCommutator_norm_le_iff
+#print axioms markedEdgeInvDist_norm
+#print axioms markedEdgeBound_iff
+#print axioms markedEdgeUnitBound_iff_lipschitz
+#print axioms markedEdgeConnesDistance_witness
