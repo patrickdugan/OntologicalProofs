@@ -1,10 +1,12 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.10 (November 3, 2026)
+## Current proof status: LTR v0.11 (November 3, 2026)
 
-The infinite complex Hilbert-space Dirac operator is now kernel-verified as densely defined, closed, and self-adjoint, with a compact ordinary resolvent at \(i\). See [LTR v0.10: the complete complex compact-resolvent proof ledger](INFINITE_DIRAC_V10.md) and [successful full Lean kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41599306612). The exact norm bound on the first-\(N\)-block ordinary-resolvent cutoff is \(\|Q-Q_N\|\le 2^{1-N}\).
+The infinite complex Dirac on \(\ell^2(\mathbb N,\mathbb C^2)\) is kernel-verified as densely defined, closed, self-adjoint, and possessing a compact ordinary resolvent. See [v0.10 operator-theory ledger](INFINITE_DIRAC_V10.md).
 
-The remaining spectral-triple steps are a faithful marked function-algebra representation, infinite bounded commutators, and exact Connes-distance recovery. The older v0.1 sections below record the initial logical reconstruction stage and retain their historical proof boundaries.
+LTR v0.11 adds the bounded complex Hilbert representation of real marked two-point observables, domain invariance and a bounded infinite commutator under a uniform edge-gradient cap. The represented continuous real observables are faithful when the marking contains a countable dense sequence. Separately, the dense-marked gradient condition is proved equivalent to global Lipschitz continuity, and the distance-to-target function attains the numerical dual-metric witness. See the [v0.11 ledger](INFINITE_DIRAC_V11.md) and [successful full Lean kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41607111079).
+
+The *optimal* global Hilbert commutator norm lower bound and hence complete Connes-distance recovery by the operator norm are staged and remain unverified. A bundled complex C(X) representation, its Lipschitz algebra, and the particular marked logical Stone-space instance are further obligations. The historical v0.1 sections below retain the original logical-reconstruction scope.
 
 ## Mathematical objective
 
