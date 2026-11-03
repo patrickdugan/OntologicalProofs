@@ -464,6 +464,7 @@ open Neoplatonic.LTR
 #print axioms compactComplexLipschitz_separatesPoints
 #print axioms compactComplexLipschitz_dense
 #print axioms compactComplexLipschitz_has_commutator_bound
+#print axioms compactComplexMarkedSpectralTriple
 #print axioms compactComplexMarkedSpectralTriple_metric_recovery
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
