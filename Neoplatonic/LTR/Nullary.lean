@@ -91,5 +91,8 @@ theorem rename_atom (σ : ℕ → ℕ) (n : ℕ) :
     FirstOrder.Language.Relations.boundedFormula,
     FirstOrder.Language.LHom.onSentence, FirstOrder.Language.LHom.onFormula,
     FirstOrder.Language.LHom.onBoundedFormula, L, relations]
+  congr 1
+  funext i
+  exact Fin.elim0 i
 
 end Neoplatonic.LTR.Nullary
