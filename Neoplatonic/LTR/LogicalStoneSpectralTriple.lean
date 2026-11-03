@@ -51,12 +51,16 @@ noncomputable def chosenLogicalStoneSpectralTriple
     letI : MetricSpace (T.CompleteType α) :=
       chosenLogicalStoneMetric (T := T) (α := α)
     letI : TopologicalSpace (T.CompleteType α) :=
-      TopologicalSpace.generateFrom (Set.range (T.typesWith (α := α)))
+      CompleteType.instTopologicalSpace
+    letI : CompactSpace (T.CompleteType α) :=
+      CompleteType.instCompactSpace
     CompactComplexSpectralTriple (T.CompleteType α) := by
   letI : MetricSpace (T.CompleteType α) :=
     chosenLogicalStoneMetric (T := T) (α := α)
   letI : TopologicalSpace (T.CompleteType α) :=
-    TopologicalSpace.generateFrom (Set.range (T.typesWith (α := α)))
+    CompleteType.instTopologicalSpace
+  letI : CompactSpace (T.CompleteType α) :=
+    CompleteType.instCompactSpace
   letI : SecondCountableTopology (T.CompleteType α) :=
     logicalCompleteType_secondCountable (T := T) (α := α)
   letI : Nonempty (T.CompleteType α) :=
