@@ -1,25 +1,28 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.21 (November 3, 2026)
+## Current proof status: LTR v0.23 (November 3, 2026)
 
-The program now has a kernel-verified compact complex spectral triple built
-on Mathlib's genuine first-order Stone completion space for a satisfiable
-countable-language theory with an independent sentence. A classically
-chosen compatible metric and dense sequence of completed theories are
-connected to the explicit all-dense-pairs marking. The complex Lipschitz
-star subalgebra is dense, the representation faithful, the Dirac densely
-defined and self-adjoint, the ordinary resolvent compact, and the bounded
-commutators verified. Exact Connes-style recovery holds for the chosen metric.
+The kernel-verified compact complex spectral triple is now instantiated on
+Mathlib's genuine first-order Stone completion space, under countability,
+satisfiability, and independence hypotheses. The chosen metric is compatible
+with the Stone topology, and an explicit dense-pair marking recovers it from
+the infinite-dimensional Dirac commutator norm.
+
+Every named sentence truth projection is now proved Lipschitz for that
+chosen compact Stone metric. Its image under the faithful Hilbert
+representation is a self-adjoint idempotent bounded operator, with a
+bounded Dirac commutator on the maximal Dirac domain. The norm of the
+represented refutation projection vanishes exactly when the sentence
+is semantically entailed by the theory.
 
 The scalar spectral-energy series converges for every positive real
-exponent, uniformly in the coupling sequence. A global operator trace
-proof remains to formalize before asserting Schatten p-summability.
+exponent. A global Hilbert trace proof remains open, as do effective
+metric selection from sentence codes and interpretation-compatible
+Dirac morphisms.
 
-See [LTR v0.21 proof ledger](INFINITE_DIRAC_V21.md) and the
-[successful logical Stone spectral triple audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41662893418).
-Further tasks concern effective metrics from sentence codes, interpretation
-compatibility, global trace and dimension spectrum, and logical-label
-reconstruction.
+See [LTR v0.23 operator proof ledger](INFINITE_DIRAC_V23.md),
+[successful v0.23 kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41665335747),
+and the preceding [v0.21 spectral-triple ledger](INFINITE_DIRAC_V21.md).
 
 ## Mathematical objective
 
