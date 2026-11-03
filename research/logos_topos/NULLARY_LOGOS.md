@@ -106,12 +106,14 @@ construction is a written analytic proof.
 
 ## Completion-space status
 
-`Nullary.encode` already maps every Boolean stream into an actual
-first-order complete type. `NullaryTypes.lean` is the next layer:
-recovering bits by membership of lifted atomic sentences, proving
-\(\mathrm{decode}\circ\mathrm{encode}=\mathrm{id}\), and establishing
-injectivity. Consult the GitHub Actions status to distinguish the
-submitted module from kernel-checked claims.
+`Nullary.encode` maps every Boolean stream into an actual first-order
+complete type. `NullaryTypes.lean` now kernel-checks the membership
+correspondence with lifted atomic sentences, the round-trip
+\(\mathrm{decode}\circ\mathrm{encode}=\mathrm{id}\), and injectivity.
+The complete-type injection passed GitHub Actions run 41559495766.
+`NullarySemantics.lean` separately attempts to prove the all-sentence
+semantic action using reducts; check its CI status before treating that
+additional theorem as verified.
 
 A complete homeomorphism with Cantor space would also require
 surjectivity and continuity of the coordinate correspondence.
@@ -136,7 +138,8 @@ from the normalization theorem.
 | Actual `LHom` maps atoms by arbitrary index reassignments | Lean |
 | Halting-index endomorphisms reproduce the Cantor map on atoms | Lean |
 | Halting-hardness of finite Lipschitz bounds | Lean, Mathlib halting theorem |
-| Bit recovery from `CompleteType` | Submitted in NullaryTypes; verify CI |
+| Bit recovery from `CompleteType`, injectivity | Lean, CI run 41559495766 |
+| Full-sentence semantics via language reduct | Submitted in NullarySemantics; verify CI |
 | Full complete-type Cantor homeomorphism | Written route, Lean open |
 | Infinite-dimensional spectral operator analysis | Written proof, Lean open |
 
