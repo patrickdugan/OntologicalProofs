@@ -13,6 +13,7 @@ import Neoplatonic.LTR.NetworkSpectral
 import Neoplatonic.LTR.ComplexConservativeSpectral
 import Neoplatonic.LTR.InfiniteDiracCore
 import Neoplatonic.LTR.InfiniteResolvent
+import Neoplatonic.LTR.InfiniteDiracLinear
 
 open Neoplatonic.LTR
 
@@ -216,3 +217,6 @@ open Neoplatonic.LTR
 #print axioms squaredResolventTail_tendsto
 #print axioms block_squaredResolvent_le_tail
 #print axioms compact_of_squaredResolvent_tail
+
+#print axioms coreDiracLinear_square_apply
+#print axioms coreDiracLinear_symmetric_finset
