@@ -85,8 +85,8 @@ only true bit at coordinate n. Therefore
 
 AtomicSeminorm.lean proves the Boolean-stream bound and sharp witness.
 AtomicTheorySeminorm.lean transfers them to actual complete types.
-Their combined kernel-check status is recorded separately in CI and
-must be verified before citing the latter as a Lean theorem.
+All three sharpness and transfer theorems passed the Lean kernel audit in
+GitHub Actions run 41571751459.
 
 For an infinite Dirac representation with commutator seminorm equal
 to the Lipschitz seminorm, the atomic grading becomes
@@ -129,13 +129,43 @@ specializes it to truth projections of genuine first-order theories.
 The finite-extension hypothesis in Network.lean supplies surjectivity
 for certain compatible global diagrams; those network instances must
 also show continuous projection and compact global realization.
-Check the CI run of ConservativeSpectral.lean before describing its
-theorems as kernel-verified.
+Both the general continuous-surjection norm theorem and its logical
+projection specialization passed the Lean kernel audit in run
+41572259359. NetworkSpectral.lean additionally constructs the compact
+compatible-state subspace explicitly and proves that finite-extension
+compatibility gives an isometric observable pullback. Its proof passed
+run 41572903341.
 
 The norm result needs surjectivity. An injective or nonsurjective
 map may discard entire truth regions and change the norm of a
 projection. Quantitative Lipschitz or Dirac bounds need additional
 filtration-delay hypotheses, already isolated in LTR-03.
+
+## Complex C*-projections and conservative spectral gluing
+
+ComplexLogicalSpectral.lean now constructs the genuine complex-valued
+function p_phi in the commutative C*-algebra C(X_T,C) on the actual
+Stone completion space of any first-order theory. Its checked results
+include
+
+    p_phi * p_phi = p_phi
+    star(p_phi) = p_phi
+    norm_C(p_phi) = norm_R(p_phi)
+    T entails phi  iff  norm_C(p_not_phi) = 0.
+
+These passed the Lean kernel and axiom-dependency audit in run
+41572990397. They put the earlier real characteristic functions in
+the conventional complex C*-algebra setting.
+
+ComplexConservativeSpectral.lean additionally builds on the
+network theorem to formulate an exact complex norm-preservation
+claim for compatible global state spaces:
+
+    norm_C(p_phi composed with pi) = norm_C(p_phi),
+
+where pi is the surjective continuous projection provided by
+finite-extension compatibility. Check its separate CI run before
+treating this additional last theorem as kernel-checked.
 
 ## Established precedents and research frontier
 
