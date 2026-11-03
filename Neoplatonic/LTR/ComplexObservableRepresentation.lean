@@ -52,17 +52,24 @@ theorem complexObservableBlock_mul
     (fun A : Matrix (Fin 2) (Fin 2) ℂ =>
       (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ)) A)
     (complexDiagonalObservable_mul a b c d)
-  simpa [complexObservableBlock, map_mul, ContinuousLinearMap.mul_def] using h
+  change ((Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ))
+      (complexDiagonalObservable a b)).comp
+    ((Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ))
+      (complexDiagonalObservable c d)) =
+    (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ))
+      (complexDiagonalObservable (a*c) (b*d))
+  rw [← ContinuousLinearMap.mul_def]
+  simpa only [map_mul] using h
 
 /-- The pairwise constant-one observable is the identity endomorphism. -/
 theorem complexObservableBlock_one :
     complexObservableBlock 1 1 =
       ContinuousLinearMap.id ℂ (EuclideanSpace ℂ (Fin 2)) := by
-  have h := congrArg
-    (fun A : Matrix (Fin 2) (Fin 2) ℂ =>
-      (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ)) A)
-    complexDiagonalObservable_one
-  simpa [complexObservableBlock] using h
+  change (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ))
+    (complexDiagonalObservable 1 1) =
+      ContinuousLinearMap.id ℂ (EuclideanSpace ℂ (Fin 2))
+  rw [complexDiagonalObservable_one]
+  exact map_one _
 
 /-- A bounded pairwise real observable on the infinite Hilbert space. -/
 noncomputable def complexPairObservableCLM
