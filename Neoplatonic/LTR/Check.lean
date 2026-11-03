@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.ComplexDiracSelfAdjoint
+import Neoplatonic.LTR.ComplexSquaredResolventCompact
 
 open Neoplatonic.LTR
 
@@ -303,3 +303,14 @@ open Neoplatonic.LTR
 #print axioms maximalComplexDiracPMap_adjoint_apply_coord
 #print axioms maximalComplexDiracPMap_adjoint_domain_le
 #print axioms maximalComplexDiracPMap_isSelfAdjoint
+#print axioms complexScalarBlockCLM_norm_le
+#print axioms complexBoundedBlockDiagonal_norm_le
+#print axioms complexBoundedBlockDiagonal_apply
+#print axioms chosenComplexSquaredResolventCLM_apply
+#print axioms chosenComplexSquaredResolventTailCLM_norm_le
+#print axioms complexSingleSquaredResolventBlock_compact
+#print axioms finiteComplexSquaredResolvent_compact
+#print axioms finiteComplexSquaredResolvent_apply
+#print axioms finiteComplexSquaredResolvent_eq_cutoff
+#print axioms complexSquaredResolvent_finite_norm_bound
+#print axioms chosenComplexSquaredResolvent_isCompact
