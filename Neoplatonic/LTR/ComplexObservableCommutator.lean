@@ -112,8 +112,12 @@ theorem complexPairObservable_preserves_maximalDiracDomain
       complexPairCommutatorCLM_apply]
     exact complexDirac_observable_block_action
       (mass j) (scale j) (left j) (right j) (ψ j)
+  have hmem : Memℓp
+      (((π (D ⟨ψ, hψ⟩)) + C ψ) :
+        ℕ → EuclideanSpace ℂ (Fin 2)) 2 :=
+    lp.memℓp (π (D ⟨ψ, hψ⟩) + C ψ)
   rw [hcoords]
-  exact lp.memℓp _
+  exact hmem
 
 /-- The domain commutator of the actual unbounded Dirac and the
 bounded pairwise representation equals the bounded Hilbert map C. -/
