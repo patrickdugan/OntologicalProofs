@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.InfiniteDiracSelfAdjoint
+import Neoplatonic.LTR.EuclideanDiracSquaredResolvent
 
 open Neoplatonic.LTR
 
@@ -273,3 +273,6 @@ open Neoplatonic.LTR
 #print axioms maximalDiracPMap_adjoint_apply_coord
 #print axioms maximalDiracPMap_adjoint_domain_le
 #print axioms maximalDiracPMap_isSelfAdjoint
+#print axioms euclideanDiracBlock_square
+#print axioms chosenSquaredResolventWeight_inverse
+#print axioms squaredResolventWeight_block_inverse
