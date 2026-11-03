@@ -81,7 +81,8 @@ theorem complexOrdinaryResolventBlock_D_norm_le
   let w : ℂ := ((chosenSquaredResolventWeight scale j : ℝ) : ℂ)
   have hformula : D (complexOrdinaryResolventBlock scale j v) =
       D (D (w • v)) + Complex.I • (D (w • v)) := by
-    rw [complexOrdinaryResolventBlock_apply, map_add, map_smul]
+    rw [complexOrdinaryResolventBlock_apply, map_add]
+    simp only [map_smul]
   rw [hformula]
   have hnormI :
       ‖Complex.I • (D (w • v))‖ = ‖D (w • v)‖ := by
