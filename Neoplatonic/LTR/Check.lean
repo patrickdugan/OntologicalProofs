@@ -6,6 +6,7 @@ import Neoplatonic.LTR.ObservableHalting
 import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
+import Neoplatonic.LTR.NullaryEndomorphisms
 
 open Neoplatonic.LTR
 
@@ -139,3 +140,9 @@ open Neoplatonic.LTR
 #print axioms Nullary.cantorHomeomorph_apply
 #print axioms Nullary.cantorHomeomorph_symm_apply
 
+
+#print axioms Nullary.decode_syntaxMap
+#print axioms Nullary.liftedSentence_mem_encode_iff
+#print axioms Nullary.syntaxMap_semantics
+#print axioms Nullary.complete_type_metric_iff_stream_metric
+#print axioms Nullary.complete_type_lipschitz_undecidable
