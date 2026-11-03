@@ -21,7 +21,8 @@ computable sentence enumeration and need not be algorithmic.
 
 namespace Neoplatonic.LTR
 
-open FirstOrder Set
+open FirstOrder Set TopologicalSpace
+open FirstOrder.Language.Theory
 
 universe u v w
 
@@ -30,7 +31,7 @@ variable {α : Type w}
 
 /-- The actual first-order complete-type Stone space is second countable
 when the underlying expanded sentence type is countable. -/
-theorem logicalCompleteType_secondCountable
+theorem logicalCompleteType_secondCountable (T := T) (α := α)
     [Countable (L.withConstants α).Sentence] :
     SecondCountableTopology (T.CompleteType α) := by
   have hB : IsTopologicalBasis
@@ -44,7 +45,7 @@ noncomputable def logicalCompleteType_denseSeq
     [Countable (L.withConstants α).Sentence]
     (hT : T.IsSatisfiable) : ℕ → T.CompleteType α := by
   letI : SecondCountableTopology (T.CompleteType α) :=
-    logicalCompleteType_secondCountable
+    logicalCompleteType_secondCountable (T := T) (α := α)
   letI : Nonempty (T.CompleteType α) :=
     (CompleteType.nonempty_iff).mpr hT
   exact TopologicalSpace.denseSeq _
@@ -53,9 +54,9 @@ noncomputable def logicalCompleteType_denseSeq
 theorem logicalCompleteType_denseSeq_dense
     [Countable (L.withConstants α).Sentence]
     (hT : T.IsSatisfiable) :
-    DenseRange (logicalCompleteType_denseSeq hT) := by
+    DenseRange (logicalCompleteType_denseSeq (T := T) (α := α) hT) := by
   letI : SecondCountableTopology (T.CompleteType α) :=
-    logicalCompleteType_secondCountable
+    logicalCompleteType_secondCountable (T := T) (α := α)
   letI : Nonempty (T.CompleteType α) :=
     (CompleteType.nonempty_iff).mpr hT
   exact TopologicalSpace.denseRange_denseSeq _
@@ -112,12 +113,12 @@ theorem logicalCompleteType_denseSeq_has_distinct
     (φ : (L.withConstants α).Sentence)
     (hi : Independent T φ) :
     ∃ a b : ℕ,
-      logicalCompleteType_denseSeq hT a ≠
-        logicalCompleteType_denseSeq hT b := by
+      logicalCompleteType_denseSeq (T := T) (α := α) hT a ≠
+        logicalCompleteType_denseSeq (T := T) (α := α) hT b := by
   obtain ⟨x,y,hxy⟩ := logicalCompleteType_two_distinct φ hi
   exact denseSequence_contains_distinct_values
-    (logicalCompleteType_denseSeq hT)
-    (logicalCompleteType_denseSeq_dense hT)
+    (logicalCompleteType_denseSeq (T := T) (α := α) hT)
+    (logicalCompleteType_denseSeq_dense (T := T) (α := α) hT)
     x y hxy
 
 end Neoplatonic.LTR
