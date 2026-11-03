@@ -7,7 +7,7 @@ import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
 import Neoplatonic.LTR.NullaryContinuity
-import Neoplatonic.LTR.EffectiveSpectral
+import Neoplatonic.LTR.AtomicSeminorm
 
 open Neoplatonic.LTR
 
@@ -170,3 +170,7 @@ open Neoplatonic.LTR
 #print axioms refutation_norm_one_iff_not_entails
 #print axioms refutation_norm_computable_iff_entailment
 #print axioms refutation_norm_undecidable_of_entailment
+
+#print axioms bitObservable_lipschitz_upper
+#print axioms firstDifference_singleTrueBit
+#print axioms bitObservable_lipschitz_sharp
