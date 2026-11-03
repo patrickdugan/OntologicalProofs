@@ -15,6 +15,7 @@ import Neoplatonic.LTR.InfiniteDiracCore
 import Neoplatonic.LTR.InfiniteResolvent
 import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
+import Neoplatonic.LTR.BoundedHilbertDiagonal
 
 open Neoplatonic.LTR
 
@@ -224,3 +225,6 @@ open Neoplatonic.LTR
 
 #print axioms finiteHilbertTruncation_apply_of_not_mem
 #print axioms finiteHilbertTruncation_approx
+
+#print axioms scalarBlockCLM_norm_le
+#print axioms boundedBlockDiagonal_norm_le
