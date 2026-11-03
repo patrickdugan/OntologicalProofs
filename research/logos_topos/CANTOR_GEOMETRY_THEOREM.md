@@ -1,11 +1,11 @@
 # Undecidable Lipschitz Regularity of Effective First-Order Theory Endomorphisms
 
 **LTR v0.5: a checked pure-mathematics result.**
-Source: \`Neoplatonic/LTR/Nullary*.lean\`, \`Acceleration.lean\`,
-\`HaltingGeometry.lean\`, \`RealBounds.lean\`, and
-\`Neoplatonic/LTR/Check.lean\`.
+Source: `Neoplatonic/LTR/Nullary*.lean`, `Acceleration.lean`,
+`HaltingGeometry.lean`, `RealBounds.lean`, and
+`Neoplatonic/LTR/Check.lean`.
 
-Last verified proof head: \`5cfc82d4aef96c3f8ec39e50be00111b8aa19074\`;
+Last verified proof head: `5cfc82d4aef96c3f8ec39e50be00111b8aa19074`;
 [GitHub Actions run 41567588126](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41567588126) passed the Lean 4.35/mathlib kernel build, axiom report, and finite audits.
 The check module lists **123 distinct named declarations** including the earlier LTR work.
 Theorems mentioned below are identified by their actual Lean names.
@@ -94,13 +94,13 @@ is Hausdorff, the bijection is a homeomorphism:
 \boxed{X_T\simeq_{\rm top}2^{\mathbb N}}.
 \]
 
-**Lean:** \`Nullary.subsingleton_of_model_T\`,
-\`Nullary.modelIsoUnit\`, \`Nullary.expandedModelIsoUnit\`,
-\`Nullary.encode_surjective\`, \`Nullary.encode_decode\`,
-\`Nullary.continuous_decode\`, and \`Nullary.cantorHomeomorph\`.
+**Lean:** `Nullary.subsingleton_of_model_T`,
+`Nullary.modelIsoUnit`, `Nullary.expandedModelIsoUnit`,
+`Nullary.encode_surjective`, `Nullary.encode_decode`,
+`Nullary.continuous_decode`, and `Nullary.cantorHomeomorph`.
 The corresponding source modules use actual
-\`FirstOrder.Language\`, \`Theory\`, \`Theory.CompleteType Empty\`,
-\`Language.LHom\`, and \`Structure\` from mathlib.
+`FirstOrder.Language`, `Theory`, `Theory.CompleteType Empty`,
+`Language.LHom`, and `Structure` from mathlib.
 
 ## 3. A uniformly computable syntactic family
 
@@ -146,10 +146,10 @@ homeomorphism, the code proves the equivalent membership identity
   \operatorname{lift}(\sigma_e(\varphi))\in p.
 \]
 
-**Lean:** \`Nullary.rename\`, \`Nullary.rename_atom\`,
-\`Nullary.haltingRename\`,
-\`Nullary.haltingRename_realizes_sentence\`,
-\`Nullary.syntaxMap_semantics\`.
+**Lean:** `Nullary.rename`, `Nullary.rename_atom`,
+`Nullary.haltingRename`,
+`Nullary.haltingRename_realizes_sentence`,
+`Nullary.syntaxMap_semantics`.
 
 ## 4. Continuity and the undecidable regularity threshold
 
@@ -186,14 +186,14 @@ the language-endomorphism code \(e\) yields a Lipschitz complete-type
 map, the procedure would decide whether \(e\) **does not halt**.
 This contradicts the undecidability of the ordinary halting problem.
 
-**Lean:** \`Neoplatonic.LTR.stagedHalting_mono\`,
-\`stagedHalting_exists_iff_dom\`,
-\`acceleratedStream_finite_delay_iff\`,
-\`finite_real_lipschitz_undecidable\`,
-\`Nullary.complete_type_metric_iff_stream_metric\`,
-\`Nullary.complete_type_lipschitz_undecidable\`,
-and \`Nullary.continuous_syntaxMap\`. The impossibility proof invokes
-mathlib's established \`ComputablePred.halting_problem\`.
+**Lean:** `Neoplatonic.LTR.stagedHalting_mono`,
+`stagedHalting_exists_iff_dom`,
+`acceleratedStream_finite_delay_iff`,
+`finite_real_lipschitz_undecidable`,
+`Nullary.complete_type_metric_iff_stream_metric`,
+`Nullary.complete_type_lipschitz_undecidable`,
+and `Nullary.continuous_syntaxMap`. The impossibility proof invokes
+mathlib's established `ComputablePred.halting_problem`.
 
 ## 5. A precise role for spectral geometry
 
@@ -241,22 +241,22 @@ assumptions about what the mathematical structures represent.
 
 ### Reproduction
 
-\`\`\`bash
+```bash
 lake build Neoplatonic.LTR.Check
 lake env lean Neoplatonic/LTR/Check.lean
 python3 -m unittest discover -s research/logos_topos -p 'test_*.py' -v
-\`\`\`
+```
 
 The CI workflow prints axiom dependencies of 123 named Lean declarations
-at the verified head. It rejects \`sorryAx\` and native reduction
+at the verified head. It rejects `sorryAx` and native reduction
 axioms. A related finite spectral prototype with 24 tests is in
 [Compactification-Theory PR #32](https://github.com/MoralityLabAI/Compactification-Theory/pull/32).
 
 ### Established references
 
-- Mathlib, \`Mathlib.ModelTheory.Types\` and \`Topology.Types\`:
+- Mathlib, `Mathlib.ModelTheory.Types` and `Topology.Types`:
   first-order complete-type spaces and clopen truth loci.
-- Mathlib, \`Mathlib.Computability.Halting\`: formal
+- Mathlib, `Mathlib.Computability.Halting`: formal
   partial-recursive halting undecidability.
 - E. Christensen and C. Ivan, *Sums of two-dimensional spectral
   triples*, Math. Scand. 100 (2007), 35–60.
