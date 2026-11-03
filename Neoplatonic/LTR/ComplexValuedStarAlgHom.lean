@@ -104,30 +104,12 @@ theorem compactComplexObservableStarAlgHom_injective
   intro a b hab
   apply ContinuousMap.ext
   intro x
-  have hzero : compactComplexObservablePi left right
-      (fun y => a y - b y)
-      (a.continuous.sub b.continuous) = 0 := by
-    have hsub : compactComplexObservablePi left right
-        (fun y => a y - b y) (a.continuous.sub b.continuous) =
-        compactComplexObservablePi left right a a.continuous -
-        compactComplexObservablePi left right b b.continuous := by
-      apply ContinuousLinearMap.ext
-      intro ψ
-      apply lp.ext
-      funext j
-      have h := congrArg
-        (fun T : EuclideanSpace ℂ (Fin 2) →L[ℂ] EuclideanSpace ℂ (Fin 2) =>
-          T (ψ j))
-        (complexValuedObservableBlock_add
-          (a (left j)) (a (right j))
-          (-b (left j)) (-b (right j)))
-      simp only [sub_eq_add_neg]
-      sorry
-    rw [hsub]
-    rw [sub_eq_zero]
+  have hzero :
+      (compactComplexObservableStarAlgHom left right) (a - b) = 0 := by
+    rw [map_sub, sub_eq_zero]
     exact hab
-  have hv := compactComplexObservablePi_faithful q hq left right hcover
-    (fun y => a y - b y) (a.continuous.sub b.continuous) hzero x
-  exact sub_eq_zero.mp hv
+  have hv := compactComplexObservablePi_faithful
+    q hq left right hcover (a - b) (a - b).continuous hzero x
+  exact sub_eq_zero.mp (by simpa using hv)
 
 end Neoplatonic.LTR
