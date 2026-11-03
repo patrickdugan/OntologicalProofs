@@ -35,7 +35,7 @@ theorem complexEuclideanDiracBlock_norm_sq
     _ = (((mass ^ 2 + scale ^ 2) * ‖v‖ ^ 2 : ℝ) : ℂ) := by
       rw [inner_smul_right, inner_self_eq_norm_sq_to_K]
       push_cast
-      ring
+      rfl
 
 /-- Uniform norm bound for one complex Dirac block composed with w. -/
 theorem weightedComplexEuclideanDiracBlock_norm_le
