@@ -46,8 +46,8 @@ theorem nullary_atomic_projection_lipschitz
     |logicalProjection (T := Nullary.T) (Nullary.liftedAtom n) p -
       logicalProjection (T := Nullary.T) (Nullary.liftedAtom n) q| ≤
       (2 : ℝ)^n * markedDistance Nullary.decode p q := by
-  simpa only [nullary_atomic_projection_eq_bitObservable] using
-    bitObservable_lipschitz_upper n (Nullary.decode p) (Nullary.decode q)
+  simp only [nullary_atomic_projection_eq_bitObservable, markedDistance]
+  exact bitObservable_lipschitz_upper n (Nullary.decode p) (Nullary.decode q)
 
 /-- A concrete pair of complete first-order theories achieves the
 2^n logical metric expansion for the nth predicate. -/
@@ -60,7 +60,7 @@ theorem nullary_atomic_projection_lipschitz_sharp (n : ℕ) :
   dsimp
   rw [nullary_atomic_projection_eq_bitObservable,
     nullary_atomic_projection_eq_bitObservable]
-  simp only [Nullary.decode_encode]
+  simp only [markedDistance, Nullary.decode_encode]
   exact bitObservable_lipschitz_sharp n
 
 end Neoplatonic.LTR
