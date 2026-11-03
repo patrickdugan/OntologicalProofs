@@ -14,6 +14,7 @@ import Neoplatonic.LTR.ComplexConservativeSpectral
 import Neoplatonic.LTR.InfiniteDiracCore
 import Neoplatonic.LTR.InfiniteResolvent
 import Neoplatonic.LTR.InfiniteDiracLinear
+import Neoplatonic.LTR.InfiniteHilbertCore
 
 open Neoplatonic.LTR
 
@@ -220,3 +221,6 @@ open Neoplatonic.LTR
 
 #print axioms coreDiracLinear_square_apply
 #print axioms coreDiracLinear_symmetric_finset
+
+#print axioms finiteHilbertTruncation_apply_of_not_mem
+#print axioms finiteHilbertTruncation_approx
