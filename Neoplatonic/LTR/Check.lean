@@ -10,7 +10,7 @@ import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
 import Neoplatonic.LTR.NetworkSpectral
-import Neoplatonic.LTR.ComplexLogicalSpectral
+import Neoplatonic.LTR.ComplexConservativeSpectral
 
 open Neoplatonic.LTR
 
@@ -196,3 +196,7 @@ open Neoplatonic.LTR
 #print axioms complexLogicalProjection_selfadjoint
 #print axioms complexLogicalProjection_norm_eq_real
 #print axioms complex_refutation_norm_zero_iff_entails
+
+#print axioms continuous_surjection_preserves_complex_norm
+#print axioms complex_conservative_truth_projection_norm
+#print axioms compact_network_preserves_complex_logical_norm
