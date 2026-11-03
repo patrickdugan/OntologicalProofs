@@ -50,18 +50,27 @@ noncomputable def chosenLogicalStoneSpectralTriple
     (hi : Independent T φ) :
     letI : MetricSpace (T.CompleteType α) :=
       chosenLogicalStoneMetric (T := T) (α := α)
+    letI : TopologicalSpace (T.CompleteType α) :=
+      TopologicalSpace.generateFrom (Set.range (T.typesWith (α := α)))
     CompactComplexSpectralTriple (T.CompleteType α) := by
   letI : MetricSpace (T.CompleteType α) :=
     chosenLogicalStoneMetric (T := T) (α := α)
+  letI : TopologicalSpace (T.CompleteType α) :=
+    TopologicalSpace.generateFrom (Set.range (T.typesWith (α := α)))
   letI : SecondCountableTopology (T.CompleteType α) :=
     logicalCompleteType_secondCountable (T := T) (α := α)
   letI : Nonempty (T.CompleteType α) :=
     (CompleteType.nonempty_iff).mpr hT
-  let q : ℕ → T.CompleteType α := TopologicalSpace.denseSeq _
-  have hq : DenseRange q := TopologicalSpace.denseRange_denseSeq _
-  obtain ⟨x, y, hxy⟩ := logicalCompleteType_two_distinct φ hi
-  obtain ⟨a, b, hab⟩ :=
-    denseSequence_contains_distinct_values q hq x y hxy
+  let q : ℕ → T.CompleteType α :=
+    logicalCompleteType_denseSeq (T := T) (α := α) hT
+  have hq : DenseRange q :=
+    logicalCompleteType_denseSeq_dense (T := T) (α := α) hT
+  have htwo : ∃ a b : ℕ, q a ≠ q b :=
+    logicalCompleteType_denseSeq_has_distinct (T := T) (α := α) hT φ hi
+  let a : ℕ := Classical.choose htwo
+  let b : ℕ := Classical.choose (Classical.choose_spec htwo)
+  have hab : q a ≠ q b :=
+    Classical.choose_spec (Classical.choose_spec htwo)
   exact explicitDensePairSpectralTriple q hq a b hab
 
 end Neoplatonic.LTR
