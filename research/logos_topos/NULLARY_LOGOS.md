@@ -150,10 +150,11 @@ The action on all sentences in concrete one-element models is
 verified. The complete-type equivalence now permits an induced map
 on every complete theory: `NullaryEndomorphisms.lean` implements it
 using `encode`, the Boolean stream map, and `decode`. This module
-states the syntactic membership correspondence for every original-
+proves the syntactic membership correspondence for every original-
 language sentence and transfers the halting-hard Lipschitz question
-onto actual first-order complete theories. Its combined CI status
-must be checked separately from the already-verified homeomorphism.
+onto actual first-order complete theories. Both it and
+`NullaryContinuity.lean` compiled in GitHub Actions run 41567588126,
+which also passed the axiom-dependency audit.
 
 ## Proof ledger
 
@@ -168,12 +169,12 @@ must be checked separately from the already-verified homeomorphism.
 | Bit recovery from `CompleteType`, injectivity | Lean, CI run 41559495766 |
 | Full-sentence semantics via language reduct | Lean, CI run 41560485571 |
 | Full complete-type Cantor homeomorphism | Lean, CI run 41567197901 |
-| Halting-hard Lipschitz regularity on actual complete theories | Submitted in NullaryEndomorphisms; verify CI |
-| Continuity of syntactic endomorphisms | Submitted in NullaryContinuity; verify CI |
+| Halting-hard Lipschitz regularity on actual complete theories | Lean, CI run 41567588126 |
+| Continuity of syntactic endomorphisms | Lean, CI run 41567588126 |
 | Infinite-dimensional spectral operator analysis | Written proof, Lean open |
 
-The CI axiom audit now covers 103 named declarations, including
-15 added in the v0.4 first-order realization modules. The workflow
+The CI axiom audit now covers 123 distinct named declarations, including
+the complete-type homeomorphism and the geometric regularity reduction. The workflow
 checks for `sorryAx` and native-reduction axioms.
 
 This file is a mathematical note. It contains no theological
