@@ -108,6 +108,35 @@ Dirac commutators, independently of the diagonal mass.
 
 The complete companion suite passed 30 tests in run 41571682988.
 
+## Functoriality and conservative network gluing
+
+LogicalPullback.lean proves an actual commuting square for the
+one-axiom language's syntactic endomorphisms:
+
+    pullback_F_e (p_phi) = p_(translation_e(phi))
+
+as an equality in the real continuous-function algebra. The
+statement is checked for every first-order sentence, including
+quantified ones, in run 41572084546.
+
+For any compact spaces X,Y and a continuous surjection f:X->Y,
+uniform norm of continuous observables obeys
+
+    norm(a composed with f) = norm(a).
+
+ConservativeSpectral.lean proves this norm-preserving property and
+specializes it to truth projections of genuine first-order theories.
+The finite-extension hypothesis in Network.lean supplies surjectivity
+for certain compatible global diagrams; those network instances must
+also show continuous projection and compact global realization.
+Check the CI run of ConservativeSpectral.lean before describing its
+theorems as kernel-verified.
+
+The norm result needs surjectivity. An injective or nonsurjective
+map may discard entire truth regions and change the norm of a
+projection. Quantitative Lipschitz or Dirac bounds need additional
+filtration-delay hypotheses, already isolated in LTR-03.
+
 ## Established precedents and research frontier
 
 Christensen and Ivan, Sums of two-dimensional spectral triples,
@@ -117,6 +146,16 @@ Their earlier Spectral triples for AF C*-algebras and metrics on the
 Cantor set, Journal of Operator Theory 56 (2006), 17-46, develops
 Dirac operators tied to filtrations of finite-dimensional algebras.
 Pearson and Bellissard (2009) give a rooted-tree ultrametric approach.
+
+Burton, Eagle, Fox, Goldbring, Harrison-Trainor, McNicholl, Melnikov
+and Thewmorakot, Computable Gelfand Duality (2024), establish a
+computable version of Gelfand duality for computably compact metrizable
+spaces and computable presentations of unital commutative complex
+C*-algebras (arXiv:2402.16672). This directly constrains originality
+claims about reconstructing algebraic structure from effective topology.
+Alec Fox, Effective metric structure theory of C*-algebras (2023),
+provides related work on recursive C*-presentations and real
+continuous-function algebras.
 
 These precedents already settle the abstract metric-recovery route.
 The distinctive LTR research question concerns the effective names
