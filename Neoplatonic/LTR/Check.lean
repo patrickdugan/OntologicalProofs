@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.EuclideanDiracAdjoint
+import Neoplatonic.LTR.InfiniteDiracSymmetry
 
 open Neoplatonic.LTR
 
@@ -266,3 +266,5 @@ open Neoplatonic.LTR
 
 #print axioms massDirac_isHermitian
 #print axioms euclideanDiracBlock_isSelfAdjoint
+
+#print axioms maximalDiracPMap_formalSymmetric
