@@ -3,7 +3,7 @@ import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
 import Neoplatonic.LTR.ObservableHalting
-import Neoplatonic.LTR.Nullary
+import Neoplatonic.LTR.NullaryHalting
 
 open Neoplatonic.LTR
 
@@ -105,3 +105,6 @@ open Neoplatonic.LTR
 #print axioms Nullary.unit_realizes_atom
 #print axioms Nullary.unit_models_T
 #print axioms Nullary.rename_atom
+
+#print axioms Nullary.haltingIndex_stream
+#print axioms Nullary.haltingRename_realizes_atom
