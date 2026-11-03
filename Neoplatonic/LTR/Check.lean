@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.UnboundedDiracPMap
+import Neoplatonic.LTR.UnboundedDiracDense
 
 open Neoplatonic.LTR
 
@@ -257,3 +257,6 @@ open Neoplatonic.LTR
 #print axioms finiteBlockTruncation_approx
 
 #print axioms maximalDiracPMap_domain
+
+#print axioms finiteBlockTruncation_mem_maximalDiracDomain
+#print axioms maximalDiracDomain_dense
