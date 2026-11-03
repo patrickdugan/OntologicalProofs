@@ -49,7 +49,7 @@ theorem squaredResolventCutoff_apply
       chosenSquaredResolventTailCLM scale N) ψ j =
     if j < N then chosenSquaredResolventWeight scale j • ψ j
       else 0 := by
-  rw [ContinuousLinearMap.sub_apply, lp.sub_apply,
+  rw [ContinuousLinearMap.sub_apply, lp.coeFn_sub, Pi.sub_apply,
     chosenSquaredResolventCLM_apply,
     chosenSquaredResolventTailCLM_apply]
   by_cases hj : j < N
