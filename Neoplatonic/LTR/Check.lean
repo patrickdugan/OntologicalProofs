@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.ComplexObservableRepresentation
+import Neoplatonic.LTR.ComplexObservableCommutator
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -366,3 +366,9 @@ open Neoplatonic.LTR
 #print axioms complexObservableBlock_one
 #print axioms complexPairObservableCLM_apply
 #print axioms complexPairObservableCLM_norm_le
+#print axioms complexPairCommutatorBlock_norm
+#print axioms complexPairCommutatorCLM_apply
+#print axioms complexPairCommutatorCLM_norm_le
+#print axioms complexDirac_observable_block_action
+#print axioms complexPairObservable_preserves_maximalDiracDomain
+#print axioms complexPairObservable_unbounded_commutator
