@@ -27,7 +27,7 @@ theorem complexDiagonalObservable_eq_zero_iff (a b : ℝ) :
     have h0 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℂ => M 0 0) h
     have h1 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℂ => M 1 1) h
     simp [complexDiagonalObservable] at h0 h1
-    exact ⟨Complex.ofReal_injective h0, Complex.ofReal_injective h1⟩
+    exact ⟨h0, h1⟩
   · rintro ⟨rfl, rfl⟩
     ext i j
     fin_cases i <;> fin_cases j <;>
