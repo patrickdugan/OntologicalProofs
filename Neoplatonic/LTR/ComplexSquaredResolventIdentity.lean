@@ -31,7 +31,7 @@ theorem complexSquaredResolventWeight_block_inverse
     (((chosenSquaredResolventWeight scale j : ℝ) : ℂ)) • v +
       complexEuclideanDiracBlock ((2 : ℝ) ^ j) (scale j)
         (complexEuclideanDiracBlock ((2 : ℝ) ^ j) (scale j)
-          (((chosenSquaredResolventWeight scale j : ℝ) : ℂ)) • v) = v := by
+          ((((chosenSquaredResolventWeight scale j : ℝ) : ℂ)) • v)) = v := by
   calc
     _ = (((chosenSquaredResolventWeight scale j : ℝ) : ℂ)) • v +
         (((chosenSquaredResolventWeight scale j : ℝ) : ℂ)) •
