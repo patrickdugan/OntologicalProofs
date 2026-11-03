@@ -27,6 +27,7 @@ import Neoplatonic.LTR.ComplexValuedDiracSeminorm
 import Neoplatonic.LTR.ComplexValuedDenseMetric
 import Neoplatonic.LTR.ComplexCompactSpectralMetric
 import Neoplatonic.LTR.ComplexLipschitzAlgebra
+import Neoplatonic.LTR.ComplexMetricSpectralTriple
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -463,6 +464,7 @@ open Neoplatonic.LTR
 #print axioms compactComplexLipschitz_separatesPoints
 #print axioms compactComplexLipschitz_dense
 #print axioms compactComplexLipschitz_has_commutator_bound
+#print axioms compactComplexMarkedSpectralTriple_metric_recovery
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
