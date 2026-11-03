@@ -84,7 +84,6 @@ theorem complexOrdinaryResolventBlock_D_norm_le
     rw [complexOrdinaryResolventBlock_apply, map_add]
     simp only [map_smul]
     dsimp only [w]
-    rfl
   rw [hformula]
   have hnormI :
       ‖Complex.I • (D (w • v))‖ = ‖D (w • v)‖ := by
