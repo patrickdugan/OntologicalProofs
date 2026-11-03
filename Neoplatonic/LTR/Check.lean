@@ -11,6 +11,7 @@ import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
 import Neoplatonic.LTR.NetworkSpectral
 import Neoplatonic.LTR.ComplexConservativeSpectral
+import Neoplatonic.LTR.InfiniteDiracCore
 
 open Neoplatonic.LTR
 
@@ -200,3 +201,12 @@ open Neoplatonic.LTR
 #print axioms continuous_surjection_preserves_complex_norm
 #print axioms complex_conservative_truth_projection_norm
 #print axioms compact_network_preserves_complex_logical_norm
+
+#print axioms realDiracPair_zero
+#print axioms realDiracPair_add
+#print axioms realDiracPair_smul
+#print axioms realDiracPair_symmetric
+#print axioms coreDirac_apply
+#print axioms coreDirac_support_subset
+#print axioms coreDiracForm_symmetric
+#print axioms realDiracPair_square
