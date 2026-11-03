@@ -83,6 +83,7 @@ theorem complexOrdinaryResolventBlock_D_norm_le
       D (D (w • v)) + Complex.I • (D (w • v)) := by
     rw [complexOrdinaryResolventBlock_apply, map_add]
     simp only [map_smul]
+    rfl
   rw [hformula]
   have hnormI :
       ‖Complex.I • (D (w • v))‖ = ‖D (w • v)‖ := by
