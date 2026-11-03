@@ -158,14 +158,15 @@ These passed the Lean kernel and axiom-dependency audit in run
 the conventional complex C*-algebra setting.
 
 ComplexConservativeSpectral.lean additionally builds on the
-network theorem to formulate an exact complex norm-preservation
+network theorem to prove the exact complex norm-preservation
 claim for compatible global state spaces:
 
     norm_C(p_phi composed with pi) = norm_C(p_phi),
 
 where pi is the surjective continuous projection provided by
-finite-extension compatibility. Check its separate CI run before
-treating this additional last theorem as kernel-checked.
+finite-extension compatibility. All three complex-conservation
+theorems passed the Lean kernel and axiom-dependency checks in run
+41573353333. The full research check prints 158 distinct declarations.
 
 ## Established precedents and research frontier
 
