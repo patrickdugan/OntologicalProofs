@@ -129,18 +129,31 @@ The complete-type injection passed GitHub Actions run 41559495766.
 `NullarySemantics.lean` proves the all-sentence semantic action using
 language reducts, kernel-checked in run 41560485571.
 
-A complete homeomorphism with Cantor space would also require
-surjectivity and continuity of the coordinate correspondence.
-The expected mathematical proof uses quantifier elimination over
-single-element models: every first-order sentence is equivalent
-modulo \(T\) to a Boolean combination of finitely many nullary
-atoms. Formalizing that normalization is an open integration task.
+`NullaryCompleteness.lean` now proves that every complete theory is
+the complete theory of a one-element Boolean model. In particular,
+`encode_surjective` and `encode_decode` establish the second inverse
+law. `NullaryTopology.lean` proves the coordinate decoder continuous:
+each nullary truth locus is clopen in the Stone topology. As the
+completion space is compact and the Boolean product is Hausdorff,
+this continuous bijection is a homeomorphism:
 
-The action on all **sentences in concrete one-element models** is
-now verified. Constructing the induced map on arbitrary elements of
-`T.CompleteType Empty` and proving the full functoriality and
-homeomorphism claims will require the quantifier-elimination or
-model-isomorphism step described above.
+\[
+T.\mathrm{CompleteType}(\varnothing)\cong_{\mathrm{homeo}}2^{\mathbb N}.
+\]
+
+The homeomorphism and two-sided inverse compiled successfully in
+GitHub Actions run 41567197901. This model-theoretic argument proves
+the classification without requiring a separate syntactic
+quantifier-elimination normalization algorithm.
+
+The action on all sentences in concrete one-element models is
+verified. The complete-type equivalence now permits an induced map
+on every complete theory: `NullaryEndomorphisms.lean` implements it
+using `encode`, the Boolean stream map, and `decode`. This module
+states the syntactic membership correspondence for every original-
+language sentence and transfers the halting-hard Lipschitz question
+onto actual first-order complete theories. Its combined CI status
+must be checked separately from the already-verified homeomorphism.
 
 ## Proof ledger
 
@@ -154,7 +167,9 @@ model-isomorphism step described above.
 | Halting-hardness of finite Lipschitz bounds | Lean, Mathlib halting theorem |
 | Bit recovery from `CompleteType`, injectivity | Lean, CI run 41559495766 |
 | Full-sentence semantics via language reduct | Lean, CI run 41560485571 |
-| Full complete-type Cantor homeomorphism | Written route, Lean open |
+| Full complete-type Cantor homeomorphism | Lean, CI run 41567197901 |
+| Halting-hard Lipschitz regularity on actual complete theories | Submitted in NullaryEndomorphisms; verify CI |
+| Continuity of syntactic endomorphisms | Submitted in NullaryContinuity; verify CI |
 | Infinite-dimensional spectral operator analysis | Written proof, Lean open |
 
 The CI axiom audit now covers 103 named declarations, including
