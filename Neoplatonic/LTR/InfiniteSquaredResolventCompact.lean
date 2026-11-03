@@ -28,7 +28,7 @@ theorem singleSquaredResolventBlock_apply
           2 i (chosenSquaredResolventWeight scale i • ψ i)) :
           DiracBlockHilbert) j := by
   simp [singleSquaredResolventBlock, scalarBlockCLM,
-    lp.evalCLM, lp.evalₗ]
+    lp.evalCLM, lp.evalₗ] <;> rfl
 
 /-- The finite sum of compact block operators is the first-N cutoff. -/
 theorem finiteSquaredResolvent_apply
@@ -44,7 +44,7 @@ theorem finiteSquaredResolvent_apply
           lp.single 2 i
             (chosenSquaredResolventWeight scale i • ψ i) := by
     simp [finiteSquaredResolvent, singleSquaredResolventBlock,
-      scalarBlockCLM]
+      scalarBlockCLM, lp.evalCLM, lp.evalₗ] <;> rfl
   rw [hsum]
   simp only [lp.coeFn_sum, Finset.sum_apply, lp.coeFn_single]
   simp [Finset.sum_pi_single, Finset.mem_range]
