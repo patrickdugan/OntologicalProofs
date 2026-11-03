@@ -186,4 +186,5 @@ open Neoplatonic.LTR
 #print axioms continuous_surjection_preserves_norm
 #print axioms conservative_truth_projection_norm
 
+#print axioms compatibleSpaceCompact
 #print axioms compact_network_preserves_observable_norm
