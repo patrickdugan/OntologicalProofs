@@ -7,7 +7,7 @@ import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
 import Neoplatonic.LTR.CompleteTypeDynamics
-import Neoplatonic.LTR.NullaryEndomorphisms
+import Neoplatonic.LTR.NullaryContinuity
 
 open Neoplatonic.LTR
 
@@ -152,3 +152,7 @@ open Neoplatonic.LTR
 #print axioms Nullary.liftedAtom_mem_typeAction
 #print axioms Nullary.typeAction_lipschitz_iff
 #print axioms Nullary.completeType_geometry_undecidable
+
+#print axioms Nullary.continuous_acceleratedStream
+#print axioms Nullary.continuous_encode
+#print axioms Nullary.continuous_syntaxMap
