@@ -1,6 +1,16 @@
 name: LTR Reconstruction
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Neoplatonic/LTR/**'
+      - 'research/logos_topos/**'
+      - '.github/workflows/ltr-reconstruction.yml'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
   pull_request:
     paths:
       - 'Neoplatonic/LTR/**'
