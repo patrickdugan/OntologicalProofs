@@ -48,7 +48,7 @@ theorem realDiracPair_symmetric (mass scale : ℝ) (z w : ℝ × ℝ) :
 
 /-- The core consists of finitely supported sequences of 2-vectors.
 The coefficients may grow without bound with the index. -/
-def coreDirac (mass scale : ℕ → ℝ)
+noncomputable def coreDirac (mass scale : ℕ → ℝ)
     (z : ℕ →₀ (ℝ × ℝ)) : ℕ →₀ (ℝ × ℝ) :=
   Finsupp.onFinset z.support
     (fun j => realDiracPair (mass j) (scale j) (z j))
@@ -94,7 +94,12 @@ theorem coreDiracForm_symmetric (mass scale : ℕ → ℝ)
         realPairing (realDiracPair (mass j) (scale j) (w j)) (z j) := by
           apply Finset.sum_congr rfl
           intro j hj
-          exact realDiracPair_symmetric (mass j) (scale j) (z j) (w j)
+          calc
+            _ = realPairing (z j)
+                (realDiracPair (mass j) (scale j) (w j)) :=
+              realDiracPair_symmetric (mass j) (scale j) (z j) (w j)
+            _ = realPairing (realDiracPair (mass j) (scale j) (w j))
+                (z j) := by dsimp [realPairing]; ring
     _ = ∑ j ∈ w.support ∪ z.support,
         realPairing (realDiracPair (mass j) (scale j) (w j)) (z j) := by
           rw [Finset.union_comm]
