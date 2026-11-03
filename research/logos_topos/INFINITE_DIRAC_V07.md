@@ -88,6 +88,22 @@ The statement proved concerns an *actual bounded compact candidate* for
 (I+D²)^(-1) on the real Hilbert sum. Identifying it as the inverse of an
 unbounded maximal-domain D needs the domain theorem from section 1.
 
+
+## 2A. The actual unbounded-domain interface
+
+The finite-support core is now proved dense in the real Hilbert direct
+sum (H_R=ell^2(mathbb N,mathbb R^2)) by
+`DiracBlockCoreDense.lean`, CI run 41580234858.
+The file `UnboundedDiracPMap.lean` additionally defines genuine
+Euclidean two-point matrix blocks and proposes the maximal domain
+
+    Dom(D) = {ψ in H_R : (D_j ψ_j)_j is square-summable}
+
+as a real submodule of (H_R), with the associated
+`LinearPMap` (mathlib's partially defined linear operator type).
+The CI build of that new module is the verification authority; its
+closedness and self-adjointness still require separate theorems.
+
 ## 3. Compact resolvent and spectral summability
 
 Once D is self-adjoint, (D-iI)^(-1) is block-diagonal and has block norms
@@ -168,7 +184,9 @@ unmarked Dirac spectrum do not recover the complete syntax.
 | Geometric squared-resolvent scalar tail | Lean |
 | Finite-rank Hilbert block maps compact | Lean |
 | Exact cutoff identity and compact squared resolvent | Lean; CI runs 41580149320, 41580342867 |
-| Densely defined maximal-domain unbounded operator | Written argument |
+| Finite-support block-core dense in actual ℓ² Hilbert space | Lean, CI run 41580234858 |
+| Maximal-domain unbounded LinearPMap on actual Hilbert space | Submitted in UnboundedDiracPMap.lean, check CI |
+| Identification of R as (I+D²)⁻¹ on maximal domain | Written argument |
 | D closed and self-adjoint | Written argument |
 | Compact ordinary resolvent (D-i)^(-1) | Written argument |
 | Bounded commutators and Connes distance recovery | Written analytic proof, finite Lean algebra |
