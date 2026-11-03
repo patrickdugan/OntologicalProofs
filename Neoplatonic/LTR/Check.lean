@@ -5,7 +5,7 @@ import Neoplatonic.LTR.TheoryMaps
 import Neoplatonic.LTR.ObservableHalting
 import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
-import Neoplatonic.LTR.NullaryCompleteness
+import Neoplatonic.LTR.NullaryTopology
 
 open Neoplatonic.LTR
 
@@ -133,3 +133,8 @@ open Neoplatonic.LTR
 #print axioms Nullary.encode_surjective
 #print axioms Nullary.encode_bijective
 #print axioms Nullary.encode_decode
+
+#print axioms Nullary.continuous_decode
+#print axioms Nullary.decode_bijective
+#print axioms Nullary.cantorHomeomorph_apply
+#print axioms Nullary.cantorHomeomorph_symm_apply
