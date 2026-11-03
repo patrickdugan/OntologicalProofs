@@ -84,9 +84,11 @@ theorem complexObservableBlock_commutator
       (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ))
         (!![0, ((scale * (b - a) : ℝ) : ℂ);
           ((scale * (a - b) : ℝ) : ℂ), 0]) := by
-  change (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ))
-    (complexMassDirac mass scale * complexDiagonalObservable a b -
-      complexDiagonalObservable a b * complexMassDirac mass scale) = _
-  rw [complexDirac_observable_commutator]
+  have h := congrArg
+    (fun A : Matrix (Fin 2) (Fin 2) ℂ =>
+      (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ)) A)
+    (complexDirac_observable_commutator mass scale a b)
+  simpa [complexEuclideanDiracBlock, complexObservableBlock,
+    map_mul, map_sub] using h
 
 end Neoplatonic.LTR
