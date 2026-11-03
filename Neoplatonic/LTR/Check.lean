@@ -1,0 +1,387 @@
+import Neoplatonic.LTR.Reconstruction
+import Neoplatonic.LTR.Obstruction
+import Neoplatonic.LTR.MetricObstruction
+import Neoplatonic.LTR.TheoryMaps
+import Neoplatonic.LTR.ObservableHalting
+import Neoplatonic.LTR.NullaryHalting
+import Neoplatonic.LTR.NullaryIndependent
+import Neoplatonic.LTR.NullaryTopology
+import Neoplatonic.LTR.NullaryContinuity
+import Neoplatonic.LTR.AtomicTheorySeminorm
+import Neoplatonic.LTR.LogicalPullback
+import Neoplatonic.LTR.NetworkSpectral
+import Neoplatonic.LTR.ComplexConservativeSpectral
+import Neoplatonic.LTR.InfiniteDiracCore
+import Neoplatonic.LTR.InfiniteResolvent
+import Neoplatonic.LTR.InfiniteDiracLinear
+import Neoplatonic.LTR.InfiniteHilbertCore
+import Neoplatonic.LTR.InfiniteSquaredResolventCompact
+import Neoplatonic.LTR.DiracBlockCoreDense
+import Neoplatonic.LTR.ComplexDenseMarkedMetric
+import Neoplatonic.LTR.ComplexDenseObservableFaithful
+import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
+
+open Neoplatonic.LTR
+
+#print axioms locus_isClopen
+#print axioms locus_eq_univ
+#print axioms locus_not
+#print axioms locus_eq_empty
+#print axioms independent_iff_nontrivial_locus
+#print axioms independent_gives_clopen_split
+#print axioms labelled_locus_reconstruction
+#print axioms entailment_reduces_to_cover
+#print axioms cover_computable_iff
+#print axioms noncomputable_cover_of_noncomputable_entailment
+#print axioms noncomputable_cover_of_provability
+#print axioms compact_realization
+#print axioms finite_obstruction
+#print axioms transport_constraint_closed
+#print axioms compact_fibre_extension
+#print axioms projection_surjective_of_finite_extension
+#print axioms cover_pullback_iff
+#print axioms empty_pullback_iff
+#print axioms nontrivial_pullback_iff
+#print axioms surjective_iff_reflects_cover
+#print axioms triangle_pairwise_consistent
+#print axioms triangle_no_global_section
+#print axioms bool_flip_bijective
+#print axioms every_local_bit_extends_across_flip
+#print axioms loop_requires_fixed_point
+#print axioms bool_flip_has_no_fixed_point
+#print axioms independence_survives_realization
+#print axioms realized_locus_isClopen
+#print axioms realized_cover_computable_iff
+#print axioms realized_cover_noncomputable
+#print axioms finite_extension_preserves_independence
+#print axioms no_homeomorphism_invariant_metric
+#print axioms markedDistance_nonneg
+#print axioms markedDistance_self
+#print axioms markedDistance_symm
+#print axioms markedDistance_ultrametric
+#print axioms markedDistance_separates
+#print axioms prefixAgreement_mono
+#print axioms translationDelay_id
+#print axioms translationDelay_comp
+#print axioms translationDelay_mono
+#print axioms firstDifference_le_of_delay
+#print axioms markedDistance_le_of_delay
+#print axioms markedDistance_reverse_of_inverse
+#print axioms zero_delay_isometry
+#print axioms observable_pullback_of_delay
+#print axioms metric_bound_iff_observable_bound
+#print axioms metric_recovery_witness
+#print axioms observable_pullback_comp
+#print axioms massDirac_commutator
+#print axioms massDirac_commutator_independent
+#print axioms massDirac_square
+#print axioms massDirac_symmetric
+#print axioms commutator_energy
+#print axioms mass_resolvent_bound
+#print axioms prefixAgreement_iff_distance_le
+#print axioms translationDelay_iff_distance_bound
+#print axioms markedDistance_observable_bound
+#print axioms translationDelay_iff_observable_bound
+
+#print axioms leastDepth_sound
+#print axioms leastDepth_le
+#print axioms leastDepth_zero
+#print axioms leastDepth_mono
+#print axioms leastDepth_sharp
+#print axioms translationDelay_iff_leastDepth_le
+#print axioms leastDepth_bound_iff_metric_bound
+#print axioms leastDepth_bound_iff_observable_bound
+#print axioms exists_delay_iff_bounded_depth_excess
+#print axioms acceleratedStream_id
+#print axioms acceleratedStream_zero_delay
+#print axioms acceleratedStream_no_delay
+#print axioms acceleratedStream_finite_delay_iff
+#print axioms no_uniform_finite_delay_decider
+#print axioms SentenceTranslation.preimage_locus
+#print axioms SentenceTranslation.entailment_iff_of_surjective
+#print axioms SentenceTranslation.independent_iff_of_surjective
+#print axioms sentenceMark_of_translation
+#print axioms sentenceTranslation_delay
+#print axioms sentenceTranslation_distortion
+
+#print axioms stagedHalting_mono
+#print axioms stagedHalting_exists_iff_dom
+#print axioms stagedHalting_finite_delay_iff
+#print axioms finite_geometric_distortion_undecidable
+
+#print axioms dyadic_geometric_distortion_undecidable
+
+#print axioms realLipschitz_iff_dyadic
+#print axioms finite_real_lipschitz_undecidable
+
+#print axioms realMetricBound_iff_observableBound
+#print axioms finite_observable_pullback_undecidable
+
+#print axioms Nullary.finite_axioms
+#print axioms Nullary.unit_realizes_atom
+#print axioms Nullary.unit_models_T
+#print axioms Nullary.rename_atom
+
+#print axioms Nullary.haltingIndex_stream
+#print axioms Nullary.haltingRename_realizes_atom
+
+#print axioms Nullary.not_entails_atom
+#print axioms Nullary.not_entails_not_atom
+#print axioms Nullary.independent_atom
+
+#print axioms Nullary.liftedAtom_mem_encode
+#print axioms Nullary.decode_encode
+#print axioms Nullary.encode_injective
+
+#print axioms Nullary.rename_reduct
+#print axioms Nullary.rename_realizes_sentence
+#print axioms Nullary.haltingRename_realizes_sentence
+
+#print axioms Nullary.subsingleton_of_model_T
+#print axioms Nullary.modelBits_iff
+#print axioms Nullary.all_sentences_of_modelBits
+
+#print axioms Nullary.expandedModelIsoUnit
+
+#print axioms Nullary.mem_encode_iff
+#print axioms Nullary.encode_surjective
+#print axioms Nullary.encode_bijective
+#print axioms Nullary.encode_decode
+
+#print axioms Nullary.continuous_decode
+#print axioms Nullary.decode_bijective
+#print axioms Nullary.cantorHomeomorph_apply
+#print axioms Nullary.cantorHomeomorph_symm_apply
+
+
+#print axioms Nullary.decode_syntaxMap
+#print axioms Nullary.liftedSentence_mem_encode_iff
+#print axioms Nullary.syntaxMap_semantics
+#print axioms Nullary.complete_type_metric_iff_stream_metric
+#print axioms Nullary.complete_type_lipschitz_undecidable
+
+
+#print axioms Nullary.continuous_acceleratedStream
+#print axioms Nullary.continuous_encode
+#print axioms Nullary.continuous_syntaxMap
+
+#print axioms logicalProjection_apply_mem
+#print axioms logicalProjection_apply_not_mem
+#print axioms logicalProjection_idempotent
+#print axioms logicalProjection_norm_le_one
+#print axioms logicalProjection_norm_one_of_nonempty
+#print axioms logicalProjection_eq_zero_of_empty
+#print axioms logicalProjection_norm_zero_iff
+#print axioms refutation_norm_zero_iff_entails
+#print axioms independent_norms
+
+#print axioms massDirac_commutator_zero_iff_eq
+#print axioms logicalProjection_values_eq_iff
+#print axioms logicalDirac_commutator_zero_iff
+
+#print axioms refutation_norm_one_iff_not_entails
+#print axioms refutation_norm_computable_iff_entailment
+#print axioms refutation_norm_undecidable_of_entailment
+
+#print axioms bitObservable_lipschitz_upper
+#print axioms firstDifference_singleTrueBit
+#print axioms bitObservable_lipschitz_sharp
+
+#print axioms nullary_atomic_projection_eq_bitObservable
+#print axioms nullary_atomic_projection_lipschitz
+#print axioms nullary_atomic_projection_lipschitz_sharp
+
+#print axioms logicalProjection_syntax_pullback
+
+#print axioms continuous_surjection_preserves_norm
+#print axioms conservative_truth_projection_norm
+
+#print axioms compatibleSpaceCompact
+#print axioms compact_network_preserves_observable_norm
+
+#print axioms complexLogicalProjection_apply_mem
+#print axioms complexLogicalProjection_apply_not_mem
+#print axioms complexLogicalProjection_idempotent
+#print axioms complexLogicalProjection_selfadjoint
+#print axioms complexLogicalProjection_norm_eq_real
+#print axioms complex_refutation_norm_zero_iff_entails
+
+#print axioms continuous_surjection_preserves_complex_norm
+#print axioms complex_conservative_truth_projection_norm
+#print axioms compact_network_preserves_complex_logical_norm
+
+#print axioms realDiracPair_zero
+#print axioms realDiracPair_add
+#print axioms realDiracPair_smul
+#print axioms realDiracPair_symmetric
+#print axioms coreDirac_apply
+#print axioms coreDirac_support_subset
+#print axioms coreDiracForm_symmetric
+#print axioms realDiracPair_square
+
+#print axioms squaredResolventTail_nonneg
+#print axioms squaredResolventTail_tendsto
+#print axioms block_squaredResolvent_le_tail
+#print axioms compact_of_squaredResolvent_tail
+
+#print axioms coreDiracLinear_square_apply
+#print axioms coreDiracLinear_symmetric_finset
+
+#print axioms finiteHilbertTruncation_apply_of_not_mem
+#print axioms finiteHilbertTruncation_approx
+
+#print axioms scalarBlockCLM_norm_le
+#print axioms boundedBlockDiagonal_norm_le
+
+#print axioms chosenSquaredResolventWeight_nonneg
+#print axioms chosenSquaredResolventWeight_le_tail
+#print axioms squaredResolventTail_antitone
+#print axioms chosenSquaredResolventTailWeight_abs_le
+#print axioms chosenSquaredResolventTailCLM_norm_le
+
+#print axioms boundedBlockDiagonal_apply
+#print axioms chosenSquaredResolventCLM_apply
+#print axioms chosenSquaredResolventTailCLM_apply
+#print axioms squaredResolventCutoff_apply
+
+#print axioms singleSquaredResolventBlock_compact
+#print axioms finiteSquaredResolvent_compact
+
+#print axioms singleSquaredResolventBlock_apply
+#print axioms finiteSquaredResolvent_apply
+#print axioms finiteSquaredResolvent_eq_cutoff
+#print axioms squaredResolvent_sub_finite_eq_tail
+#print axioms squaredResolvent_finite_norm_bound
+#print axioms chosenSquaredResolvent_isCompact
+
+
+#print axioms finiteBlockTruncation_apply_of_not_mem
+#print axioms finiteBlockTruncation_approx
+
+#print axioms maximalDiracPMap_domain
+
+#print axioms finiteBlockTruncation_mem_maximalDiracDomain
+#print axioms maximalDiracDomain_dense
+
+#print axioms maximalDiracPMap_graph_eq
+#print axioms maximalDiracPMap_isClosed
+
+#print axioms massDirac_isHermitian
+#print axioms euclideanDiracBlock_isSelfAdjoint
+
+#print axioms maximalDiracPMap_formalSymmetric
+#print axioms singleBlock_mem_maximalDiracDomain
+#print axioms maximalDiracPMap_singleBlock_apply
+#print axioms maximalDiracPMap_adjoint_apply_coord
+#print axioms maximalDiracPMap_adjoint_domain_le
+#print axioms maximalDiracPMap_isSelfAdjoint
+#print axioms euclideanDiracBlock_square
+#print axioms chosenSquaredResolventWeight_inverse
+#print axioms squaredResolventWeight_block_inverse
+#print axioms diracSquareWeight_mul_le_one
+#print axioms diracSquareWeight_le_one
+#print axioms diracSquareWeight_sq_le_one
+#print axioms euclideanDiracBlock_norm_sq
+#print axioms weightedEuclideanDiracBlock_norm_le
+#print axioms weightedEuclideanDiracBlock_square_norm_le
+#print axioms chosenSquaredResolvent_mem_maximalDiracDomain
+#print axioms chosenSquaredResolvent_D_mem_maximalDiracDomain
+#print axioms chosenSquaredResolvent_right_inverse
+#print axioms chosenSquaredResolvent_left_inverse
+#print axioms complexMassDirac_square
+#print axioms complexMassDirac_isHermitian
+#print axioms complexEuclideanDiracBlock_isSelfAdjoint
+#print axioms complexEuclideanDiracBlock_square
+#print axioms maximalComplexDiracPMap_domain
+#print axioms complexFiniteBlockTruncation_apply_of_not_mem
+#print axioms complexFiniteBlockTruncation_approx
+#print axioms complexFiniteBlockTruncation_mem_maximalComplexDiracDomain
+#print axioms maximalComplexDiracDomain_dense
+#print axioms maximalComplexDiracPMap_graph_eq
+#print axioms maximalComplexDiracPMap_isClosed
+#print axioms maximalComplexDiracPMap_formalSymmetric
+#print axioms complexSingleBlock_mem_maximalComplexDiracDomain
+#print axioms maximalComplexDiracPMap_singleBlock_apply
+#print axioms maximalComplexDiracPMap_adjoint_apply_coord
+#print axioms maximalComplexDiracPMap_adjoint_domain_le
+#print axioms maximalComplexDiracPMap_isSelfAdjoint
+#print axioms complexScalarBlockCLM_norm_le
+#print axioms complexBoundedBlockDiagonal_norm_le
+#print axioms complexBoundedBlockDiagonal_apply
+#print axioms chosenComplexSquaredResolventCLM_apply
+#print axioms chosenComplexSquaredResolventTailCLM_norm_le
+#print axioms complexSingleSquaredResolventBlock_compact
+#print axioms finiteComplexSquaredResolvent_compact
+#print axioms finiteComplexSquaredResolvent_apply
+#print axioms finiteComplexSquaredResolvent_eq_cutoff
+#print axioms complexSquaredResolvent_finite_norm_bound
+#print axioms chosenComplexSquaredResolvent_isCompact
+#print axioms complexEuclideanDiracBlock_norm_sq
+#print axioms weightedComplexEuclideanDiracBlock_norm_le
+#print axioms weightedComplexEuclideanDiracBlock_square_norm_le
+#print axioms chosenComplexSquaredResolvent_mem_maximalComplexDiracDomain
+#print axioms chosenComplexSquaredResolventWeight_inverse
+#print axioms complexSquaredResolventWeight_block_inverse
+#print axioms chosenComplexSquaredResolvent_D_mem_maximalComplexDiracDomain
+#print axioms chosenComplexSquaredResolvent_right_inverse
+#print axioms chosenComplexSquaredResolvent_left_inverse
+#print axioms complexOrdinaryResolventBlock_apply
+#print axioms complexOrdinaryResolventBlock_right_inverse
+#print axioms complexOrdinaryResolventBlock_left_inverse
+#print axioms chosenSquaredResolventWeight_le_one
+#print axioms complexOrdinaryResolventBlock_norm_le
+#print axioms chosenComplexOrdinaryResolventCLM_apply
+#print axioms complexOrdinaryResolventBlock_D_norm_le
+#print axioms chosenComplexOrdinaryResolvent_mem_maximalComplexDiracDomain
+#print axioms chosenComplexOrdinaryResolvent_right_inverse
+#print axioms chosenComplexOrdinaryResolvent_left_inverse
+#print axioms diracSquaredWeight_le_invMass
+#print axioms diracSquaredEnergyWeight_le_invMass_sq
+#print axioms weightedComplexDiracBlock_norm_le_invMass
+#print axioms complexOrdinaryResolventBlock_norm_le_invPow
+#print axioms complexOrdinaryResolventBlock_norm_le_tail
+#print axioms complexSingleOrdinaryResolventBlock_compact
+#print axioms finiteComplexOrdinaryResolvent_compact
+#print axioms finiteComplexOrdinaryResolvent_apply
+#print axioms complexOrdinaryResolventTailBound_nonneg
+#print axioms chosenComplexOrdinaryResolventTailCLM_norm_le
+#print axioms chosenComplexOrdinaryResolventTailCLM_apply
+#print axioms finiteComplexOrdinaryResolvent_eq_cutoff
+#print axioms complexOrdinaryResolvent_finite_norm_bound
+#print axioms complexOrdinaryResolventTailBound_tendsto
+#print axioms chosenComplexOrdinaryResolvent_isCompact
+#print axioms complexDiagonalObservable_mul
+#print axioms complexDiagonalObservable_one
+#print axioms complexDiagonalObservable_isHermitian
+#print axioms complexDirac_observable_commutator
+#print axioms complexDirac_observable_commutator_mass_independent
+#print axioms complexObservableBlock_commutator
+#print axioms complexEdgeRotationMatrix_star_mul_self
+#print axioms complexEdgeRotationCLM_star_mul_self
+#print axioms complexEdgeRotationCLM_norm_eq_one
+#print axioms complexObservableBlock_commutator_eq_smul_rotation
+#print axioms complexObservableBlock_commutator_norm
+#print axioms complexDiagonalObservable_eq_diagonal
+#print axioms complexObservableBlock_norm_le
+#print axioms complexObservableBlock_mul
+#print axioms complexObservableBlock_one
+#print axioms complexPairObservableCLM_apply
+#print axioms complexPairObservableCLM_norm_le
+#print axioms complexPairCommutatorBlock_norm
+#print axioms complexPairCommutatorCLM_apply
+#print axioms complexPairCommutatorCLM_norm_le
+#print axioms complexDirac_observable_block_action
+#print axioms complexPairObservable_preserves_maximalDiracDomain
+#print axioms complexPairObservable_unbounded_commutator
+#print axioms markedEdgeInvDist_norm
+#print axioms markedEdgeBound_iff
+#print axioms markedEdgeUnitBound_iff_lipschitz
+#print axioms markedEdgeConnesDistance_witness
+#print axioms continuous_lipschitz_of_dense_sequence
+#print axioms denseMarkedEdgeUnitBound_iff_lipschitz
+#print axioms denseMarkedConnesDistance_witness
+#print axioms complexDiagonalObservable_eq_zero_iff
+#print axioms complexObservableBlock_eq_zero_iff
+#print axioms complexPairObservableCLM_eq_zero_values
+#print axioms continuous_real_eq_zero_of_dense_sequence
+#print axioms complexDenseObservable_faithful
