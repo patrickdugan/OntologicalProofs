@@ -6,7 +6,6 @@ import Neoplatonic.LTR.ObservableHalting
 import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
-import Neoplatonic.LTR.CompleteTypeDynamics
 import Neoplatonic.LTR.NullaryContinuity
 
 open Neoplatonic.LTR
@@ -148,10 +147,6 @@ open Neoplatonic.LTR
 #print axioms Nullary.complete_type_metric_iff_stream_metric
 #print axioms Nullary.complete_type_lipschitz_undecidable
 
-#print axioms Nullary.decode_typeAction
-#print axioms Nullary.liftedAtom_mem_typeAction
-#print axioms Nullary.typeAction_lipschitz_iff
-#print axioms Nullary.completeType_geometry_undecidable
 
 #print axioms Nullary.continuous_acceleratedStream
 #print axioms Nullary.continuous_encode
