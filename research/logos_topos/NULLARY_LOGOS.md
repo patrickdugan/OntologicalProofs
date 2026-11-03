@@ -83,6 +83,21 @@ in `HaltingGeometry.lean`: after activation its \(n\)-th output bit
 reads the \(2n\)-th input bit, and otherwise it reads the \(n\)-th
 input bit. This gives a concrete syntax-to-stream bridge.
 
+The additional verified theorem `Nullary.haltingRename_realizes_sentence`
+extends this equality to **every first-order sentence** (including
+quantified sentences):
+
+\[
+M_b\models \sigma_{e*}(\varphi)
+\quad\Longleftrightarrow\quad
+M_{F_e(b)}\models\varphi.
+\]
+
+The proof uses Mathlib's actual `LHom.realize_onSentence` semantics,
+and an explicit equality between the reduct of the one-element
+model and the reindexed model. It passed GitHub Actions run
+41560485571.
+
 ## Gödelian connection
 
 The previously checked Lean theorem
@@ -111,9 +126,8 @@ complete type. `NullaryTypes.lean` now kernel-checks the membership
 correspondence with lifted atomic sentences, the round-trip
 \(\mathrm{decode}\circ\mathrm{encode}=\mathrm{id}\), and injectivity.
 The complete-type injection passed GitHub Actions run 41559495766.
-`NullarySemantics.lean` separately attempts to prove the all-sentence
-semantic action using reducts; check its CI status before treating that
-additional theorem as verified.
+`NullarySemantics.lean` proves the all-sentence semantic action using
+language reducts, kernel-checked in run 41560485571.
 
 A complete homeomorphism with Cantor space would also require
 surjectivity and continuity of the coordinate correspondence.
@@ -122,11 +136,11 @@ single-element models: every first-order sentence is equivalent
 modulo \(T\) to a Boolean combination of finitely many nullary
 atoms. Formalizing that normalization is an open integration task.
 
-The same issue arises for a fully explicit semantic action of a
-syntax map on *all* complete types. The present syntax theorem
-acts on all formulas and verifies its model-level effect on every
-atomic coordinate. A full functor on completion spaces can follow
-from the normalization theorem.
+The action on all **sentences in concrete one-element models** is
+now verified. Constructing the induced map on arbitrary elements of
+`T.CompleteType Empty` and proving the full functoriality and
+homeomorphism claims will require the quantifier-elimination or
+model-isomorphism step described above.
 
 ## Proof ledger
 
@@ -139,9 +153,13 @@ from the normalization theorem.
 | Halting-index endomorphisms reproduce the Cantor map on atoms | Lean |
 | Halting-hardness of finite Lipschitz bounds | Lean, Mathlib halting theorem |
 | Bit recovery from `CompleteType`, injectivity | Lean, CI run 41559495766 |
-| Full-sentence semantics via language reduct | Submitted in NullarySemantics; verify CI |
+| Full-sentence semantics via language reduct | Lean, CI run 41560485571 |
 | Full complete-type Cantor homeomorphism | Written route, Lean open |
 | Infinite-dimensional spectral operator analysis | Written proof, Lean open |
+
+The CI axiom audit now covers 103 named declarations, including
+15 added in the v0.4 first-order realization modules. The workflow
+checks for `sorryAx` and native-reduction axioms.
 
 This file is a mathematical note. It contains no theological
 predicates or conclusions.
