@@ -1,4 +1,10 @@
-# Logos–Topos Reconstruction, v0.1
+# Logos–Topos Reconstruction
+
+## Current proof status: LTR v0.10 (November 3, 2026)
+
+The infinite complex Hilbert-space Dirac operator is now kernel-verified as densely defined, closed, and self-adjoint, with a compact ordinary resolvent at \(i\). See [LTR v0.10: the complete complex compact-resolvent proof ledger](INFINITE_DIRAC_V10.md) and [successful full Lean kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41599306612). The exact norm bound on the first-\(N\)-block ordinary-resolvent cutoff is \(\|Q-Q_N\|\le 2^{1-N}\).
+
+The remaining spectral-triple steps are a faithful marked function-algebra representation, infinite bounded commutators, and exact Connes-distance recovery. The older v0.1 sections below record the initial logical reconstruction stage and retain their historical proof boundaries.
 
 ## Mathematical objective
 
@@ -110,7 +116,7 @@ The second line uses a completion outside U_phi. The represented C*-norm agrees 
 
 The representation can be faithful without admitting a computable norm operation in these names. This is a precise computational obstruction to an operator reconstruction, although it uses a labelled projection observable rather than the spectrum of a canonical Dirac operator.
 
-The spectral companion in `MoralityLabAI/Compactification-Theory/research/logos_topos_spectral/` starts with finite two-point Dirac blocks and audits metric recovery and presentation sensitivity. Pearson–Bellissard ultrametric spectral triples supply a serious infinite-dimensional precedent. A computable, interpretation-compatible Dirac construction remains open work.
+The spectral companion in `MoralityLabAI/Compactification-Theory/research/logos_topos_spectral/` starts with finite two-point Dirac blocks and audits metric recovery and presentation sensitivity. Pearson–Bellissard ultrametric spectral triples supply a serious infinite-dimensional precedent. A computable interpretation-compatible assignment of Dirac operators, together with exact metric recovery from their infinite commutators, remains open work.
 
 A related finite-approximation obstruction follows by reduction. If a uniformly computable sequence of finite truncation tests decides a theory's consistency once a sufficiently large stage is reached, a computable uniform stage bound would decide the corresponding consistency problem. Any application must prove its own truncation equivalence; this paragraph does not assume one for the proposed Dirac system.
 
@@ -126,7 +132,7 @@ A related finite-approximation obstruction follows by reduction. If a uniformly 
 | Metric symmetry obstruction | Lean under explicit homogeneity/accumulation | Formal Cantor specialization |
 | Cantor collapse | Written proof from standard ingredients | Full formalization and literature comparison |
 | Projection norm obstruction | Written proof | Effective C*-presentation in Lean |
-| Spectral reconstruction | Separate finite prototype | Self-adjointness, compact resolvent, bounded commutators, controlled invariance |
+| Spectral reconstruction | Infinite complex self-adjoint Dirac and ordinary compact resolvent verified in LTR v0.10 | Bounded infinite commutators, exact metric recovery, controlled invariance |
 
 The present contribution is a verified foundation and a sharply stated research problem. Stone duality, compactness, and their displayed corollaries are established mathematics. The project has not established novelty for a general reconstruction theorem. An original result would need additional invariant content, effective complexity bounds, or a genuine obstruction theorem for a specified class of interconnected theories.
 
