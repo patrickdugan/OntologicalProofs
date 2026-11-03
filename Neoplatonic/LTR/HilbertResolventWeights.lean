@@ -79,7 +79,9 @@ noncomputable def chosenSquaredResolventCLM
       exact (chosenSquaredResolventWeight_le_tail scale j).trans
         (by
           unfold squaredResolventTail
-          have hbase : (1 : ℝ) ≤ 1 + (4 : ℝ)^j := by positivity
+          have hbase : (1 : ℝ) ≤ 1 + (4 : ℝ)^j := by
+            have hp : 0 ≤ (4 : ℝ)^j := pow_nonneg (by norm_num) j
+            linarith
           have hle := one_div_le_one_div_of_le
             (by norm_num : (0 : ℝ) < 1) hbase
           simpa [one_div] using hle))
