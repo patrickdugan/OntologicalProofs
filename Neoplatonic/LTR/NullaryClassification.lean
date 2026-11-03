@@ -44,13 +44,6 @@ theorem modelBits_iff (M : Type*) [L.Structure M] (n : ℕ) :
   classical
   simp [modelBits]
 
-/-- The original model's nullary sentences have these truth values. -/
-theorem modelBits_atom (M : Type*) [L.Structure M] (n : ℕ) :
-    (M ⊨ atom n) ↔ modelBits M n = true := by
-  change (@RelMap L M _ 0 (predSym n)
-      (fun i : Fin 0 => Fin.elim0 i)) ↔ modelBits M n = true
-  exact (modelBits_iff M n).symm
-
 /-- A nonempty subsingleton structure is isomorphic to its Boolean singleton model. -/
 noncomputable def modelIsoUnit (M : Type*) [L.Structure M]
     [Nonempty M] [Subsingleton M] :
@@ -81,6 +74,6 @@ theorem all_sentences_of_modelBits (M : Type*) [L.Structure M]
       @FirstOrder.Language.Sentence.Realize L Unit (unitStructure (modelBits M)) φ := by
   classical
   letI : L.Structure Unit := unitStructure (modelBits M)
-  exact (modelIsoUnit M).realize_sentence φ
+  exact FirstOrder.Language.StrongHomClass.realize_sentence (modelIsoUnit M) φ
 
 end Neoplatonic.LTR.Nullary
