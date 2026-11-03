@@ -116,7 +116,9 @@ theorem complexOrdinaryResolventTailBound_tendsto :
       (fun N : ℕ => (2 : ℝ) * ((2 : ℝ)^N)⁻¹)
       atTop (𝓝 ((2 : ℝ) * 0)) :=
     tendsto_const_nhds.mul hi
-  simpa only [complexOrdinaryResolventTailBound, mul_zero] using ht
+  change Tendsto (fun N : ℕ => (2 : ℝ) * ((2 : ℝ)^N)⁻¹)
+    atTop (𝓝 (0 : ℝ))
+  simpa only [mul_zero] using ht
 
 /-- The actual complex ordinary resolvent (D-iI)⁻¹ is compact on
 the infinite Hilbert space ℓ²(ℕ,ℂ²). -/
