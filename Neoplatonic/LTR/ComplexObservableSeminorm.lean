@@ -18,25 +18,25 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
-/-- A generic uniformly bounded block-diagonal operator on complex ℓ²
-dominates each block norm. This avoids unfolding the Dirac commutator
-inside the Hilbert operator norm proof. -/
-theorem complexHilbertMapCLM_norm_ge_block
+/-- Any bounded complex Hilbert operator acting coordinatewise
+dominates each of its block operator norms. The Hilbert operator
+is a parameter, avoiding dependent reduction of lp.mapCLM. -/
+theorem complexHilbertBlock_norm_le_operator
     (T : ℕ → EuclideanSpace ℂ (Fin 2) →L[ℂ] EuclideanSpace ℂ (Fin 2))
-    (K : ℝ) (hK : 0 ≤ K) (hTK : ∀ j, ‖T j‖ ≤ K)
+    (F : ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert)
+    (hcoord : ∀ ψ : ComplexDiracBlockHilbert, ∀ j : ℕ,
+      (F ψ) j = T j (ψ j))
     (j : ℕ) :
-    ‖T j‖ ≤ ‖lp.mapCLM 2 T hK hTK‖ := by
-  let F : ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert :=
-    lp.mapCLM 2 T hK hTK
+    ‖T j‖ ≤ ‖F‖ := by
   apply ContinuousLinearMap.opNorm_le_bound _ (norm_nonneg F)
   intro v
-  have hcoord : (F (lp.single 2 j v)) j = T j v := by
-    change T j ((lp.single 2 j v : ComplexDiracBlockHilbert) j) = T j v
+  have hsingle : (F (lp.single 2 j v)) j = T j v := by
+    rw [hcoord]
     simp
   have hp : (2 : ENNReal) ≠ 0 := by norm_num
   have hp_pos : 0 < (2 : ENNReal) := by norm_num
   calc
-    ‖T j v‖ = ‖(F (lp.single 2 j v)) j‖ := by rw [hcoord]
+    ‖T j v‖ = ‖(F (lp.single 2 j v)) j‖ := by rw [hsingle]
     _ ≤ ‖F (lp.single 2 j v)‖ :=
       lp.norm_apply_le_norm hp (F (lp.single 2 j v)) j
     _ ≤ ‖F‖ * ‖lp.single 2 j v‖ := F.le_opNorm _
@@ -51,12 +51,10 @@ theorem complexPairCommutatorBlock_norm_le_global
     (j : ℕ) :
     ‖complexPairCommutatorBlock mass scale left right j‖ ≤
       ‖complexPairCommutatorCLM mass scale left right L hL hEdge‖ := by
-  exact complexHilbertMapCLM_norm_ge_block
+  exact complexHilbertBlock_norm_le_operator
     (complexPairCommutatorBlock mass scale left right)
-    L hL
-    (fun i => by
-      rw [complexPairCommutatorBlock_norm]
-      exact hEdge i)
+    (complexPairCommutatorCLM mass scale left right L hL hEdge)
+    (complexPairCommutatorCLM_apply mass scale left right L hL hEdge)
     j
 
 /-- Every edge Lipschitz quotient is at most the global commutator norm. -/
