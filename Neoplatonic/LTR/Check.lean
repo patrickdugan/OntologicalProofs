@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.ComplexObservableNorm
+import Neoplatonic.LTR.ComplexObservableRepresentation
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -360,3 +360,9 @@ open Neoplatonic.LTR
 #print axioms complexEdgeRotationCLM_norm_eq_one
 #print axioms complexObservableBlock_commutator_eq_smul_rotation
 #print axioms complexObservableBlock_commutator_norm
+#print axioms complexDiagonalObservable_eq_diagonal
+#print axioms complexObservableBlock_norm_le
+#print axioms complexObservableBlock_mul
+#print axioms complexObservableBlock_one
+#print axioms complexPairObservableCLM_apply
+#print axioms complexPairObservableCLM_norm_le
