@@ -25,14 +25,14 @@ theorem complexEuclideanDiracBlock_norm_sq
     (complexEuclideanDiracBlock_isSelfAdjoint mass scale)
   calc
     ‖D v‖ ^ 2 = Complex.re (inner ℂ (D v) (D v)) :=
-      (norm_sq_eq_re_inner (D v)).symm
+      by simpa only using (norm_sq_eq_re_inner (D v))
     _ = Complex.re (inner ℂ v (D (D v))) := congrArg Complex.re (hsym v (D v))
     _ = Complex.re (inner ℂ v
         (((mass ^ 2 + scale ^ 2 : ℝ) : ℂ) • v)) := by
       rw [complexEuclideanDiracBlock_square]
     _ = (mass ^ 2 + scale ^ 2) * ‖v‖ ^ 2 := by
       rw [inner_smul_right, inner_self_eq_norm_sq_to_K]
-      norm_cast
+      rw [← Complex.ofReal_mul, Complex.ofReal_re]
 
 /-- Uniform norm bound for one complex Dirac block composed with w. -/
 theorem weightedComplexEuclideanDiracBlock_norm_le
@@ -83,7 +83,7 @@ theorem weightedComplexEuclideanDiracBlock_square_norm_le
   change ‖complexEuclideanDiracBlock mass scale
     (complexEuclideanDiracBlock mass scale ((w : ℂ) • v))‖ ≤ ‖v‖
   rw [hblock, norm_smul]
-  have hnorm : ‖((a * w : ℝ) : ℂ)‖ = a * w := by simp [haw0]
+  have hnorm : ‖((a * w : ℝ) : ℂ)‖ = a * w := by simp [ha, hw]
   rw [hnorm]
   calc
     (a * w) * ‖v‖ ≤ 1 * ‖v‖ :=
