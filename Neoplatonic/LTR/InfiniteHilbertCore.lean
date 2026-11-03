@@ -35,7 +35,8 @@ theorem finiteHilbertTruncation_apply_of_not_mem
     (ψ : InfiniteDiracHilbert) (s : Finset (ℕ × Fin 2))
     (i : ℕ × Fin 2) (hi : i ∉ s) :
     finiteHilbertTruncation ψ s i = 0 := by
-  change (∑ j ∈ s, Pi.single j (ψ j) i) = 0
+  simp only [finiteHilbertTruncation, lp.coeFn_sum,
+    lp.coeFn_single, Finset.sum_apply]
   apply Finset.sum_eq_zero
   intro j hj
   have hji : j ≠ i := by
