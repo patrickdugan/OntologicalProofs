@@ -18,7 +18,30 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
-set_option maxHeartbeats 2500000 in
+/-- A generic uniformly bounded block-diagonal operator on complex ℓ²
+dominates each block norm. This avoids unfolding the Dirac commutator
+inside the Hilbert operator norm proof. -/
+theorem complexHilbertMapCLM_norm_ge_block
+    (T : ℕ → EuclideanSpace ℂ (Fin 2) →L[ℂ] EuclideanSpace ℂ (Fin 2))
+    (K : ℝ) (hK : 0 ≤ K) (hTK : ∀ j, ‖T j‖ ≤ K)
+    (j : ℕ) :
+    ‖T j‖ ≤ ‖lp.mapCLM 2 T hK hTK‖ := by
+  let F : ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert :=
+    lp.mapCLM 2 T hK hTK
+  apply ContinuousLinearMap.opNorm_le_bound _ (norm_nonneg F)
+  intro v
+  have hcoord : (F (lp.single 2 j v)) j = T j v := by
+    change T j ((lp.single 2 j v : ComplexDiracBlockHilbert) j) = T j v
+    simp
+  have hp : (2 : ENNReal) ≠ 0 := by norm_num
+  have hp_pos : 0 < (2 : ENNReal) := by norm_num
+  calc
+    ‖T j v‖ = ‖(F (lp.single 2 j v)) j‖ := by rw [hcoord]
+    _ ≤ ‖F (lp.single 2 j v)‖ :=
+      lp.norm_apply_le_norm hp (F (lp.single 2 j v)) j
+    _ ≤ ‖F‖ * ‖lp.single 2 j v‖ := F.le_opNorm _
+    _ = ‖F‖ * ‖v‖ := by rw [lp.norm_single hp_pos]
+
 /-- Any individual marked-edge commutator norm is bounded above
 by the norm of the global bounded Hilbert commutator. -/
 theorem complexPairCommutatorBlock_norm_le_global
@@ -28,27 +51,13 @@ theorem complexPairCommutatorBlock_norm_le_global
     (j : ℕ) :
     ‖complexPairCommutatorBlock mass scale left right j‖ ≤
       ‖complexPairCommutatorCLM mass scale left right L hL hEdge‖ := by
-  let C := complexPairCommutatorCLM mass scale left right L hL hEdge
-  let B := complexPairCommutatorBlock mass scale left right j
-  apply ContinuousLinearMap.opNorm_le_bound B (norm_nonneg C)
-  intro v
-  have hcoord :
-      (C (lp.single 2 j v)) j = B v := by
-    change (complexPairCommutatorCLM mass scale left right L hL hEdge
-      (lp.single 2 j v)) j =
-        complexPairCommutatorBlock mass scale left right j v
-    rw [complexPairCommutatorCLM_apply]
-    simp
-  have hp : (2 : ENNReal) ≠ 0 := by norm_num
-  have hp_pos : 0 < (2 : ENNReal) := by norm_num
-  calc
-    ‖B v‖ = ‖(C (lp.single 2 j v)) j‖ := by rw [hcoord]
-    _ ≤ ‖C (lp.single 2 j v)‖ :=
-      lp.norm_apply_le_norm hp
-        (C (lp.single 2 j v)) j
-    _ ≤ ‖C‖ * ‖lp.single 2 j v‖ := C.le_opNorm _
-    _ = ‖C‖ * ‖v‖ := by
-      rw [lp.norm_single hp_pos]
+  exact complexHilbertMapCLM_norm_ge_block
+    (complexPairCommutatorBlock mass scale left right)
+    L hL
+    (fun i => by
+      rw [complexPairCommutatorBlock_norm]
+      exact hEdge i)
+    j
 
 /-- Every edge Lipschitz quotient is at most the global commutator norm. -/
 theorem complexPairCommutator_edge_le_norm
