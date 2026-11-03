@@ -18,6 +18,7 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
+set_option maxHeartbeats 2000000 in
 /-- Any bounded complex Hilbert operator acting coordinatewise
 dominates each of its block operator norms. The Hilbert operator
 is a parameter, avoiding dependent reduction of lp.mapCLM. -/
