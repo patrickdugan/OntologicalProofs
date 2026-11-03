@@ -33,6 +33,7 @@ import Neoplatonic.LTR.ComplexSpectralSummability
 import Neoplatonic.LTR.LogicalStoneMarking
 import Neoplatonic.LTR.LogicalStoneSpectralTriple
 import Neoplatonic.LTR.LogicalLipschitzProjections
+import Neoplatonic.LTR.LogicalDiracObservables
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -489,6 +490,10 @@ open Neoplatonic.LTR
 #print axioms chosenLogicalStoneSpectralTriple
 #print axioms compactClopenBinary_finiteLipschitz
 #print axioms complexLogicalProjection_mem_Lipschitz
+#print axioms logicalSentence_inSpectralObservables
+#print axioms logicalSentence_HilbertProjection
+#print axioms logicalSentence_HilbertRefutationNorm_zero_iff
+#print axioms logicalSentence_boundedDiracCommutator
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
