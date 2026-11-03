@@ -1,4 +1,3 @@
-import Neoplatonic.LTR.ComplexObservableSeminorm
 import Neoplatonic.LTR.SpectralBridge
 
 /-!
