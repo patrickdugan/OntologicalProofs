@@ -20,21 +20,26 @@ selection claim about q.
 namespace Neoplatonic.LTR
 
 /-- Left endpoint of the marked ordered pair at natural index j. -/
-def densePairLeft {X : Type*} (q : ℕ → X)
+noncomputable def densePairLeft {X : Type*} (q : ℕ → X)
     (a b : ℕ) (j : ℕ) : X :=
-  if q (Nat.unpair j).1 = q (Nat.unpair j).2 then q a
-  else q (Nat.unpair j).1
+  by
+    classical
+    exact if q (Nat.unpair j).1 = q (Nat.unpair j).2 then q a
+      else q (Nat.unpair j).1
 
 /-- Right endpoint of the marked ordered pair at natural index j. -/
-def densePairRight {X : Type*} (q : ℕ → X)
+noncomputable def densePairRight {X : Type*} (q : ℕ → X)
     (a b : ℕ) (j : ℕ) : X :=
-  if q (Nat.unpair j).1 = q (Nat.unpair j).2 then q b
-  else q (Nat.unpair j).2
+  by
+    classical
+    exact if q (Nat.unpair j).1 = q (Nat.unpair j).2 then q b
+      else q (Nat.unpair j).2
 
 /-- Each edge is nondegenerate provided the fallback pair is. -/
 theorem densePair_distinct {X : Type*}
     (q : ℕ → X) (a b : ℕ) (hab : q a ≠ q b) :
     ∀ j, densePairLeft q a b j ≠ densePairRight q a b j := by
+  classical
   intro j
   by_cases h : q (Nat.unpair j).1 = q (Nat.unpair j).2
   · simpa [densePairLeft, densePairRight, h] using hab
@@ -47,6 +52,7 @@ theorem densePair_covers {X : Type*}
     ∀ m n, q m ≠ q n →
       ∃ j, densePairLeft q a b j = q m ∧
         densePairRight q a b j = q n := by
+  classical
   intro m n hmn
   refine ⟨Nat.pair m n, ?_, ?_⟩
   · simp [densePairLeft, Nat.unpair_pair, hmn]
@@ -58,6 +64,7 @@ theorem densePair_endpointCover {X : Type*}
     (q : ℕ → X) (a b : ℕ) (hab : q a ≠ q b) :
     ∀ n, ∃ j, densePairLeft q a b j = q n ∨
       densePairRight q a b j = q n := by
+  classical
   intro n
   by_cases hna : q n = q a
   · refine ⟨Nat.pair a b, Or.inl ?_⟩
