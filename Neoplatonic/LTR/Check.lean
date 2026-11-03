@@ -15,7 +15,6 @@ import Neoplatonic.LTR.InfiniteDiracCore
 import Neoplatonic.LTR.InfiniteResolvent
 import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
-import Neoplatonic.LTR.InfiniteCompactResolvent
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 
 open Neoplatonic.LTR
@@ -251,8 +250,3 @@ open Neoplatonic.LTR
 #print axioms squaredResolvent_finite_norm_bound
 #print axioms chosenSquaredResolvent_isCompact
 
-#print axioms singleSquaredResolventBlock_apply
-#print axioms finiteSquaredResolvent_apply
-#print axioms finiteSquaredResolvent_eq_cutoff
-#print axioms chosenSquaredResolvent_finite_norm_bound
-#print axioms chosenSquaredResolvent_compact
