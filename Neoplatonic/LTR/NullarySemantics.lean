@@ -24,11 +24,11 @@ theorem rename_reduct (σ : ℕ → ℕ) (bits : ℕ → Bool) :
   letI : L.Structure Unit := unitStructure bits
   apply FirstOrder.Language.Structure.ext
   · funext n f xs
-    exact isEmptyElim f
+    exact nomatch f
   · funext n r xs
     cases n with
     | zero => rfl
-    | succ n => exact isEmptyElim r
+    | succ n => exact nomatch r
 
 /-- Full first-order sentence semantics, independent of the formula's
 quantifier structure. -/
