@@ -31,7 +31,7 @@ variable {α : Type w}
 
 /-- Urysohn metrization provides a metric compatible with the
 logical Stone topology on the first-order completion space. -/
-noncomputable def chosenLogicalStoneMetric
+noncomputable abbrev chosenLogicalStoneMetric
     [Countable (L.withConstants α).Sentence] :
     MetricSpace (T.CompleteType α) := by
   letI : SecondCountableTopology (T.CompleteType α) :=
@@ -50,17 +50,9 @@ noncomputable def chosenLogicalStoneSpectralTriple
     (hi : Independent T φ) :
     letI : MetricSpace (T.CompleteType α) :=
       chosenLogicalStoneMetric (T := T) (α := α)
-    letI : TopologicalSpace (T.CompleteType α) :=
-      CompleteType.instTopologicalSpace
-    letI : CompactSpace (T.CompleteType α) :=
-      CompleteType.instCompactSpace
     CompactComplexSpectralTriple (T.CompleteType α) := by
   letI : MetricSpace (T.CompleteType α) :=
     chosenLogicalStoneMetric (T := T) (α := α)
-  letI : TopologicalSpace (T.CompleteType α) :=
-    CompleteType.instTopologicalSpace
-  letI : CompactSpace (T.CompleteType α) :=
-    CompleteType.instCompactSpace
   letI : SecondCountableTopology (T.CompleteType α) :=
     logicalCompleteType_secondCountable (T := T) (α := α)
   letI : Nonempty (T.CompleteType α) :=
