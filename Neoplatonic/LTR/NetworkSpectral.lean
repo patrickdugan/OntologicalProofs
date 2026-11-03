@@ -23,8 +23,24 @@ open Set
 
 universe u v w
 
-/-- Conservative finite-extension gluing induces an isometric pullback
-on the uniform norms of continuous real-valued observables. -/
+/-- The space of jointly compatible states is compact because every
+constraint is closed and the ambient space is compact. -/
+noncomputable def compatibleSpaceCompact
+    {X : Type u} {K : Type w}
+    [TopologicalSpace X] [CompactSpace X]
+    (C : K → Set X) (hclosed : ∀ k, IsClosed (C k)) :
+    CompactSpace {x : X // ∀ k, x ∈ C k} := by
+  have hZ : IsClosed {x : X | ∀ k, x ∈ C k} := by
+    have hz_eq : {x : X | ∀ k, x ∈ C k} = ⋂ k, C k := by
+      ext x
+      simp only [Set.mem_ofPred_eq, Set.mem_iInter]
+    rw [hz_eq]
+    exact isClosed_iInter hclosed
+  exact isCompact_iff_compactSpace.mp hZ.isCompact
+
+/-- Finite-extension gluing gives an exact norm equality on all
+continuous observables, with the compact-subspace instance supplied
+explicitly by the preceding theorem. -/
 theorem compact_network_preserves_observable_norm
     {X : Type u} {Y : Type v} {K : Type w}
     [TopologicalSpace X] [CompactSpace X]
@@ -34,17 +50,13 @@ theorem compact_network_preserves_observable_norm
     (hfinite : ∀ y : Y, ∀ s : Finset K,
        ∃ x : X, f x = y ∧ ∀ k ∈ s, x ∈ C k)
     (a : C(Y, ℝ)) :
-    ‖a.comp
+    (letI : CompactSpace {x : X // ∀ k, x ∈ C k} :=
+       compatibleSpaceCompact C hclosed
+     ‖a.comp
         ⟨(fun z : {x : X // ∀ k, x ∈ C k} => f z.val),
-          hf.comp continuous_subtype_val⟩‖ = ‖a‖ := by
-  have hZ : IsClosed {x : X | ∀ k, x ∈ C k} := by
-    have hz_eq : {x : X | ∀ k, x ∈ C k} = ⋂ k, C k := by
-      ext x
-      simp only [Set.mem_setOf_eq, Set.mem_iInter]
-    rw [hz_eq]
-    exact isClosed_iInter hclosed
+          hf.comp continuous_subtype_val⟩‖ = ‖a‖) := by
   letI : CompactSpace {x : X // ∀ k, x ∈ C k} :=
-    isCompact_iff_compactSpace.mp hZ.isCompact
+    compatibleSpaceCompact C hclosed
   let g : C({x : X // ∀ k, x ∈ C k}, Y) :=
     ⟨(fun z => f z.val), hf.comp continuous_subtype_val⟩
   have hg : Function.Surjective g :=
