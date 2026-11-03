@@ -30,6 +30,7 @@ import Neoplatonic.LTR.ComplexLipschitzAlgebra
 import Neoplatonic.LTR.ComplexMetricSpectralTriple
 import Neoplatonic.LTR.DensePairMarking
 import Neoplatonic.LTR.ComplexSpectralSummability
+import Neoplatonic.LTR.LogicalStoneMarking
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -477,6 +478,11 @@ open Neoplatonic.LTR
 #print axioms chosenSquaredResolventWeight_rpow_summable
 #print axioms complexSpectralTraceTerm_summable
 #print axioms complexSpectralTraceTerm_eq_energy
+#print axioms logicalCompleteType_secondCountable
+#print axioms logicalCompleteType_denseSeq_dense
+#print axioms denseSequence_contains_distinct_values
+#print axioms logicalCompleteType_two_distinct
+#print axioms logicalCompleteType_denseSeq_has_distinct
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
