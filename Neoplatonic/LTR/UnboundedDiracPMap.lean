@@ -31,7 +31,7 @@ open scoped lp
 /-- The genuine finite-dimensional bounded Dirac block on ℝ². -/
 noncomputable def euclideanDiracBlock (mass scale : ℝ) :
     EuclideanSpace ℝ (Fin 2) →L[ℝ] EuclideanSpace ℝ (Fin 2) :=
-  Matrix.toEuclideanCLM (massDirac mass scale)
+  (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℝ)) (massDirac mass scale)
 
 /-- Blockwise action of an arbitrary mass/scale sequence on an ℓ² vector,
 viewed as a function of blocks before square-summability is imposed. -/
@@ -50,7 +50,7 @@ noncomputable def maximalDiracDomain (mass scale : ℕ → ℝ) :
       funext j
       simp [diracBlockwise]
     rw [hz]
-    exact lp.zero_mem_ℓp'
+    exact zero_mem_ℓp'
   add_mem' := by
     intro x y hx hy
     change Memℓp (diracBlockwise mass scale (x + y)) 2
