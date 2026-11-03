@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.ComplexDenseConnesDistance
+import Neoplatonic.LTR.ComplexDenseMarkedMetric
 import Neoplatonic.LTR.ComplexDenseObservableFaithful
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
@@ -373,20 +373,13 @@ open Neoplatonic.LTR
 #print axioms complexDirac_observable_block_action
 #print axioms complexPairObservable_preserves_maximalDiracDomain
 #print axioms complexPairObservable_unbounded_commutator
-#print axioms complexPairCommutatorBlock_norm_le_global
-#print axioms complexPairCommutator_edge_le_norm
-#print axioms complexPairCommutatorCLM_eq_of_bounds
-#print axioms complexPairCommutator_norm_le_iff
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
 #print axioms markedEdgeConnesDistance_witness
-#print axioms complexMarkedCommutator_norm_le_one_iff_lipschitz
 #print axioms continuous_lipschitz_of_dense_sequence
 #print axioms denseMarkedEdgeUnitBound_iff_lipschitz
 #print axioms denseMarkedConnesDistance_witness
-#print axioms complexDenseMarkedCommutator_norm_le_one_iff_lipschitz
-#print axioms complexDenseConnesDistance_operator_witness
 #print axioms complexDiagonalObservable_eq_zero_iff
 #print axioms complexObservableBlock_eq_zero_iff
 #print axioms complexPairObservableCLM_eq_zero_values
