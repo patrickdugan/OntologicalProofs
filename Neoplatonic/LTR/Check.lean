@@ -31,6 +31,7 @@ import Neoplatonic.LTR.ComplexMetricSpectralTriple
 import Neoplatonic.LTR.DensePairMarking
 import Neoplatonic.LTR.ComplexSpectralSummability
 import Neoplatonic.LTR.LogicalStoneMarking
+import Neoplatonic.LTR.LogicalStoneSpectralTriple
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -483,6 +484,8 @@ open Neoplatonic.LTR
 #print axioms denseSequence_contains_distinct_values
 #print axioms logicalCompleteType_two_distinct
 #print axioms logicalCompleteType_denseSeq_has_distinct
+#print axioms chosenLogicalStoneMetric
+#print axioms chosenLogicalStoneSpectralTriple
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
