@@ -17,7 +17,7 @@ import Neoplatonic.LTR.InfiniteDiracLinear
 import Neoplatonic.LTR.InfiniteHilbertCore
 import Neoplatonic.LTR.InfiniteSquaredResolventCompact
 import Neoplatonic.LTR.DiracBlockCoreDense
-import Neoplatonic.LTR.ComplexOrdinaryResolventBlock
+import Neoplatonic.LTR.ComplexOrdinaryResolventGlobal
 
 open Neoplatonic.LTR
 
@@ -326,3 +326,10 @@ open Neoplatonic.LTR
 #print axioms complexOrdinaryResolventBlock_apply
 #print axioms complexOrdinaryResolventBlock_right_inverse
 #print axioms complexOrdinaryResolventBlock_left_inverse
+#print axioms chosenSquaredResolventWeight_le_one
+#print axioms complexOrdinaryResolventBlock_norm_le
+#print axioms chosenComplexOrdinaryResolventCLM_apply
+#print axioms complexOrdinaryResolventBlock_D_norm_le
+#print axioms chosenComplexOrdinaryResolvent_mem_maximalComplexDiracDomain
+#print axioms chosenComplexOrdinaryResolvent_right_inverse
+#print axioms chosenComplexOrdinaryResolvent_left_inverse
