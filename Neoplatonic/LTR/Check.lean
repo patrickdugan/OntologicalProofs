@@ -7,7 +7,7 @@ import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
 import Neoplatonic.LTR.NullaryContinuity
-import Neoplatonic.LTR.AtomicSeminorm
+import Neoplatonic.LTR.AtomicTheorySeminorm
 
 open Neoplatonic.LTR
 
@@ -174,3 +174,7 @@ open Neoplatonic.LTR
 #print axioms bitObservable_lipschitz_upper
 #print axioms firstDifference_singleTrueBit
 #print axioms bitObservable_lipschitz_sharp
+
+#print axioms nullary_atomic_projection_eq_bitObservable
+#print axioms nullary_atomic_projection_lipschitz
+#print axioms nullary_atomic_projection_lipschitz_sharp
