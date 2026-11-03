@@ -18,6 +18,7 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
+set_option maxHeartbeats 2500000 in
 /-- Any individual marked-edge commutator norm is bounded above
 by the norm of the global bounded Hilbert commutator. -/
 theorem complexPairCommutatorBlock_norm_le_global
