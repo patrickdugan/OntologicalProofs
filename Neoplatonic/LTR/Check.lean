@@ -7,6 +7,7 @@ import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
 import Neoplatonic.LTR.NullaryContinuity
+import Neoplatonic.LTR.LogicalSpectral
 
 open Neoplatonic.LTR
 
@@ -151,3 +152,13 @@ open Neoplatonic.LTR
 #print axioms Nullary.continuous_acceleratedStream
 #print axioms Nullary.continuous_encode
 #print axioms Nullary.continuous_syntaxMap
+
+#print axioms logicalProjection_apply_mem
+#print axioms logicalProjection_apply_not_mem
+#print axioms logicalProjection_idempotent
+#print axioms logicalProjection_norm_le_one
+#print axioms logicalProjection_norm_one_of_nonempty
+#print axioms logicalProjection_eq_zero_of_empty
+#print axioms logicalProjection_norm_zero_iff
+#print axioms refutation_norm_zero_iff_entails
+#print axioms independent_norms
