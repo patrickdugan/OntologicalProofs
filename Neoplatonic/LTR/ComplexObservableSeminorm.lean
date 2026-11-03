@@ -18,10 +18,10 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
-set_option maxHeartbeats 2000000 in
-/-- Any bounded complex Hilbert operator acting coordinatewise
-dominates each of its block operator norms. The Hilbert operator
-is a parameter, avoiding dependent reduction of lp.mapCLM. -/
+/-- The norm of a coordinatewise bounded operator on a complex
+ℓ² direct sum dominates the operator norm on each coordinate.
+Use the norm-one evaluation and insertion maps to avoid large
+dependent elaboration within the operator-norm proof. -/
 theorem complexHilbertBlock_norm_le_operator
     (T : ℕ → EuclideanSpace ℂ (Fin 2) →L[ℂ] EuclideanSpace ℂ (Fin 2))
     (F : ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert)
@@ -29,19 +29,42 @@ theorem complexHilbertBlock_norm_le_operator
       (F ψ) j = T j (ψ j))
     (j : ℕ) :
     ‖T j‖ ≤ ‖F‖ := by
-  apply ContinuousLinearMap.opNorm_le_bound _ (norm_nonneg F)
-  intro v
-  have hsingle : (F (lp.single 2 j v)) j = T j v := by
+  let E : ComplexDiracBlockHilbert →L[ℂ] EuclideanSpace ℂ (Fin 2) :=
+    lp.evalCLM ℂ (fun _ : ℕ => EuclideanSpace ℂ (Fin 2)) 2 j
+  let S : EuclideanSpace ℂ (Fin 2) →L[ℂ] ComplexDiracBlockHilbert :=
+    lp.singleContinuousLinearMap ℂ (fun _ : ℕ => EuclideanSpace ℂ (Fin 2)) 2 j
+  have hcomp : T j = E.comp (F.comp S) := by
+    apply ContinuousLinearMap.ext
+    intro v
+    change T j v = (F (lp.single 2 j v)) j
     rw [hcoord]
     simp
-  have hp : (2 : ENNReal) ≠ 0 := by norm_num
-  have hp_pos : 0 < (2 : ENNReal) := by norm_num
+  have hEval : ‖E‖ ≤ 1 := by
+    apply ContinuousLinearMap.opNorm_le_bound E (by norm_num)
+    intro ψ
+    change ‖ψ j‖ ≤ 1 * ‖ψ‖
+    simpa only [one_mul] using
+      (lp.norm_apply_le_norm (by norm_num : (2 : ENNReal) ≠ 0) ψ j)
+  have hSingle : ‖S‖ ≤ 1 := by
+    apply ContinuousLinearMap.opNorm_le_bound S (by norm_num)
+    intro v
+    change ‖lp.single 2 j v‖ ≤ 1 * ‖v‖
+    rw [lp.norm_single (by norm_num : 0 < (2 : ENNReal))]
+    simp
   calc
-    ‖T j v‖ = ‖(F (lp.single 2 j v)) j‖ := by rw [hsingle]
-    _ ≤ ‖F (lp.single 2 j v)‖ :=
-      lp.norm_apply_le_norm hp (F (lp.single 2 j v)) j
-    _ ≤ ‖F‖ * ‖lp.single 2 j v‖ := F.le_opNorm _
-    _ = ‖F‖ * ‖v‖ := by rw [lp.norm_single hp_pos]
+    ‖T j‖ = ‖E.comp (F.comp S)‖ := congrArg norm hcomp
+    _ ≤ ‖E‖ * ‖F.comp S‖ := ContinuousLinearMap.opNorm_comp_le _ _
+    _ ≤ ‖E‖ * (‖F‖ * ‖S‖) :=
+      mul_le_mul_of_nonneg_left
+        (ContinuousLinearMap.opNorm_comp_le _ _) (norm_nonneg E)
+    _ ≤ 1 * (‖F‖ * ‖S‖) :=
+      mul_le_mul_of_nonneg_right hEval
+        (mul_nonneg (norm_nonneg F) (norm_nonneg S))
+    _ ≤ 1 * (‖F‖ * 1) :=
+      mul_le_mul_of_nonneg_left
+        (mul_le_mul_of_nonneg_left hSingle (norm_nonneg F))
+        (by norm_num)
+    _ = ‖F‖ := by ring
 
 /-- Any individual marked-edge commutator norm is bounded above
 by the norm of the global bounded Hilbert commutator. -/
