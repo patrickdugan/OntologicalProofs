@@ -21,12 +21,14 @@ noncomputable def coreDiracLinear (mass scale : ℕ → ℝ) :
   toFun := coreDirac mass scale
   map_add' := by
     intro z w
-    ext j
+    apply Finsupp.ext
+    intro j
     simp only [coreDirac_apply, Finsupp.add_apply]
     exact realDiracPair_add (mass j) (scale j) (z j) (w j)
   map_smul' := by
     intro r z
-    ext j
+    apply Finsupp.ext
+    intro j
     simp only [coreDirac_apply, Finsupp.smul_apply]
     exact realDiracPair_smul (mass j) (scale j) r (z j)
 
