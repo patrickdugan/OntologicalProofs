@@ -30,7 +30,10 @@ theorem chosenComplexSpectralPower_isCompact
       Tendsto (finiteComplexSpectralPower scale p) atTop
         (nhds (chosenComplexSpectralPowerCLM scale p hp)) := by
     rw [chosenComplexSpectralPower_eq_tsum_rankTwo scale p hp]
-    simpa only [finiteComplexSpectralPower] using hsum
+    change Tendsto (fun N : ℕ =>
+      ∑ j ∈ Finset.range N, complexSingleSpectralPowerBlock scale p j)
+      atTop (nhds (∑' j : ℕ, complexSingleSpectralPowerBlock scale p j))
+    exact hsum
   exact isCompactOperator_of_tendsto hlimit
     (Filter.Eventually.of_forall
       (finiteComplexSpectralPower_compact scale p))
