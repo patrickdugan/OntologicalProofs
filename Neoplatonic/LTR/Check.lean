@@ -50,6 +50,7 @@ import Neoplatonic.LTR.NullaryFullSentenceTranslation
 import Neoplatonic.LTR.NullaryConcreteNumberedModulus
 import Neoplatonic.LTR.NullaryCountableSyntaxMetric
 import Neoplatonic.LTR.NullaryProgramComposition
+import Neoplatonic.LTR.NullaryEffectiveSyntax
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -578,6 +579,10 @@ open Neoplatonic.LTR
 #print axioms Nullary.nullaryProgram_comp_lookup_truth
 #print axioms Nullary.nullaryProgram_comp_prefixTransfer
 #print axioms Nullary.nullaryProgram_comp_radiusTransfer
+#print axioms Nullary.effectiveExpandedSentence_decode_encode
+#print axioms Nullary.effectiveExpandedSentenceCode_surjective
+#print axioms Nullary.effectiveHaltingSentenceLookup_spec
+#print axioms Nullary.effectiveHaltingSentenceLookup_truth
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
