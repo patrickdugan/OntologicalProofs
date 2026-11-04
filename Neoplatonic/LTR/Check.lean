@@ -35,6 +35,7 @@ import Neoplatonic.LTR.LogicalStoneSpectralTriple
 import Neoplatonic.LTR.LogicalLipschitzProjections
 import Neoplatonic.LTR.LogicalDiracObservables
 import Neoplatonic.LTR.LogicalBooleanOperators
+import Neoplatonic.LTR.LogicalSyntacticHilbertPullback
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -502,6 +503,10 @@ open Neoplatonic.LTR
 #print axioms logicalSentenceHilbertOp_inf
 #print axioms logicalSentenceHilbertOp_eq_iff_locus
 #print axioms logicalSentenceHilbertOp_mul_eq_self_iff_subset
+#print axioms complexLogicalProjection_syntax_pullback
+#print axioms syntaxPullback_inSpectralObservables
+#print axioms syntaxPullback_HilbertProjection
+#print axioms syntaxPullback_boundedDiracCommutator
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
