@@ -49,8 +49,8 @@ theorem binary_action_regret
     (h1 : |pred1 - true1| ≤ ε)
     (hChooseZero : pred1 ≤ pred0) :
     true1 - true0 ≤ 2 * ε := by
-  have a := (abs_le.mp h0).1
-  have b := (abs_le.mp h1).2
+  have a := (abs_le.mp h0).2
+  have b := (abs_le.mp h1).1
   linarith
 
 /-- For an action choice that follows a stable predicted ordering,
