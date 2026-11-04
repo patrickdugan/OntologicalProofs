@@ -79,6 +79,7 @@ theorem chosenComplexSpectralDyadicRational_CFC_tendsto
       scale (n i) (m i)).symm
   rw [hterm]
   have h := hcontinuous.tendsto.comp hlimit
-  simpa only [chosenComplexSpectralPowerTotal_of_pos scale p hp] using h
+  simpa only [Function.comp_def,
+    chosenComplexSpectralPowerTotal_of_pos scale p hp] using h
 
 end Neoplatonic.LTR
