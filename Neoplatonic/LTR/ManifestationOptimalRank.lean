@@ -51,9 +51,16 @@ theorem optimalManifestationBasis_orthonormal (m : ℕ) :
           optimalManifestationBlock m b := by
       intro heq
       exact hab ((optimalManifestationBlock_injective m) heq)
-    rw [lp.single_apply_ne (p := (2 : ENNReal))
-      (i := optimalManifestationBlock m b)
-      (j := optimalManifestationBlock m a) hneq]
+    have hz :
+        (lp.single
+          (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
+          (2 : ENNReal) (optimalManifestationBlock m b)
+          (EuclideanSpace.single (0 : Fin 2) (1 : ℂ)))
+          (optimalManifestationBlock m a) = 0 := by
+      exact lp.single_apply_ne (2 : ENNReal)
+        (optimalManifestationBlock m b)
+        (EuclideanSpace.single (0 : Fin 2) (1 : ℂ)) hneq
+    rw [hz]
     simp [hab]
 
 /-- Selected standard Hilbert vectors are linearly independent. -/
