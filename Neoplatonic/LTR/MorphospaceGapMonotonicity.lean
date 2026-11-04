@@ -108,6 +108,11 @@ theorem expected_gap_reduction_nonnegative
     (hHold : nextHold ≤ now)
     (hHit : nextHit ≤ now) :
     0 ≤ now - ((1 - p) * nextHold + p * nextHit) := by
+  have hRemain : 0 ≤ 1 - p := sub_nonneg.mpr hp1
+  have hA : 0 ≤ (1-p)*(now-nextHold) :=
+    mul_nonneg hRemain (sub_nonneg.mpr hHold)
+  have hB : 0 ≤ p*(now-nextHit) :=
+    mul_nonneg hp0 (sub_nonneg.mpr hHit)
   nlinarith
 
 end Neoplatonic.LTR.Morphospace
