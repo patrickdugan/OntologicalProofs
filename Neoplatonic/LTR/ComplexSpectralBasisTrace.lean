@@ -89,4 +89,33 @@ theorem complexSpectralHilbertBasisTrace_eq
     _ = (complexSpectralGlobalTrace scale p : ℂ) := by
           simp only [complexSpectralGlobalTrace, Complex.ofReal_tsum]
 
+
+/-- At exponent zero each complex two-point Dirac block contributes
+exactly two unit singular energies. -/
+theorem complexSpectralTraceTerm_at_zero
+    (scale : ℕ → ℝ) (j : ℕ) :
+    complexSpectralTraceTerm scale 0 j = 2 := by
+  simp [complexSpectralTraceTerm]
+
+/-- The infinite diagonal trace diverges at p = 0. -/
+theorem complexSpectralTraceTerm_not_summable_zero
+    (scale : ℕ → ℝ) :
+    ¬ Summable (complexSpectralTraceTerm scale 0) := by
+  intro hs
+  have ht : Filter.Tendsto (fun _ : ℕ => (2 : ℝ))
+      Filter.atTop (nhds (0 : ℝ)) := by
+    simpa only [complexSpectralTraceTerm_at_zero] using hs.tendsto_atTop_zero
+  have htwo : (2 : ℝ) = 0 :=
+    tendsto_nhds_unique tendsto_const_nhds ht
+  norm_num at htwo
+
+/-- The nonnegative spectral trace summability threshold is zero:
+every positive exponent converges, while the zero exponent diverges. -/
+theorem complexSpectral_nonnegative_threshold_zero
+    (scale : ℕ → ℝ) :
+    (∀ p : ℝ, 0 < p → Summable (complexSpectralTraceTerm scale p)) ∧
+      ¬ Summable (complexSpectralTraceTerm scale 0) := by
+  exact ⟨fun p hp => complexSpectralTraceTerm_summable scale p hp,
+    complexSpectralTraceTerm_not_summable_zero scale⟩
+
 end Neoplatonic.LTR
