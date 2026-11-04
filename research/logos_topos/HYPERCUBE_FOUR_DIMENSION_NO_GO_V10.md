@@ -179,7 +179,7 @@ This contradicts \(a^2+b^2=1\). The four-dimensional faithful spectral realizati
 The eight-dimensional independent-edge construction of LTR-MAN-09 is an explicit realization, so the rigorous present bounds are
 
 \[
-\boxed{5\le r_{\rm geom}(2)\le8.}
+\boxed{6\le r_{\rm geom}(2)\le8.}
 \]
 
 The exact values 5, 6, or 7 remain mathematically unresolved. Numerical searches over these dimensions supply candidates but cannot prove feasibility or impossibility.
@@ -194,3 +194,144 @@ The proof is entirely finite-dimensional. Its central components are finite-dime
 - `Neoplatonic/LTR/BooleanCubeConnesDistance.lean`: edge-block Hamming distance construction, pending Lean CI
 - `research/logos_topos/HYPERCUBE_PLAQUETTE_V09.md`: four-dimensional unit square flux law, proved analytically
 - `research/logos_topos/HYPERCUBE_SPECTRAL_GEOMETRY_V09.md`: edge-block dimension accounting
+
+
+## Extension: five-dimensional no-go by extremal spectral supports
+
+**Theorem (written analytic proof).** In fact, a faithful unital representation
+of the two-bit truth algebra with exact Hamming Connes metric requires
+
+\[
+\boxed{\dim_{\mathbb C}H\ge6.}
+\]
+
+### Two opposite-distance witnesses constrain both coordinate commutators
+
+Let \(P,Q\) be the commuting atomic-coordinate projections for the first
+and second Boolean bits. Set
+
+\[
+A=i[D,P],\qquad B=i[D,Q].
+\]
+
+These are Hermitian, trace-zero matrices. Each anticommutes with its
+corresponding grading \(2P-I\) or \(2Q-I\). Their nonzero eigenvalues
+therefore occur in pairs \(\lambda,-\lambda\), with matching
+multiplicities.
+
+The two opposite-corner distance witnesses \(p+q\) and \(p-q\)
+established in Step 3 imply
+
+\[
+\|A+B\|\le1,\qquad \|A-B\|\le1.
+\]
+
+Each coordinate function separates a Hamming-one pair, so exact
+adjacent distances also imply \(\|A\|\ge1\) and \(\|B\|\ge1\).
+The triangle inequality applied to \((A+B)\pm(A-B)\) gives the
+reverse inequalities. Consequently
+
+\[
+\boxed{\|A\|=\|B\|=1.}
+\]
+
+Let \(E_A\) be the sum of the \(+1\) and \(-1\) eigenspaces of
+\(A\). Spectral symmetry implies \(\dim E_A\ge2\), with
+equal \(+1\) and \(-1\) multiplicities. For a unit eigenvector
+\(v\in E_A\), we have \(\|Av\|=1\). The two contractions give
+
+\[
+\|(A+B)v\|^2\le1,\qquad
+\|(A-B)v\|^2\le1.
+\]
+
+Adding and applying the parallelogram identity yields
+
+\[
+2(\|Av\|^2+\|Bv\|^2)\le2,
+\quad\text{so}\quad Bv=0.
+\]
+
+Thus \(E_A\subseteq\ker B\). By symmetry,
+\(E_B\subseteq\ker A\), where \(E_B\) consists of the
+\(\pm1\) eigenspaces of \(B\). Self-adjointness implies
+\(E_A\perp E_B\). Both have dimension at least two.
+
+If \(\dim H\le5\), write the reducing orthogonal decomposition
+
+\[
+H=E_A\oplus E_B\oplus R,\qquad \dim R\le1.
+\]
+
+The trace of \(A\) on \(E_A\) is zero by the pairing of
+\(+1\) and \(-1\) eigenvalues, while \(A\) vanishes on
+\(E_B\). Since \(\operatorname{tr}A=0\), it must also vanish
+on the at-most-one-dimensional reducing complement \(R\).
+Similarly, \(B\) vanishes on \(R\) and on \(E_A\).
+
+Therefore
+
+\[
+\boxed{AB=BA=0\qquad\text{when }\dim H\le5.}\tag{5}
+\]
+
+### Vanishing product forces a disconnected square
+
+Let the four minimal projections of \(\pi(\mathbb C^4)\) have
+positive multiplicities \(n_0,\ldots,n_3\). At dimension at most
+five, at most one multiplicity can exceed one.
+
+Inspect the \((0,0)\) block of \(AB\). Because one of the bit
+differences vanishes across each square edge, the only possible
+contribution is the two-bit-flipping coupling \(0\leftrightarrow3\).
+Up to a nonzero sign, the block equals
+\(D_{03}D_{03}^*\). Equation (5) forces \(D_{03}=0\).
+The \((1,1)\) block similarly gives \(D_{12}=0\).
+
+All surviving intervertex couplings now lie on the four Hamming-one
+edges. Form the support graph whose vertices are \(0,1,2,3\), with
+edge \(u-v\) present when the corresponding coupling block
+\(D_{uv}\) is nonzero.
+
+Suppose vertex \(v\) has a one-dimensional Hilbert fibre and both
+of its incident square-edge couplings are nonzero. Let \(u\) be
+its neighbor in the first-bit direction and \(w\) its neighbor
+in the second-bit direction. The \((u,w)\) block of \(AB\)
+contains precisely the ordered two-edge path \(u-v-w\).
+Its contribution is a nonzero scalar times
+
+\[
+D_{uv}D_{vw}:H_w\longrightarrow H_u.
+\]
+
+Because \(H_v\) has dimension one, the composition of two nonzero
+maps through \(H_v\) is nonzero. The alternative two-edge path
+has the wrong order of bit directions and contributes zero.
+This contradicts \(AB=0\). Hence every one-dimensional fibre
+has **at most one** incident nonzero square edge.
+
+The support graph must be connected: otherwise a function constant
+on each graph component but unequal between two components has zero
+Dirac commutator and makes the Connes distance infinite.
+
+Yet a connected spanning subgraph of a square requires at least
+three edges and therefore total degree at least six. With at most
+one fibre of multiplicity greater than one, and all other vertices
+restricted to degree at most one, the total possible degree is at
+most \(2+1+1+1=5\). Contradiction.
+
+Thus a faithful exact-Hamming representation in dimension five
+cannot exist. Together with the earlier dimension-four argument
+and the verified rank-four truth-algebra lower bound,
+
+\[
+\boxed{6\le r_{\mathrm{geom}}(2)\le8.}
+\]
+
+The extension uses the operator-norm parallelogram identity,
+spectral pairing of the commutator with a projection,
+finite-dimensional trace, and multiplication of rectangular
+coupling blocks. The formal Lean obligation is to encode the
+\(AB=0\) support lemma and the four-vertex graph degree argument.
+
+The dimension-six and dimension-seven cases remain open.
