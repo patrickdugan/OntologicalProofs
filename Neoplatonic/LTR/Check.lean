@@ -6,6 +6,7 @@ import Neoplatonic.LTR.MorphospaceGoalFuture
 import Neoplatonic.LTR.MorphospaceColoring
 import Neoplatonic.LTR.MorphospaceSquareCover
 import Neoplatonic.LTR.MorphospaceAnytimeIntervals
+import Neoplatonic.LTR.MorphospaceInformationCover
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -734,3 +735,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.nested_interval_contains
 #print axioms Neoplatonic.LTR.Morphospace.unprobed_cell_half_error_lower
 #print axioms Neoplatonic.LTR.Morphospace.optimistic_pair_gap
+
+-- MOR-08: source-independent fractional information LP primal-dual checks.
+#print axioms Neoplatonic.LTR.Morphospace.fractional_information_cover_weak_duality
+#print axioms Neoplatonic.LTR.Morphospace.fractional_information_equal_objectives_optimal
+#print axioms Neoplatonic.LTR.Morphospace.fractional_information_dual_certificate
