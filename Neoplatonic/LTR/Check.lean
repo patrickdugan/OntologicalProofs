@@ -542,6 +542,8 @@ open Neoplatonic.LTR
 #print axioms complexSpectralPowerWeight_add
 #print axioms chosenComplexSpectralPower_comp
 #print axioms chosenComplexSpectralPower_comp_comm
+#print axioms chosenComplexSpectralPower_half_square
+#print axioms chosenComplexSpectralPower_one_square
 #print axioms complexSpectralTraceTerm_at_zero
 #print axioms complexSpectralTraceTerm_not_summable_zero
 #print axioms complexSpectral_nonnegative_threshold_zero
