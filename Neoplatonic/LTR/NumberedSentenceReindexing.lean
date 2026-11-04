@@ -38,7 +38,7 @@ theorem sentenceIndexPrefixModulus_gt
     lookup j < sentenceIndexPrefixModulus lookup n := by
   have hle : lookup j + 1 ≤
       (Finset.range n).sup (fun i => lookup i + 1) :=
-    Finset.le_sup (Finset.mem_range.mpr hj)
+    Finset.le_sup (f := fun i => lookup i + 1) (Finset.mem_range.mpr hj)
   exact (Nat.lt_succ_self _).trans_le hle
 
 /-- An explicitly supplied sentence-index lookup transports
@@ -83,12 +83,10 @@ theorem numberedSentenceMetric_radiusTransfer_of_lookup
     (hlookup : ∀ j, source (lookup j) = target j)
     (n : ℕ) (p q : T.CompleteType α)
     (hsourceDist : (letI : MetricSpace (T.CompleteType α) :=
-      numberedSentenceMetric source hsource
-      dist q p) ≤ (1 / 2 : ℝ) ^
+      numberedSentenceMetric source hsource; dist q p) ≤ (1 / 2 : ℝ) ^
         sentenceIndexPrefixModulus lookup n) :
     (letI : MetricSpace (T.CompleteType α) :=
-      numberedSentenceMetric target htarget
-      dist q p) ≤ (1 / 2 : ℝ)^n := by
+      numberedSentenceMetric target htarget; dist q p) ≤ (1 / 2 : ℝ)^n := by
   have hpref : ∀ i, i < sentenceIndexPrefixModulus lookup n →
       (source i ∈ q ↔ source i ∈ p) :=
     (numberedSentenceMetric_closedBall_iff_prefix
@@ -109,11 +107,9 @@ theorem numberedSentenceMetric_radiusTransfer
     (n : ℕ) :
     ∃ m, ∀ p q : T.CompleteType α,
       (letI : MetricSpace (T.CompleteType α) :=
-        numberedSentenceMetric source hsource
-        dist q p) ≤ (1 / 2 : ℝ)^m →
+        numberedSentenceMetric source hsource; dist q p) ≤ (1 / 2 : ℝ)^m →
       (letI : MetricSpace (T.CompleteType α) :=
-        numberedSentenceMetric target htarget
-        dist q p) ≤ (1 / 2 : ℝ)^n := by
+        numberedSentenceMetric target htarget; dist q p) ≤ (1 / 2 : ℝ)^n := by
   classical
   let lookup : ℕ → ℕ := fun j => Classical.choose (hsource (target j))
   have hlookup : ∀ j, source (lookup j) = target j :=
@@ -132,11 +128,9 @@ theorem numberedSentenceMetric_uniformModulus
     (ε : ℝ) (hε : 0 < ε) :
     ∃ δ : ℝ, 0 < δ ∧ ∀ p q : T.CompleteType α,
       (letI : MetricSpace (T.CompleteType α) :=
-        numberedSentenceMetric source hsource
-        dist q p) < δ →
+        numberedSentenceMetric source hsource; dist q p) < δ →
       (letI : MetricSpace (T.CompleteType α) :=
-        numberedSentenceMetric target htarget
-        dist q p) < ε := by
+        numberedSentenceMetric target htarget; dist q p) < ε := by
   obtain ⟨n, hn⟩ :
       ∃ n : ℕ, (1 / 2 : ℝ)^n < ε :=
     exists_pow_lt_of_lt_one hε (by norm_num)
