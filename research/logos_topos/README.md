@@ -71,6 +71,22 @@ at source commit `4de8d6115ddc21922b1cfc9f843673159f31f7a6`.
 That run completed the Lean build, the axiom audit, and all six finite
 reconstruction tests.
 
+## LTR-MAN-02: Named sentence realization and finite capacity
+
+The finite diagonal now has a genuine first-order sentence, built from
+opposite nullary literals and a finite syntax-level conjunction. Its
+nonempty truth locus has an actual norm-one projection in the existing
+syntax-numbered Hilbert spectral triple, while every sampled completion
+refutes it. A separate finite-fragment theorem attains and proves the
+optimal observation capacity of 2^m distinct states for m independent
+nullary predicates.
+
+For any dense sequence of completed theories, finite observation
+eventually matches the complex truth-projection norm of every fixed
+sentence. For every finite sample depth, however, an explicit
+diagonal sentence attains the maximum possible norm-one error.
+See [MANIFESTATION_SENTENCE_CAPACITY_V02.md](MANIFESTATION_SENTENCE_CAPACITY_V02.md).
+
 ## LTR-MAN-01: Finite manifestation diagonal (new)
 
 The nullary Cantor-like complete-type space now has an explicit finite-sample

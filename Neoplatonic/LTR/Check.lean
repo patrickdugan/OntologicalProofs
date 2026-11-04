@@ -22,6 +22,9 @@ import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
 import Neoplatonic.LTR.ManifestationDiagonal
+import Neoplatonic.LTR.ManifestationSentence
+import Neoplatonic.LTR.ManifestationCapacity
+import Neoplatonic.LTR.ManifestationFiniteRecovery
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -223,6 +226,25 @@ open Neoplatonic.LTR
 #print axioms Nullary.manifestationCylinder_isClopen
 #print axioms Nullary.finiteManifestation_obstruction
 #print axioms Nullary.finiteManifestation_not_conservative
+#print axioms Nullary.manifestationLiteral_mem_iff
+#print axioms Nullary.manifestationSentence_mem_iff
+#print axioms Nullary.manifestationSentence_locus
+#print axioms Nullary.manifestationSentence_diagonal_true
+#print axioms Nullary.manifestationSentence_samples_false
+#print axioms Nullary.manifestationSentence_complex_norm_one
+#print axioms Nullary.effectiveNullary_manifestationHilbert_norm_one
+#print axioms Nullary.manifestationPrefix_encode_extend
+#print axioms Nullary.manifestationPrefix_surjective
+#print axioms Nullary.manifestationCanonicalSamples_prefix
+#print axioms Nullary.manifestationCanonicalSamples_cover
+#print axioms Nullary.finiteFragment_capacity_lower_bound
+#print axioms Nullary.finiteFragment_capacity_exact
+#print axioms Nullary.finiteFragment_unseen_assignment
+#print axioms Nullary.denseManifestation_eventually_detects
+#print axioms Nullary.observedTruthNorm_eventually_exact
+#print axioms Nullary.observedTruthNorm_error_le_one
+#print axioms Nullary.observedTruthNorm_maximum_gap
+#print axioms Nullary.observedTruthNorm_exact_uniform_gap
 #print axioms Nullary.decode_bijective
 #print axioms Nullary.cantorHomeomorph_apply
 #print axioms Nullary.cantorHomeomorph_symm_apply
