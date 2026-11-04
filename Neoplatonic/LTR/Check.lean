@@ -37,6 +37,7 @@ import Neoplatonic.LTR.DensePairMarking
 import Neoplatonic.LTR.ComplexSpectralSummability
 import Neoplatonic.LTR.ComplexSpectralPowerOperator
 import Neoplatonic.LTR.ComplexSpectralGlobalTrace
+import Neoplatonic.LTR.ComplexSpectralBasisTrace
 import Neoplatonic.LTR.LogicalStoneMarking
 import Neoplatonic.LTR.LogicalStoneSpectralTriple
 import Neoplatonic.LTR.LogicalLipschitzProjections
@@ -521,6 +522,10 @@ open Neoplatonic.LTR
 #print axioms finiteComplexSpectralPower_apply
 #print axioms finiteComplexSpectralPowerTrace_eq
 #print axioms finiteComplexSpectralPowerTrace_tendsto
+#print axioms chosenComplexSpectralPower_inner_basis
+#print axioms complexSpectralBasisBlockTrace_eq
+#print axioms complexSpectralBasisBlockTrace_summable
+#print axioms complexSpectralHilbertBasisTrace_eq
 #print axioms logicalCompleteType_secondCountable
 #print axioms logicalCompleteType_denseSeq_dense
 #print axioms denseSequence_contains_distinct_values
