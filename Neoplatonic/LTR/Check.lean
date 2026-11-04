@@ -43,6 +43,7 @@ import Neoplatonic.LTR.NumberedStoneSpectralTriple
 import Neoplatonic.LTR.NumberedSentenceLipschitz
 import Neoplatonic.LTR.NumberedSentenceUltrametric
 import Neoplatonic.LTR.NumberedSentenceFinitePrefix
+import Neoplatonic.LTR.NumberedSentenceReindexing
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -539,6 +540,12 @@ open Neoplatonic.LTR
 #print axioms numberedSentenceProjection_commutator_norm_le
 #print axioms numberedSentenceMetric_ultrametric
 #print axioms numberedSentenceMetric_closedBall_iff_prefix
+#print axioms sentenceIndexPrefixModulus_gt
+#print axioms numberedSentencePrefix_transfer_of_lookup
+#print axioms numberedSentencePrefix_transfer
+#print axioms numberedSentenceMetric_radiusTransfer_of_lookup
+#print axioms numberedSentenceMetric_radiusTransfer
+#print axioms numberedSentenceMetric_uniformModulus
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
