@@ -86,7 +86,6 @@ theorem syntaxPullback_HilbertProjection
   letI : MetricSpace (Nullary.T.CompleteType Empty) :=
     chosenLogicalStoneMetric (T := Nullary.T) (α := Empty)
   rw [complexLogicalProjection_syntax_pullback]
-  rfl
 
 /-- The actual infinite unbounded Dirac commutator with the
 syntactically pulled-back truth projection has a bounded extension. -/
