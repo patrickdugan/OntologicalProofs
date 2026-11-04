@@ -91,4 +91,55 @@ theorem chosenComplexSpectralPower_one_eq_CFC_rpow_half_resolvent
   simpa only [CFC.sqrt_eq_rpow, CFC.rpow_eq_pow] using
     (chosenComplexSpectralPower_one_eq_CFC_sqrt_resolvent scale)
 
+
+/-- The positive exponents obtained by repeated halving of two. -/
+def complexSpectralDyadicExponent : ℕ → ℝ
+  | 0 => 2
+  | n + 1 => complexSpectralDyadicExponent n / 2
+
+/-- Each dyadic exponent is strictly positive. -/
+theorem complexSpectralDyadicExponent_pos (n : ℕ) :
+    0 < complexSpectralDyadicExponent n := by
+  induction n with
+  | zero => norm_num [complexSpectralDyadicExponent]
+  | succ n ih =>
+      simpa only [complexSpectralDyadicExponent] using
+        (div_pos ih (by norm_num : (0 : ℝ) < 2))
+
+/-- Repeated CFC square roots of the actual squared resolvent. -/
+noncomputable def chosenComplexSpectralDyadicSqrt
+    (scale : ℕ → ℝ) :
+    ℕ → (ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert)
+  | 0 => chosenComplexSquaredResolventCLM scale
+  | n + 1 => CFC.sqrt (chosenComplexSpectralDyadicSqrt scale n)
+
+/-- The iterated CFC square roots agree with the actual global
+Hilbert spectral powers at every strictly positive dyadic exponent. -/
+theorem chosenComplexSpectralDyadicSqrt_eq
+    (scale : ℕ → ℝ) (n : ℕ) :
+    chosenComplexSpectralDyadicSqrt scale n =
+      chosenComplexSpectralPowerCLM scale
+        (complexSpectralDyadicExponent n)
+        (complexSpectralDyadicExponent_pos n) := by
+  induction n with
+  | zero =>
+      simpa only [chosenComplexSpectralDyadicSqrt,
+        complexSpectralDyadicExponent] using
+        (chosenComplexSpectralPower_two_eq_squaredResolvent scale).symm
+  | succ n ih =>
+      change CFC.sqrt (chosenComplexSpectralDyadicSqrt scale n) = _
+      rw [ih]
+      simpa only [complexSpectralDyadicExponent] using
+        (chosenComplexSpectralPower_half_eq_CFC_sqrt
+          scale (complexSpectralDyadicExponent n)
+          (complexSpectralDyadicExponent_pos n)).symm
+
+/-- Closed formula for the verified dyadic spectral exponents. -/
+theorem complexSpectralDyadicExponent_eq (n : ℕ) :
+    complexSpectralDyadicExponent n = 2 / (2 : ℝ) ^ n := by
+  induction n with
+  | zero => norm_num [complexSpectralDyadicExponent]
+  | succ n ih =>
+      rw [complexSpectralDyadicExponent, ih, pow_succ, div_mul_eq_div_div]
+
 end Neoplatonic.LTR
