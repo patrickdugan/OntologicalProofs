@@ -11,6 +11,7 @@ import Neoplatonic.LTR.MorphospaceGapMonotonicity
 import Neoplatonic.LTR.MorphospaceTwoStepValue
 import Neoplatonic.LTR.MorphospaceCertificateReachability
 import Neoplatonic.LTR.MorphospaceBellmanDistillation
+import Neoplatonic.LTR.MorphospaceMarginRegret
 import Neoplatonic.LTR.MorphospaceProbeOrder
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
@@ -827,3 +828,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.binary_action_regret
 #print axioms Neoplatonic.LTR.Morphospace.robust_action_order_of_margin
 #print axioms Neoplatonic.LTR.Morphospace.exact_bellman_student_regret_zero
+
+-- MOR-13: binary margin-error surrogate for exact greedy action regret.
+#print axioms Neoplatonic.LTR.Morphospace.greedy_zero_regret_le_margin_error
+#print axioms Neoplatonic.LTR.Morphospace.greedy_one_regret_le_margin_error
+#print axioms Neoplatonic.LTR.Morphospace.margin_error_le_sum_action_errors
+#print axioms Neoplatonic.LTR.Morphospace.greedy_zero_regret_le_sum_action_errors
