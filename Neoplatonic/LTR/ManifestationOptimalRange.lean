@@ -32,7 +32,8 @@ theorem optimalManifestationLeftBlock_apply
     (Matrix.ofLp_toEuclideanCLM
       (complexValuedObservableMatrix (1 : ℂ) 0) v)
   change (complexValuedObservableBlock 1 0 v) k =
-    (complexValuedObservableMatrix (1 : ℂ) 0 *ᵥ v) k at hv
+    (Matrix.mulVec (complexValuedObservableMatrix (1 : ℂ) 0)
+      (fun i : Fin 2 => v i)) k at hv
   rw [hv, complexValuedObservableMatrix_diagonal,
     Matrix.mulVec_diagonal]
   fin_cases k <;> simp [PiLp.smul_apply, PiLp.single_apply]
@@ -63,21 +64,22 @@ theorem optimalManifestationHilbertProjection_fixes_basis
   rw [optimalManifestationHilbertProjection_apply]
   by_cases hj : j = optimalManifestationBlock m bits
   · subst j
-    simp only [if_pos (optimalManifestationBlock_mem m bits)]
-    rw [show optimalManifestationBasisVector m bits
+    have hv : optimalManifestationBasisVector m bits
         (optimalManifestationBlock m bits) =
-        EuclideanSpace.single (0 : Fin 2) (1 : ℂ) from by
-          simp [optimalManifestationBasisVector, lp.single_apply_self]]
-    rw [optimalManifestationLeftBlock_apply]
-    simp [optimalManifestationBasisVector, lp.single_apply_self,
-      PiLp.single_apply]
+        EuclideanSpace.single (0 : Fin 2) (1 : ℂ) := by
+      simp [optimalManifestationBasisVector, lp.single_apply_self]
+    simp only [if_pos (optimalManifestationBlock_mem m bits)]
+    rw [hv, optimalManifestationLeftBlock_apply]
+    simp [hv, PiLp.single_apply]
   · have hz : optimalManifestationBasisVector m bits j = 0 := by
       unfold optimalManifestationBasisVector
-      exact lp.single_apply_ne 2
-        (optimalManifestationBlock m bits)
+      exact lp.single_apply_ne
+        (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
+        (2 : ENNReal) (optimalManifestationBlock m bits)
         (EuclideanSpace.single (0 : Fin 2) (1 : ℂ)) hj
-    rw [hz]
-    by_cases hm : j ∈ optimalManifestationBlockSet m <;> simp [hm]
+    by_cases hm : j ∈ optimalManifestationBlockSet m
+    · simp [hm, hz]
+    · simp [hm, hz]
 
 /-- Every projected vector belongs to the finite span of
 the 2^m chosen orthonormal Hilbert coordinate vectors. -/
@@ -96,11 +98,14 @@ theorem optimalManifestationHilbertProjection_mem_span
       (show j ∈ optimalManifestationBlockSet m from hj))
   subst j
   rw [optimalManifestationLeftBlock_apply, lp.single_smul]
-  exact Submodule.smul_mem _
-    (Submodule.subset_span
-      (show optimalManifestationBasisVector m bits ∈
-        Set.range (optimalManifestationBasisVector m) from
-        ⟨bits, rfl⟩))
+  change ((ψ (optimalManifestationBlock m bits)) 0) •
+    optimalManifestationBasisVector m bits ∈
+      optimalManifestationCoordinateSpace m
+  apply Submodule.smul_mem
+  exact Submodule.subset_span
+    (show optimalManifestationBasisVector m bits ∈
+      Set.range (optimalManifestationBasisVector m) from
+      ⟨bits, rfl⟩)
 
 /-- Range of the actual sparse Hilbert operator is exactly the
 rank-2^m profile-coordinate subspace. -/
