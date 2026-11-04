@@ -1,4 +1,6 @@
 import Neoplatonic.LTR.Reconstruction
+import Neoplatonic.LTR.MorphospaceSemiconjugacy
+import Neoplatonic.LTR.MorphospaceMinimax
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -606,3 +608,14 @@ open Neoplatonic.LTR
 #print axioms complexPairObservableCLM_eq_zero_values
 #print axioms continuous_real_eq_zero_of_dense_sequence
 #print axioms complexDenseObservable_faithful
+
+-- MOR-01: controlled action-history quotient; inspect kernel axiom dependencies.
+#print axioms Neoplatonic.LTR.Morphospace.runSteps_projection
+#print axioms Neoplatonic.LTR.Morphospace.target_event_projection
+
+-- MOR-02: exact quotient, fibre obstruction and Lipschitz composition.
+#print axioms Neoplatonic.LTR.Morphospace.macro_exists_iff_fibre_consistent
+#print axioms Neoplatonic.LTR.Morphospace.macro_unique
+#print axioms Neoplatonic.LTR.Morphospace.fibre_pair_triangle
+#print axioms Neoplatonic.LTR.Morphospace.fibre_pair_lower_bound
+#print axioms Neoplatonic.LTR.Morphospace.approximate_quotient_composition
