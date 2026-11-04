@@ -44,9 +44,14 @@ theorem futureGoalRel_trans (F : A → S → S) (goal : S → Bool)
 /-- The goal-observational future relation is an equivalence. -/
 def futureGoalSetoid (F : A → S → S) (goal : S → Bool) : Setoid S where
   r := futureGoalRel F goal
-  iseqv := ⟨futureGoalRel_refl F goal,
-            (fun _ _ h => futureGoalRel_symm F goal h),
-            (fun _ _ _ h₁ h₂ => futureGoalRel_trans F goal h₁ h₂)⟩
+  iseqv := by
+    constructor
+    · intro s
+      exact futureGoalRel_refl F goal s
+    · intro s t h
+      exact futureGoalRel_symm F goal h
+    · intro s t r hst htr
+      exact futureGoalRel_trans F goal hst htr
 
 /-- The empty schedule gives a well-defined current-goal readout. -/
 theorem futureGoalRel_present (F : A → S → S) (goal : S → Bool)
