@@ -25,7 +25,7 @@ not follow from computability of the sentence numbering.
 
 namespace Neoplatonic.LTR
 
-open FirstOrder Set TopologicalSpace
+open FirstOrder Set TopologicalSpace Topology
 open FirstOrder.Language.Theory
 
 universe u v w
@@ -127,7 +127,7 @@ theorem numberedSentenceTruth_isEmbedding
     (code : ℕ → (L.withConstants α).Sentence)
     (hcode : Function.Surjective code) :
     IsEmbedding (numberedSentenceTruth (T := T) code) := by
-  letI : MetricSpace (ℕ → Bool) := PiNat.metricSpace (fun _ => Bool)
+  letI : MetricSpace (ℕ → Bool) := (PiNat.metricSpace : MetricSpace (ℕ → Bool))
   exact ((numberedSentenceTruth_continuous (T := T) code).isClosedEmbedding
     (numberedSentenceTruth_injective (T := T) code hcode)).isEmbedding
 
@@ -137,7 +137,7 @@ noncomputable abbrev numberedSentenceMetric
     (code : ℕ → (L.withConstants α).Sentence)
     (hcode : Function.Surjective code) :
     MetricSpace (T.CompleteType α) := by
-  letI : MetricSpace (ℕ → Bool) := PiNat.metricSpace (fun _ => Bool)
+  letI : MetricSpace (ℕ → Bool) := (PiNat.metricSpace : MetricSpace (ℕ → Bool))
   exact (numberedSentenceTruth_isEmbedding (T := T) code hcode).comapMetricSpace
     (numberedSentenceTruth code)
 
@@ -149,9 +149,9 @@ theorem numberedSentenceMetric_dist
     (p q : T.CompleteType α) :
     letI : MetricSpace (T.CompleteType α) :=
       numberedSentenceMetric code hcode
-    dist p q = PiNat.dist (numberedSentenceTruth code p)
-      (numberedSentenceTruth code q) := by
-  letI : MetricSpace (ℕ → Bool) := PiNat.metricSpace (fun _ => Bool)
+    dist p q = (PiNat.dist : Dist (ℕ → Bool)).dist
+      (numberedSentenceTruth code p) (numberedSentenceTruth code q) := by
+  letI : MetricSpace (ℕ → Bool) := (PiNat.metricSpace : MetricSpace (ℕ → Bool))
   letI : MetricSpace (T.CompleteType α) :=
     numberedSentenceMetric code hcode
   rfl
@@ -167,7 +167,7 @@ theorem numberedSentenceMetric_firstDisagreement
     dist p q = (1 / 2 : ℝ) ^
       PiNat.firstDiff (numberedSentenceTruth code p)
         (numberedSentenceTruth code q) := by
-  letI : MetricSpace (ℕ → Bool) := PiNat.metricSpace (fun _ => Bool)
+  letI : MetricSpace (ℕ → Bool) := (PiNat.metricSpace : MetricSpace (ℕ → Bool))
   letI : MetricSpace (T.CompleteType α) :=
     numberedSentenceMetric code hcode
   have hne : numberedSentenceTruth code p ≠
