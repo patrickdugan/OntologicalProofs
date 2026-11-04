@@ -100,8 +100,9 @@ theorem approximate_quotient_composition
           dist_triangle _ _ _
     _ ≤ L * dist (p (F a s)) (G a (p s)) + eps₂ :=
       add_le_add (hLip _ _) (hSecond a (p s))
-    _ ≤ L * eps₁ + eps₂ :=
-      add_le_add_right (mul_le_mul_of_nonneg_left (hFirst a s) hL) _
+    _ ≤ L * eps₁ + eps₂ := by
+      have hh := mul_le_mul_of_nonneg_left (hFirst a s) hL
+      linarith
 
 end Metric
 
