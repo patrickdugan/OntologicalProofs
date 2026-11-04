@@ -127,7 +127,7 @@ theorem finiteComplexSpectralPower_continuous_exponent
         (complexSingleSpectralPowerBlock_continuous scale j).add ih
       have heq :
           (fun p : ℝ =>
-            ∑ i ∈ Finset.insert j s,
+            ∑ i ∈ insert j s,
               complexSingleSpectralPowerBlock scale p i) =
           ((fun p : ℝ => complexSingleSpectralPowerBlock scale p j) +
             fun p : ℝ => ∑ i ∈ s,
