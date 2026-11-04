@@ -128,8 +128,18 @@ theorem optimalManifestationCompressedOperator_norm_eq
           (ContinuousLinearMap.opNorm_comp_le _ _) (norm_nonneg P)
       _ ≤ ‖f‖ := by
         rw [hπ]
-        have hnonneg : 0 ≤ ‖f‖ := norm_nonneg f
-        nlinarith
+        have hp2 : ‖P‖ * ‖P‖ ≤ 1 := by
+          calc
+            ‖P‖ * ‖P‖ ≤ ‖P‖ * 1 :=
+              mul_le_mul_of_nonneg_left hp (norm_nonneg P)
+            _ = ‖P‖ := mul_one _
+            _ ≤ 1 := hp
+        calc
+          ‖P‖ * (‖f‖ * ‖P‖) =
+              ‖f‖ * (‖P‖ * ‖P‖) := by ring
+          _ ≤ ‖f‖ * 1 :=
+            mul_le_mul_of_nonneg_left hp2 (norm_nonneg f)
+          _ = ‖f‖ := mul_one _
   have hlower : ‖f‖ ≤ ‖C‖ := by
     apply (ContinuousMap.norm_le _ (norm_nonneg C)).2
     intro x
