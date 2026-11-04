@@ -20,6 +20,7 @@ import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
 import Neoplatonic.LTR.ManifestationDiagonal
+import Neoplatonic.LTR.ManifestationSentence
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -221,6 +222,13 @@ open Neoplatonic.LTR
 #print axioms Nullary.manifestationCylinder_isClopen
 #print axioms Nullary.finiteManifestation_obstruction
 #print axioms Nullary.finiteManifestation_not_conservative
+#print axioms Nullary.manifestationLiteral_mem_iff
+#print axioms Nullary.manifestationSentence_mem_iff
+#print axioms Nullary.manifestationSentence_locus
+#print axioms Nullary.manifestationSentence_diagonal_true
+#print axioms Nullary.manifestationSentence_samples_false
+#print axioms Nullary.manifestationSentence_complex_norm_one
+#print axioms Nullary.effectiveNullary_manifestationHilbert_norm_one
 #print axioms Nullary.decode_bijective
 #print axioms Nullary.cantorHomeomorph_apply
 #print axioms Nullary.cantorHomeomorph_symm_apply
