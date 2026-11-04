@@ -9,6 +9,7 @@ import Neoplatonic.LTR.MorphospaceAnytimeIntervals
 import Neoplatonic.LTR.MorphospaceInformationCover
 import Neoplatonic.LTR.MorphospaceGapMonotonicity
 import Neoplatonic.LTR.MorphospaceTwoStepValue
+import Neoplatonic.LTR.MorphospaceCertificateReachability
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -777,3 +778,14 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.two_cell_two_step_expected_gap
 #print axioms Neoplatonic.LTR.Morphospace.two_cell_strict_delayed_value
 #print axioms Neoplatonic.LTR.Morphospace.two_cell_exact_gain
+
+-- MOR-11: predictive success Bellman inequalities and delayed-certificate arithmetic.
+#print axioms Neoplatonic.LTR.Morphospace.certificateContinuation_unit_interval
+#print axioms Neoplatonic.LTR.Morphospace.certificateContinuation_monotone
+#print axioms Neoplatonic.LTR.Morphospace.certificate_maximum_monotone
+#print axioms Neoplatonic.LTR.Morphospace.certified_state_absorbing
+#print axioms Neoplatonic.LTR.Morphospace.low_cell_beta_hit_after_eighteen
+#print axioms Neoplatonic.LTR.Morphospace.low_cell_beta_hold_after_nineteen
+#print axioms Neoplatonic.LTR.Morphospace.delayed_certificate_probability_value
+#print axioms Neoplatonic.LTR.Morphospace.delayed_certificate_strictly_positive
+#print axioms Neoplatonic.LTR.Morphospace.failed_confidence_branch_value
