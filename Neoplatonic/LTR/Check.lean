@@ -28,6 +28,7 @@ import Neoplatonic.LTR.ManifestationFiniteRecovery
 import Neoplatonic.LTR.ManifestationPrefixCutoff
 import Neoplatonic.LTR.ManifestationFragmentNorm
 import Neoplatonic.LTR.ManifestationMarkedBlocks
+import Neoplatonic.LTR.ManifestationConstrainedProfiles
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -258,6 +259,9 @@ open Neoplatonic.LTR
 #print axioms Nullary.effectiveNullaryMarkedPrefixCutoff_covers
 #print axioms Nullary.effectiveNullaryMarkedPrefixCutoff_ge_capacity
 #print axioms Nullary.effectiveNullary_markedBlock_fragment_norm_isometry
+#print axioms realizedProfileCapacity_lower_bound
+#print axioms realizedProfileCapacity_attained
+#print axioms realizedProfileCapacity_exact
 #print axioms Nullary.observedTruthNorm_eventually_exact
 #print axioms Nullary.observedTruthNorm_error_le_one
 #print axioms Nullary.observedTruthNorm_maximum_gap
