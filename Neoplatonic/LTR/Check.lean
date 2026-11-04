@@ -45,6 +45,7 @@ import Neoplatonic.LTR.NumberedSentenceUltrametric
 import Neoplatonic.LTR.NumberedSentenceFinitePrefix
 import Neoplatonic.LTR.NumberedSentenceReindexing
 import Neoplatonic.LTR.NumberedSemanticMapModulus
+import Neoplatonic.LTR.NumberedSemanticMapComposition
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -550,6 +551,10 @@ open Neoplatonic.LTR
 #print axioms numberedSemanticMap_prefixTransfer
 #print axioms numberedSemanticMap_radiusTransfer
 #print axioms numberedSemanticMap_uniformModulus
+#print axioms sentenceIndexPrefixModulus_comp_le
+#print axioms numberedSemanticMap_comp_truth
+#print axioms numberedSemanticMap_comp_prefixTransfer
+#print axioms numberedSemanticMap_comp_radiusTransfer
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
