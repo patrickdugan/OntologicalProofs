@@ -29,6 +29,7 @@ import Neoplatonic.LTR.ManifestationPrefixCutoff
 import Neoplatonic.LTR.ManifestationFragmentNorm
 import Neoplatonic.LTR.ManifestationMarkedBlocks
 import Neoplatonic.LTR.ManifestationConstrainedProfiles
+import Neoplatonic.LTR.ManifestationFiniteRankCompression
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -262,6 +263,15 @@ open Neoplatonic.LTR
 #print axioms realizedProfileCapacity_lower_bound
 #print axioms realizedProfileCapacity_attained
 #print axioms realizedProfileCapacity_exact
+#print axioms manifestationHilbertBlockProjection_apply
+#print axioms manifestationFiniteObservableCompression_apply
+#print axioms manifestationFiniteObservableCompression_eq_comp
+#print axioms manifestationHilbertBlockProjection_idempotent
+#print axioms manifestationFiniteObservableSum_compact
+#print axioms manifestationFiniteObservableSum_apply
+#print axioms manifestationFiniteObservableCompression_eq_sum
+#print axioms manifestationFiniteObservableCompression_compact
+#print axioms manifestationFiniteObservableCompression_norm_le
 #print axioms Nullary.observedTruthNorm_eventually_exact
 #print axioms Nullary.observedTruthNorm_error_le_one
 #print axioms Nullary.observedTruthNorm_maximum_gap
