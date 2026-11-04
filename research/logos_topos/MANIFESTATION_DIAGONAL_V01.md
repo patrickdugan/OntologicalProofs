@@ -151,6 +151,84 @@ divinity, incarnation, or shirk. A proposed Christological
 application must supply its own account of what the Word and
 the human locus denote.
 
+### Exact finite-fragment capacity
+
+For the first \(m\) independent nullary predicates, the Boolean
+subalgebra they generate has exactly \(2^m\) nonzero atoms, one for
+each length-\(m\) truth assignment. The associated function algebra is
+
+\[
+A_m \cong \mathbb C^{2^m}.
+\]
+
+A sample restricted to \(A_m\) is faithful **if and only if** it meets
+every one of those \(2^m\) cylinders. Consequently the smallest sample
+that preserves the entire finite-fragment algebra has exactly
+
+\[
+\boxed{N_{\min}(m)=2^m.}
+\]
+
+Necessity follows by applying the diagonal nonempty-projection argument
+to an unrepresented atom. Sufficiency follows because any element of
+\(A_m\) is constant on each atom; taking one representative per atom
+preserves its supremum norm. Equivalently, a faithful star representation
+of \(A_m\) on a Hilbert space \(H\) requires
+\(\dim H\ge 2^m\), since the minimal atomic projections must have
+nonzero pairwise orthogonal images.
+
+The explicit n-coordinate diagonal of Section 2 is constructive from
+a given n-sample. The cardinality theorem improves its existence
+bound: to defeat a sample of n points, a cylinder using only
+\(\lceil\log_2(n+1)\rceil\) coordinate literals suffices.
+
+For the existing countable dense sequence of marked completed theories,
+a finite coverage index can be defined as
+
+\[
+K(m)=1+\max_{b\in 2^m}\min\{j:\operatorname{prefix}_m(s_j)=b\}.
+\]
+
+It is finite by density. The current chosen sequence is classical, so
+this definition supplies no effective numerical bound without further
+constructive data. This leads to a useful measurement target:
+**finite-fragment faithfulness at bounded Hilbert truncation depth**.
+
+### The precise topos-level interpretation
+
+Let \(\mathcal E=\mathbf{Sh}(X)\). Clopen truth loci are
+complemented subterminal objects of this sheaf topos.
+The finite set of sample points defines a continuous map from a
+discrete n-point space to X and hence a geometric morphism whose
+inverse image is the tuple of stalks
+
+\[
+q_S^*:\mathbf{Sh}(X)\longrightarrow\mathbf{Set}^n.
+\]
+
+On the named clopen truth objects it simply records the Boolean
+membership vector. For the nonempty clopen \(U_s\) built above,
+\(q_S^*(U_s)=0\). The map \(0\to U_s\) thus becomes an isomorphism
+under \(q_S^*\), although it was not an isomorphism in
+\(\mathbf{Sh}(X)\). Therefore finite point-evaluation is
+**nonconservative as a geometric inverse-image functor**.
+
+This categorical consequence is a written argument using standard
+sheaf-topos semantics, not yet formalized in Lean.
+
+There is a further boundary: even a countable dense sample can
+detect every nonempty open truth locus and every nonzero continuous
+function, but generally cannot test isomorphisms of *all* sheaves.
+For any omitted point y, the map from the terminal sheaf to a
+two-element skyscraper sheaf at y (selecting one element) is an
+isomorphism on all sampled stalks and fails at y.
+Thus the C*-algebra and the full sheaf topos have different
+requirements for faithful observation.
+
+This distinction prevents identifying the existing faithful
+Hilbert representation of C(X) with a reconstruction of all of
+\(\mathbf{Sh}(X)\).
+
 ## 6. Next formal targets
 
 1. Construct the actual finite conjunction `diagonalSentence`
