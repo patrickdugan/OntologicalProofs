@@ -14,3 +14,16 @@ The exact one-step total-variation Chebyshev radius for a hit/hold macro class i
 The prior-art boundary remains important. Graph 3-colorability's NP-completeness is classical (Garey, Johnson & Stockmeyer, 1976); approximate Markov minimization and bisimulation also have an extensive complexity literature. This formalization supplies a machine-checked bridge for a particular goal-aware controlled abstraction problem.
 
 **Verification:** The existing LTR Reconstruction workflow builds the module through \`Neoplatonic/LTR/Check.lean\`, then prints the axiom dependencies of both theorems. Merge only after a successful current-head kernel audit.
+
+
+## Exact chromatic capacity corollary (written proof)
+
+For an arbitrary finite hit-rate matrix \((p_i^a)\) and tolerance \(\tau\), the companion QO-03 conflict graph \(H_\tau\) connects pairs with \(\max_a |p_i^a-p_j^a|>2\tau\). Write \(\chi(H_\tau)\) for its chromatic number. With at least one transient state and one separately observable absorbing goal, the minimum number of fixed-length **mutable macrostate label bits** permitting uniform one-step TV error at most \(\tau\) is
+
+\[
+b_{\min}(\tau)=\left\lceil\log_2\bigl(1+\chi(H_\tau)\bigr)\right\rceil.
+\]
+
+Proof: QO-03's exact conflict-graph equivalence makes the smallest permissible transient class count equal to the graph's chromatic number. The observable goal requires one additional class. A fixed-length binary label for \(q\) classes needs precisely \(\lceil\log_2 q\rceil\) bits. QED.
+
+As tolerance increases, conflict edges can only disappear; therefore this bit-capacity function is a nonincreasing step function. Its only possible breakpoints come from half of the finitely many pairwise \(L^\infty\) rate distances. The stated bit formula is a **written corollary** to QO-03 and has not been formalized as a chromatic-number theorem in Lean.
