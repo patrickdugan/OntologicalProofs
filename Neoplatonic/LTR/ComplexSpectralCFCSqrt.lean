@@ -142,4 +142,40 @@ theorem complexSpectralDyadicExponent_eq (n : ℕ) :
   | succ n ih =>
       rw [complexSpectralDyadicExponent, ih, pow_succ, div_mul_eq_div_div]
 
+
+/-- Iterating the genuine CFC square root is the same as applying
+the real functional calculus with dyadic exponent 2^(-n). -/
+theorem chosenComplexSpectralDyadicSqrt_eq_CFC_rpow
+    (scale : ℕ → ℝ) (n : ℕ) :
+    chosenComplexSpectralDyadicSqrt scale n =
+      CFC.rpow (chosenComplexSquaredResolventCLM scale)
+        ((1 / 2 : ℝ) ^ n) := by
+  induction n with
+  | zero =>
+      simpa [chosenComplexSpectralDyadicSqrt, CFC.rpow_eq_pow] using
+        (CFC.rpow_one (chosenComplexSquaredResolventCLM scale)
+          (by exact chosenComplexSquaredResolvent_isPositive scale)).symm
+  | succ n ih =>
+      change CFC.sqrt (chosenComplexSpectralDyadicSqrt scale n) = _
+      rw [ih, CFC.sqrt_eq_rpow]
+      have h :=
+        CFC.rpow_rpow_of_exponent_nonneg
+          (chosenComplexSquaredResolventCLM scale)
+          ((1 / 2 : ℝ) ^ n) (1 / 2 : ℝ)
+          (by positivity) (by norm_num)
+          (by exact chosenComplexSquaredResolvent_isPositive scale)
+      simpa only [CFC.rpow_eq_pow, pow_succ] using h
+
+/-- Genuine real CFC powers agree with the concrete Hilbert spectral
+powers at all positive dyadic exponents 2 / 2^n. -/
+theorem chosenComplexSpectralDyadicPower_eq_CFC_rpow
+    (scale : ℕ → ℝ) (n : ℕ) :
+    chosenComplexSpectralPowerCLM scale
+      (complexSpectralDyadicExponent n)
+      (complexSpectralDyadicExponent_pos n) =
+    CFC.rpow (chosenComplexSquaredResolventCLM scale)
+      ((1 / 2 : ℝ) ^ n) :=
+  (chosenComplexSpectralDyadicSqrt_eq scale n).symm.trans
+    (chosenComplexSpectralDyadicSqrt_eq_CFC_rpow scale n)
+
 end Neoplatonic.LTR
