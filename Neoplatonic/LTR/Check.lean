@@ -40,6 +40,7 @@ import Neoplatonic.LTR.ManifestationOptimalRange
 import Neoplatonic.LTR.BooleanCubeEdges
 import Neoplatonic.LTR.BooleanCubeGlobal
 import Neoplatonic.LTR.BooleanCubeCapacity
+import Neoplatonic.LTR.BooleanCubeHamming
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -967,3 +968,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.booleanCubeEdge_card_zero
 #print axioms Neoplatonic.LTR.booleanCubeHilbert_coordinate_card_succ
 #print axioms Neoplatonic.LTR.booleanCubeHilbert_coordinate_card_zero
+
+-- LTR-MAN-09D: Hamming one-coordinate repairs and exact geodesic Lipschitz bound.
+#print axioms Neoplatonic.LTR.booleanCubeMismatchSet_card
+#print axioms Neoplatonic.LTR.booleanCubeMismatchSet_update
+#print axioms Neoplatonic.LTR.booleanCube_hammingDist_update_match
+#print axioms Neoplatonic.LTR.booleanCube_hammingDist_update_one
+#print axioms Neoplatonic.LTR.booleanCube_unitGradients_control_hamming
