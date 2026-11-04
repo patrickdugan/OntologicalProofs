@@ -18,6 +18,7 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
+set_option maxHeartbeats 1500000 in
 /-- Every individual rank-two cutoff block has operator norm bounded
 by its positive scalar spectral-power coefficient. -/
 theorem complexSingleSpectralPowerBlock_norm_le
@@ -82,12 +83,13 @@ theorem complexSingleSpectralPowerBlock_hasSum_apply
       (chosenComplexSpectralPowerCLM scale p hp ψ) := by
   have hfun :
       (fun j => complexSingleSpectralPowerBlock scale p j ψ) =
-      (fun j => lp.single 2 j
+      (fun j => lp.single (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2)) 2 j
         ((chosenComplexSpectralPowerCLM scale p hp ψ) j)) := by
     funext j
     change lp.single 2 j
       (complexSpectralPowerBlockCLM scale p j (ψ j)) =
-      lp.single 2 j ((chosenComplexSpectralPowerCLM scale p hp ψ) j)
+      lp.single (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2)) 2 j
+        ((chosenComplexSpectralPowerCLM scale p hp ψ) j)
     rw [chosenComplexSpectralPowerCLM_apply]
     simp [complexSpectralPowerBlockCLM, complexScalarBlockCLM]
   rw [hfun]
