@@ -38,7 +38,7 @@ noncomputable def booleanCubeObservableCap {m : ℕ}
 
 /-- Finite maximum local commutator norm. -/
 noncomputable def booleanCubeGradientCap {m : ℕ}
-    (f : BooleanCubeVertex m → ℂ) : ℝ≥0 := by
+    (f : BooleanCubeVertex m → ℂ) : NNReal := by
   classical
   exact (Finset.univ : Finset (BooleanCubeEdge m)).sup
     (fun e => ‖booleanCubeLocalCommutator f e‖₊)
@@ -175,11 +175,7 @@ theorem finiteIndexedHilbertBlock_norm_le_global
     apply ContinuousLinearMap.opNorm_le_bound S (by norm_num)
     intro v
     calc
-      ‖S v‖ = ‖lp.single 2 i v‖ := by
-        rw [show S v = lp.single 2 i v from
-          lp.singleContinuousLinearMap_apply
-            (𝕜 := ℂ) (E := fun _ : ι => EuclideanSpace ℂ (Fin 2))
-            (p := 2) i v]
+      ‖S v‖ = ‖lp.single 2 i v‖ := rfl
       _ = ‖v‖ := lp.norm_single
           (E := fun _ : ι => EuclideanSpace ℂ (Fin 2))
           (p := (2 : ENNReal)) (by norm_num) i v
@@ -233,5 +229,7 @@ theorem booleanCubeCommutator_norm_eq_max {m : ℕ}
           (booleanCubeCommutator_apply f) e
       exact_mod_cast he
     exact_mod_cast h
+
+end
 
 end Neoplatonic.LTR
