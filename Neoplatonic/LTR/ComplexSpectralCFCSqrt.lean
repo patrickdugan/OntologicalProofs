@@ -154,7 +154,8 @@ theorem chosenComplexSpectralDyadicSqrt_eq_CFC_rpow
   | zero =>
       simpa [chosenComplexSpectralDyadicSqrt, CFC.rpow_eq_pow] using
         (CFC.rpow_one (chosenComplexSquaredResolventCLM scale)
-          (by exact chosenComplexSquaredResolvent_isPositive scale)).symm
+          (by simpa only [ContinuousLinearMap.le_def, sub_zero] using
+             (chosenComplexSquaredResolvent_isPositive scale))).symm
   | succ n ih =>
       change CFC.sqrt (chosenComplexSpectralDyadicSqrt scale n) = _
       rw [ih, CFC.sqrt_eq_rpow]
@@ -163,7 +164,8 @@ theorem chosenComplexSpectralDyadicSqrt_eq_CFC_rpow
           (chosenComplexSquaredResolventCLM scale)
           ((1 / 2 : ℝ) ^ n) (1 / 2 : ℝ)
           (by positivity) (by norm_num)
-          (by exact chosenComplexSquaredResolvent_isPositive scale)
+          (by simpa only [ContinuousLinearMap.le_def, sub_zero] using
+             (chosenComplexSquaredResolvent_isPositive scale))
       simpa only [CFC.rpow_eq_pow, pow_succ] using h
 
 /-- Genuine real CFC powers agree with the concrete Hilbert spectral
