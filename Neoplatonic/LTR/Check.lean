@@ -577,6 +577,9 @@ open Neoplatonic.LTR
 #print axioms complexSingleSpectralPowerBlock_continuous
 #print axioms finiteComplexSpectralPower_continuous_exponent
 #print axioms complexSpectralPowerSeries_continuousOn_positive
+#print axioms chosenComplexSpectralPowerTotal_of_pos
+#print axioms chosenComplexSpectralPowerTotal_eq_tsum_on
+#print axioms chosenComplexSpectralPowerTotal_continuousOn_positive
 #print axioms chosenComplexSpectralPower_isCompact
 #print axioms complexSpectralTraceTerm_at_zero
 #print axioms complexSpectralTraceTerm_not_summable_zero
