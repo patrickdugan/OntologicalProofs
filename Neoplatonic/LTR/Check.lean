@@ -33,6 +33,7 @@ import Neoplatonic.LTR.ManifestationFiniteRankCompression
 import Neoplatonic.LTR.ManifestationFiniteRankIsometry
 import Neoplatonic.LTR.ManifestationOptimalCoordinates
 import Neoplatonic.LTR.ManifestationOptimalNorm
+import Neoplatonic.LTR.ManifestationOptimalRank
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -294,6 +295,9 @@ open Neoplatonic.LTR
 #print axioms Nullary.optimalManifestationCompressedOperator_selected_lower
 #print axioms Nullary.optimalManifestationCompressedOperator_norm_eq
 #print axioms Nullary.optimalManifestation_spectralTriple_norm_eq
+#print axioms Nullary.optimalManifestationBasis_orthonormal
+#print axioms Nullary.optimalManifestationBasis_linearIndependent
+#print axioms Nullary.optimalManifestationCoordinateSpace_finrank
 #print axioms Nullary.observedTruthNorm_eventually_exact
 #print axioms Nullary.observedTruthNorm_error_le_one
 #print axioms Nullary.observedTruthNorm_maximum_gap
