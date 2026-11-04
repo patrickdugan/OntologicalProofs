@@ -117,17 +117,18 @@ theorem optimalManifestationHilbertProjection_norm_le_one (m : ℕ) :
     ‖optimalManifestationHilbertProjection m‖ ≤ 1 := by
   classical
   unfold optimalManifestationHilbertProjection
-  apply lp.norm_mapCLM_le 2
+  exact lp.norm_mapCLM_le 2
     (fun j => if j ∈ optimalManifestationBlockSet m
       then complexValuedObservableBlock 1 0 else 0)
     (by norm_num : (0 : ℝ) ≤ 1)
-  intro j
-  by_cases hj : j ∈ optimalManifestationBlockSet m
-  · simpa only [if_pos hj] using
-      complexValuedObservableBlock_norm_le
-        (1 : ℂ) 0 1 (by norm_num) (by norm_num) (by norm_num)
-  · simpa only [if_neg hj, norm_zero] using
-      (zero_le_one : (0 : ℝ) ≤ 1)
+    (by
+      intro j
+      by_cases hj : j ∈ optimalManifestationBlockSet m
+      · simpa only [if_pos hj] using
+          complexValuedObservableBlock_norm_le
+            (1 : ℂ) 0 1 (by norm_num) (by norm_num) (by norm_num)
+      · simpa only [if_neg hj, norm_zero] using
+          (zero_le_one : (0 : ℝ) ≤ 1))
 
 /-- The coordinate-0 Hilbert block is an algebraic projection. -/
 theorem optimalManifestationLeftBlock_idempotent :
