@@ -56,7 +56,7 @@ noncomputable def booleanCubeObservable {m : ℕ}
     (f : BooleanCubeVertex m → ℂ) :
     BooleanCubeHilbert m →L[ℂ] BooleanCubeHilbert m :=
   lp.mapCLM 2 (booleanCubeLocalObservable f)
-    (NNReal.coe_nonneg _)
+    (NNReal.coe_nonneg (booleanCubeObservableCap f))
     (by
       intro e
       have h : ‖booleanCubeLocalObservable f e‖₊ ≤
@@ -71,7 +71,7 @@ noncomputable def booleanCubeCommutator {m : ℕ}
     (f : BooleanCubeVertex m → ℂ) :
     BooleanCubeHilbert m →L[ℂ] BooleanCubeHilbert m :=
   lp.mapCLM 2 (booleanCubeLocalCommutator f)
-    (NNReal.coe_nonneg _)
+    (NNReal.coe_nonneg (booleanCubeGradientCap f))
     (by
       intro e
       have h : ‖booleanCubeLocalCommutator f e‖₊ ≤
@@ -128,7 +128,7 @@ theorem booleanCubeCommutator_norm_le_cap {m : ℕ}
       (booleanCubeGradientCap f : ℝ) := by
   exact lp.norm_mapCLM_le 2
     (booleanCubeLocalCommutator f)
-    (NNReal.coe_nonneg _)
+    (NNReal.coe_nonneg (booleanCubeGradientCap f))
     (by
       intro e
       have h : ‖booleanCubeLocalCommutator f e‖₊ ≤
