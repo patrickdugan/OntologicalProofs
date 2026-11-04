@@ -1,0 +1,11 @@
+# MOR-10: Certified delayed information in two-stage probe selection
+
+**November 4, 2026.** Companion to [Compactification QO-12](https://github.com/MoralityLabAI/Compactification-Theory/pull/51). The Lean module [MorphospaceTwoStepValue.lean](../../Neoplatonic/LTR/MorphospaceTwoStepValue.lean) formalizes elementary finite rational inequalities behind the two-stage Bellman planner.
+
+For two possible next outcomes, with a planning weight p between zero and one, and with both later gaps at most the gap immediately after the first outcome, the expected two-step gap is bounded above by the expected one-step gap. The second probe may be chosen separately after observing the first outcome. A depth-two optimal value is at most the value of any admissible two-step policy, so it inherits the same upper bound when the first action is a one-step minimizer.
+
+The **strict plateau witness** uses two currently unobserved Bernoulli cells and QO-07's uniform-Beta mixture threshold alpha=1/20 across two cells. After one observation, the ideal unrounded confidence interval's inward endpoint is 1/80. The other unqueried cell keeps the certification gap at 1/2, so the one-step expected gain is zero. Querying the other cell next yields 79/160 when the two bits match and 1/2 otherwise. Under independent Beta(1,1) planning predictions the expected gap is 159/320; the exact expected improvement is **1/320**. The Python QO-12 implementation uses outward-rounded intervals, so its tested positive gain is slightly smaller.
+
+Nine theorem statements are included in the existing LTR kernel and #print axioms audit. None of them proves the beta-binomial e-process probability guarantee, optional stopping, the full Python Bellman recursion, physical agency or subjective experience. The probabilistic coverage theorem remains an external mathematical premise in QO-07; Beta predictive probabilities in QO-12 are planning assumptions.
+
+The finite paired QO-12 study retains source-hashed observations, four policies at identical query budgets, actual certifications, and exact counts of lookahead gap optimizations. The general-value inequality does not claim that depth-two planning improves real finite-budget certification performance.
