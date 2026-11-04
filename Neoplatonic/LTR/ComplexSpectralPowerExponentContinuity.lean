@@ -193,6 +193,6 @@ theorem chosenComplexSpectralPowerTotal_continuousOn_positive
   have hsum :=
     complexSpectralPowerSeries_continuousOn_positive scale p₀ hp₀
   exact hsum.congr
-    (chosenComplexSpectralPowerTotal_eq_tsum_on scale p₀ hp₀).symm
+    (chosenComplexSpectralPowerTotal_eq_tsum_on scale p₀ hp₀)
 
 end Neoplatonic.LTR
