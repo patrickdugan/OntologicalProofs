@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.ManifestationFiniteRecovery
+import Neoplatonic.LTR.NullaryEffectiveMarkedTriple
 
 /-!
 # A sharp finite cutoff for every finite logical fragment
