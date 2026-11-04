@@ -102,9 +102,14 @@ theorem complexSpectralTraceTerm_not_summable_zero
     (scale : ℕ → ℝ) :
     ¬ Summable (complexSpectralTraceTerm scale 0) := by
   intro hs
+  have hfun : complexSpectralTraceTerm scale 0 =
+      (fun _ : ℕ => (2 : ℝ)) := by
+    funext j
+    exact complexSpectralTraceTerm_at_zero scale j
+  rw [hfun] at hs
   have ht : Filter.Tendsto (fun _ : ℕ => (2 : ℝ))
-      Filter.atTop (nhds (0 : ℝ)) := by
-    simpa only [complexSpectralTraceTerm_at_zero] using hs.tendsto_atTop_zero
+      Filter.atTop (nhds (0 : ℝ)) :=
+    hs.tendsto_atTop_zero
   have htwo : (2 : ℝ) = 0 :=
     tendsto_nhds_unique tendsto_const_nhds ht
   norm_num at htwo
