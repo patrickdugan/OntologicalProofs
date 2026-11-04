@@ -13,9 +13,11 @@ basis-block summability and agreement with the scalar global trace
 passed [LTR CI 41777045850](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41777045850)
 on commit `cffda9c`.
 
-The separate p=0 divergence and threshold additions are staged in
-`ComplexSpectralBasisTrace.lean`. Their kernel verification is
-pending the next complete CI run.
+The p=0 divergence, the positive-exponent summability threshold,
+and the p=2 squared-resolvent equality passed
+[LTR CI 41778146691](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41778146691)
+on commit `a341408`. This includes the Lean build, explicit axiom
+report and finite reconstruction checks.
 
 All named theorem audits reside in `Neoplatonic/LTR/Check.lean`.
 
@@ -94,9 +96,24 @@ The exact identification with the functional-calculus power
 `(1+D²)^(-p/2)` has likewise not been formalized as a
 general unbounded operator functional-calculus theorem.
 
-At p=0 the two unit values per block cause divergence. A Lean
-lemma for this boundary is included in the staged source and
-requires the pending audit.
+At p=0 the two unit values per block cause divergence, verified by
+`complexSpectralTraceTerm_not_summable_zero`. The theorem
+`complexSpectral_nonnegative_threshold_zero` then verifies
+summability for every positive exponent and divergence at zero.
+
+At p=2 the checked theorem
+`chosenComplexSpectralPower_two_eq_squaredResolvent` proves equality
+of the **whole bounded complex Hilbert-space operators**, not merely
+their finite blocks:
+
+\[
+A_2=(I+D^2)^{-1}.
+\]
+
+The right-hand identification uses the existing maximal-domain,
+two-sided inverse theorem for the squared resolvent. The
+functional-calculus statement for arbitrary real positive p
+remains an explicit formalization obligation.
 
 ## Geometric consequence
 
