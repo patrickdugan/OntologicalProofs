@@ -1,4 +1,4 @@
-# LTR v0.49: Positive Hilbert powers and dyadic CFC recovery
+# LTR v0.49: Real CFC powers and quantitative exponent stability
 
 **Date:** November 4, 2026
 
@@ -25,6 +25,14 @@ genuine continuous functional calculus of the actual Hilbert map.
   `ComplexSpectralCFCDyadicRational.lean` proves the integer-power
   semigroup rule and extends the CFC identity to every positive
   dyadic rational exponent.
+- [Run 41831403870](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41831403870),
+  at source commit `4de8d6115ddc21922b1cfc9f843673159f31f7a6`:
+  `ComplexSpectralCFCReal.lean` proves the identity for every
+  positive real exponent. `RealPowerExponentStability.lean` and
+  `ComplexSpectralPowerLipschitz.lean` prove the quantitative
+  scalar, diagonal-operator, and CFC bounds below. All ten new
+  public declarations passed the axiom audit using only
+  `propext`, `Classical.choice`, and `Quot.sound`.
 
 All cited runs passed the LTR Lean build, dependency/axiom audit,
 and finite reconstruction tests. Their statements appear in
@@ -59,10 +67,11 @@ The CFC on the right is Mathlib's operator-algebra construction,
 with its pinned instances explicitly registered. The identity
 holds in the entire infinite-dimensional operator algebra.
 
-## Written analytic extension to every real positive exponent
+## Verified extension to every positive real exponent
 
-**Proof-status boundary:** the following extension is a standard
-analytic argument and remains to be encoded in Lean.
+`ComplexSpectralCFCReal.lean` closes the real-exponent bridge.
+The proof uses the established continuity of the concrete family,
+then proves CFC continuity and supplies an explicit dyadic sequence.
 
 Fix `p₀>0`. For all nearby `p\ge p₀/2`,
 let `B_{p,j}` be the verified rank-two coordinate blocks.
@@ -90,24 +99,30 @@ in the spectrum variable. The continuous CFC homomorphism
 therefore makes `p\mapsto R^{p/2}_{\mathrm{CFC}}`
 operator-norm continuous on `(0,\infty)`.
 
-The positive dyadic rationals are dense in `(0,\infty)`.
-The two continuous families agree at every such exponent by the
-kernel-checked theorem above. The mathematical conclusion is
+For the mesh `d_n=2/2^n`, Lean constructs the upper approximants
+
+\[
+p_n=d_n\left(\left\lfloor p/d_n\right\rfloor+1\right),
+\qquad 0\le p_n-p\le d_n\longrightarrow0.
+\]
+
+The positive dyadic CFC operators converge to `A_p` by the earlier
+dyadic-limit theorem and to `CFC.rpow R (p/2)` by CFC continuity.
+Uniqueness of the operator-norm limit gives
 
 \[
 \boxed{A_p=R^{p/2}_{\mathrm{CFC}},\qquad p>0.}
 \]
 
-This **last universal-real-exponent equation is a written
-analytic consequence**, with its local continuity and
-dyadic-density formalization still pending kernel checking.
-The previous dyadic-rational equation is the current Lean
-certified boundary.
+The kernel theorem is `chosenComplexSpectralPower_eq_CFC_rpow`.
+Its premises are an arbitrary real coupling sequence and `p>0`.
+The proof includes spectral value zero in the joint scalar continuity
+argument and works in the full infinite-dimensional operator algebra.
 
 ## Endpoint warning: exponent zero
 
 Although `R_j>0` for each individual block, the weights
-tend to zero as `j\to\infty`. Hence `0\) is an accumulation
+tend to zero as `j\to\infty`. Hence `0` is an accumulation
 point of the spectrum of the compact operator `R`.
 
 At `p=0`, the CFC convention gives `R^0=I`.
@@ -146,12 +161,10 @@ the actual global operator continuity are now kernel checked.
   the actual CFC dyadic operator approximants converge
   in operator norm to `A_p`.
 
-The second result constructs the unique operator-norm candidate
-for the full positive-real CFC extension from every such dyadic
-approximation sequence. A general real-exponent CFC continuity
-theorem and a formally constructed dense dyadic approximating
-sequence are the remaining bridge to a global
-`A_p=CFC.rpow R (p/2)` equality.
+The second result supplies one limit in the full real-exponent
+proof. `chosenComplexSquaredResolvent_CFC_rpow_continuousOn` and
+`exists_complexSpectralDyadicRational_tendsto` now supply the
+CFC continuity and dyadic approximation obligations.
 
 ## Verified scalar-to-operator stability transfer
 
@@ -170,32 +183,41 @@ the bounded Hilbert diagonal whose coefficients are
 `w_{p,j}-w_{q,j}`. This makes a scalar sharp Lipschitz
 estimate sufficient to obtain the global operator estimate.
 
-## Quantitative continuation
+## Verified quantitative bound
 
-The [spectral-power regularity note](SPECTRAL_POWER_REGULARITY.md)
-derives a uniform operator-norm Lipschitz bound on
+`RealPowerExponentStability.lean` proves, for `0≤x≤1` and
 `p,q≥δ>0`,
 
 \[
-\|A_p-A_q\|\le\frac{|p-q|}{e\delta},
+|x^{p/2}-x^{q/2}|\le\frac{|p-q|}{e\delta}.
 \]
 
-as well as a local trace-norm Lipschitz bound and a holomorphic
-spectral zeta continuation to `Re(z)>0`. These are written analytic
-arguments that require separate Lean proofs and should be treated
-as formalization targets.
+The proof uses the exponential tangent inequality and Mathlib's
+`Real.mul_exp_neg_le_exp_neg_one`, with a separate scalar-zero case.
+`ComplexSpectralPowerLipschitz.lean` lifts the estimate through the
+verified diagonal norm bound. The full CFC identity yields
+
+\[
+\boxed{\|A_p-A_q\|
+=\|R^{p/2}_{\mathrm{CFC}}-R^{q/2}_{\mathrm{CFC}}\|
+\le\frac{|p-q|}{e\delta}.}
+\]
+
+The constant is uniform over all blocks and all real coupling
+sequences. The final theorem is
+`chosenComplexSquaredResolvent_CFC_rpow_sub_norm_le`.
+`Check.lean` audits the scalar helpers, continuity and approximation
+theorems, universal CFC equality, and both operator bounds.
+
+The local trace-norm estimate and holomorphic spectral-zeta
+construction in the [regularity note](SPECTRAL_POWER_REGULARITY.md)
+remain written proofs awaiting Lean formalization.
 
 ## Next formal milestones
 
-1. Transfer the scalar exponent Lipschitz bound through Mathlib's
-   isometric real CFC of the positive squared resolvent.
-2. Formalize the density or explicit approximation of all positive
-   reals by positive dyadic rationals.
-3. Close the equality `A_p=CFC.rpow R (p/2)` for all positive reals
-   using CFC continuity and the checked dyadic-limit theorem.
-4. Distinguish the operator-norm discontinuity and strong continuity
+1. Distinguish the operator-norm discontinuity and strong continuity
    at exponent zero.
-5. Build a generic trace-ideal interface, plus the
+2. Build a generic trace-ideal interface, plus the
    holomorphic spectral-zeta and differentiated-series statements.
 
 The constructive logical syntax map and the classically chosen

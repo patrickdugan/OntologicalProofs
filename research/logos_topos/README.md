@@ -47,23 +47,29 @@ convergence of arbitrary convergent dyadic CFC approximant sequences
 to the corresponding real spectral-power operator. A checked
 scalar-to-operator stability theorem transfers any uniform bound
 on diagonal spectral weights to the full Hilbert operator norm.
-The final identification with the existing CFC real power for every
-positive real exponent requires a formal compact-spectrum CFC
-continuity argument and a dyadic density witness. A generic
-Mathlib trace-ideal instance and trace-norm inequality also remain
-to be developed. The syntax encoder and lookup are constructive Lean
+The full identity `A_p = CFC.rpow R (p/2)` now holds in Lean for
+every positive real exponent. The proof includes compact-spectrum
+CFC continuity and explicit positive dyadic approximants. The new
+scalar exponential estimate gives the uniform quantitative bound
+`‖A_p-A_q‖ = ‖CFC.rpow R (p/2)-CFC.rpow R (q/2)‖ ≤ |p-q|/(exp(1) δ)`
+whenever `p,q≥δ>0`, independently of the real coupling sequence.
+A generic Mathlib trace-ideal instance and trace-norm inequality
+remain to be developed. The syntax encoder and lookup are constructive Lean
 functions, while the marked dense sequence of completed theories
 still depends on classical selection. A Mathlib Primrec/Computable
 classification for full formula substitution and arbitrary
 interpretation-compatible Dirac intertwiners also remain open.
 
-See the [v0.49 positive CFC and dyadic-rational ledger](INFINITE_DIRAC_V49.md),
+See the [v0.49 real CFC and quantitative stability ledger](INFINITE_DIRAC_V49.md),
 the [v0.48 nuclear and semigroup ledger](INFINITE_DIRAC_V48.md),
 the [v0.47 Hilbert-basis trace ledger](INFINITE_DIRAC_V47.md),
 the [v0.46 metric recovery ledger](INFINITE_DIRAC_V46.md),
 and the [v0.42 constructive syntax ledger](INFINITE_DIRAC_V42.md).
-The v0.49 positive dyadic-rational CFC theorem passed
-[run 41793916592](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41793916592).
+The v0.49 full real-power CFC identity and quantitative exponent bound
+passed [run 41831403870](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41831403870)
+at source commit `4de8d6115ddc21922b1cfc9f843673159f31f7a6`.
+That run completed the Lean build, the axiom audit, and all six finite
+reconstruction tests.
 
 ## Mathematical objective
 

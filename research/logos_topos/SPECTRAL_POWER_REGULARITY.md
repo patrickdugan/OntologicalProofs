@@ -1,10 +1,15 @@
 # LTR spectral-power regularity: quantitative analytic targets
 
-**November 4, 2026. Status: written mathematical proofs, with the
-full positive-exponent operator-norm continuity theorem already checked
-in `ComplexSpectralPowerExponentContinuity.lean`. The quantitative
-Lipschitz constants and holomorphic zeta extension below are new
-formalization targets and are not Lean-certified.**
+**November 4, 2026. Status: the full positive-real CFC identity and
+the operator-norm Lipschitz bound are formalized in
+`ComplexSpectralCFCReal.lean` and `ComplexSpectralPowerLipschitz.lean`.
+The trace-norm estimate and holomorphic zeta extension below remain
+written mathematical proofs awaiting Lean formalization.**
+
+The operator results passed the Lean build, axiom audit, and finite
+reconstruction suite in
+[run 41831403870](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41831403870),
+at source commit `4de8d6115ddc21922b1cfc9f843673159f31f7a6`.
 
 ## Notation and starting facts
 
@@ -18,8 +23,8 @@ w_{p,j}=E_j^{-p/2}=e^{-p h_j/2}.
 The actual Hilbert operator is `A_p=⊕_j w_{p,j}I₂`.
 The repository verifies the coordinate action, rank-two series,
 norm-summable factorization, true `CFC.rpow` equality at all positive
-dyadic rational exponents, and local norm continuity of `p↦A_p`
-for positive `p`.
+real exponents, and the quantitative norm continuity of `p↦A_p`
+for positive `p` described below.
 
 ## Uniform operator-norm Lipschitz bound
 
@@ -43,8 +48,11 @@ bound
 }
 \]
 
-The estimate is sharper than a qualitative uniform-series proof;
-it uses only the positive diagonal form of the actual Hilbert operator.
+`real_rpow_half_exponent_sub_le` proves the scalar estimate, including
+base zero, using exponential inequalities. The theorem
+`chosenComplexSpectralPower_sub_norm_le_lipschitz` lifts it to the
+actual Hilbert operator. The earlier uniform-series proof also remains
+available as an independent route to qualitative continuity.
 The constant is the sharp supremum when the spectral energy variable
 is allowed to vary continuously over `[1,∞)`.
 
@@ -113,12 +121,20 @@ The convergence of the differentiated series follows from
 the same geometric majorant above. At real `p>0`,
 the already verified Hilbert-basis series equals `ζ_D(p)`.
 
-## Implications for the full CFC bridge
+## Completed CFC bridge
 
-Mathlib v4.35.0 supplies `tendsto_cfc_fun` and the isometric
-continuous functional calculus. The same scalar Lipschitz estimate
-applies uniformly to the spectrum of the positive contraction
-`R=(I+D²)⁻¹`. A future Lean theorem should establish
+`ComplexSpectralCFCReal.lean` proves joint scalar continuity on
+the compact spectrum for positive exponents, then applies the
+continuous CFC homomorphism. Explicit upper dyadic approximants
+and uniqueness of the norm limit give
+
+\[
+A_p=\operatorname{CFC.rpow}(R,p/2),\qquad p>0.
+\]
+
+Rewriting the established diagonal estimate through this equality
+gives the checked theorem
+`chosenComplexSquaredResolvent_CFC_rpow_sub_norm_le`:
 
 \[
 \|\operatorname{CFC.rpow}(R,p/2)
@@ -126,20 +142,9 @@ applies uniformly to the spectrum of the positive contraction
 \le |p-q|/(e\delta)
 \]
 
-for `p,q≥δ>0`. Together with the positive dyadic CFC equality,
-density of positive dyadic rationals, and the checked continuity
-of `A_p`, this closes
-
-\[
-A_p=\operatorname{CFC.rpow}(R,p/2)
-\quad\text{for all }p>0.
-\]
-
-The `ComplexSpectralDyadicLimits.lean` theorem, once audited,
-proves that any sequence of positive dyadic CFC approximants with
-exponents tending to `p>0` converges in operator norm to `A_p`.
-The direct CFC exponent-continuity theorem and the density witness
-remain separate formalization steps.
+for `p,q≥δ>0`. The continuity proof includes spectral value zero.
+`ComplexSpectralDyadicLimits.lean` supplies the earlier theorem
+that every convergent positive dyadic CFC sequence has limit `A_p`.
 
 ## Boundary at zero
 
@@ -150,17 +155,13 @@ one for every `p>0`. A future audit must state the topology
 explicitly. The Lipschitz bounds above depend on `δ>0`; their
 constants diverge as `δ↓0`.
 
-## Suggested Lean sequence
+## Remaining Lean targets
 
-1. Prove the scalar inequality using `Real.exp`, `Real.log`,
-   and a derivative or mean-value bound.
-2. Lift it to `complexBoundedBlockDiagonal` in operator norm.
-3. Prove the trace-weight summable difference bound, followed by
+1. Prove the trace-weight summable difference bound, followed by
    the abstract trace ideal bridge.
-4. Transfer the scalar supremum bound through the isometric CFC.
-5. Close full positive-real CFC identity by density.
-6. Formalize holomorphic normal convergence of `ζ_D` and
+2. Formalize holomorphic normal convergence of `ζ_D` and
    termwise differentiated series.
+3. Formalize strong continuity and the operator-norm gap at zero.
 
 The constructive syntax encoding and classically chosen dense
 complete-type marking remain exactly as in the v0.46 to v0.49
