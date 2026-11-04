@@ -30,6 +30,7 @@ import Neoplatonic.LTR.ManifestationFragmentNorm
 import Neoplatonic.LTR.ManifestationMarkedBlocks
 import Neoplatonic.LTR.ManifestationConstrainedProfiles
 import Neoplatonic.LTR.ManifestationFiniteRankCompression
+import Neoplatonic.LTR.ManifestationFiniteRankIsometry
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -272,6 +273,13 @@ open Neoplatonic.LTR
 #print axioms manifestationFiniteObservableCompression_eq_sum
 #print axioms manifestationFiniteObservableCompression_compact
 #print axioms manifestationFiniteObservableCompression_norm_le
+#print axioms complexValuedObservableBlock_norm_left_le
+#print axioms manifestationFiniteObservableCompression_block_le
+#print axioms Nullary.effectiveNullary_finiteRank_fragment_norm_eq
+#print axioms Nullary.effectiveNullary_infiniteHilbert_norm_eq
+#print axioms Nullary.effectiveNullary_finiteRank_vs_infinite_norm
+#print axioms Nullary.effectiveNullary_finiteRank_spectralTriple_identity
+#print axioms Nullary.effectiveNullary_finiteRank_spectralTriple_compact
 #print axioms Nullary.observedTruthNorm_eventually_exact
 #print axioms Nullary.observedTruthNorm_error_le_one
 #print axioms Nullary.observedTruthNorm_maximum_gap
