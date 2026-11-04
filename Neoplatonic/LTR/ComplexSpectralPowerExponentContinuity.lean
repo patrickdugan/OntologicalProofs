@@ -87,8 +87,9 @@ theorem complexSingleSpectralPowerBlock_eq_weight_smul
     (complexSpectralPowerWeight scale p j : ℂ) •
       lp.single (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
         2 j (ψ j)
-  exact lp.single_smul 2 j
-    (complexSpectralPowerWeight scale p j : ℂ) (ψ j)
+  exact lp.single_smul
+    (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
+    2 j (complexSpectralPowerWeight scale p j : ℂ) (ψ j)
 
 /-- Each finite-rank Hilbert term is operator-norm continuous in p. -/
 theorem complexSingleSpectralPowerBlock_continuous
@@ -122,7 +123,7 @@ theorem finiteComplexSpectralPower_continuous_exponent
           (0 : ComplexDiracBlockHilbert →L[ℂ]
             ComplexDiracBlockHilbert)))
   | @insert j s hj ih =>
-      simpa only [Finset.sum_insert hj] using
+      simpa only [Finset.sum_insert hj, Pi.add_apply] using
         (complexSingleSpectralPowerBlock_continuous scale j).add ih
 
 /-- The complete operator-norm block series is continuous in the
