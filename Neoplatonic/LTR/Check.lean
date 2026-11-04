@@ -39,6 +39,7 @@ import Neoplatonic.LTR.ManifestationOptimalRank
 import Neoplatonic.LTR.ManifestationOptimalRange
 import Neoplatonic.LTR.BooleanCubeEdges
 import Neoplatonic.LTR.BooleanCubeGlobal
+import Neoplatonic.LTR.BooleanCubeCapacity
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -959,3 +960,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.finiteIndexedHilbertBlock_norm_le_global
 #print axioms Neoplatonic.LTR.booleanCubeLocalGradient_le_global
 #print axioms Neoplatonic.LTR.booleanCubeCommutator_norm_eq_max
+
+-- LTR-MAN-09C: exact unique-edge count and Hilbert coordinate capacity.
+#print axioms Neoplatonic.LTR.booleanCubeFixedFalse_card
+#print axioms Neoplatonic.LTR.booleanCubeEdge_card_succ
+#print axioms Neoplatonic.LTR.booleanCubeEdge_card_zero
+#print axioms Neoplatonic.LTR.booleanCubeHilbert_coordinate_card_succ
+#print axioms Neoplatonic.LTR.booleanCubeHilbert_coordinate_card_zero
