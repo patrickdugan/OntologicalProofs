@@ -18,6 +18,7 @@ import Neoplatonic.LTR.ObservableHalting
 import Neoplatonic.LTR.NullaryHalting
 import Neoplatonic.LTR.NullaryIndependent
 import Neoplatonic.LTR.NullaryTopology
+import Neoplatonic.LTR.ManifestationDiagonal
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -214,6 +215,11 @@ open Neoplatonic.LTR
 #print axioms Nullary.encode_decode
 
 #print axioms Nullary.continuous_decode
+#print axioms Nullary.manifestationDiagonal_mem
+#print axioms Nullary.manifestationCylinder_misses
+#print axioms Nullary.manifestationCylinder_isClopen
+#print axioms Nullary.finiteManifestation_obstruction
+#print axioms Nullary.finiteManifestation_not_conservative
 #print axioms Nullary.decode_bijective
 #print axioms Nullary.cantorHomeomorph_apply
 #print axioms Nullary.cantorHomeomorph_symm_apply
