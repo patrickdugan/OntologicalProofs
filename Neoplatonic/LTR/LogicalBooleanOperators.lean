@@ -63,7 +63,6 @@ theorem complexLogicalProjection_inf
     change p ∈ T.typesWith (φ ⊓ ψ) ↔
       p ∈ T.typesWith φ ∩ T.typesWith ψ
     rw [CompleteType.typesWith_inf]
-    rfl
   by_cases hp : φ ∈ p
   · by_cases hq : ψ ∈ p
     · have hboth : (φ ⊓ ψ) ∈ p := hmem.mpr ⟨hp, hq⟩
