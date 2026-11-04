@@ -47,6 +47,7 @@ import Neoplatonic.LTR.ComplexSpectralPowerSemigroup
 import Neoplatonic.LTR.ComplexSpectralPowerPositive
 import Neoplatonic.LTR.ComplexSpectralCFCSqrt
 import Neoplatonic.LTR.ComplexSpectralCFCDyadicRational
+import Neoplatonic.LTR.ComplexSpectralPowerExponentContinuity
 import Neoplatonic.LTR.ComplexSpectralCompactPowers
 import Neoplatonic.LTR.LogicalStoneMarking
 import Neoplatonic.LTR.LogicalStoneSpectralTriple
@@ -565,6 +566,10 @@ open Neoplatonic.LTR
 #print axioms chosenComplexSpectralDyadicPower_eq_CFC_rpow
 #print axioms chosenComplexSpectralPower_pow_nat_succ
 #print axioms chosenComplexSpectralDyadicRational_eq_CFC_rpow
+#print axioms complexSpectralPowerWeight_continuous
+#print axioms complexSpectralPowerWeight_local_majorant
+#print axioms complexSpectralPowerWeight_local_majorant_summable
+#print axioms complexSpectralRankTwo_hasSumUniformlyOn
 #print axioms chosenComplexSpectralPower_isCompact
 #print axioms complexSpectralTraceTerm_at_zero
 #print axioms complexSpectralTraceTerm_not_summable_zero
