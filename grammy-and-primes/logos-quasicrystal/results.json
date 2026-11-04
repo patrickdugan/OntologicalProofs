@@ -1,0 +1,131 @@
+{
+  "centered_prime_measure": {
+    "arithmetic": "IEEE-754 double precision with math.fsum",
+    "checkpoints": [
+      {
+        "X": 10,
+        "log_X": 2.302585092994046,
+        "signed_cumulative_A": 2.154596974036834,
+        "smooth_mass": 5.692099788303083,
+        "total_variation_on_positive_interval": 9.229602602569333,
+        "weighted_prime_mass": 3.537502814266249
+      },
+      {
+        "X": 100,
+        "log_X": 4.605170185988092,
+        "signed_cumulative_A": 2.9037986557863142,
+        "smooth_mass": 19.8,
+        "total_variation_on_positive_interval": 36.69620134421369,
+        "weighted_prime_mass": 16.896201344213686
+      },
+      {
+        "X": 1000,
+        "log_X": 6.907755278982137,
+        "signed_cumulative_A": 2.674551182312314,
+        "smooth_mass": 63.18230765016422,
+        "total_variation_on_positive_interval": 123.69006411801612,
+        "weighted_prime_mass": 60.507756467851905
+      },
+      {
+        "X": 10000,
+        "log_X": 9.210340371976184,
+        "signed_cumulative_A": 2.5139473074343925,
+        "smooth_mass": 199.98,
+        "total_variation_on_positive_interval": 397.44605269256556,
+        "weighted_prime_mass": 197.4660526925656
+      },
+      {
+        "X": 100000,
+        "log_X": 11.512925464970229,
+        "signed_cumulative_A": 2.5078535109331597,
+        "smooth_mass": 632.4492074783556,
+        "total_variation_on_positive_interval": 1262.390561445778,
+        "weighted_prime_mass": 629.9413539674224
+      },
+      {
+        "X": 1000000,
+        "log_X": 13.815510557964274,
+        "signed_cumulative_A": 3.091191184030322,
+        "smooth_mass": 1999.998,
+        "total_variation_on_positive_interval": 3996.90480881597,
+        "weighted_prime_mass": 1996.9068088159697
+      }
+    ],
+    "checks": "hand Lambda values through 10, explicit X=2 and X=10 identities",
+    "formula": "A(log X) = 2*(sqrt(X)-1/sqrt(X)) - sum(n<=X, Lambda(n)/sqrt(n))",
+    "interpretation": "finite illustrations; no asymptotic or temperedness test",
+    "interval": "(0, log X], including a prime-power atom at the upper endpoint"
+  },
+  "projection_control": {
+    "autocorrelation_coefficients": {
+      "-2": 4,
+      "0": 8,
+      "2": 4
+    },
+    "changed_ordinate_control_detected": true,
+    "full_spectral_coordinate_real_in_off_line_model": false,
+    "full_spectral_coordinate_real_in_on_line_model": true,
+    "intensity_identity": "I(k) = cos(2*pi*k)^2 for every real k in both models",
+    "kind": "synthetic spectra; no actual zeta zeros",
+    "off_line_spectrum": [
+      [
+        "1/3",
+        "1"
+      ],
+      [
+        "1/3",
+        "-1"
+      ],
+      [
+        "2/3",
+        "1"
+      ],
+      [
+        "2/3",
+        "-1"
+      ]
+    ],
+    "on_line_spectrum": [
+      [
+        "1/2",
+        "1"
+      ],
+      [
+        "1/2",
+        "-1"
+      ],
+      [
+        "1/2",
+        "1"
+      ],
+      [
+        "1/2",
+        "-1"
+      ]
+    ],
+    "ordinate_multiplicities": {
+      "-1": 2,
+      "1": 2
+    },
+    "reason": "the exact projected counting measures agree",
+    "sampled_exact_intensities": [
+      {
+        "frequency": "0",
+        "normalized_intensity_exact": "1"
+      },
+      {
+        "frequency": "1/8",
+        "normalized_intensity_exact": "1/2"
+      },
+      {
+        "frequency": "1/4",
+        "normalized_intensity_exact": "0"
+      },
+      {
+        "frequency": "1/2",
+        "normalized_intensity_exact": "1"
+      }
+    ]
+  },
+  "status": "PASS"
+}
