@@ -20,6 +20,20 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
+-- The pinned Mathlib constructors expose these CFC instances explicitly.
+-- Register them locally for the concrete infinite Hilbert operator algebra.
+local instance :
+    NonUnitalClosedEmbeddingContinuousFunctionalCalculus ℂ
+      (ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert)
+      IsStarNormal :=
+  IsStarNormal.instNonUnitalContinuousFunctionalCalculus
+
+local instance :
+    NonUnitalContinuousFunctionalCalculus ℝ
+      (ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert)
+      IsSelfAdjoint :=
+  IsSelfAdjoint.instNonUnitalContinuousFunctionalCalculus
+
 /-- The actual Hilbert spectral power at half the exponent is the
 positive CFC square root of the full power. -/
 theorem chosenComplexSpectralPower_half_eq_CFC_sqrt
