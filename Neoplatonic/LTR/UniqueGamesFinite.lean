@@ -1,4 +1,5 @@
 import Mathlib
+import Neoplatonic.LTR.UniqueGamesRecursive
 
 /-!
 # LTR-UG-01: translation games as gauge-invariant finite defects
