@@ -90,14 +90,10 @@ theorem manifestationFragment_sample_norm_eq
     ‖(manifestationFragmentObservable m g).comp
         (manifestationSampleMap q N)‖ =
         ‖gC.comp sampledPref‖ := by
-          congr 1
-          ext i
           rfl
     _ = ‖gC‖ := hsample
     _ = ‖manifestationFragmentObservable m g‖ := by
           rw [← hfull]
-          congr 1
-          ext p
           rfl
 
 /-- The actual classically chosen dense sequence gives exact
