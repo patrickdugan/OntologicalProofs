@@ -31,7 +31,7 @@ noncomputable def manifestationHilbertBlockProjection (J : ℕ) :
     (fun j => if j < J then
       (ContinuousLinearMap.id ℂ (EuclideanSpace ℂ (Fin 2)))
       else 0)
-    1 (by
+    (by norm_num : (0 : ℝ) ≤ 1) (by
       intro j
       by_cases hj : j < J
       · simp [hj]
@@ -57,7 +57,7 @@ noncomputable def manifestationFiniteObservableCompression
     (fun j => if j < J
       then complexValuedObservableBlock (f (left j)) (f (right j))
       else 0)
-    ‖f‖
+    (norm_nonneg f)
     (by
       intro j
       by_cases hj : j < J
@@ -101,8 +101,9 @@ theorem manifestationFiniteObservableCompression_eq_comp
     manifestationHilbertBlockProjection_apply]
   by_cases hj : j < J
   · rw [if_pos hj, compactComplexObservableStarAlgHom_apply,
-      manifestationHilbertBlockProjection_apply, if_pos hj]
-  · rw [if_neg hj, if_neg hj]
+      manifestationHilbertBlockProjection_apply]
+    simp [hj]
+  · simp [hj]
 
 /-- The projection itself is idempotent on the genuine Hilbert sum. -/
 theorem manifestationHilbertBlockProjection_idempotent (J : ℕ) :
