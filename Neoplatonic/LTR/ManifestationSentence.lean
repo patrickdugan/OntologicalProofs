@@ -64,6 +64,33 @@ noncomputable def manifestationSentence (n : ℕ)
     (samples : Fin n → T.CompleteType Empty) : L[[Empty]].Sentence :=
   (manifestationLiterals n samples).toList.foldr (fun φ ψ => φ ⊓ ψ) ⊤
 
+/-- Finite conjunction membership, proved directly from the Stone-space
+meet and top laws (independent of Mathlib's later convenience lemmas). -/
+private theorem foldrInf_mem_iff (p : T.CompleteType Empty)
+    (l : List L[[Empty]].Sentence) :
+    l.foldr (fun φ ψ => φ ⊓ ψ) ⊤ ∈ p ↔
+      ∀ φ ∈ l, φ ∈ p := by
+  induction l with
+  | nil =>
+      have htop : (⊤ : L[[Empty]].Sentence) ∈ p := by
+        have h : p ∈ T.typesWith (⊤ : L[[Empty]].Sentence) := by
+          rw [CompleteType.typesWith_top]
+          exact Set.mem_univ _
+        exact h
+      simpa using htop
+  | cons φ fs ih =>
+      have hmeet :
+          (φ ⊓ fs.foldr (fun x y => x ⊓ y) ⊤) ∈ p ↔
+            φ ∈ p ∧ fs.foldr (fun x y => x ⊓ y) ⊤ ∈ p := by
+        change p ∈ T.typesWith (φ ⊓ fs.foldr (fun x y => x ⊓ y) ⊤) ↔
+          p ∈ T.typesWith φ ∩
+            T.typesWith (fs.foldr (fun x y => x ⊓ y) ⊤)
+        rw [CompleteType.typesWith_inf]
+        rfl
+      simp only [List.foldr]
+      rw [hmeet, ih]
+      simp
+
 /-- The sentence belongs to a complete type precisely when every
 opposite-coordinate literal belongs to it. -/
 theorem manifestationSentence_mem_iff (n : ℕ)
@@ -73,7 +100,7 @@ theorem manifestationSentence_mem_iff (n : ℕ)
       ∀ i : Fin n, manifestationLiteral n samples i ∈ p := by
   classical
   unfold manifestationSentence
-  rw [CompleteType.toList_foldr_inf_mem]
+  rw [foldrInf_mem_iff]
   constructor
   · intro h i
     apply h
