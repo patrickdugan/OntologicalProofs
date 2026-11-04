@@ -34,6 +34,7 @@ import Neoplatonic.LTR.ComplexLipschitzAlgebra
 import Neoplatonic.LTR.ComplexMetricSpectralTriple
 import Neoplatonic.LTR.DensePairMarking
 import Neoplatonic.LTR.ComplexSpectralSummability
+import Neoplatonic.LTR.ComplexSpectralPowerOperator
 import Neoplatonic.LTR.LogicalStoneMarking
 import Neoplatonic.LTR.LogicalStoneSpectralTriple
 import Neoplatonic.LTR.LogicalLipschitzProjections
@@ -509,6 +510,11 @@ open Neoplatonic.LTR
 #print axioms chosenSquaredResolventWeight_rpow_summable
 #print axioms complexSpectralTraceTerm_summable
 #print axioms complexSpectralTraceTerm_eq_energy
+#print axioms complexSpectralPowerWeight_nonneg
+#print axioms complexSpectralPowerWeight_le_one
+#print axioms chosenComplexSpectralPowerCLM_apply
+#print axioms chosenComplexSpectralPowerCLM_norm_le_one
+#print axioms complexSpectralPowerBlock_trace
 #print axioms logicalCompleteType_secondCountable
 #print axioms logicalCompleteType_denseSeq_dense
 #print axioms denseSequence_contains_distinct_values
