@@ -155,4 +155,44 @@ theorem complexSpectralPowerSeries_continuousOn_positive
   exact (Filter.Eventually.of_forall hc).frequently
 
 
+
+/-- A total extension of the positive spectral-power family, used to
+state ordinary real-parameter continuity without dependent proof
+arguments. Its values at nonpositive exponents are defined as zero. -/
+noncomputable def chosenComplexSpectralPowerTotal
+    (scale : ℕ → ℝ) (p : ℝ) :
+    ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert :=
+  if hp : 0 < p then chosenComplexSpectralPowerCLM scale p hp else 0
+
+/-- On positive exponents, the total extension is exactly the
+previously verified Hilbert spectral-power operator. -/
+theorem chosenComplexSpectralPowerTotal_of_pos
+    (scale : ℕ → ℝ) (p : ℝ) (hp : 0 < p) :
+    chosenComplexSpectralPowerTotal scale p =
+      chosenComplexSpectralPowerCLM scale p hp := by
+  simp [chosenComplexSpectralPowerTotal, hp]
+
+/-- On each closed half-line bounded away from exponent zero, the
+actual global Hilbert operator equals its norm-convergent block sum. -/
+theorem chosenComplexSpectralPowerTotal_eq_tsum_on
+    (scale : ℕ → ℝ) (p₀ : ℝ) (hp₀ : 0 < p₀) :
+    Set.EqOn (chosenComplexSpectralPowerTotal scale)
+      (fun p : ℝ => ∑' j : ℕ, complexSingleSpectralPowerBlock scale p j)
+      (Set.Ici (p₀ / 2)) := by
+  intro p hp
+  have hpos : 0 < p := lt_of_lt_of_le (by linarith : 0 < p₀ / 2) hp
+  rw [chosenComplexSpectralPowerTotal_of_pos scale p hpos]
+  exact chosenComplexSpectralPower_eq_tsum_rankTwo scale p hpos
+
+/-- Genuine operator-norm continuity of the full spectral-power
+family, locally in every positive real exponent. -/
+theorem chosenComplexSpectralPowerTotal_continuousOn_positive
+    (scale : ℕ → ℝ) (p₀ : ℝ) (hp₀ : 0 < p₀) :
+    ContinuousOn (chosenComplexSpectralPowerTotal scale)
+      (Set.Ici (p₀ / 2)) := by
+  have hsum :=
+    complexSpectralPowerSeries_continuousOn_positive scale p₀ hp₀
+  exact hsum.congr
+    (chosenComplexSpectralPowerTotal_eq_tsum_on scale p₀ hp₀).symm
+
 end Neoplatonic.LTR
