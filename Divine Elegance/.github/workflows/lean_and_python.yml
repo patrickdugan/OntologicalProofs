@@ -1,0 +1,28 @@
+name: Divine Elegance formal and synthetic fixtures
+on:
+  push:
+  pull_request:
+jobs:
+  prove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean toolchain via elan
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+          sh elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Print toolchain and compile every declaration
+        run: |
+          export PATH="$HOME/.elan/bin:$PATH"
+          elan toolchain install leanprover/lean4:v4.22.0
+          lean --version
+          lake build
+          lake env lean QuranModal.lean
+          lake env lean DivineElegance.lean
+      - name: Run independent Python fixture checks
+        run: |
+          python3 --version
+          python3 run_all.py
+      - name: Reject unproved placeholders
+        run: python3 scripts/check_placeholders.py

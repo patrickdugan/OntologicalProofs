@@ -1,0 +1,9 @@
+name = "divine-elegance-formal"
+version = "0.1.0"
+defaultTargets = ["DivineElegance", "QuranModal"]
+
+[[lean_lib]]
+name = "DivineElegance"
+
+[[lean_lib]]
+name = "QuranModal"

@@ -1,0 +1,20 @@
+{
+  "arbitrary_19_letter_strings_passing": 1000,
+  "inference": "universal tautology under this construction; no evidence of revelation",
+  "preselected_examples": [
+    {
+      "remainder": 0,
+      "score": 225,
+      "text": "MERCYISNOTACHECKSUM",
+      "total": 4275
+    },
+    {
+      "remainder": 0,
+      "score": 228,
+      "text": "MERCYISNOWACHECKSUM",
+      "total": 4332
+    }
+  ],
+  "samples": 1000,
+  "seed": 19019
+}

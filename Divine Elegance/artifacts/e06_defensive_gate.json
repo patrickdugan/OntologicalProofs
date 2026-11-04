@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "case": "consented-local-security-review",
+      "status": "PROCEED_TO_HUMAN_REVIEW"
+    },
+    {
+      "case": "unsourced-public-accusation",
+      "status": "REJECT"
+    },
+    {
+      "case": "unauthorized-intrusion",
+      "status": "REJECT"
+    },
+    {
+      "case": "unclear-permission",
+      "status": "HOLD"
+    },
+    {
+      "case": "privacy-disrespect",
+      "status": "REJECT"
+    },
+    {
+      "case": "hostile-violence",
+      "status": "REJECT"
+    }
+  ],
+  "synthetic": true,
+  "warning": "Approval still requires competent law/fiqh analysis; no real-world action is authorized."
+}
