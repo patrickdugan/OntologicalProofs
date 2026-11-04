@@ -519,6 +519,8 @@ open Neoplatonic.LTR
 #print axioms chosenComplexSpectralPowerCLM_apply
 #print axioms chosenComplexSpectralPowerCLM_norm_le_one
 #print axioms complexSpectralPowerBlock_trace
+#print axioms complexSpectralPowerWeight_two
+#print axioms chosenComplexSpectralPower_two_eq_squaredResolvent
 #print axioms finiteComplexSpectralPower_compact
 #print axioms finiteComplexSpectralPower_apply
 #print axioms finiteComplexSpectralPowerTrace_eq
