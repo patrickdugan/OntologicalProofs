@@ -33,6 +33,10 @@ import Neoplatonic.LTR.ManifestationMarkedBlocks
 import Neoplatonic.LTR.ManifestationConstrainedProfiles
 import Neoplatonic.LTR.ManifestationFiniteRankCompression
 import Neoplatonic.LTR.ManifestationFiniteRankIsometry
+import Neoplatonic.LTR.ManifestationOptimalCoordinates
+import Neoplatonic.LTR.ManifestationOptimalNorm
+import Neoplatonic.LTR.ManifestationOptimalRank
+import Neoplatonic.LTR.ManifestationOptimalRange
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -282,6 +286,27 @@ open Neoplatonic.LTR
 #print axioms Nullary.effectiveNullary_finiteRank_vs_infinite_norm
 #print axioms Nullary.effectiveNullary_finiteRank_spectralTriple_identity
 #print axioms Nullary.effectiveNullary_finiteRank_spectralTriple_compact
+#print axioms Nullary.optimalManifestationBlock_prefix
+#print axioms Nullary.optimalManifestationBlock_injective
+#print axioms Nullary.optimalManifestationBlockSet_card
+#print axioms Nullary.optimalManifestationHilbertProjection_apply
+#print axioms Nullary.optimalManifestationHilbertProjection_norm_le_one
+#print axioms Nullary.optimalManifestationLeftBlock_idempotent
+#print axioms Nullary.optimalManifestationHilbertProjection_idempotent
+#print axioms manifestationLeftBlock_sandwich
+#print axioms Nullary.optimalManifestationCompressedOperator_apply
+#print axioms Nullary.optimalManifestationCompressedOperator_selected_lower
+#print axioms Nullary.optimalManifestationCompressedOperator_norm_eq
+#print axioms Nullary.optimalManifestation_spectralTriple_norm_eq
+#print axioms Nullary.optimalManifestationBasis_orthonormal
+#print axioms Nullary.optimalManifestationBasis_linearIndependent
+#print axioms Nullary.optimalManifestationCoordinateSpace_finrank
+#print axioms Nullary.optimalManifestationLeftBlock_apply
+#print axioms Nullary.optimalManifestationHilbertProjection_eq_sum
+#print axioms Nullary.optimalManifestationHilbertProjection_fixes_basis
+#print axioms Nullary.optimalManifestationHilbertProjection_mem_span
+#print axioms Nullary.optimalManifestationHilbertProjection_range_eq_span
+#print axioms Nullary.optimalManifestationHilbertProjection_rank_exact
 #print axioms Nullary.observedTruthNorm_eventually_exact
 #print axioms Nullary.observedTruthNorm_error_le_one
 #print axioms Nullary.observedTruthNorm_maximum_gap
