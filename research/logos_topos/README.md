@@ -65,6 +65,20 @@ and the [v0.42 constructive syntax ledger](INFINITE_DIRAC_V42.md).
 The v0.49 positive dyadic-rational CFC theorem passed
 [run 41793916592](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41793916592).
 
+## LTR-MAN-01: Finite manifestation diagonal (new)
+
+The nullary Cantor-like complete-type space now has an explicit finite-sample
+obstruction: for every `n` sampled complete types, an `n`-coordinate clopen
+cylinder contains a genuine complete type and avoids every sample. The new
+`ManifestationDiagonal.lean` formalizes the diagonal witness, clopenness,
+and failure of finite-sample reflection of all nonempty clopens.
+
+The written analytic consequence is an exact norm-one defect for the
+finite-evaluation representation of the continuous clopen indicator. The
+stronger finite-dimensional rank argument is likewise recorded as a written
+proof, pending Lean formalization. See
+[MANIFESTATION_DIAGONAL_V01.md](MANIFESTATION_DIAGONAL_V01.md).
+
 ## Mathematical objective
 
 Study an effectively presented network of finitely axiomatized theories through its space of compatible completions, while retaining the logical information needed for reconstruction. This is a pure mathematical project. The proposed interpretation in Divine Elegance belongs to a later philosophical layer.
