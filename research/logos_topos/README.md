@@ -1,36 +1,38 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.31 (November 4, 2026)
+## Current proof status: LTR v0.34 (November 4, 2026)
 
-Lean now verifies a sentence-numbered first-disagreement ultrametric on
-Mathlib's genuine first-order complete-type Stone space. For any surjective
-numbering of expanded-language sentences, the Boolean truth-sequence map
-is continuous and injective, and the induced first-disagreement distance
-has exactly the original Stone topology. The distance between distinct
-completions is 2^(-n) at their first differing numbered sentence.
+The first-disagreement ultrametric on Mathlib's actual complete-type
+Stone space is now verified relative to any surjective sentence numbering.
+Closed balls are characterized by finite sentence-truth prefixes, and the
+corresponding faithful complex spectral triple inherits the verified
+self-adjoint Dirac operator, compact resolvent, bounded commutators,
+and exact metric recovery. The nth numbered truth projection has a
+verified global Lipschitz and Dirac commutator bound of 2^n.
 
-The metric satisfies the ultrametric triangle inequality. Its closed
-balls of radius 2^(-n) consist exactly of complete theories agreeing on
-the first n numbered sentences. A faithful complex spectral triple with
-dense Lipschitz algebra, self-adjoint Dirac, compact ordinary resolvent,
-and bounded commutators is constructed using this chosen numbering.
-The previously verified dense-pair commutator theorem gives exact
-Connes-style recovery of the corresponding metric.
+Any two surjective sentence numberings give uniformly equivalent
+first-disagreement metrics. The formal reindexing proof constructs a
+finite-prefix modulus M_k(n) from a sentence-index lookup k, and proves
+an explicit metric-ball transfer. The epsilon-delta estimates hold in
+both directions by swapping the enumerations.
 
-The complex truth projection for the nth numbered sentence is
-2^n-Lipschitz, and the marked infinite-dimensional Dirac commutator
-has operator norm at most 2^n. The earlier Boolean Hilbert projection,
-logical entailment and exact zero/one norm-gap results remain intact.
+For maps between different complete-type spaces, an explicit sentence
+truth-pullback law supplies a quantitative continuity modulus.
+The new composition theorem verifies that index lookups compose and
+their nested prefix bounds satisfy
+M_(k∘l)(n) <= M_k(M_l(n)). This is a conditional mathematical
+naturality statement: the chosen map must preserve the enumerated
+sentence truth values as assumed in the theorem.
 
-The sentence numbering is explicit input; a classical surjective
-numbering is also available for any countable expanded sentence type.
-Computable numbering does not imply decidable truth in arbitrary complete
-theories or computable metric evaluation. The global trace-class
-formalization and interpretation-compatible Dirac maps remain open.
+The earlier Hilbert Boolean projections, norm-zero entailment
+criterion, and half-error undecidability obstruction remain intact.
+Computable sentence syntax does not by itself compute truth in an
+arbitrary completion. A global Schatten trace proof and actual
+Dirac-intertwining maps remain open.
 
-See the [LTR v0.31 proof ledger](INFINITE_DIRAC_V31.md),
-the [successful finite-prefix ultrametric audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41756584189),
-and the preceding [LTR v0.27 theorem ledger](INFINITE_DIRAC_V27.md).
+See the [LTR v0.34 reindexing and composition ledger](INFINITE_DIRAC_V34.md),
+[successful v0.34 kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41758731348),
+and the [v0.31 numbered Stone spectral ledger](INFINITE_DIRAC_V31.md).
 
 ## Mathematical objective
 
