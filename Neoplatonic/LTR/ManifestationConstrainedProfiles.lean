@@ -37,7 +37,7 @@ finite family of logical tests. Classical finite-range membership supplies
 the finite enumeration, while the resulting cardinality is intrinsic. -/
 noncomputable def realizedProfileCapacity (profile : X → B) : ℕ := by
   classical
-  exact Fintype.card (RealizedProfiles profile)
+  exact Fintype.card {b : B // b ∈ Set.range profile}
 
 /-- Every family that covers all realizable outcomes has at least
 as many sample points as there are distinct realizable profiles. -/
@@ -47,11 +47,10 @@ theorem realizedProfileCapacity_lower_bound
       ∃ i : Fin n, profile (samples i) = b) :
     realizedProfileCapacity profile ≤ n := by
   classical
-  classical
   have hsurj : Function.Surjective
       (fun i : Fin n =>
         (⟨profile (samples i), ⟨samples i, rfl⟩⟩ :
-          RealizedProfiles profile)) := by
+          {b : B // b ∈ Set.range profile})) := by
     intro b
     obtain ⟨i, hi⟩ := hcover b.val b.property
     refine ⟨i, ?_⟩
@@ -70,17 +69,15 @@ theorem realizedProfileCapacity_attained
         ∃ i : Fin (realizedProfileCapacity profile),
           profile (samples i) = b := by
   classical
-  letI : Fintype (RealizedProfiles profile) :=
-    realizedProfilesFintype profile
   let e : Fin (realizedProfileCapacity profile) ≃
-      RealizedProfiles profile := by
+      {b : B // b ∈ Set.range profile} := by
     unfold realizedProfileCapacity
     exact (Fintype.equivFin _).symm
   let samples : Fin (realizedProfileCapacity profile) → X :=
     fun i => Classical.choose (e i).property
   refine ⟨samples, ?_⟩
   intro b hb
-  let b' : RealizedProfiles profile := ⟨b, hb⟩
+  let b' : {b : B // b ∈ Set.range profile} := ⟨b, hb⟩
   refine ⟨e.symm b', ?_⟩
   have hspec : profile (Classical.choose (e (e.symm b')).property) =
       (e (e.symm b')).val :=
