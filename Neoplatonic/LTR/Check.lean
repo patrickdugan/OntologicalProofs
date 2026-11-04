@@ -57,6 +57,7 @@ import Neoplatonic.LTR.NullaryEffectiveSyntax
 import Neoplatonic.LTR.NullaryEffectiveMetricModulus
 import Neoplatonic.LTR.NullaryEffectiveSpectralTriple
 import Neoplatonic.LTR.NullaryEffectiveHilbertOperators
+import Neoplatonic.LTR.NullaryEffectiveOperatorPullback
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -602,6 +603,13 @@ open Neoplatonic.LTR
 #print axioms Nullary.effectiveNullary_sentence_hilbertProjection
 #print axioms Nullary.effectiveNullary_refutationNorm_zero_iff_entails
 #print axioms Nullary.effectiveNullary_sentence_boundedDiracCommutator
+#print axioms Nullary.effectiveNullaryHilbertOp_not
+#print axioms Nullary.effectiveNullaryHilbertOp_inf
+#print axioms Nullary.effectiveNullaryHilbertOp_eq_iff_locus
+#print axioms Nullary.effectiveNullary_complexProjection_syntaxPullback
+#print axioms Nullary.effectiveNullaryHilbertOp_syntaxPullback
+#print axioms Nullary.effectiveNullary_syntaxPullback_inObservables
+#print axioms Nullary.effectiveNullary_syntaxPullback_boundedDiracCommutator
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
