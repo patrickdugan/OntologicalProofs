@@ -7,6 +7,7 @@ import Neoplatonic.LTR.MorphospaceColoring
 import Neoplatonic.LTR.MorphospaceSquareCover
 import Neoplatonic.LTR.MorphospaceAnytimeIntervals
 import Neoplatonic.LTR.MorphospaceInformationCover
+import Neoplatonic.LTR.MorphospaceGapMonotonicity
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -754,3 +755,13 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.fractional_information_cover_weak_duality
 #print axioms Neoplatonic.LTR.Morphospace.fractional_information_equal_objectives_optimal
 #print axioms Neoplatonic.LTR.Morphospace.fractional_information_dual_certificate
+
+-- MOR-09: deterministic interval refinement and finite optimized certification-gap audit.
+#print axioms Neoplatonic.LTR.Morphospace.robust_interval_radius_refinement
+#print axioms Neoplatonic.LTR.Morphospace.optimistic_separation_refinement
+#print axioms Neoplatonic.LTR.Morphospace.robust_minimum_refinement
+#print axioms Neoplatonic.LTR.Morphospace.optimistic_minimum_refinement
+#print axioms Neoplatonic.LTR.Morphospace.certification_gap_monotone
+#print axioms Neoplatonic.LTR.Morphospace.feasible_certificate_persistent
+#print axioms Neoplatonic.LTR.Morphospace.infeasible_certificate_persistent
+#print axioms Neoplatonic.LTR.Morphospace.expected_gap_reduction_nonnegative
