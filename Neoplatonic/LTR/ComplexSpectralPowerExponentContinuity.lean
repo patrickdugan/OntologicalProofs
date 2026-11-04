@@ -63,4 +63,84 @@ theorem complexSpectralRankTwo_hasSumUniformlyOn
   exact (complexSingleSpectralPowerBlock_norm_le scale p j).trans
     (complexSpectralPowerWeight_local_majorant scale p₀ hp₀ p hp j)
 
+
+/-- The unweighted projection onto one two-dimensional Hilbert block. -/
+noncomputable def complexSpectralUnitCoordinateCLM (j : ℕ) :
+    ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert :=
+  (lp.singleContinuousLinearMap ℂ
+    (fun _ : ℕ => EuclideanSpace ℂ (Fin 2)) 2 j).comp
+    (lp.evalCLM ℂ
+      (fun _ : ℕ => EuclideanSpace ℂ (Fin 2)) 2 j)
+
+/-- The spectral block is a continuously varying scalar multiple
+of a fixed rank-two Hilbert operator. -/
+theorem complexSingleSpectralPowerBlock_eq_weight_smul
+    (scale : ℕ → ℝ) (p : ℝ) (j : ℕ) :
+    complexSingleSpectralPowerBlock scale p j =
+      (complexSpectralPowerWeight scale p j : ℂ) •
+        complexSpectralUnitCoordinateCLM j := by
+  apply ContinuousLinearMap.ext
+  intro ψ
+  change lp.single
+      (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2)) 2 j
+      ((complexSpectralPowerWeight scale p j : ℂ) • ψ j) =
+    (complexSpectralPowerWeight scale p j : ℂ) •
+      lp.single (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
+        2 j (ψ j)
+  exact lp.single_smul 2 j
+    (complexSpectralPowerWeight scale p j : ℂ) (ψ j)
+
+/-- Each finite-rank Hilbert term is operator-norm continuous in p. -/
+theorem complexSingleSpectralPowerBlock_continuous
+    (scale : ℕ → ℝ) (j : ℕ) :
+    Continuous (fun p : ℝ => complexSingleSpectralPowerBlock scale p j) := by
+  have hw : Continuous (fun p : ℝ =>
+      (complexSpectralPowerWeight scale p j : ℂ)) :=
+    Complex.continuous_ofReal.comp
+      (complexSpectralPowerWeight_continuous scale j)
+  have hfun :
+      (fun p : ℝ => complexSingleSpectralPowerBlock scale p j) =
+      (fun p : ℝ =>
+        (complexSpectralPowerWeight scale p j : ℂ) •
+          complexSpectralUnitCoordinateCLM j) := by
+    funext p
+    exact complexSingleSpectralPowerBlock_eq_weight_smul scale p j
+  rw [hfun]
+  exact hw.smul continuous_const
+
+/-- Each finite sum of spectral-power Hilbert blocks is continuous
+in the exponent, with no positivity restriction. -/
+theorem finiteComplexSpectralPower_continuous_exponent
+    (scale : ℕ → ℝ) (s : Finset ℕ) :
+    Continuous (fun p : ℝ =>
+      ∑ j ∈ s, complexSingleSpectralPowerBlock scale p j) := by
+  classical
+  induction s using Finset.induction_on with
+  | empty =>
+      simpa using
+        (continuous_const : Continuous (fun _ : ℝ =>
+          (0 : ComplexDiracBlockHilbert →L[ℂ]
+            ComplexDiracBlockHilbert)))
+  | @insert j s hj ih =>
+      simpa only [Finset.sum_insert hj] using
+        (complexSingleSpectralPowerBlock_continuous scale j).add ih
+
+/-- The complete operator-norm block series is continuous in the
+positive real exponent on every closed half-line away from zero. -/
+theorem complexSpectralPowerSeries_continuousOn_positive
+    (scale : ℕ → ℝ) (p₀ : ℝ) (hp₀ : 0 < p₀) :
+    ContinuousOn (fun p : ℝ =>
+      ∑' j : ℕ, complexSingleSpectralPowerBlock scale p j)
+      (Set.Ici (p₀ / 2)) := by
+  have hu :=
+    (complexSpectralRankTwo_hasSumUniformlyOn scale p₀ hp₀).tendstoUniformlyOn
+  apply hu.continuousOn
+  have hc : ∀ s : Finset ℕ,
+      ContinuousOn (fun p : ℝ =>
+        ∑ j ∈ s, complexSingleSpectralPowerBlock scale p j)
+        (Set.Ici (p₀ / 2)) :=
+    fun s => (finiteComplexSpectralPower_continuous_exponent scale s).continuousOn
+  exact (Filter.Eventually.of_forall hc).frequently
+
+
 end Neoplatonic.LTR
