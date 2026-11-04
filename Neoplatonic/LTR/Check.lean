@@ -34,6 +34,7 @@ import Neoplatonic.LTR.ManifestationFiniteRankIsometry
 import Neoplatonic.LTR.ManifestationOptimalCoordinates
 import Neoplatonic.LTR.ManifestationOptimalNorm
 import Neoplatonic.LTR.ManifestationOptimalRank
+import Neoplatonic.LTR.ManifestationOptimalRange
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -298,6 +299,12 @@ open Neoplatonic.LTR
 #print axioms Nullary.optimalManifestationBasis_orthonormal
 #print axioms Nullary.optimalManifestationBasis_linearIndependent
 #print axioms Nullary.optimalManifestationCoordinateSpace_finrank
+#print axioms Nullary.optimalManifestationLeftBlock_apply
+#print axioms Nullary.optimalManifestationHilbertProjection_eq_sum
+#print axioms Nullary.optimalManifestationHilbertProjection_fixes_basis
+#print axioms Nullary.optimalManifestationHilbertProjection_mem_span
+#print axioms Nullary.optimalManifestationHilbertProjection_range_eq_span
+#print axioms Nullary.optimalManifestationHilbertProjection_rank_exact
 #print axioms Nullary.observedTruthNorm_eventually_exact
 #print axioms Nullary.observedTruthNorm_error_le_one
 #print axioms Nullary.observedTruthNorm_maximum_gap
