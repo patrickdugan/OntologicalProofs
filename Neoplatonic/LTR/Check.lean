@@ -37,6 +37,7 @@ import Neoplatonic.LTR.LogicalDiracObservables
 import Neoplatonic.LTR.LogicalBooleanOperators
 import Neoplatonic.LTR.LogicalSyntacticHilbertPullback
 import Neoplatonic.LTR.LogicalHilbertUndecidability
+import Neoplatonic.LTR.LogicalHilbertNormGap
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -512,6 +513,10 @@ open Neoplatonic.LTR
 #print axioms entailment_manyOneReducible_HilbertRefutationNorm
 #print axioms logicalHilbertRefutationNorm_computable_iff_entailment
 #print axioms logicalHilbertRefutationNorm_undecidable_of_entailment
+#print axioms logicalHilbertProjection_norm_zero_or_one
+#print axioms logicalHilbertRefutationNorm_one_iff_not_entails
+#print axioms logicalHilbertRefutationApprox_half_iff_entails
+#print axioms logicalHilbertRefutation_no_computable_half_estimator
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
