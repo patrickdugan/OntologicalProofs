@@ -159,6 +159,7 @@ theorem effectiveNullary_finiteRank_spectralTriple_identity
   let J := effectiveNullaryMarkedPrefixCutoff m
   let P := manifestationHilbertBlockProjection J
   let f := manifestationFragmentObservable m g
+  dsimp only
   rw [hrepr]
   rw [← manifestationFiniteObservableCompression_eq_comp]
   exact effectiveNullary_finiteRank_vs_infinite_norm m g
@@ -186,6 +187,7 @@ theorem effectiveNullary_finiteRank_spectralTriple_compact
   let J := effectiveNullaryMarkedPrefixCutoff m
   let P := manifestationHilbertBlockProjection J
   let f := manifestationFragmentObservable m g
+  dsimp only
   rw [hrepr, ← manifestationFiniteObservableCompression_eq_comp]
   exact manifestationFiniteObservableCompression_compact
     effectiveNullaryMarkedLeft effectiveNullaryMarkedRight f J
