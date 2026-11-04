@@ -36,7 +36,7 @@ theorem complexSingleSpectralPowerBlock_norm_le
   change ‖lp.single 2 j
     (complexSpectralPowerBlockCLM scale p j (ψ j))‖ ≤
       complexSpectralPowerWeight scale p j * ‖ψ‖
-  rw [lp.norm_single (by norm_num : (0 : ℝ≥0∞) < 2) j]
+  rw [lp.norm_single (by norm_num) j]
   calc
     ‖complexSpectralPowerBlockCLM scale p j (ψ j)‖ ≤
       ‖complexSpectralPowerBlockCLM scale p j‖ * ‖ψ j‖ :=
@@ -46,7 +46,7 @@ theorem complexSingleSpectralPowerBlock_norm_le
     _ ≤ complexSpectralPowerWeight scale p j * ‖ψ‖ :=
         mul_le_mul_of_nonneg_left
           (lp.norm_apply_le_norm
-            (by norm_num : (2 : ℝ≥0∞) ≠ 0) ψ j) hw
+            (by norm_num) ψ j) hw
 
 /-- Every positive exponent gives an absolutely summable family
 of actual finite-rank Hilbert operators. -/
@@ -80,13 +80,19 @@ theorem complexSingleSpectralPowerBlock_hasSum_apply
     (ψ : ComplexDiracBlockHilbert) :
     HasSum (fun j => complexSingleSpectralPowerBlock scale p j ψ)
       (chosenComplexSpectralPowerCLM scale p hp ψ) := by
-  convert (lp.hasSum_single
-      (by norm_num : (2 : ℝ≥0∞) ≠ ⊤)
-      (chosenComplexSpectralPowerCLM scale p hp ψ)) using 1
-  ext j
-  simp [complexSingleSpectralPowerBlock,
-    complexSpectralPowerBlockCLM, complexScalarBlockCLM,
-    chosenComplexSpectralPowerCLM_apply, lp.evalCLM, lp.evalₗ]
+  have hfun :
+      (fun j => complexSingleSpectralPowerBlock scale p j ψ) =
+      (fun j => lp.single 2 j
+        ((chosenComplexSpectralPowerCLM scale p hp ψ) j)) := by
+    funext j
+    change lp.single 2 j
+      (complexSpectralPowerBlockCLM scale p j (ψ j)) =
+      lp.single 2 j ((chosenComplexSpectralPowerCLM scale p hp ψ) j)
+    rw [chosenComplexSpectralPowerCLM_apply]
+    simp [complexSpectralPowerBlockCLM, complexScalarBlockCLM]
+  rw [hfun]
+  exact lp.hasSum_single (by norm_num)
+    (chosenComplexSpectralPowerCLM scale p hp ψ)
 
 /-- Operator-norm nuclear series identity for the actual spectral power. -/
 theorem chosenComplexSpectralPower_eq_tsum_rankTwo
@@ -95,11 +101,14 @@ theorem chosenComplexSpectralPower_eq_tsum_rankTwo
       ∑' j : ℕ, complexSingleSpectralPowerBlock scale p j := by
   apply ContinuousLinearMap.ext
   intro ψ
-  have hsum := (complexSingleSpectralPowerBlock_summable scale p hp).hasSum
+  have hsum : HasSum
+      (fun j : ℕ => complexSingleSpectralPowerBlock scale p j)
+      (∑' j : ℕ, complexSingleSpectralPowerBlock scale p j) :=
+    (complexSingleSpectralPowerBlock_summable scale p hp).hasSum
   have hmap : HasSum
       (fun j => complexSingleSpectralPowerBlock scale p j ψ)
       ((∑' j : ℕ, complexSingleSpectralPowerBlock scale p j) ψ) :=
-    hsum.hasSum_apply ψ
+    hasSum_apply hsum ψ
   exact (hmap.unique
     (complexSingleSpectralPowerBlock_hasSum_apply scale p hp ψ)).symm
 
