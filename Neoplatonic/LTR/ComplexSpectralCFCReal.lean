@@ -58,7 +58,7 @@ theorem chosenComplexSquaredResolvent_CFC_rpow_continuousOn
   let F : Set.Ioi (0 : ℝ) → C(spectrum ℝ R, ℝ) :=
     fun p => ⟨fun x => (x : ℝ) ^ ((p : ℝ) / 2),
       (Real.continuous_rpow_const
-        (by linarith [p.property] : 0 ≤ (p : ℝ) / 2)).comp
+        (half_pos p.property).le).comp
         continuous_subtype_val⟩
   have hF : Continuous F := by
     apply ContinuousMap.continuous_of_continuous_uncurry
@@ -68,7 +68,7 @@ theorem chosenComplexSquaredResolvent_CFC_rpow_continuousOn
     have hp : Continuous
         (fun z : Set.Ioi (0 : ℝ) × spectrum ℝ R => (z.1 : ℝ) / 2) :=
       (continuous_subtype_val.comp continuous_fst).div_const 2
-    exact hx.rpow hp (fun z => Or.inr (by linarith [z.1.property]))
+    exact hx.rpow hp (fun z => Or.inr (half_pos z.1.property))
   have hc : Continuous (fun p : Set.Ioi (0 : ℝ) =>
       cfcHom (R := ℝ) hR.isSelfAdjoint (F p)) :=
     (cfcHom_continuous hR.isSelfAdjoint).comp hF
@@ -79,7 +79,7 @@ theorem chosenComplexSquaredResolvent_CFC_rpow_continuousOn
   rw [CFC.rpow_eq_pow, CFC.rpow_eq_cfc_real hR,
     cfc_apply (fun x : ℝ => x ^ ((p : ℝ) / 2)) R hR.isSelfAdjoint
       (Real.continuous_rpow_const
-        (by linarith [p.property] : 0 ≤ (p : ℝ) / 2)).continuousOn]
+        (half_pos p.property).le).continuousOn] <;> rfl
 
 /-- The mesh of the positive dyadic exponents tends to zero. -/
 theorem complexSpectralDyadicExponent_tendsto_zero :
@@ -150,6 +150,7 @@ theorem chosenComplexSpectralPower_eq_CFC_rpow
     convert hc.tendsto.comp hm using 1
     funext n
     congr 1
+    dsimp only
     rw [complexSpectralDyadicExponent_eq, one_div_pow]
     ring
   exact tendsto_nhds_unique
