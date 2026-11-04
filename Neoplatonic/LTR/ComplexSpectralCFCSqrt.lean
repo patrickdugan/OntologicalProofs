@@ -34,6 +34,19 @@ local instance :
       IsSelfAdjoint :=
   IsSelfAdjoint.instNonUnitalContinuousFunctionalCalculus
 
+-- The unital CFC is needed for real operator powers.
+local instance :
+    ContinuousFunctionalCalculus ℂ
+      (ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert)
+      IsStarNormal :=
+  IsStarNormal.instContinuousFunctionalCalculus
+
+local instance :
+    ContinuousFunctionalCalculus ℝ
+      (ComplexDiracBlockHilbert →L[ℂ] ComplexDiracBlockHilbert)
+      IsSelfAdjoint :=
+  IsSelfAdjoint.instContinuousFunctionalCalculus
+
 /-- The actual Hilbert spectral power at half the exponent is the
 positive CFC square root of the full power. -/
 theorem chosenComplexSpectralPower_half_eq_CFC_sqrt
@@ -59,5 +72,23 @@ theorem chosenComplexSpectralPower_one_eq_CFC_sqrt_resolvent
   rw [← chosenComplexSpectralPower_two_eq_squaredResolvent scale]
   simpa only [show (2 : ℝ) / 2 = 1 by norm_num] using
     (chosenComplexSpectralPower_half_eq_CFC_sqrt scale 2 (by norm_num))
+
+/-- The CFC square-root identity is also a genuine real-power
+functional-calculus identity at exponent one half. -/
+theorem chosenComplexSpectralPower_half_eq_CFC_rpow_half
+    (scale : ℕ → ℝ) (p : ℝ) (hp : 0 < p) :
+    chosenComplexSpectralPowerCLM scale (p / 2) (by linarith) =
+      CFC.rpow (chosenComplexSpectralPowerCLM scale p hp) (1 / 2 : ℝ) := by
+  simpa only [CFC.sqrt_eq_rpow, CFC.rpow_eq_pow] using
+    (chosenComplexSpectralPower_half_eq_CFC_sqrt scale p hp)
+
+/-- The p=1 operator equals the actual CFC real square-root power
+of the full bounded Dirac squared resolvent. -/
+theorem chosenComplexSpectralPower_one_eq_CFC_rpow_half_resolvent
+    (scale : ℕ → ℝ) :
+    chosenComplexSpectralPowerCLM scale 1 (by norm_num) =
+      CFC.rpow (chosenComplexSquaredResolventCLM scale) (1 / 2 : ℝ) := by
+  simpa only [CFC.sqrt_eq_rpow, CFC.rpow_eq_pow] using
+    (chosenComplexSpectralPower_one_eq_CFC_sqrt_resolvent scale)
 
 end Neoplatonic.LTR
