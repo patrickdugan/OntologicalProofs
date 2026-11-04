@@ -41,6 +41,8 @@ import Neoplatonic.LTR.LogicalHilbertNormGap
 import Neoplatonic.LTR.NumberedSentenceMetric
 import Neoplatonic.LTR.NumberedStoneSpectralTriple
 import Neoplatonic.LTR.NumberedSentenceLipschitz
+import Neoplatonic.LTR.NumberedSentenceUltrametric
+import Neoplatonic.LTR.NumberedSentenceFinitePrefix
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -535,6 +537,8 @@ open Neoplatonic.LTR
 #print axioms numberedSentenceProjection_lipschitz
 #print axioms numberedSentenceProjection_mem_Lipschitz
 #print axioms numberedSentenceProjection_commutator_norm_le
+#print axioms numberedSentenceMetric_ultrametric
+#print axioms numberedSentenceMetric_closedBall_iff_prefix
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
