@@ -2,6 +2,7 @@ import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.MorphospaceSemiconjugacy
 import Neoplatonic.LTR.MorphospaceMinimax
 import Neoplatonic.LTR.MorphospaceGoal
+import Neoplatonic.LTR.MorphospaceGoalFuture
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -651,3 +652,14 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.goal_readout_exists_iff_fibre_constant
 #print axioms Neoplatonic.LTR.Morphospace.macro_goal_hit_prefix_iff
 #print axioms Neoplatonic.LTR.Morphospace.micro_goal_hit_prefix_iff
+
+-- MOR-04 canonical future-goal quotient and minimality, with explicit premises.
+#print axioms Neoplatonic.LTR.Morphospace.futureGoalRel_refl
+#print axioms Neoplatonic.LTR.Morphospace.futureGoalRel_symm
+#print axioms Neoplatonic.LTR.Morphospace.futureGoalRel_trans
+#print axioms Neoplatonic.LTR.Morphospace.futureGoalRel_present
+#print axioms Neoplatonic.LTR.Morphospace.futureGoalRel_step
+#print axioms Neoplatonic.LTR.Morphospace.quotientGoalStep_sound
+#print axioms Neoplatonic.LTR.Morphospace.quotientGoalReadout_sound
+#print axioms Neoplatonic.LTR.Morphospace.futureGoalRel_of_exact_macro
+#print axioms Neoplatonic.LTR.Morphospace.distinct_macro_of_goal_witness
