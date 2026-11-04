@@ -10,6 +10,7 @@ import Neoplatonic.LTR.MorphospaceInformationCover
 import Neoplatonic.LTR.MorphospaceGapMonotonicity
 import Neoplatonic.LTR.MorphospaceTwoStepValue
 import Neoplatonic.LTR.MorphospaceCertificateReachability
+import Neoplatonic.LTR.MorphospaceProbeOrder
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -797,3 +798,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.delayed_certificate_probability_value
 #print axioms Neoplatonic.LTR.Morphospace.delayed_certificate_strictly_positive
 #print axioms Neoplatonic.LTR.Morphospace.failed_confidence_branch_value
+
+-- MOR-12: order-independent two-cell Bernoulli certificate event.
+#print axioms Neoplatonic.LTR.Morphospace.two_independent_probes_commute
+#print axioms Neoplatonic.LTR.Morphospace.two_probe_certificate_order_indifferent
+#print axioms Neoplatonic.LTR.Morphospace.one_each_two_probe_action_regret_zero
