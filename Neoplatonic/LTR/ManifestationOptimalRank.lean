@@ -33,9 +33,11 @@ theorem optimalManifestationBasis_orthonormal (m : ℕ) :
   rw [orthonormal_iff_ite]
   intro a b
   change inner ℂ
-      (lp.single 2 (optimalManifestationBlock m a)
+      (lp.single (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
+        2 (optimalManifestationBlock m a)
         (EuclideanSpace.single (0 : Fin 2) (1 : ℂ)))
-      (lp.single 2 (optimalManifestationBlock m b)
+      (lp.single (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
+        2 (optimalManifestationBlock m b)
         (EuclideanSpace.single (0 : Fin 2) (1 : ℂ))) =
       if a = b then (1 : ℂ) else 0
   rw [lp.inner_single_left,
@@ -72,6 +74,7 @@ theorem optimalManifestationCoordinateSpace_finrank (m : ℕ) :
     (optimalManifestationBasis_linearIndependent m)
   change Module.finrank ℂ (Submodule.span ℂ
     (Set.range (optimalManifestationBasisVector m))) = 2 ^ m
+  rw [Set.finrank] at hd
   simpa [Fintype.card_fun] using hd.symm
 
 end Neoplatonic.LTR.Nullary
