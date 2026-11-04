@@ -78,9 +78,14 @@ theorem chosenComplexSpectralPower_one_square
     (chosenComplexSpectralPowerCLM scale 1 (by norm_num)).comp
       (chosenComplexSpectralPowerCLM scale 1 (by norm_num)) =
         chosenComplexSquaredResolventCLM scale := by
-  simpa only [one_add_one] using
-    (chosenComplexSpectralPower_comp scale 1 1
-      (by norm_num) (by norm_num)).trans
-        (chosenComplexSpectralPower_two_eq_squaredResolvent scale)
+  have hcomp :
+      (chosenComplexSpectralPowerCLM scale 1 (by norm_num)).comp
+        (chosenComplexSpectralPowerCLM scale 1 (by norm_num)) =
+      chosenComplexSpectralPowerCLM scale 2 (by norm_num) := by
+    simpa only [show (1 : ℝ) + 1 = 2 by norm_num] using
+      (chosenComplexSpectralPower_comp scale 1 1
+        (by norm_num) (by norm_num))
+  exact hcomp.trans
+    (chosenComplexSpectralPower_two_eq_squaredResolvent scale)
 
 end Neoplatonic.LTR
