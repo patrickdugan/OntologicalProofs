@@ -1,32 +1,36 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.27 (November 4, 2026)
+## Current proof status: LTR v0.31 (November 4, 2026)
 
-A compact complex spectral triple is kernel-verified on Mathlib's first-order
-Stone completion space, under explicit countability, satisfiability, and
-independence premises. The chosen metric is compatible with the Stone
-topology, and the actual infinite-dimensional Dirac commutator recovers it.
+Lean now verifies a sentence-numbered first-disagreement ultrametric on
+Mathlib's genuine first-order complete-type Stone space. For any surjective
+numbering of expanded-language sentences, the Boolean truth-sequence map
+is continuous and injective, and the induced first-disagreement distance
+has exactly the original Stone topology. The distance between distinct
+completions is 2^(-n) at their first differing numbered sentence.
 
-Every sentence is represented by a self-adjoint Hilbert projection with a
-bounded Dirac commutator. Conjunction, negation, labelled-locus equality,
-and the inclusion order of sentence-truth sets now have exact operator
-identities. For the concrete nullary-language endomorphisms, pullback of
-complex truth projections commutes with syntactic translation inside
-the Hilbert representation.
+The metric satisfies the ultrametric triangle inequality. Its closed
+balls of radius 2^(-n) consist exactly of complete theories agreeing on
+the first n numbered sentences. A faithful complex spectral triple with
+dense Lipschitz algebra, self-adjoint Dirac, compact ordinary resolvent,
+and bounded commutators is constructed using this chosen numbering.
+The previously verified dense-pair commutator theorem gives exact
+Connes-style recovery of the corresponding metric.
 
-The refutation projector norm is exactly zero when the sentence is
-entailed and exactly one otherwise. Lean proves a same-code computability
-equivalence and a conditional half-error approximation obstruction,
-with semantic undecidability and threshold computability exposed as
-premises.
+The complex truth projection for the nth numbered sentence is
+2^n-Lipschitz, and the marked infinite-dimensional Dirac commutator
+has operator norm at most 2^n. The earlier Boolean Hilbert projection,
+logical entailment and exact zero/one norm-gap results remain intact.
 
-The scalar spectral-energy series converges for every positive exponent.
-A global operator trace-class proof, a sentence-code-derived metric,
-and interpretation-compatible Dirac intertwiners remain open.
+The sentence numbering is explicit input; a classical surjective
+numbering is also available for any countable expanded sentence type.
+Computable numbering does not imply decidable truth in arbitrary complete
+theories or computable metric evaluation. The global trace-class
+formalization and interpretation-compatible Dirac maps remain open.
 
-See the [LTR v0.27 theorem ledger](INFINITE_DIRAC_V27.md),
-the [successful v0.27 kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41752172510),
-and the preceding [v0.23 ledger](INFINITE_DIRAC_V23.md).
+See the [LTR v0.31 proof ledger](INFINITE_DIRAC_V31.md),
+the [successful finite-prefix ultrametric audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41756584189),
+and the preceding [LTR v0.27 theorem ledger](INFINITE_DIRAC_V27.md).
 
 ## Mathematical objective
 
@@ -154,7 +158,7 @@ A related finite-approximation obstruction follows by reduction. If a uniformly 
 | Metric symmetry obstruction | Lean under explicit homogeneity/accumulation | Formal Cantor specialization |
 | Cantor collapse | Written proof from standard ingredients | Full formalization and literature comparison |
 | Projection norm obstruction | Written proof | Effective C*-presentation in Lean |
-| Spectral reconstruction | Logical Stone spectral triple, sentence-labelled Boolean operator algebra, syntactic projection pullback, and exact refutation norm-gap obstruction verified in LTR v0.27 | Effective metric from sentence codes, compatible Dirac morphisms, and global operator trace-class formalization |
+| Spectral reconstruction | Sentence-numbered ultrametric, finite-prefix logical balls, corresponding complex spectral triple, and quantitative 2^n sentence commutator bounds verified in LTR v0.31 | Computable metric evaluation from truth-oracle access, compatible Dirac morphisms, and global operator trace-class formalization |
 
 The present contribution is a verified foundation and a sharply stated research problem. Stone duality, compactness, and their displayed corollaries are established mathematics. The project has not established novelty for a general reconstruction theorem. An original result would need additional invariant content, effective complexity bounds, or a genuine obstruction theorem for a specified class of interconnected theories.
 
