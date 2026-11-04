@@ -32,18 +32,12 @@ variable {X : Type u} {B : Type v} [Fintype B]
 def RealizedProfiles (profile : X → B) : Type v :=
   {b : B // b ∈ Set.range profile}
 
-/-- Realizable profiles form a finite type, even when range membership
-is propositionally undecidable from an effective description. -/
-private noncomputable def realizedProfilesFintype
-    (profile : X → B) : Fintype (RealizedProfiles profile) := by
-  classical
-  exact Fintype.ofFinite _
-
 /-- Exact abstract observational capacity of a possibly constrained
-finite family of logical tests. -/
-noncomputable def realizedProfileCapacity (profile : X → B) : ℕ :=
-  letI := realizedProfilesFintype profile
-  Fintype.card (RealizedProfiles profile)
+finite family of logical tests. Classical finite-range membership supplies
+the finite enumeration, while the resulting cardinality is intrinsic. -/
+noncomputable def realizedProfileCapacity (profile : X → B) : ℕ := by
+  classical
+  exact Fintype.card (RealizedProfiles profile)
 
 /-- Every family that covers all realizable outcomes has at least
 as many sample points as there are distinct realizable profiles. -/
@@ -53,8 +47,7 @@ theorem realizedProfileCapacity_lower_bound
       ∃ i : Fin n, profile (samples i) = b) :
     realizedProfileCapacity profile ≤ n := by
   classical
-  letI : Fintype (RealizedProfiles profile) :=
-    realizedProfilesFintype profile
+  classical
   have hsurj : Function.Surjective
       (fun i : Fin n =>
         (⟨profile (samples i), ⟨samples i, rfl⟩⟩ :
@@ -64,7 +57,7 @@ theorem realizedProfileCapacity_lower_bound
     refine ⟨i, ?_⟩
     apply Subtype.ext
     exact hi
-  change Fintype.card (RealizedProfiles profile) ≤ n
+  unfold realizedProfileCapacity
   simpa only [Fintype.card_fin] using
     (Fintype.card_le_of_surjective _ hsurj)
 
@@ -81,7 +74,7 @@ theorem realizedProfileCapacity_attained
     realizedProfilesFintype profile
   let e : Fin (realizedProfileCapacity profile) ≃
       RealizedProfiles profile := by
-    dsimp [realizedProfileCapacity]
+    unfold realizedProfileCapacity
     exact (Fintype.equivFin _).symm
   let samples : Fin (realizedProfileCapacity profile) → X :=
     fun i => Classical.choose (e i).property
