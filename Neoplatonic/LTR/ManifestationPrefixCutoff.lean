@@ -83,7 +83,11 @@ theorem manifestationPrefixCutoff_bound
   change manifestationPrefixFirstHit q hq m bits + 1 ≤
     (Finset.univ : Finset (Fin m → Bool)).sup
       (fun bits => manifestationPrefixFirstHit q hq m bits + 1)
-  exact Finset.le_sup (Finset.mem_univ bits)
+  exact Finset.le_sup
+    (s := (Finset.univ : Finset (Fin m → Bool)))
+    (f := fun b : Fin m → Bool =>
+      (manifestationPrefixFirstHit q hq m b + 1 : ℕ))
+    (Finset.mem_univ bits)
 
 /-- Every sample of depth at least K(m) realizes each prefix,
 hence the entire m-proposition Boolean fragment is visible. -/
