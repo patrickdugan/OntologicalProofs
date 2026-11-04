@@ -61,8 +61,14 @@ theorem aliasing_error_sum_lower_bound
     _ ≤ ‖future a - p‖ + ‖p - future b‖ := norm_add_le _ _
     _ = ‖future a - decode (F (q (observe a)))‖ +
         ‖future b - decode (F (q (observe b)))‖ := by
-      rw [norm_sub_rev]
-      simp only [p, hp]
+      calc
+        ‖future a - p‖ + ‖p - future b‖ =
+            ‖future a - p‖ + ‖future b - p‖ := by
+              rw [norm_sub_rev p (future b)]
+        _ = ‖future a - decode (F (q (observe a)))‖ +
+            ‖future b - decode (F (q (observe b)))‖ := by
+              dsimp [p]
+              rw [hp]
 
 /-- At least one member of an observational alias pair incurs prediction
 error at least half the future-output separation. -/
