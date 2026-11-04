@@ -10,6 +10,7 @@ import Neoplatonic.LTR.MorphospaceInformationCover
 import Neoplatonic.LTR.MorphospaceGapMonotonicity
 import Neoplatonic.LTR.MorphospaceTwoStepValue
 import Neoplatonic.LTR.MorphospaceCertificateReachability
+import Neoplatonic.LTR.MorphospaceBellmanDistillation
 import Neoplatonic.LTR.MorphospaceProbeOrder
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
@@ -820,3 +821,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.two_independent_probes_commute
 #print axioms Neoplatonic.LTR.Morphospace.two_probe_certificate_order_indifferent
 #print axioms Neoplatonic.LTR.Morphospace.one_each_two_probe_action_regret_zero
+
+-- MOR-12: conditional Bellman-value approximation and regret bounds.
+#print axioms Neoplatonic.LTR.Morphospace.approximate_bellman_action_regret
+#print axioms Neoplatonic.LTR.Morphospace.binary_action_regret
+#print axioms Neoplatonic.LTR.Morphospace.robust_action_order_of_margin
+#print axioms Neoplatonic.LTR.Morphospace.exact_bellman_student_regret_zero
