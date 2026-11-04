@@ -79,7 +79,8 @@ theorem chosenComplexSpectralDyadicRational_eq_CFC_rpow
     (scale : ℕ → ℝ) (n m : ℕ) :
     chosenComplexSpectralPowerCLM scale
       (complexSpectralDyadicExponent n * (Nat.succ m : ℝ))
-      (by positivity) =
+      (by exact mul_pos (complexSpectralDyadicExponent_pos n)
+        (by positivity)) =
       CFC.rpow (chosenComplexSquaredResolventCLM scale)
         (((1 / 2 : ℝ) ^ n) * (Nat.succ m : ℝ)) := by
   let R := chosenComplexSquaredResolventCLM scale
@@ -108,7 +109,8 @@ theorem chosenComplexSpectralDyadicRational_eq_CFC_rpow
   calc
     chosenComplexSpectralPowerCLM scale
         (complexSpectralDyadicExponent n * (Nat.succ m : ℝ))
-        (by positivity) =
+        (by exact mul_pos (complexSpectralDyadicExponent_pos n)
+          (by positivity)) =
       (chosenComplexSpectralPowerCLM scale
         (complexSpectralDyadicExponent n)
         (complexSpectralDyadicExponent_pos n)) ^ (Nat.succ m) := by
@@ -117,7 +119,6 @@ theorem chosenComplexSpectralDyadicRational_eq_CFC_rpow
             (complexSpectralDyadicExponent_pos n) m).symm
     _ = (CFC.rpow R x) ^ (Nat.succ m) := by
           rw [chosenComplexSpectralDyadicPower_eq_CFC_rpow]
-          rfl
     _ = CFC.rpow R (x * (Nat.succ m : ℝ)) := hpower
     _ = CFC.rpow (chosenComplexSquaredResolventCLM scale)
           (((1 / 2 : ℝ) ^ n) * (Nat.succ m : ℝ)) := rfl
