@@ -24,8 +24,9 @@ open FirstOrder
 The empty sample (N=0) returns zero. -/
 noncomputable def observedTruthNorm
     (q : ℕ → T.CompleteType Empty) (N : ℕ)
-    (φ : L[[Empty]].Sentence) : ℝ :=
-  if ∃ j : ℕ, j < N ∧ φ ∈ q j then 1 else 0
+    (φ : L[[Empty]].Sentence) : ℝ := by
+  classical
+  exact if ∃ j : ℕ, j < N ∧ φ ∈ q j then 1 else 0
 
 /-- Density detects a fixed nonempty clopen sentence locus at some
 finite index and hence at every subsequent finite prefix. -/
@@ -62,8 +63,9 @@ theorem observedTruthNorm_eventually_exact
       ⟨j, hj, hmem⟩
     simp [observedTruthNorm, hd, hnorm]
   · have hempty : T.typesWith φ = ∅ := by
-      apply Set.eq_empty_iff_forall_not_mem.mpr
-      intro p hp
+      ext p
+      simp only [Set.mem_empty_iff_false, iff_false]
+      intro hp
       exact hφ ⟨p, hp⟩
     have hnorm :
         ‖Neoplatonic.LTR.complexLogicalProjection (T := T) φ‖ = 0 := by
