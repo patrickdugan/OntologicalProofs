@@ -38,6 +38,7 @@ import Neoplatonic.LTR.LogicalBooleanOperators
 import Neoplatonic.LTR.LogicalSyntacticHilbertPullback
 import Neoplatonic.LTR.LogicalHilbertUndecidability
 import Neoplatonic.LTR.LogicalHilbertNormGap
+import Neoplatonic.LTR.NumberedSentenceMetric
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -517,6 +518,13 @@ open Neoplatonic.LTR
 #print axioms logicalHilbertRefutationNorm_one_iff_not_entails
 #print axioms logicalHilbertRefutationApprox_half_iff_entails
 #print axioms logicalHilbertRefutation_no_computable_half_estimator
+#print axioms numberedSentenceTruth_continuous
+#print axioms numberedSentenceTruth_injective
+#print axioms numberedSentenceTruth_isEmbedding
+#print axioms numberedSentenceMetric
+#print axioms numberedSentenceMetric_dist
+#print axioms numberedSentenceMetric_firstDisagreement
+#print axioms numberedSentenceMetric_locus_isOpen
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
