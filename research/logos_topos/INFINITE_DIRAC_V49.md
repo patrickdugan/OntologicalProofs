@@ -153,6 +153,23 @@ theorem and a formally constructed dense dyadic approximating
 sequence are the remaining bridge to a global
 `A_p=CFC.rpow R (p/2)` equality.
 
+## Verified scalar-to-operator stability transfer
+
+[Run 41827146368](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41827146368)
+checks the new `ComplexSpectralPowerStability.lean` module.
+For positive `p,q` and an arbitrary nonnegative real `K`,
+the kernel now verifies
+
+\[
+\Bigl(\forall j, |w_{p,j}-w_{q,j}|\le K\Bigr)
+\implies \|A_p-A_q\|_{\mathrm{op}}\le K.
+\]
+
+It also verifies that the full operator difference is exactly
+the bounded Hilbert diagonal whose coefficients are
+`w_{p,j}-w_{q,j}`. This makes a scalar sharp Lipschitz
+estimate sufficient to obtain the global operator estimate.
+
 ## Quantitative continuation
 
 The [spectral-power regularity note](SPECTRAL_POWER_REGULARITY.md)
