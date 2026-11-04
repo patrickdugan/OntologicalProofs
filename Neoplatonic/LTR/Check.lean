@@ -13,6 +13,7 @@ import Neoplatonic.LTR.MorphospaceTwoStepValue
 import Neoplatonic.LTR.MorphospaceCertificateReachability
 import Neoplatonic.LTR.MorphospaceBellmanDistillation
 import Neoplatonic.LTR.MorphospaceMarginRegret
+import Neoplatonic.LTR.MorphospaceGateRobustness
 import Neoplatonic.LTR.MorphospaceProbeOrder
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
@@ -896,6 +897,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.greedy_one_regret_le_margin_error
 #print axioms Neoplatonic.LTR.Morphospace.margin_error_le_sum_action_errors
 #print axioms Neoplatonic.LTR.Morphospace.greedy_zero_regret_le_sum_action_errors
+
+-- MOR-14: pointwise calibration and confidence for the engagement gate.
+#print axioms Neoplatonic.LTR.Morphospace.binary_predicted_max_error
+#print axioms Neoplatonic.LTR.Morphospace.binary_gate_fallback_of_true_margin
+#print axioms Neoplatonic.LTR.Morphospace.binary_gate_engagement_of_true_margin
 
 -- LTR-UG-01: exact gauge defect and support invariance for translation games.
 #print axioms Neoplatonic.LTR.UniqueGames.defect_gauge
