@@ -52,10 +52,11 @@ theorem optimalManifestationBasis_orthonormal (m : ℕ) :
       intro heq
       exact hab ((optimalManifestationBlock_injective m) heq)
     change
-      ((Pi.single (optimalManifestationBlock m b)
+      ((Pi.single
+        (β := fun _ : ℕ => EuclideanSpace ℂ (Fin 2))
+        (optimalManifestationBlock m b)
         (EuclideanSpace.single (0 : Fin 2) (1 : ℂ))
-        (optimalManifestationBlock m a) :
-          EuclideanSpace ℂ (Fin 2)) (0 : Fin 2)) =
+        (optimalManifestationBlock m a)) (0 : Fin 2)) =
         if a = b then (1 : ℂ) else 0
     simp [Pi.single_eq_of_ne hneq, hab]
 
