@@ -26,6 +26,7 @@ import Neoplatonic.LTR.ManifestationSentence
 import Neoplatonic.LTR.ManifestationCapacity
 import Neoplatonic.LTR.ManifestationFiniteRecovery
 import Neoplatonic.LTR.ManifestationPrefixCutoff
+import Neoplatonic.LTR.ManifestationFragmentNorm
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -248,6 +249,9 @@ open Neoplatonic.LTR
 #print axioms Nullary.manifestationPrefixCutoff_iff_covers
 #print axioms Nullary.manifestationPrefixCutoff_ge_capacity
 #print axioms Nullary.effectiveNullaryDensePrefixCutoff_certificate
+#print axioms Nullary.manifestationFragment_norm_le_iff_samples
+#print axioms Nullary.manifestationFragment_sample_norm_eq
+#print axioms Nullary.effectiveNullary_fragment_norm_isometry
 #print axioms Nullary.observedTruthNorm_eventually_exact
 #print axioms Nullary.observedTruthNorm_error_le_one
 #print axioms Nullary.observedTruthNorm_maximum_gap
