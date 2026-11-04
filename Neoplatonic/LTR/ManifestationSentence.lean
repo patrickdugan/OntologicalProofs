@@ -87,7 +87,8 @@ private theorem foldrInf_mem_iff (p : T.CompleteType Empty)
           p ∈ T.typesWith φ ∩
             T.typesWith (fs.foldr (fun x y => x ⊓ y) ⊤)
         rw [CompleteType.typesWith_inf]
-      simp only [List.foldr]
+      change (φ ⊓ fs.foldr (fun x y => x ⊓ y) ⊤) ∈ p ↔
+        ∀ ψ ∈ φ :: fs, ψ ∈ p
       rw [hmeet, ih]
       simp
 
