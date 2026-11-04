@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.Reconstruction
+import Neoplatonic.LTR.GoalQuotientAliasing
 import Neoplatonic.LTR.UniqueGamesFinite
 import Neoplatonic.LTR.MorphospaceSemiconjugacy
 import Neoplatonic.LTR.MorphospaceMinimax
@@ -902,3 +903,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.UniqueGames.defect_zero_iff_satisfied
 #print axioms Neoplatonic.LTR.UniqueGames.badEdges_gauge
 #print axioms Neoplatonic.LTR.UniqueGames.badCount_gauge
+
+-- LTR-UG-03: universal aliasing obstruction and factor-two error floor.
+#print axioms Neoplatonic.LTR.GoalQuotientAliasing.same_observation_same_prediction
+#print axioms Neoplatonic.LTR.GoalQuotientAliasing.unequal_future_forbids_exact_factorization
+#print axioms Neoplatonic.LTR.GoalQuotientAliasing.aliasing_error_sum_lower_bound
+#print axioms Neoplatonic.LTR.GoalQuotientAliasing.aliasing_max_error_lower_bound
