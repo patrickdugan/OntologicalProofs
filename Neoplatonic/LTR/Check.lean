@@ -40,6 +40,7 @@ import Neoplatonic.LTR.LogicalHilbertUndecidability
 import Neoplatonic.LTR.LogicalHilbertNormGap
 import Neoplatonic.LTR.NumberedSentenceMetric
 import Neoplatonic.LTR.NumberedStoneSpectralTriple
+import Neoplatonic.LTR.NumberedSentenceLipschitz
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -529,6 +530,11 @@ open Neoplatonic.LTR
 #print axioms classicalSentenceNumbering_surjective
 #print axioms numberedLogicalStoneSpectralTriple
 #print axioms classicalSentenceStoneSpectralTriple
+#print axioms numberedSentenceMetric_agree_at_of_dist_lt
+#print axioms numberedSentenceMetric_dist_lower_of_disagreement
+#print axioms numberedSentenceProjection_lipschitz
+#print axioms numberedSentenceProjection_mem_Lipschitz
+#print axioms numberedSentenceProjection_commutator_norm_le
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
