@@ -28,6 +28,10 @@ theorem chosenComplexSpectralPower_isSelfAdjoint
   simp only [lp.inner_eq_tsum]
   apply tsum_congr
   intro j
+  change inner ℂ
+      ((chosenComplexSpectralPowerCLM scale p hp ψ) j) (φ j) =
+    inner ℂ (ψ j)
+      ((chosenComplexSpectralPowerCLM scale p hp φ) j)
   rw [chosenComplexSpectralPowerCLM_apply,
     chosenComplexSpectralPowerCLM_apply]
   simp [inner_smul_left, inner_smul_right]
