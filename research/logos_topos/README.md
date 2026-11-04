@@ -41,9 +41,15 @@ These finite-rank and ℓ¹ estimates yield trace-class behavior by
 the standard rank-two trace-norm inequality. V0.49 verifies genuine
 positive, self-adjoint Hilbert spectral powers and uses Mathlib's CFC
 square root to identify A_(2k/2^n) with R^(k/2^n) for every positive
-natural k. The analytic extension to all positive real exponents
-follows from local uniform convergence and compact-spectrum CFC
-continuity; its formal Lean proof is a remaining target. A generic
+natural k. Lean now also verifies operator-norm continuity of the concrete
+`A_p` family on the positive half-line, along with operator-norm
+convergence of arbitrary convergent dyadic CFC approximant sequences
+to the corresponding real spectral-power operator. A checked
+scalar-to-operator stability theorem transfers any uniform bound
+on diagonal spectral weights to the full Hilbert operator norm.
+The final identification with the existing CFC real power for every
+positive real exponent requires a formal compact-spectrum CFC
+continuity argument and a dyadic density witness. A generic
 Mathlib trace-ideal instance and trace-norm inequality also remain
 to be developed. The syntax encoder and lookup are constructive Lean
 functions, while the marked dense sequence of completed theories
