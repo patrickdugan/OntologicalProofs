@@ -123,8 +123,19 @@ theorem finiteComplexSpectralPower_continuous_exponent
           (0 : ComplexDiracBlockHilbert →L[ℂ]
             ComplexDiracBlockHilbert)))
   | @insert j s hj ih =>
-      simpa only [Finset.sum_insert hj, Pi.add_apply] using
+      have hstep :=
         (complexSingleSpectralPowerBlock_continuous scale j).add ih
+      have heq :
+          (fun p : ℝ =>
+            ∑ i ∈ Finset.insert j s,
+              complexSingleSpectralPowerBlock scale p i) =
+          ((fun p : ℝ => complexSingleSpectralPowerBlock scale p j) +
+            fun p : ℝ => ∑ i ∈ s,
+              complexSingleSpectralPowerBlock scale p i) := by
+        funext p
+        simp [Finset.sum_insert hj, Pi.add_apply]
+      rw [heq]
+      exact hstep
 
 /-- The complete operator-norm block series is continuous in the
 positive real exponent on every closed half-line away from zero. -/
