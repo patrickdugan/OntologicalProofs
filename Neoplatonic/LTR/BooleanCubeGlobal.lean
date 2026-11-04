@@ -22,6 +22,8 @@ namespace Neoplatonic.LTR
 
 open scoped lp
 
+noncomputable section
+
 /-- Genuine Hilbert ℓ² sum, with one two-dimensional complex block
 per distinct undirected Boolean-hypercube edge. -/
 abbrev BooleanCubeHilbert (m : ℕ) :=
@@ -29,7 +31,7 @@ abbrev BooleanCubeHilbert (m : ℕ) :=
 
 /-- Finite maximum local observable norm. -/
 noncomputable def booleanCubeObservableCap {m : ℕ}
-    (f : BooleanCubeVertex m → ℂ) : ℝ≥0 := by
+    (f : BooleanCubeVertex m → ℂ) : NNReal := by
   classical
   exact (Finset.univ : Finset (BooleanCubeEdge m)).sup
     (fun e => ‖booleanCubeLocalObservable f e‖₊)
@@ -137,6 +139,7 @@ theorem booleanCubeCommutator_norm_le_cap {m : ℕ}
         exact Finset.le_sup (Finset.mem_univ e)
       exact_mod_cast h)
 
+set_option maxHeartbeats 3000000 in
 /-- The norm of a coordinatewise bounded map on arbitrary ℓ²
 two-point blocks dominates the operator norm of each block. -/
 theorem finiteIndexedHilbertBlock_norm_le_global
@@ -217,17 +220,18 @@ theorem booleanCubeCommutator_norm_eq_max {m : ℕ}
       (booleanCubeGradientCap f : ℝ) := by
   apply le_antisymm
   · exact booleanCubeCommutator_norm_le_cap f
-  · change (↑((Finset.univ : Finset (BooleanCubeEdge m)).sup
-        (fun e => ‖booleanCubeLocalCommutator f e‖₊) : ℝ) ≤
-        ‖booleanCubeCommutator f‖
-    have h : ((Finset.univ : Finset (BooleanCubeEdge m)).sup
-        (fun e => ‖booleanCubeLocalCommutator f e‖₊)) ≤
-        (⟨‖booleanCubeCommutator f‖, norm_nonneg _⟩ : ℝ≥0) := by
+  · have h : booleanCubeGradientCap f ≤
+        (⟨‖booleanCubeCommutator f‖, norm_nonneg _⟩ : NNReal) := by
+      unfold booleanCubeGradientCap
       apply Finset.sup_le
       intro e _
-      exact_mod_cast (by
-        rw [booleanCubeLocalCommutator_norm]
-        exact booleanCubeLocalGradient_le_global f e)
+      have he : ‖booleanCubeLocalCommutator f e‖ ≤
+          ‖booleanCubeCommutator f‖ :=
+        finiteIndexedHilbertBlock_norm_le_global
+          (booleanCubeLocalCommutator f)
+          (booleanCubeCommutator f)
+          (booleanCubeCommutator_apply f) e
+      exact_mod_cast he
     exact_mod_cast h
 
 end Neoplatonic.LTR
