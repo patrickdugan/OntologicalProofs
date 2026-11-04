@@ -164,7 +164,7 @@ theorem numberedSentenceProjection_commutator_norm_le
         (2 : ℝ)^n := by
   letI : MetricSpace (T.CompleteType α) :=
     numberedSentenceMetric code hcode
-  have hlip := numberedSentenceProjection_lipschitz code hcode n
+  have hlip := numberedSentenceProjection_lipschitz (T := T) (α := α) code hcode n
   have hEdge : ∀ j,
       |(dist (left j) (right j))⁻¹| *
         ‖complexLogicalProjection (T := T) (code n) (right j) -
