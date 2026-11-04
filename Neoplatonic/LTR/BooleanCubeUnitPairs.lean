@@ -39,10 +39,10 @@ theorem booleanCube_unit_pair_is_edge {m : ℕ}
       exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hn⟩
     rw [hiSet] at hjmem
     exact hj (Finset.mem_singleton.mp hjmem)
-  cases hu : u i <;> cases hv : v i with
-  | false.false =>
+  cases hu : u i <;> cases hv : v i
+  ·
       exact False.elim (hi (by simp [hu, hv]))
-  | false.true =>
+  ·
       have htarget : Function.update u i true = v := by
         funext j
         by_cases hj : j = i
@@ -51,7 +51,7 @@ theorem booleanCube_unit_pair_is_edge {m : ℕ}
         · simpa [hj] using hrest j hj
       refine ⟨⟨i, ⟨u, hu⟩⟩, Or.inl ⟨rfl, ?_⟩⟩
       exact htarget
-  | true.false =>
+  ·
       have htarget : Function.update v i true = u := by
         funext j
         by_cases hj : j = i
@@ -60,7 +60,7 @@ theorem booleanCube_unit_pair_is_edge {m : ℕ}
         · simpa [hj] using (hrest j hj).symm
       refine ⟨⟨i, ⟨v, hv⟩⟩, Or.inr ⟨rfl, ?_⟩⟩
       exact htarget
-  | true.true =>
+  ·
       exact False.elim (hi (by simp [hu, hv]))
 
 /-- Global commutator norm at most one is equivalent to checking
