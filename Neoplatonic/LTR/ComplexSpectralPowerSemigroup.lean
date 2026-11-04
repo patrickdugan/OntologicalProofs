@@ -61,4 +61,26 @@ theorem chosenComplexSpectralPower_comp_comm
   congr 1
   exact add_comm p q
 
+/-- A positive power at half an exponent squares to the full power. -/
+theorem chosenComplexSpectralPower_half_square
+    (scale : ℕ → ℝ) (p : ℝ) (hp : 0 < p) :
+    (chosenComplexSpectralPowerCLM scale (p / 2) (by linarith)).comp
+      (chosenComplexSpectralPowerCLM scale (p / 2) (by linarith)) =
+        chosenComplexSpectralPowerCLM scale p hp := by
+  simpa only [add_halves] using
+    (chosenComplexSpectralPower_comp scale (p / 2) (p / 2)
+      (by linarith) (by linarith))
+
+/-- The p=1 spectral power is a genuine operator square root of
+the complex maximal-domain squared resolvent. -/
+theorem chosenComplexSpectralPower_one_square
+    (scale : ℕ → ℝ) :
+    (chosenComplexSpectralPowerCLM scale 1 (by norm_num)).comp
+      (chosenComplexSpectralPowerCLM scale 1 (by norm_num)) =
+        chosenComplexSquaredResolventCLM scale := by
+  simpa only [one_add_one] using
+    (chosenComplexSpectralPower_comp scale 1 1
+      (by norm_num) (by norm_num)).trans
+        (chosenComplexSpectralPower_two_eq_squaredResolvent scale)
+
 end Neoplatonic.LTR
