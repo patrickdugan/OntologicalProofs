@@ -51,6 +51,7 @@ import Neoplatonic.LTR.NullaryConcreteNumberedModulus
 import Neoplatonic.LTR.NullaryCountableSyntaxMetric
 import Neoplatonic.LTR.NullaryProgramComposition
 import Neoplatonic.LTR.NullaryEffectiveSyntax
+import Neoplatonic.LTR.NullaryEffectiveMetricModulus
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -583,6 +584,12 @@ open Neoplatonic.LTR
 #print axioms Nullary.effectiveExpandedSentenceCode_surjective
 #print axioms Nullary.effectiveHaltingSentenceLookup_spec
 #print axioms Nullary.effectiveHaltingSentenceLookup_truth
+#print axioms Nullary.effectiveSentencePrefixModulus_gt
+#print axioms Nullary.effectiveSyntaxMap_prefixTransfer
+#print axioms Nullary.effectiveSyntaxMap_radiusTransfer
+#print axioms Nullary.effectiveSyntaxMap_uniformModulus
+#print axioms Nullary.effectiveSentencePrefixModulus_comp_le
+#print axioms Nullary.effectiveSyntaxMap_comp_radiusTransfer
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
