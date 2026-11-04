@@ -8,6 +8,7 @@ import Neoplatonic.LTR.MorphospaceSquareCover
 import Neoplatonic.LTR.MorphospaceAnytimeIntervals
 import Neoplatonic.LTR.MorphospaceInformationCover
 import Neoplatonic.LTR.MorphospaceGapMonotonicity
+import Neoplatonic.LTR.MorphospaceTwoStepValue
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -765,3 +766,14 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.feasible_certificate_persistent
 #print axioms Neoplatonic.LTR.Morphospace.infeasible_certificate_persistent
 #print axioms Neoplatonic.LTR.Morphospace.expected_gap_reduction_nonnegative
+
+-- MOR-10: conditional two-stage Bellman dominance and exact rational plateau.
+#print axioms Neoplatonic.LTR.Morphospace.two_step_conditional_gain
+#print axioms Neoplatonic.LTR.Morphospace.two_step_recourse_dominates_one
+#print axioms Neoplatonic.LTR.Morphospace.two_step_optimum_le_one
+#print axioms Neoplatonic.LTR.Morphospace.two_cell_one_observation_threshold
+#print axioms Neoplatonic.LTR.Morphospace.two_cell_first_probe_has_zero_gain
+#print axioms Neoplatonic.LTR.Morphospace.two_cell_equal_bits_gap
+#print axioms Neoplatonic.LTR.Morphospace.two_cell_two_step_expected_gap
+#print axioms Neoplatonic.LTR.Morphospace.two_cell_strict_delayed_value
+#print axioms Neoplatonic.LTR.Morphospace.two_cell_exact_gain
