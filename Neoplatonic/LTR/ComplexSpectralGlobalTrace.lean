@@ -117,6 +117,6 @@ theorem finiteComplexSpectralPowerTrace_tendsto
         atTop (nhds (complexSpectralGlobalTrace scale p)) :=
     (complexSpectralTraceTerm_summable scale p hp).hasSum.tendsto_sum_nat
   have hcomplex := (Complex.continuous_ofReal.tendsto _).comp hreal
-  simpa only [finiteComplexSpectralPowerTrace_eq] using hcomplex
+  simpa only [Function.comp_def, finiteComplexSpectralPowerTrace_eq] using hcomplex
 
 end Neoplatonic.LTR
