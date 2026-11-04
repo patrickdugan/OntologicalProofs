@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.Reconstruction
+import Neoplatonic.LTR.UniqueGamesFinite
 import Neoplatonic.LTR.MorphospaceSemiconjugacy
 import Neoplatonic.LTR.MorphospaceMinimax
 import Neoplatonic.LTR.MorphospaceGoal
@@ -834,3 +835,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.greedy_one_regret_le_margin_error
 #print axioms Neoplatonic.LTR.Morphospace.margin_error_le_sum_action_errors
 #print axioms Neoplatonic.LTR.Morphospace.greedy_zero_regret_le_sum_action_errors
+
+-- LTR-UG-01: exact gauge defect and support invariance for translation games.
+#print axioms Neoplatonic.LTR.UniqueGames.defect_gauge
+#print axioms Neoplatonic.LTR.UniqueGames.defect_zero_iff_satisfied
+#print axioms Neoplatonic.LTR.UniqueGames.badEdges_gauge
+#print axioms Neoplatonic.LTR.UniqueGames.badCount_gauge
