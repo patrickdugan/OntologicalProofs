@@ -1,0 +1,29 @@
+name: Logos–Topos Lean
+
+on:
+  pull_request:
+    paths:
+      - "Neoplatonic/LogosTopos.lean"
+      - "docs/LOGOS_TOPOS.md"
+      - ".github/workflows/logos-topos-lean.yml"
+      - "lakefile.toml"
+      - "lean-toolchain"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    name: Kernel-check proposed Logos–Topos lemmas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: true
+          build-args: Neoplatonic.LogosTopos
+          test: false
+          lint: false
+          use-mathlib-cache: true
