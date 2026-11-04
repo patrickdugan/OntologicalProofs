@@ -38,6 +38,7 @@ import Neoplatonic.LTR.ManifestationOptimalNorm
 import Neoplatonic.LTR.ManifestationOptimalRank
 import Neoplatonic.LTR.ManifestationOptimalRange
 import Neoplatonic.LTR.BooleanCubeEdges
+import Neoplatonic.LTR.BooleanCubeGlobal
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -948,3 +949,13 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.booleanCubeEdge_hamming_one
 #print axioms Neoplatonic.LTR.booleanCubeLocalCommutator_norm
 #print axioms Neoplatonic.LTR.booleanCubeLocalCommutator_norm_reverse
+
+-- LTR-MAN-09B: finite edge Hilbert commutator and optimal global Lipschitz norm.
+#print axioms Neoplatonic.LTR.booleanCubeDirac_apply
+#print axioms Neoplatonic.LTR.booleanCubeObservable_apply
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_apply
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_eq_operator
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_norm_le_cap
+#print axioms Neoplatonic.LTR.finiteIndexedHilbertBlock_norm_le_global
+#print axioms Neoplatonic.LTR.booleanCubeLocalGradient_le_global
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_norm_eq_max
