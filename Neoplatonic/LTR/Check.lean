@@ -52,6 +52,7 @@ import Neoplatonic.LTR.ComplexSpectralCFCSqrt
 import Neoplatonic.LTR.ComplexSpectralCFCDyadicRational
 import Neoplatonic.LTR.ComplexSpectralPowerExponentContinuity
 import Neoplatonic.LTR.ComplexSpectralDyadicLimits
+import Neoplatonic.LTR.ComplexSpectralPowerStability
 import Neoplatonic.LTR.ComplexSpectralCompactPowers
 import Neoplatonic.LTR.LogicalStoneMarking
 import Neoplatonic.LTR.LogicalStoneSpectralTriple
@@ -582,6 +583,8 @@ open Neoplatonic.LTR
 #print axioms chosenComplexSpectralPowerTotal_eq_tsum_on
 #print axioms chosenComplexSpectralPowerTotal_continuousOn_positive
 #print axioms chosenComplexSpectralDyadicRational_CFC_tendsto
+#print axioms chosenComplexSpectralPower_sub_eq_diagonal
+#print axioms chosenComplexSpectralPower_sub_norm_le
 #print axioms chosenComplexSpectralPower_isCompact
 #print axioms complexSpectralTraceTerm_at_zero
 #print axioms complexSpectralTraceTerm_not_summable_zero
