@@ -31,6 +31,7 @@ import Neoplatonic.LTR.ManifestationMarkedBlocks
 import Neoplatonic.LTR.ManifestationConstrainedProfiles
 import Neoplatonic.LTR.ManifestationFiniteRankCompression
 import Neoplatonic.LTR.ManifestationFiniteRankIsometry
+import Neoplatonic.LTR.ManifestationOptimalCoordinates
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -280,6 +281,13 @@ open Neoplatonic.LTR
 #print axioms Nullary.effectiveNullary_finiteRank_vs_infinite_norm
 #print axioms Nullary.effectiveNullary_finiteRank_spectralTriple_identity
 #print axioms Nullary.effectiveNullary_finiteRank_spectralTriple_compact
+#print axioms Nullary.optimalManifestationBlock_prefix
+#print axioms Nullary.optimalManifestationBlock_injective
+#print axioms Nullary.optimalManifestationBlockSet_card
+#print axioms Nullary.optimalManifestationHilbertProjection_apply
+#print axioms Nullary.optimalManifestationHilbertProjection_norm_le_one
+#print axioms Nullary.optimalManifestationLeftBlock_idempotent
+#print axioms Nullary.optimalManifestationHilbertProjection_idempotent
 #print axioms Nullary.observedTruthNorm_eventually_exact
 #print axioms Nullary.observedTruthNorm_error_le_one
 #print axioms Nullary.observedTruthNorm_maximum_gap
