@@ -554,6 +554,8 @@ open Neoplatonic.LTR
 #print axioms chosenComplexSquaredResolvent_isSelfAdjoint
 #print axioms chosenComplexSpectralPower_half_eq_CFC_sqrt
 #print axioms chosenComplexSpectralPower_one_eq_CFC_sqrt_resolvent
+#print axioms chosenComplexSpectralPower_half_eq_CFC_rpow_half
+#print axioms chosenComplexSpectralPower_one_eq_CFC_rpow_half_resolvent
 #print axioms chosenComplexSpectralPower_isCompact
 #print axioms complexSpectralTraceTerm_at_zero
 #print axioms complexSpectralTraceTerm_not_summable_zero
