@@ -62,9 +62,12 @@ theorem manifestationCylinder_misses (n : ℕ)
 theorem manifestationCylinder_isClopen (n : ℕ)
     (samples : Fin n → T.CompleteType Empty) :
     IsClopen (manifestationCylinder n samples) := by
-  change IsClopen (⋂ i : Fin n,
-    {p : T.CompleteType Empty |
-      decode p i.val = !(decode (samples i) i.val)})
+  have hset : manifestationCylinder n samples =
+      ⋂ i : Fin n, {p : T.CompleteType Empty |
+        decode p i.val = !(decode (samples i) i.val)} := by
+    ext p
+    simp only [manifestationCylinder, Set.mem_setOf_eq, Set.mem_iInter]
+  rw [hset]
   apply isClopen_iInter_of_finite
   intro i
   have hc : Continuous (fun p : T.CompleteType Empty => decode p i.val) :=
