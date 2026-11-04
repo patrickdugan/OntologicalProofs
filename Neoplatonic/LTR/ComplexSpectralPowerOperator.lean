@@ -92,6 +92,6 @@ theorem complexSpectralPowerBlock_trace
     ext v
     simp [complexSpectralPowerBlockCLM, complexScalarBlockCLM, w]
   rw [hmap, map_smul, LinearMap.trace_one]
-  simp [complexSpectralTraceTerm, complexSpectralPowerWeight, w]
+  simp [complexSpectralTraceTerm, complexSpectralPowerWeight, w] <;> ring
 
 end Neoplatonic.LTR
