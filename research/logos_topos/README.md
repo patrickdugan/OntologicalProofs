@@ -1,28 +1,32 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.23 (November 3, 2026)
+## Current proof status: LTR v0.27 (November 4, 2026)
 
-The kernel-verified compact complex spectral triple is now instantiated on
-Mathlib's genuine first-order Stone completion space, under countability,
-satisfiability, and independence hypotheses. The chosen metric is compatible
-with the Stone topology, and an explicit dense-pair marking recovers it from
-the infinite-dimensional Dirac commutator norm.
+A compact complex spectral triple is kernel-verified on Mathlib's first-order
+Stone completion space, under explicit countability, satisfiability, and
+independence premises. The chosen metric is compatible with the Stone
+topology, and the actual infinite-dimensional Dirac commutator recovers it.
 
-Every named sentence truth projection is now proved Lipschitz for that
-chosen compact Stone metric. Its image under the faithful Hilbert
-representation is a self-adjoint idempotent bounded operator, with a
-bounded Dirac commutator on the maximal Dirac domain. The norm of the
-represented refutation projection vanishes exactly when the sentence
-is semantically entailed by the theory.
+Every sentence is represented by a self-adjoint Hilbert projection with a
+bounded Dirac commutator. Conjunction, negation, labelled-locus equality,
+and the inclusion order of sentence-truth sets now have exact operator
+identities. For the concrete nullary-language endomorphisms, pullback of
+complex truth projections commutes with syntactic translation inside
+the Hilbert representation.
 
-The scalar spectral-energy series converges for every positive real
-exponent. A global Hilbert trace proof remains open, as do effective
-metric selection from sentence codes and interpretation-compatible
-Dirac morphisms.
+The refutation projector norm is exactly zero when the sentence is
+entailed and exactly one otherwise. Lean proves a same-code computability
+equivalence and a conditional half-error approximation obstruction,
+with semantic undecidability and threshold computability exposed as
+premises.
 
-See [LTR v0.23 operator proof ledger](INFINITE_DIRAC_V23.md),
-[successful v0.23 kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41665335747),
-and the preceding [v0.21 spectral-triple ledger](INFINITE_DIRAC_V21.md).
+The scalar spectral-energy series converges for every positive exponent.
+A global operator trace-class proof, a sentence-code-derived metric,
+and interpretation-compatible Dirac intertwiners remain open.
+
+See the [LTR v0.27 theorem ledger](INFINITE_DIRAC_V27.md),
+the [successful v0.27 kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41752172510),
+and the preceding [v0.23 ledger](INFINITE_DIRAC_V23.md).
 
 ## Mathematical objective
 
@@ -150,7 +154,7 @@ A related finite-approximation obstruction follows by reduction. If a uniformly 
 | Metric symmetry obstruction | Lean under explicit homogeneity/accumulation | Formal Cantor specialization |
 | Cantor collapse | Written proof from standard ingredients | Full formalization and literature comparison |
 | Projection norm obstruction | Written proof | Effective C*-presentation in Lean |
-| Spectral reconstruction | Actual logical complete-type Stone spectral triple with dense complex Lipschitz algebra, faithful representation, self-adjoint Dirac and compact resolvent verified in LTR v0.21 | Effective sentence-derived metric, interpretation compatibility and global trace-class formalization |
+| Spectral reconstruction | Logical Stone spectral triple, sentence-labelled Boolean operator algebra, syntactic projection pullback, and exact refutation norm-gap obstruction verified in LTR v0.27 | Effective metric from sentence codes, compatible Dirac morphisms, and global operator trace-class formalization |
 
 The present contribution is a verified foundation and a sharply stated research problem. Stone duality, compactness, and their displayed corollaries are established mathematics. The project has not established novelty for a general reconstruction theorem. An original result would need additional invariant content, effective complexity bounds, or a genuine obstruction theorem for a specified class of interconnected theories.
 
