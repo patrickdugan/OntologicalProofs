@@ -94,4 +94,27 @@ theorem complexSpectralPowerBlock_trace
   rw [hmap, map_smul, LinearMap.trace_one]
   simp [complexSpectralTraceTerm, complexSpectralPowerWeight, w] <;> ring
 
+
+/-- At exponent two the spectral weight is exactly the already verified
+two-sided squared-resolvent weight of the complex Dirac. -/
+theorem complexSpectralPowerWeight_two
+    (scale : ℕ → ℝ) (j : ℕ) :
+    complexSpectralPowerWeight scale 2 j =
+      chosenSquaredResolventWeight scale j := by
+  simp [complexSpectralPowerWeight]
+
+/-- The concrete p = 2 spectral-power map coincides with the verified
+Hilbert-space inverse of I + D² on the exact maximal domain. -/
+theorem chosenComplexSpectralPower_two_eq_squaredResolvent
+    (scale : ℕ → ℝ) :
+    chosenComplexSpectralPowerCLM scale 2 (by norm_num) =
+      chosenComplexSquaredResolventCLM scale := by
+  apply ContinuousLinearMap.ext
+  intro ψ
+  apply lp.ext
+  funext j
+  rw [chosenComplexSpectralPowerCLM_apply,
+    chosenComplexSquaredResolventCLM_apply,
+    complexSpectralPowerWeight_two]
+
 end Neoplatonic.LTR
