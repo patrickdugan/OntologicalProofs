@@ -53,7 +53,7 @@ theorem booleanCube_hammingDist_update_match {m : ℕ}
       hammingDist x y := by
   rw [← booleanCubeMismatchSet_card,
     ← booleanCubeMismatchSet_card,
-    booleanCubeMismatchSet_update]
+    booleanCubeMismatchSet_update x y i hi]
   exact Finset.card_erase_add_one
     (by simp [booleanCubeMismatchSet, hi])
 
