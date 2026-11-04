@@ -60,6 +60,7 @@ import Neoplatonic.LTR.NullaryEffectiveHilbertOperators
 import Neoplatonic.LTR.NullaryEffectiveOperatorPullback
 import Neoplatonic.LTR.NullaryEffectiveQuantitativeOperators
 import Neoplatonic.LTR.NullaryEffectiveMarkedTriple
+import Neoplatonic.LTR.NullaryEffectiveMetricRecovery
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -621,6 +622,7 @@ open Neoplatonic.LTR
 #print axioms Nullary.effectiveNullaryMarked_endpointCover
 #print axioms Nullary.effectiveNullaryMarked_pairCover
 #print axioms Nullary.effectiveNullaryStoneSpectralTriple_eq_explicit
+#print axioms Nullary.effectiveNullaryStoneSpectralTriple_metric_recovery
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
