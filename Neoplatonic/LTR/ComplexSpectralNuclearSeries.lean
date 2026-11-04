@@ -34,7 +34,8 @@ theorem complexSingleSpectralPowerBlock_norm_le
         (complexSpectralPowerWeight scale p j))
   apply ContinuousLinearMap.opNorm_le_bound _ hw
   intro ψ
-  change ‖lp.single 2 j
+  change ‖lp.single
+    (E := fun _ : ℕ => EuclideanSpace ℂ (Fin 2)) 2 j
     (complexSpectralPowerBlockCLM scale p j (ψ j))‖ ≤
       complexSpectralPowerWeight scale p j * ‖ψ‖
   rw [lp.norm_single (by norm_num) j]
