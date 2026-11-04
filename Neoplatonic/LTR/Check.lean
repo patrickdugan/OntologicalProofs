@@ -41,6 +41,7 @@ import Neoplatonic.LTR.BooleanCubeEdges
 import Neoplatonic.LTR.BooleanCubeGlobal
 import Neoplatonic.LTR.BooleanCubeCapacity
 import Neoplatonic.LTR.BooleanCubeHamming
+import Neoplatonic.LTR.BooleanCubeUnitPairs
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -975,3 +976,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.booleanCube_hammingDist_update_match
 #print axioms Neoplatonic.LTR.booleanCube_hammingDist_update_one
 #print axioms Neoplatonic.LTR.booleanCube_unitGradients_control_hamming
+
+-- LTR-MAN-09E: Hamming-one edge completeness and Dirac metric upper bound.
+#print axioms Neoplatonic.LTR.booleanCube_unit_pair_is_edge
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_norm_one_iff_edges
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_unit_pair_bound
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_hamming_upper
