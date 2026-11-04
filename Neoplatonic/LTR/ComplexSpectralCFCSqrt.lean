@@ -93,7 +93,7 @@ theorem chosenComplexSpectralPower_one_eq_CFC_rpow_half_resolvent
 
 
 /-- The positive exponents obtained by repeated halving of two. -/
-def complexSpectralDyadicExponent : ℕ → ℝ
+noncomputable def complexSpectralDyadicExponent : ℕ → ℝ
   | 0 => 2
   | n + 1 => complexSpectralDyadicExponent n / 2
 
