@@ -22,6 +22,7 @@ namespace Neoplatonic.LTR.Nullary
 
 open FirstOrder
 open FirstOrder.Language
+open FirstOrder.Language.Theory
 
 /-- The i-th literal has truth value opposite that of sample i. -/
 noncomputable def manifestationLiteral (n : ℕ)
@@ -104,12 +105,12 @@ theorem manifestationSentence_mem_iff (n : ℕ)
   constructor
   · intro h i
     apply h
-    change manifestationLiteral n samples i ∈
-      manifestationLiterals n samples
-    exact Finset.mem_image.mpr ⟨i, Finset.mem_univ _, rfl⟩
+    exact Finset.mem_toList.mpr
+      (Finset.mem_image.mpr ⟨i, Finset.mem_univ _, rfl⟩)
   · intro h φ hφ
-    change φ ∈ manifestationLiterals n samples at hφ
-    rcases Finset.mem_image.mp hφ with ⟨i, _, hi⟩
+    have hφ' : φ ∈ manifestationLiterals n samples :=
+      Finset.mem_toList.mp hφ
+    rcases Finset.mem_image.mp hφ' with ⟨i, _, hi⟩
     rw [← hi]
     exact h i
 
