@@ -570,6 +570,10 @@ open Neoplatonic.LTR
 #print axioms complexSpectralPowerWeight_local_majorant
 #print axioms complexSpectralPowerWeight_local_majorant_summable
 #print axioms complexSpectralRankTwo_hasSumUniformlyOn
+#print axioms complexSingleSpectralPowerBlock_eq_weight_smul
+#print axioms complexSingleSpectralPowerBlock_continuous
+#print axioms finiteComplexSpectralPower_continuous_exponent
+#print axioms complexSpectralPowerSeries_continuousOn_positive
 #print axioms chosenComplexSpectralPower_isCompact
 #print axioms complexSpectralTraceTerm_at_zero
 #print axioms complexSpectralTraceTerm_not_summable_zero
