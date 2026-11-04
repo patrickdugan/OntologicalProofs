@@ -42,6 +42,7 @@ import Neoplatonic.LTR.BooleanCubeGlobal
 import Neoplatonic.LTR.BooleanCubeCapacity
 import Neoplatonic.LTR.BooleanCubeHamming
 import Neoplatonic.LTR.BooleanCubeUnitPairs
+import Neoplatonic.LTR.BooleanCubeConnesDistance
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -982,3 +983,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.booleanCubeCommutator_norm_one_iff_edges
 #print axioms Neoplatonic.LTR.booleanCubeCommutator_unit_pair_bound
 #print axioms Neoplatonic.LTR.booleanCubeCommutator_hamming_upper
+
+-- LTR-MAN-09F: Connes distance matches Boolean Hamming distance.
+#print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_unit_edge
+#print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_commutator_le_one
+#print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_attains
+#print axioms Neoplatonic.LTR.booleanCubeConnesDistance_operator_witness
