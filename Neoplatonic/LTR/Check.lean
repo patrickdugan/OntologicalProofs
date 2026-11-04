@@ -47,6 +47,7 @@ import Neoplatonic.LTR.NumberedSentenceReindexing
 import Neoplatonic.LTR.NumberedSemanticMapModulus
 import Neoplatonic.LTR.NumberedSemanticMapComposition
 import Neoplatonic.LTR.NullaryFullSentenceTranslation
+import Neoplatonic.LTR.NullaryConcreteNumberedModulus
 import Neoplatonic.LTR.ComplexOrdinaryResolventDecay
 
 open Neoplatonic.LTR
@@ -561,6 +562,12 @@ open Neoplatonic.LTR
 #print axioms Nullary.unliftExpandedSentence_lift
 #print axioms Nullary.expandedHaltingRename_lifted
 #print axioms Nullary.syntaxMap_expanded_semantics
+#print axioms Nullary.liftedSentenceCode_surjective
+#print axioms Nullary.haltingSentenceLookup_spec
+#print axioms Nullary.haltingSentenceLookup_truth
+#print axioms Nullary.syntaxMap_numbered_prefixTransfer
+#print axioms Nullary.syntaxMap_numbered_radiusTransfer
+#print axioms Nullary.syntaxMap_numbered_uniformModulus
 #print axioms markedEdgeInvDist_norm
 #print axioms markedEdgeBound_iff
 #print axioms markedEdgeUnitBound_iff_lipschitz
