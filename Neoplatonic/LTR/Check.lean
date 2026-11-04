@@ -4,6 +4,7 @@ import Neoplatonic.LTR.MorphospaceMinimax
 import Neoplatonic.LTR.MorphospaceGoal
 import Neoplatonic.LTR.MorphospaceGoalFuture
 import Neoplatonic.LTR.MorphospaceColoring
+import Neoplatonic.LTR.MorphospaceSquareCover
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -687,3 +688,8 @@ open Neoplatonic.LTR
 -- MOR-05: action-indexed rate gap and graph coloring equivalence.
 #print axioms Neoplatonic.LTR.Morphospace.edgeRate_large_iff_endpoints
 #print axioms Neoplatonic.LTR.Morphospace.proper_coloring_iff_rate_safe
+
+-- MOR-06: two-action square containment and canonical lower-corner theorem.
+#print axioms Neoplatonic.LTR.Morphospace.ratePairCompatible_of_inside
+#print axioms Neoplatonic.LTR.Morphospace.canonical_square_of_pairwise
+#print axioms Neoplatonic.LTR.Morphospace.rate_compatible_iff_canonical_square
