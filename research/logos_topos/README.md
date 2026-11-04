@@ -1,40 +1,42 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.38 (November 4, 2026)
+## Current proof status: LTR v0.46 (November 4, 2026)
 
-The program now constructs a faithful compact-resolvent complex spectral
-triple on Mathlib's genuine first-order Stone completion space using a
-sentence-numbered ultrametric. Its finite-prefix metric balls, bounded
-logical-projection commutators, Boolean Hilbert algebra, and exact
-refutation norm-gap theorem are kernel-verified. The metric is
-presentation-dependent, and the dense completion marking is classical.
+The one-axiom nullary first-order theory now has a kernel-verified
+complex spectral triple over its genuine complete-type Stone space,
+with the first-disagreement metric determined by a constructive
+encoding of all expanded-language sentences, including quantifiers.
+Its dense complex Lipschitz algebra, faithful infinite Hilbert
+representation, maximal-domain self-adjoint Dirac, compact ordinary
+resolvent, and bounded logical commutators are verified.
 
-For the explicit one-axiom nullary language, the full expanded first-order
-sentence type is proved countable. Mathlib's equivalence for an empty
-constant expansion supplies a bijection between original and expanded
-sentences. This closes the earlier coverage gap: every program-induced
-syntactic endomorphism now has a proved truth-pullback identity for
-arbitrary expanded sentences, including quantified formulas.
+Sentence truth projections form a represented Boolean algebra.
+Syntactic translation by an actual partial-recursive language map
+preserves the labelled Hilbert projections under pullback, and
+the translated projection at sentence index j has an explicit
+Lipschitz and marked-Dirac commutator bound of 2^(k_e(j)).
+The index k_e(j) comes from the verified total syntax encoding,
+decoding and finite renaming definitions.
 
-The concrete nullary code chooses a surjective sentence numbering and
-builds an index lookup for every partial-recursive program code. The
-corresponding complete-type map satisfies the quantitative first-
-disagreement metric bound with finite-prefix modulus M_k(n). Compositions
-of two actual program maps satisfy the syntax-translation composition law
-and the nested bound M_k(M_l(n)). The general continuity theorems are
-instantiated without an external truth-preservation premise for this
-family of maps.
+The selected complete-type dense sequence and its nondegenerate
+marked-pair enumeration have been exposed in Lean. The concrete
+spectral-triple record is proved equal to this explicit marked
+construction. The v0.46 theorem proves both the norm-one
+commutator upper bound for the numbered Stone distance and the
+existence of an admissible observable attaining equality. Hence
+the associated Connes-style dual distance recovers exactly the
+sentence-numbered first-disagreement metric.
 
-The sentence numbering and syntax-index lookup are selected classically.
-Computable syntax encoding and computable lookup construction remain
-specific effective-presentation tasks. The verified uniform-continuity
-bound makes no assertion that finite Lipschitz regularity is decidable,
-or that arbitrary complete-theory truth can be computed. A global
-Schatten trace proof and Dirac-intertwining interpretation maps remain open.
+The syntax encoder and lookup are constructive Lean functions,
+while the dense completion sequence used in the Dirac operator
+still depends on classical selection. A verified Mathlib
+Primrec/Computable classification for full formula substitution,
+a global trace-class/Schatten theorem, and interpretation-compatible
+Dirac intertwiners remain open.
 
-See the [LTR v0.38 concrete endomorphism ledger](INFINITE_DIRAC_V38.md),
-the [successful v0.38 kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41761968894),
-and the [v0.34 general metric-map composition ledger](INFINITE_DIRAC_V34.md).
+See the [LTR v0.46 concrete spectral-metric ledger](INFINITE_DIRAC_V46.md),
+the [successful v0.46 kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41766876738),
+and the [v0.42 constructive syntax ledger](INFINITE_DIRAC_V42.md).
 
 ## Mathematical objective
 
@@ -162,7 +164,7 @@ A related finite-approximation obstruction follows by reduction. If a uniformly 
 | Metric symmetry obstruction | Lean under explicit homogeneity/accumulation | Formal Cantor specialization |
 | Cantor collapse | Written proof from standard ingredients | Full formalization and literature comparison |
 | Projection norm obstruction | Written proof | Effective C*-presentation in Lean |
-| Spectral reconstruction | Sentence-numbered complex spectral triple, quantitative projection bounds, full expanded-sentence nullary translation, fixed enumeration, and concrete program composition modulus verified in LTR v0.38 | Computable syntax-index lookup, effective truth access for completions, Dirac-intertwining interpretations, and global trace-class formalization |
+| Spectral reconstruction | Constructive full-sentence numbering and translated projection bounds, concrete compact-resolvent Dirac with exposed dense-pair marking, and exact norm-one dual metric recovery verified in LTR v0.46 | Formal Primrec classification, effective dense completions, Dirac intertwining under interpretations, and global operator trace-class proof |
 
 The present contribution is a verified foundation and a sharply stated research problem. Stone duality, compactness, and their displayed corollaries are established mathematics. The project has not established novelty for a general reconstruction theorem. An original result would need additional invariant content, effective complexity bounds, or a genuine obstruction theorem for a specified class of interconnected theories.
 
