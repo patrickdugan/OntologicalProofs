@@ -37,6 +37,7 @@ import Neoplatonic.LTR.ManifestationOptimalCoordinates
 import Neoplatonic.LTR.ManifestationOptimalNorm
 import Neoplatonic.LTR.ManifestationOptimalRank
 import Neoplatonic.LTR.ManifestationOptimalRange
+import Neoplatonic.LTR.BooleanCubeEdges
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -940,3 +941,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.GoalQuotientAliasing.unequal_future_forbids_exact_factorization
 #print axioms Neoplatonic.LTR.GoalQuotientAliasing.aliasing_error_sum_lower_bound
 #print axioms Neoplatonic.LTR.GoalQuotientAliasing.aliasing_max_error_lower_bound
+
+-- LTR-MAN-09: actual Hamming-unit edges and complex 2x2 Dirac commutator.
+#print axioms Neoplatonic.LTR.booleanCubeEdge_endpoint_bit
+#print axioms Neoplatonic.LTR.booleanCubeEdge_agree_other
+#print axioms Neoplatonic.LTR.booleanCubeEdge_hamming_one
+#print axioms Neoplatonic.LTR.booleanCubeLocalCommutator_norm
+#print axioms Neoplatonic.LTR.booleanCubeLocalCommutator_norm_reverse
