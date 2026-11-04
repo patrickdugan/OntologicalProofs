@@ -526,6 +526,9 @@ open Neoplatonic.LTR
 #print axioms complexSpectralBasisBlockTrace_eq
 #print axioms complexSpectralBasisBlockTrace_summable
 #print axioms complexSpectralHilbertBasisTrace_eq
+#print axioms complexSpectralTraceTerm_at_zero
+#print axioms complexSpectralTraceTerm_not_summable_zero
+#print axioms complexSpectral_nonnegative_threshold_zero
 #print axioms logicalCompleteType_secondCountable
 #print axioms logicalCompleteType_denseSeq_dense
 #print axioms denseSequence_contains_distinct_values
