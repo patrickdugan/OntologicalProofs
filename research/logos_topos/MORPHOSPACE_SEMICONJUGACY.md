@@ -28,7 +28,7 @@ For a declared macro-target B⊆Z, (2) implies
 
 Every prefix also satisfies (3), so first-hit indices agree for the same action schedule. A feedback policy observing only projected macro histories picks the same actions on both systems, proving the analogous policy-controlled statement by induction.
 
-The exact theorem for action-list transport and endpoint predicates is written in [MorphospaceSemiconjugacy.lean](../../Neoplatonic/LTR/MorphospaceSemiconjugacy.lean). **Lean build status: UNVERIFIED locally** because elan/Mathlib were unavailable to the authoring runtime. This draft should become a checked theorem only after the repository's kernel and axiom audit.
+The exact theorem for action-list transport and endpoint predicates is written in [MorphospaceSemiconjugacy.lean](../../Neoplatonic/LTR/MorphospaceSemiconjugacy.lean). **Lean build status: UNVERIFIED locally** because elan/Mathlib were unavailable to the authoring runtime. This PR now imports the module from `Neoplatonic/LTR/Check.lean` and prints both theorem axiom dependencies. Promotion to a checked theorem depends on a green LTR Reconstruction workflow at the new head commit.
 
 ## Obstruction: a macro partition may fail to be dynamical
 
