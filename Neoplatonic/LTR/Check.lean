@@ -44,6 +44,7 @@ import Neoplatonic.LTR.ComplexSpectralNuclearSeries
 import Neoplatonic.LTR.ComplexSpectralRankTwoCertificate
 import Neoplatonic.LTR.ComplexSpectralPowerSemigroup
 import Neoplatonic.LTR.ComplexSpectralPowerPositive
+import Neoplatonic.LTR.ComplexSpectralCFCSqrt
 import Neoplatonic.LTR.LogicalStoneMarking
 import Neoplatonic.LTR.LogicalStoneSpectralTriple
 import Neoplatonic.LTR.LogicalLipschitzProjections
@@ -550,6 +551,8 @@ open Neoplatonic.LTR
 #print axioms chosenComplexSpectralPower_isPositive
 #print axioms chosenComplexSquaredResolvent_isPositive
 #print axioms chosenComplexSquaredResolvent_isSelfAdjoint
+#print axioms chosenComplexSpectralPower_half_eq_CFC_sqrt
+#print axioms chosenComplexSpectralPower_one_eq_CFC_sqrt_resolvent
 #print axioms complexSpectralTraceTerm_at_zero
 #print axioms complexSpectralTraceTerm_not_summable_zero
 #print axioms complexSpectral_nonnegative_threshold_zero
