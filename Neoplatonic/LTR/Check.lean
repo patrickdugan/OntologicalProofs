@@ -560,6 +560,8 @@ open Neoplatonic.LTR
 #print axioms complexSpectralDyadicExponent_pos
 #print axioms chosenComplexSpectralDyadicSqrt_eq
 #print axioms complexSpectralDyadicExponent_eq
+#print axioms chosenComplexSpectralDyadicSqrt_eq_CFC_rpow
+#print axioms chosenComplexSpectralDyadicPower_eq_CFC_rpow
 #print axioms chosenComplexSpectralPower_isCompact
 #print axioms complexSpectralTraceTerm_at_zero
 #print axioms complexSpectralTraceTerm_not_summable_zero
