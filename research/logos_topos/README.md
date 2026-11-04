@@ -1,6 +1,6 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.46 (November 4, 2026)
+## Current proof status: LTR v0.48 (November 4, 2026)
 
 The one-axiom nullary first-order theory now has a kernel-verified
 complex spectral triple over its genuine complete-type Stone space,
@@ -27,16 +27,32 @@ existence of an admissible observable attaining equality. Hence
 the associated Connes-style dual distance recovers exactly the
 sentence-numbered first-disagreement metric.
 
-The syntax encoder and lookup are constructive Lean functions,
-while the dense completion sequence used in the Dirac operator
-still depends on classical selection. A verified Mathlib
-Primrec/Computable classification for full formula substitution,
-a global trace-class/Schatten theorem, and interpretation-compatible
-Dirac intertwiners remain open.
+V0.47 proves the full standard-Hilbert-basis spectral trace for every
+positive real exponent, the divergence at exponent zero, and the
+equality of the exponent-two operator with the verified two-sided
+squared resolvent. V0.48 goes further: the full spectral-power map
+is an operator-norm convergent series of explicitly factored rank-two
+operators, with a summable sequence of their operator norms.
+The checked `HasSummableRankTwoExpansion` property packages this
+concrete nuclear certificate. The positive-exponent operators satisfy
+A_p A_q = A_(p+q), and Lean verifies A_1² = (I + D²)⁻¹.
 
-See the [LTR v0.46 concrete spectral-metric ledger](INFINITE_DIRAC_V46.md),
-the [successful v0.46 kernel and axiom audit](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41766876738),
+These finite-rank and ℓ¹ estimates yield trace-class behavior by
+the standard rank-two trace-norm inequality. A general Mathlib
+trace-ideal instance, a formal generic trace-norm inequality, and
+the bounded/unbounded functional-calculus bridges remain to be
+developed. The syntax encoder and lookup are constructive Lean
+functions, while the marked dense sequence of completed theories
+still depends on classical selection. A Mathlib Primrec/Computable
+classification for full formula substitution and arbitrary
+interpretation-compatible Dirac intertwiners also remain open.
+
+See the [v0.48 nuclear and semigroup ledger](INFINITE_DIRAC_V48.md),
+the [v0.47 Hilbert-basis trace ledger](INFINITE_DIRAC_V47.md),
+the [v0.46 metric recovery ledger](INFINITE_DIRAC_V46.md),
 and the [v0.42 constructive syntax ledger](INFINITE_DIRAC_V42.md).
+The latest v0.48 kernel and axiom audit is
+[run 41781897410](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41781897410).
 
 ## Mathematical objective
 
