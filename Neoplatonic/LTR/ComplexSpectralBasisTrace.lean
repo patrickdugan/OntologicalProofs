@@ -68,7 +68,12 @@ theorem complexSpectralBasisBlockTrace_summable
       (complexSpectralTraceTerm scale p j : ℂ)) :=
     (RCLike.summable_ofReal (𝕜 := ℂ)).2
       (complexSpectralTraceTerm_summable scale p hp)
-  simpa only [complexSpectralBasisBlockTrace_eq] using hs
+  have hfun : complexSpectralBasisBlockTrace scale p hp =
+      (fun j : ℕ => (complexSpectralTraceTerm scale p j : ℂ)) := by
+    funext j
+    exact complexSpectralBasisBlockTrace_eq scale p hp j
+  rw [hfun]
+  exact hs
 
 /-- The infinite trace of actual Hilbert-basis diagonal entries is
 exactly the convergent scalar spectral-energy series. -/
@@ -82,8 +87,6 @@ theorem complexSpectralHilbertBasisTrace_eq
           simp only [complexSpectralHilbertBasisTrace,
             complexSpectralBasisBlockTrace_eq]
     _ = (complexSpectralGlobalTrace scale p : ℂ) := by
-          simpa only [complexSpectralGlobalTrace] using
-            (RCLike.ofReal_tsum (𝕜 := ℂ)
-              (fun j : ℕ => complexSpectralTraceTerm scale p j)).symm
+          simp only [complexSpectralGlobalTrace, Complex.ofReal_tsum]
 
 end Neoplatonic.LTR
