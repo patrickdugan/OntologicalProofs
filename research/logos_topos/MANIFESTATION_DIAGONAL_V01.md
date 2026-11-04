@@ -143,7 +143,7 @@ topos, and the existing analytic triple requires an explicit
 interpretation and naturality theorem.
 
 In the philosophical vocabulary of *Divine Elegance*, a
-\(\mathit{ma\!\!\!\hbar ar}\)-like locus of manifestation may be
+*maẓhar*, a locus of manifestation, may be
 modeled as a partial realization of a richer source of logical
 distinctions. The mathematical result controls fidelity of a
 specified representation. It makes no assertion about Jesus,
