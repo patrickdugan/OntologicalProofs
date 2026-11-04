@@ -5,6 +5,7 @@ import Neoplatonic.LTR.MorphospaceGoal
 import Neoplatonic.LTR.MorphospaceGoalFuture
 import Neoplatonic.LTR.MorphospaceColoring
 import Neoplatonic.LTR.MorphospaceSquareCover
+import Neoplatonic.LTR.MorphospaceAnytimeIntervals
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -708,3 +709,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.ratePairCompatible_of_inside
 #print axioms Neoplatonic.LTR.Morphospace.canonical_square_of_pairwise
 #print axioms Neoplatonic.LTR.Morphospace.rate_compatible_iff_canonical_square
+
+-- MOR-07: deterministic interval Chebyshev optimality and nested evidence.
+#print axioms Neoplatonic.LTR.Morphospace.interval_midpoint_error_le
+#print axioms Neoplatonic.LTR.Morphospace.interval_midpoint_minimax_lower
+#print axioms Neoplatonic.LTR.Morphospace.interval_chebyshev_optimal
+#print axioms Neoplatonic.LTR.Morphospace.nested_interval_contains
+#print axioms Neoplatonic.LTR.Morphospace.unprobed_cell_half_error_lower
+#print axioms Neoplatonic.LTR.Morphospace.optimistic_pair_gap
