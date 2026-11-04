@@ -79,8 +79,10 @@ theorem chosenComplexSpectralDyadicRational_eq_CFC_rpow
     (scale : ℕ → ℝ) (n m : ℕ) :
     chosenComplexSpectralPowerCLM scale
       (complexSpectralDyadicExponent n * (Nat.succ m : ℝ))
-      (by exact mul_pos (complexSpectralDyadicExponent_pos n)
-        (by positivity)) =
+      (by
+        have h : 0 < complexSpectralDyadicExponent n :=
+          complexSpectralDyadicExponent_pos n
+        positivity) =
       CFC.rpow (chosenComplexSquaredResolventCLM scale)
         (((1 / 2 : ℝ) ^ n) * (Nat.succ m : ℝ)) := by
   let R := chosenComplexSquaredResolventCLM scale
@@ -109,8 +111,10 @@ theorem chosenComplexSpectralDyadicRational_eq_CFC_rpow
   calc
     chosenComplexSpectralPowerCLM scale
         (complexSpectralDyadicExponent n * (Nat.succ m : ℝ))
-        (by exact mul_pos (complexSpectralDyadicExponent_pos n)
-          (by positivity)) =
+        (by
+          have h : 0 < complexSpectralDyadicExponent n :=
+            complexSpectralDyadicExponent_pos n
+          positivity) =
       (chosenComplexSpectralPowerCLM scale
         (complexSpectralDyadicExponent n)
         (complexSpectralDyadicExponent_pos n)) ^ (Nat.succ m) := by
