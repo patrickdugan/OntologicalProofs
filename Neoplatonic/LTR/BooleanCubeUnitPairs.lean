@@ -76,8 +76,9 @@ theorem booleanCubeCommutator_norm_one_iff_edges {m : ℕ}
     exact (booleanCubeLocalGradient_le_global f e).trans h
   · intro h
     have hcap : (booleanCubeGradientCap f : ℝ) ≤ 1 := by
-      have hn : booleanCubeGradientCap f ≤ (1 : ℝ≥0) := by
-        unfold booleanCubeGradientCap
+      have hn : booleanCubeGradientCap f ≤ (1 : NNReal) := by
+        change (Finset.univ : Finset (BooleanCubeEdge m)).sup
+          (fun e => (‖booleanCubeLocalCommutator f e‖₊ : NNReal)) ≤ 1
         apply Finset.sup_le
         intro e _
         have he := h e
