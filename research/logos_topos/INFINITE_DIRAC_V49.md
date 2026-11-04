@@ -126,17 +126,60 @@ but discontinuous there in operator norm. This endpoint
 observation is a written argument requiring its own Lean
 formalization.
 
+## Further verified operator-norm continuity and CFC-limit results
+
+The initial v0.49 ledger identified locally uniform convergence as
+the next analytic obligation. Both the summability hypotheses and
+the actual global operator continuity are now kernel checked.
+
+- [Run 41825084247](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41825084247):
+  `ComplexSpectralPowerExponentContinuity.lean` verifies
+  `chosenComplexSpectralPowerTotal_continuousOn_positive`.
+  The extension agrees with the true `A_p` at every `p>0`,
+  and is operator-norm continuous on every half-line
+  `[p₀/2,∞)` for `p₀>0`.
+- [Run 41826219905](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41826219905):
+  `ComplexSpectralDyadicLimits.lean` verifies
+  `chosenComplexSpectralDyadicRational_CFC_tendsto`.
+  Given *any* sequence of positive dyadic exponents whose
+  corresponding spectral-power exponents converge to `p>0`,
+  the actual CFC dyadic operator approximants converge
+  in operator norm to `A_p`.
+
+The second result constructs the unique operator-norm candidate
+for the full positive-real CFC extension from every such dyadic
+approximation sequence. A general real-exponent CFC continuity
+theorem and a formally constructed dense dyadic approximating
+sequence are the remaining bridge to a global
+`A_p=CFC.rpow R (p/2)` equality.
+
+## Quantitative continuation
+
+The [spectral-power regularity note](SPECTRAL_POWER_REGULARITY.md)
+derives a uniform operator-norm Lipschitz bound on
+`p,q≥δ>0`,
+
+\[
+\|A_p-A_q\|\le\frac{|p-q|}{e\delta},
+\]
+
+as well as a local trace-norm Lipschitz bound and a holomorphic
+spectral zeta continuation to `Re(z)>0`. These are written analytic
+arguments that require separate Lean proofs and should be treated
+as formalization targets.
+
 ## Next formal milestones
 
-1. Kernel-check scalar coefficient continuity in the real exponent
-   and locally uniform summability of the rank-two series.
-2. Prove continuous dependence of `A_p` on every `p₀>0`.
-3. Apply pinned Mathlib's `tendsto_cfc_fun` (uniform convergence
-   on the compact spectrum) to show CFC exponent continuity.
-4. Close the dense-dyadic identity at every positive real exponent.
-5. Distinguish the operator-norm discontinuity and strong continuity
-   at exponent zero, and package the global trace-class bridge
-   with a genuine abstract trace ideal.
+1. Transfer the scalar exponent Lipschitz bound through Mathlib's
+   isometric real CFC of the positive squared resolvent.
+2. Formalize the density or explicit approximation of all positive
+   reals by positive dyadic rationals.
+3. Close the equality `A_p=CFC.rpow R (p/2)` for all positive reals
+   using CFC continuity and the checked dyadic-limit theorem.
+4. Distinguish the operator-norm discontinuity and strong continuity
+   at exponent zero.
+5. Build a generic trace-ideal interface, plus the
+   holomorphic spectral-zeta and differentiated-series statements.
 
 The constructive logical syntax map and the classically chosen
 dense complete-type marking remain as described in v0.48.
