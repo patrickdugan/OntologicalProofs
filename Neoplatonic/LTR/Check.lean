@@ -39,6 +39,7 @@ import Neoplatonic.LTR.ComplexSpectralSummability
 import Neoplatonic.LTR.ComplexSpectralPowerOperator
 import Neoplatonic.LTR.ComplexSpectralGlobalTrace
 import Neoplatonic.LTR.ComplexSpectralBasisTrace
+import Neoplatonic.LTR.ComplexSpectralNuclearSeries
 import Neoplatonic.LTR.LogicalStoneMarking
 import Neoplatonic.LTR.LogicalStoneSpectralTriple
 import Neoplatonic.LTR.LogicalLipschitzProjections
@@ -529,6 +530,11 @@ open Neoplatonic.LTR
 #print axioms complexSpectralBasisBlockTrace_eq
 #print axioms complexSpectralBasisBlockTrace_summable
 #print axioms complexSpectralHilbertBasisTrace_eq
+#print axioms complexSingleSpectralPowerBlock_norm_le
+#print axioms complexSingleSpectralPowerBlock_summable
+#print axioms complexSingleSpectralPowerBlock_norm_summable
+#print axioms complexSingleSpectralPowerBlock_hasSum_apply
+#print axioms chosenComplexSpectralPower_eq_tsum_rankTwo
 #print axioms complexSpectralTraceTerm_at_zero
 #print axioms complexSpectralTraceTerm_not_summable_zero
 #print axioms complexSpectral_nonnegative_threshold_zero
