@@ -37,6 +37,12 @@ import Neoplatonic.LTR.ManifestationOptimalCoordinates
 import Neoplatonic.LTR.ManifestationOptimalNorm
 import Neoplatonic.LTR.ManifestationOptimalRank
 import Neoplatonic.LTR.ManifestationOptimalRange
+import Neoplatonic.LTR.BooleanCubeEdges
+import Neoplatonic.LTR.BooleanCubeGlobal
+import Neoplatonic.LTR.BooleanCubeCapacity
+import Neoplatonic.LTR.BooleanCubeHamming
+import Neoplatonic.LTR.BooleanCubeUnitPairs
+import Neoplatonic.LTR.BooleanCubeConnesDistance
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -940,3 +946,46 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.GoalQuotientAliasing.unequal_future_forbids_exact_factorization
 #print axioms Neoplatonic.LTR.GoalQuotientAliasing.aliasing_error_sum_lower_bound
 #print axioms Neoplatonic.LTR.GoalQuotientAliasing.aliasing_max_error_lower_bound
+
+-- LTR-MAN-09: actual Hamming-unit edges and complex 2x2 Dirac commutator.
+#print axioms Neoplatonic.LTR.booleanCubeEdge_endpoint_bit
+#print axioms Neoplatonic.LTR.booleanCubeEdge_agree_other
+#print axioms Neoplatonic.LTR.booleanCubeEdge_hamming_one
+#print axioms Neoplatonic.LTR.booleanCubeLocalCommutator_norm
+#print axioms Neoplatonic.LTR.booleanCubeLocalCommutator_norm_reverse
+
+-- LTR-MAN-09B: finite edge Hilbert commutator and optimal global Lipschitz norm.
+#print axioms Neoplatonic.LTR.booleanCubeDirac_apply
+#print axioms Neoplatonic.LTR.booleanCubeObservable_apply
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_apply
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_eq_operator
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_norm_le_cap
+#print axioms Neoplatonic.LTR.finiteIndexedHilbertBlock_norm_le_global
+#print axioms Neoplatonic.LTR.booleanCubeLocalGradient_le_global
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_norm_eq_max
+
+-- LTR-MAN-09C: exact unique-edge count and Hilbert coordinate capacity.
+#print axioms Neoplatonic.LTR.booleanCubeFixedFalse_card
+#print axioms Neoplatonic.LTR.booleanCubeEdge_card_succ
+#print axioms Neoplatonic.LTR.booleanCubeEdge_card_zero
+#print axioms Neoplatonic.LTR.booleanCubeHilbert_coordinate_card_succ
+#print axioms Neoplatonic.LTR.booleanCubeHilbert_coordinate_card_zero
+
+-- LTR-MAN-09D: Hamming one-coordinate repairs and exact geodesic Lipschitz bound.
+#print axioms Neoplatonic.LTR.booleanCubeMismatchSet_card
+#print axioms Neoplatonic.LTR.booleanCubeMismatchSet_update
+#print axioms Neoplatonic.LTR.booleanCube_hammingDist_update_match
+#print axioms Neoplatonic.LTR.booleanCube_hammingDist_update_one
+#print axioms Neoplatonic.LTR.booleanCube_unitGradients_control_hamming
+
+-- LTR-MAN-09E: Hamming-one edge completeness and Dirac metric upper bound.
+#print axioms Neoplatonic.LTR.booleanCube_unit_pair_is_edge
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_norm_one_iff_edges
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_unit_pair_bound
+#print axioms Neoplatonic.LTR.booleanCubeCommutator_hamming_upper
+
+-- LTR-MAN-09F: Connes distance matches Boolean Hamming distance.
+#print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_unit_edge
+#print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_commutator_le_one
+#print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_attains
+#print axioms Neoplatonic.LTR.booleanCubeConnesDistance_operator_witness
