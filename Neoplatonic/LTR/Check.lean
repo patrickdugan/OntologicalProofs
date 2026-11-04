@@ -1,6 +1,7 @@
 import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.MorphospaceSemiconjugacy
 import Neoplatonic.LTR.MorphospaceMinimax
+import Neoplatonic.LTR.MorphospaceGoal
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -624,3 +625,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.fibre_pair_triangle
 #print axioms Neoplatonic.LTR.Morphospace.fibre_pair_lower_bound
 #print axioms Neoplatonic.LTR.Morphospace.approximate_quotient_composition
+
+-- MOR-03: goal readout and prefix recovery, all premise-explicit.
+#print axioms Neoplatonic.LTR.Morphospace.goal_readout_exists_iff_fibre_constant
+#print axioms Neoplatonic.LTR.Morphospace.macro_goal_hit_prefix_iff
+#print axioms Neoplatonic.LTR.Morphospace.micro_goal_hit_prefix_iff
