@@ -3,6 +3,7 @@ import Neoplatonic.LTR.MorphospaceSemiconjugacy
 import Neoplatonic.LTR.MorphospaceMinimax
 import Neoplatonic.LTR.MorphospaceGoal
 import Neoplatonic.LTR.MorphospaceGoalFuture
+import Neoplatonic.LTR.MorphospaceColoring
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -669,3 +670,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.Morphospace.quotientGoalReadout_sound
 #print axioms Neoplatonic.LTR.Morphospace.futureGoalRel_of_exact_macro
 #print axioms Neoplatonic.LTR.Morphospace.distinct_macro_of_goal_witness
+
+-- MOR-05: action-indexed rate gap and graph coloring equivalence.
+#print axioms Neoplatonic.LTR.Morphospace.edgeRate_large_iff_endpoints
+#print axioms Neoplatonic.LTR.Morphospace.proper_coloring_iff_rate_safe
