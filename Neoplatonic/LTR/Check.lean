@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.Reconstruction
+import Neoplatonic.LTR.MorphospaceSemiconjugacy
 import Neoplatonic.LTR.Obstruction
 import Neoplatonic.LTR.MetricObstruction
 import Neoplatonic.LTR.TheoryMaps
@@ -567,3 +568,7 @@ open Neoplatonic.LTR
 #print axioms complexPairObservableCLM_eq_zero_values
 #print axioms continuous_real_eq_zero_of_dense_sequence
 #print axioms complexDenseObservable_faithful
+
+-- MOR-01: controlled action-history quotient; inspect kernel axiom dependencies.
+#print axioms Neoplatonic.LTR.Morphospace.runSteps_projection
+#print axioms Neoplatonic.LTR.Morphospace.target_event_projection
