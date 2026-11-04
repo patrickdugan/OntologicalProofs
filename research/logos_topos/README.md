@@ -1,6 +1,6 @@
 # Logos–Topos Reconstruction
 
-## Current proof status: LTR v0.48 (November 4, 2026)
+## Current proof status: LTR v0.49 (November 4, 2026)
 
 The one-axiom nullary first-order theory now has a kernel-verified
 complex spectral triple over its genuine complete-type Stone space,
@@ -38,21 +38,26 @@ concrete nuclear certificate. The positive-exponent operators satisfy
 A_p A_q = A_(p+q), and Lean verifies A_1² = (I + D²)⁻¹.
 
 These finite-rank and ℓ¹ estimates yield trace-class behavior by
-the standard rank-two trace-norm inequality. A general Mathlib
-trace-ideal instance, a formal generic trace-norm inequality, and
-the bounded/unbounded functional-calculus bridges remain to be
-developed. The syntax encoder and lookup are constructive Lean
+the standard rank-two trace-norm inequality. V0.49 verifies genuine
+positive, self-adjoint Hilbert spectral powers and uses Mathlib's CFC
+square root to identify A_(2k/2^n) with R^(k/2^n) for every positive
+natural k. The analytic extension to all positive real exponents
+follows from local uniform convergence and compact-spectrum CFC
+continuity; its formal Lean proof is a remaining target. A generic
+Mathlib trace-ideal instance and trace-norm inequality also remain
+to be developed. The syntax encoder and lookup are constructive Lean
 functions, while the marked dense sequence of completed theories
 still depends on classical selection. A Mathlib Primrec/Computable
 classification for full formula substitution and arbitrary
 interpretation-compatible Dirac intertwiners also remain open.
 
-See the [v0.48 nuclear and semigroup ledger](INFINITE_DIRAC_V48.md),
+See the [v0.49 positive CFC and dyadic-rational ledger](INFINITE_DIRAC_V49.md),
+the [v0.48 nuclear and semigroup ledger](INFINITE_DIRAC_V48.md),
 the [v0.47 Hilbert-basis trace ledger](INFINITE_DIRAC_V47.md),
 the [v0.46 metric recovery ledger](INFINITE_DIRAC_V46.md),
 and the [v0.42 constructive syntax ledger](INFINITE_DIRAC_V42.md).
-The latest v0.48 kernel and axiom audit is
-[run 41781897410](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41781897410).
+The v0.49 positive dyadic-rational CFC theorem passed
+[run 41793916592](https://github.com/patrickdugan/OntologicalProofs/actions/runs/41793916592).
 
 ## Mathematical objective
 
