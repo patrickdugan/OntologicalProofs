@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.Reconstruction
+import Neoplatonic.LTR.ProofMutationInvariance
 import Neoplatonic.LTR.GoalQuotientAliasing
 import Neoplatonic.LTR.UniqueGamesFinite
 import Neoplatonic.LTR.MorphospaceSemiconjugacy
@@ -989,3 +990,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_commutator_le_one
 #print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_attains
 #print axioms Neoplatonic.LTR.booleanCubeConnesDistance_operator_witness
+
+-- PM-01: benign binder renaming, real LTR prefix lookup, and refuted statement mutations.
+#print axioms Neoplatonic.LTR.proofMutation_forallAlphaEq
+#print axioms Neoplatonic.LTR.proofMutation_nestedAlphaEq
+#print axioms Neoplatonic.LTR.proofMutation_lookupPrefixRenamed
+#print axioms Neoplatonic.LTR.proofMutation_quantifierSwapRefuted
+#print axioms Neoplatonic.LTR.proofMutation_captureRefuted
