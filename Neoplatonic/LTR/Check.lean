@@ -55,6 +55,7 @@ import Neoplatonic.LTR.FiveDimensionalSpectralResidual
 import Neoplatonic.LTR.FiveDimensionalOrthonormalExtension
 import Neoplatonic.LTR.FiveDimensionalSignedVectors
 import Neoplatonic.LTR.FiveDimensionalNormExtremal
+import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1058,3 +1059,8 @@ open Neoplatonic.LTR
 
 -- LTR-MAN-20: norm-one Hermitian operator has signed extremal eigenvector.
 #print axioms Neoplatonic.LTR.normOneSelfAdjoint_exists_signedEigenvector
+
+-- LTR-MAN-21: signed unit eigenvectors and 5D cross-products from graded norm-one operators.
+#print axioms Neoplatonic.LTR.nonzeroEigenvector_exists_unitEigenvector
+#print axioms Neoplatonic.LTR.gradedNormOne_exists_signedUnitEigenvectors
+#print axioms Neoplatonic.LTR.fiveDim_gradedCoordinates_zeroProducts
