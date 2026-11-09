@@ -31,10 +31,10 @@ theorem complex_two_unit_discs_tangent
     (z : ℂ) (hz0 : ‖z‖ ≤ 1)
     (hz2 : ‖(2 : ℂ) - z‖ ≤ 1) :
     z = 1 := by
-  have hsq0 : ‖z‖ ^ 2 ≤ (1 : ℝ) :=
-    (sq_le_sq₀ (norm_nonneg _) (by norm_num)).mpr hz0
-  have hsq2 : ‖(2 : ℂ) - z‖ ^ 2 ≤ (1 : ℝ) :=
-    (sq_le_sq₀ (norm_nonneg _) (by norm_num)).mpr hz2
+  have hsq0 : ‖z‖ ^ 2 ≤ (1 : ℝ) := by
+    simpa using (sq_le_sq₀ (norm_nonneg _) (by norm_num)).mpr hz0
+  have hsq2 : ‖(2 : ℂ) - z‖ ^ 2 ≤ (1 : ℝ) := by
+    simpa using (sq_le_sq₀ (norm_nonneg _) (by norm_num)).mpr hz2
   rw [Complex.sq_norm, Complex.normSq_apply] at hsq0 hsq2
   have hre2 : ((2 : ℂ) - z).re = 2 - z.re := by simp
   have him2 : ((2 : ℂ) - z).im = -z.im := by simp
