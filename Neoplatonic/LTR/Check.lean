@@ -61,6 +61,7 @@ import Neoplatonic.LTR.FiveFibreHermitianSupport
 import Neoplatonic.LTR.FiveFibreIsolatedVertex
 import Neoplatonic.LTR.FiveFibreConnesDualObstruction
 import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
+import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
@@ -1168,3 +1169,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquareB_trace_zero
 #print axioms Neoplatonic.LTR.fiveFibreSquareGradeP_anticommutes
 #print axioms Neoplatonic.LTR.fiveFibreSquareGradeQ_anticommutes
+
+-- LTR-MAN-37: canonical 5D spectral-to-metric no-go and matrix/operator bridges.
+#print axioms Neoplatonic.LTR.fiveFibreSquare_matrixSelfAdjoint_toCLM
+#print axioms Neoplatonic.LTR.fiveFibreSquare_trace_toEuclidean
+#print axioms Neoplatonic.LTR.fiveFibreSquare_toEuclidean_mul
+#print axioms Neoplatonic.LTR.fiveFibreSquare_zeroMatrix_of_zeroEndomorphism
+#print axioms Neoplatonic.LTR.fiveFibreSquare_zeroProducts_of_spectralNorms
+#print axioms Neoplatonic.LTR.fiveFibreSquare_exactHamming_canonical_noGo
