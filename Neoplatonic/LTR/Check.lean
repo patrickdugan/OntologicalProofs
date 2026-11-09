@@ -46,6 +46,7 @@ import Neoplatonic.LTR.BooleanCubeHamming
 import Neoplatonic.LTR.BooleanCubeUnitPairs
 import Neoplatonic.LTR.BooleanCubeConnesDistance
 import Neoplatonic.LTR.TwoDirectionContractions
+import Neoplatonic.LTR.TwoDirectionExtremalEigenspaces
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1007,3 +1008,13 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoDirection_parallelogram_contraction
 #print axioms Neoplatonic.LTR.twoDirection_first_saturating_annihilates_second
 #print axioms Neoplatonic.LTR.twoDirection_second_saturating_annihilates_first
+
+-- LTR-MAN-13: cross-direction extremal eigenspaces and orthogonality certificate.
+#print axioms Neoplatonic.LTR.twoDirection_unitEigenvector_annihilates_second
+#print axioms Neoplatonic.LTR.twoDirection_unitEigenvector_annihilates_first
+#print axioms Neoplatonic.LTR.twoDirection_unitEigenspace_le_ker_second
+#print axioms Neoplatonic.LTR.twoDirection_unitEigenspace_le_ker_first
+#print axioms Neoplatonic.LTR.twoDirection_extremalEigenvectors_orthogonal
+#print axioms Neoplatonic.LTR.twoDirection_extremalEigenspaces_orthogonal
+#print axioms Neoplatonic.LTR.twoDirection_signedExtremalEigenspaces_le_ker
+#print axioms Neoplatonic.LTR.twoDirection_signedExtremalEigenspaces_le_ker_first
