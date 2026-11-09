@@ -22,6 +22,8 @@ with the grading involution in MAN-14, and pass them to MAN-19.
 
 namespace Neoplatonic.LTR
 
+open scoped NNReal ENNReal
+
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
   [FiniteDimensional ℂ E] [CompleteSpace E]
 
