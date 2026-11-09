@@ -4,6 +4,7 @@ import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.GoalQuotientAliasing
 import Neoplatonic.LTR.UniqueGamesFinite
 import Neoplatonic.LTR.UniqueGamesGameSpace
+import Neoplatonic.LTR.UniqueGamesPartition
 import Neoplatonic.LTR.MorphospaceSemiconjugacy
 import Neoplatonic.LTR.MorphospaceMinimax
 import Neoplatonic.LTR.MorphospaceGoal
@@ -1008,3 +1009,5 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.UniqueGames.GameSpace.frustrated_triangle_no_section
 #print axioms Neoplatonic.LTR.UniqueGames.GameSpace.triangle_holonomy_gauge
 #print axioms Neoplatonic.LTR.UniqueGames.GameSpace.lifted_edge_satisfied
+
+#print axioms Neoplatonic.LTR.UniqueGames.GameSpace.finitePartition_subset_expansion
