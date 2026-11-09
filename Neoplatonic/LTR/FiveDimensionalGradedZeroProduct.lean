@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.FiveDimensionalNormExtremal
+import Neoplatonic.LTR.IdempotentGradingPairing
 import Mathlib.Analysis.Normed.Module.Normalize
 import Mathlib.Tactic
 
