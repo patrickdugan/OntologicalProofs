@@ -52,6 +52,7 @@ import Neoplatonic.LTR.TwoDirectionTraceZero
 import Neoplatonic.LTR.TwoBitSquareSupport
 import Neoplatonic.LTR.ScalarFibreNonzeroComposition
 import Neoplatonic.LTR.FiveDimensionalSpectralResidual
+import Neoplatonic.LTR.FiveDimensionalOrthonormalExtension
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1045,3 +1046,6 @@ open Neoplatonic.LTR
 
 -- LTR-MAN-17: five-dimensional joint spectral normal form and zero products.
 #print axioms Neoplatonic.LTR.fiveDim_jointExtremalEigenbasis_zeroProducts
+
+-- LTR-MAN-18: lift the 5D matrix certificate through an orthonormal basis extension.
+#print axioms Neoplatonic.LTR.fiveDim_extremalOrthonormalFour_zeroProducts
