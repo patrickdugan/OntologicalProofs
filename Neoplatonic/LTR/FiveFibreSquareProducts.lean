@@ -42,49 +42,49 @@ private theorem fiveFibreSquare_AB00 (D : Matrix (Fin 5) (Fin 5) ℂ) :
     (fiveFibreSquareA D * fiveFibreSquareB D) 0 0 = D 0 3 * D 3 0 := by
   simp [Matrix.mul_apply, Fin.sum_univ_five,
     fiveFibreSquareA, fiveFibreSquareB, fiveFibreSquareP, fiveFibreSquareQ,
-    ← mul_assoc, Complex.I_mul_I] <;> ring
+    ← mul_assoc] <;> ring_nf <;> simp [Complex.I_sq]
 
 private theorem fiveFibreSquare_AB44 (D : Matrix (Fin 5) (Fin 5) ℂ) :
     (fiveFibreSquareA D * fiveFibreSquareB D) 4 4 = D 4 3 * D 3 4 := by
   simp [Matrix.mul_apply, Fin.sum_univ_five,
     fiveFibreSquareA, fiveFibreSquareB, fiveFibreSquareP, fiveFibreSquareQ,
-    ← mul_assoc, Complex.I_mul_I] <;> ring
+    ← mul_assoc] <;> ring_nf <;> simp [Complex.I_sq]
 
 private theorem fiveFibreSquare_AB11 (D : Matrix (Fin 5) (Fin 5) ℂ) :
     (fiveFibreSquareA D * fiveFibreSquareB D) 1 1 = -(D 1 2 * D 2 1) := by
   simp [Matrix.mul_apply, Fin.sum_univ_five,
     fiveFibreSquareA, fiveFibreSquareB, fiveFibreSquareP, fiveFibreSquareQ,
-    ← mul_assoc, Complex.I_mul_I] <;> ring
+    ← mul_assoc] <;> ring_nf <;> simp [Complex.I_sq]
 
 private theorem fiveFibreSquare_AB03 (D : Matrix (Fin 5) (Fin 5) ℂ) :
     (fiveFibreSquareA D * fiveFibreSquareB D) 0 3 = -(D 0 1 * D 1 3) := by
   simp [Matrix.mul_apply, Fin.sum_univ_five,
     fiveFibreSquareA, fiveFibreSquareB, fiveFibreSquareP, fiveFibreSquareQ,
-    ← mul_assoc, Complex.I_mul_I] <;> ring
+    ← mul_assoc] <;> ring_nf <;> simp [Complex.I_sq]
 
 private theorem fiveFibreSquare_AB43 (D : Matrix (Fin 5) (Fin 5) ℂ) :
     (fiveFibreSquareA D * fiveFibreSquareB D) 4 3 = -(D 4 1 * D 1 3) := by
   simp [Matrix.mul_apply, Fin.sum_univ_five,
     fiveFibreSquareA, fiveFibreSquareB, fiveFibreSquareP, fiveFibreSquareQ,
-    ← mul_assoc, Complex.I_mul_I] <;> ring
+    ← mul_assoc] <;> ring_nf <;> simp [Complex.I_sq]
 
 private theorem fiveFibreSquare_BA03 (D : Matrix (Fin 5) (Fin 5) ℂ) :
     (fiveFibreSquareB D * fiveFibreSquareA D) 0 3 = -(D 0 2 * D 2 3) := by
   simp [Matrix.mul_apply, Fin.sum_univ_five,
     fiveFibreSquareA, fiveFibreSquareB, fiveFibreSquareP, fiveFibreSquareQ,
-    ← mul_assoc, Complex.I_mul_I] <;> ring
+    ← mul_assoc] <;> ring_nf <;> simp [Complex.I_sq]
 
 private theorem fiveFibreSquare_BA43 (D : Matrix (Fin 5) (Fin 5) ℂ) :
     (fiveFibreSquareB D * fiveFibreSquareA D) 4 3 = -(D 4 2 * D 2 3) := by
   simp [Matrix.mul_apply, Fin.sum_univ_five,
     fiveFibreSquareA, fiveFibreSquareB, fiveFibreSquareP, fiveFibreSquareQ,
-    ← mul_assoc, Complex.I_mul_I] <;> ring
+    ← mul_assoc] <;> ring_nf <;> simp [Complex.I_sq]
 
 private theorem fiveFibreSquare_BA12 (D : Matrix (Fin 5) (Fin 5) ℂ) :
     (fiveFibreSquareB D * fiveFibreSquareA D) 1 2 = D 1 3 * D 3 2 := by
   simp [Matrix.mul_apply, Fin.sum_univ_five,
     fiveFibreSquareA, fiveFibreSquareB, fiveFibreSquareP, fiveFibreSquareQ,
-    ← mul_assoc, Complex.I_mul_I] <;> ring
+    ← mul_assoc] <;> ring_nf <;> simp [Complex.I_sq]
 
 /-- With both ordered coordinate products zero, two opposite-corner
 scalar couplings and the six one-dimensional-fibre path products obey
