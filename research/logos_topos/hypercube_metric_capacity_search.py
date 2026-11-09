@@ -10,8 +10,11 @@ Every pair distance is obtained by numerically minimizing the operator
 norm of [D,diag(f)] with f(x)=0, f(y)=1. The optimization has nonsmooth
 eigenvalue ties and gives candidate metrics, never an impossibility proof.
 
-Use --maxiter 40 for the ordinary exploratory scan, or larger settings
-and multiple seeds to search for a prospective exact realization.
+Run with --dims 6 7 --seeds 0 1 3 --maxiter 40 for the ordinary
+exploratory scan. --all-merges enumerates all equal-truth coordinate
+mergings for each dimension. The fixed seed controls the small random
+perturbation of each symmetric starting matrix. Every reported distance
+is a nested numerical minimum, not a certified value.
 """
 
 from __future__ import annotations
@@ -127,10 +130,12 @@ class RealDiracSearch:
         )
         return loss, grad
 
-    def optimize(self, maxiter: int):
-        result = minimize(self.objective, self.initial, jac=True,
+    def optimize(self, maxiter: int, seed: int = 0):
+        rng = np.random.default_rng(seed)
+        x0 = self.initial + rng.normal(scale=0.06, size=self.initial.shape)
+        result = minimize(self.objective, x0, jac=True,
                           method="L-BFGS-B",
-                          options={"maxiter": maxiter, "ftol": 1e-9})
+                          options={"maxiter": maxiter, "maxls": 8, "ftol": 1e-7})
         D = self.unpack(result.x)
         d = distances(D, self.labels)
         scale = np.exp(np.mean(np.log(d / HAMMING_TARGET)))
@@ -152,25 +157,36 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--maxiter", type=int, default=40)
     parser.add_argument("--all-merges", action="store_true")
+    parser.add_argument("--seeds", nargs="+", type=int, default=[0, 1, 3])
+    parser.add_argument("--dims", nargs="+", type=int, default=[6, 7])
     args = parser.parse_args()
+    for n in args.dims:
+        if not 4 <= n <= 8:
+            parser.error("Only dimensions from 4 through 8 are supported")
+    if not args.seeds:
+        parser.error("At least one seed is required")
 
     D8, l8 = independent_edge_model()
     print("Independent H8 control", np.round(distances(D8, l8), 8))
     D4, l4 = square_flux(np.pi)
     print("Four-dimensional pi-flux control", np.round(distances(D4, l4), 8))
-    for n in (4, 5, 6, 7):
+    for n in args.dims:
         k = 8 - n
         choices = (list(combinations(range(4), k))
                    if args.all_merges else [tuple(range(k))])
         best = None
         for merge in choices:
             D, labels = merged_edge_model(merge)
-            error, d, result = RealDiracSearch(D, labels).optimize(args.maxiter)
-            if best is None or error < best[0]:
-                best = (error, merge, d, result.nit)
+            for seed in args.seeds:
+                error, d, result = RealDiracSearch(D, labels).optimize(
+                    args.maxiter, seed=seed
+                )
+                if best is None or error < best[0]:
+                    best = (error, merge, seed, d, result.nit, result.success)
         assert best is not None
         print(f"H{n}: logRMSE={best[0]:.6f}, merges={best[1]}, "
-              f"iters={best[3]}, distances={np.round(best[2], 5)}")
+              f"seed={best[2]}, iters={best[4]}, converged={best[5]}, "
+              f"distances={np.round(best[3], 5)}")
 
 
 if __name__ == "__main__":
