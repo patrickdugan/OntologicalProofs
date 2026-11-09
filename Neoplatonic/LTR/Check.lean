@@ -63,6 +63,7 @@ import Neoplatonic.LTR.FiveFibreConnesDualObstruction
 import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
+import Neoplatonic.LTR.FiveFibreAdjacentNorms
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1109,3 +1110,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquare_differenceWitness_matrix
 #print axioms Neoplatonic.LTR.fiveFibreSquare_imaginaryOperator_norm
 #print axioms Neoplatonic.LTR.fiveFibreSquare_oppositeWitnesses_contractions
+
+-- LTR-MAN-29: scalar homogeneous commutator dual bounds force coordinate norms = 1.
+#print axioms Neoplatonic.LTR.fiveFibreSquareDiracComm_smul
+#print axioms Neoplatonic.LTR.complexUnitBallDual_norm_ge_one
+#print axioms Neoplatonic.LTR.fiveFibreSquare_firstCoordinate_norm_ge_one
+#print axioms Neoplatonic.LTR.fiveFibreSquare_secondCoordinate_norm_ge_one
+#print axioms Neoplatonic.LTR.twoDirection_norms_le_one
+#print axioms Neoplatonic.LTR.fiveFibreSquare_adjacentDual_normOne
