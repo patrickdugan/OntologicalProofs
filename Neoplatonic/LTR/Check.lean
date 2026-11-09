@@ -56,6 +56,7 @@ import Neoplatonic.LTR.FiveDimensionalOrthonormalExtension
 import Neoplatonic.LTR.FiveDimensionalSignedVectors
 import Neoplatonic.LTR.FiveDimensionalNormExtremal
 import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
+import Neoplatonic.LTR.FiveFibreSquareProducts
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1064,3 +1065,6 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.nonzeroEigenvector_exists_unitEigenvector
 #print axioms Neoplatonic.LTR.gradedNormOne_exists_signedUnitEigenvectors
 #print axioms Neoplatonic.LTR.fiveDim_gradedCoordinates_zeroProducts
+
+-- LTR-MAN-22: exact 5x5 coordinate-commutator block product identities.
+#print axioms Neoplatonic.LTR.fiveFibreSquare_product_zero_entries
