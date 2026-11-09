@@ -58,6 +58,7 @@ import Neoplatonic.LTR.FiveDimensionalNormExtremal
 import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
 import Neoplatonic.LTR.FiveFibreSquareProducts
 import Neoplatonic.LTR.FiveFibreHermitianSupport
+import Neoplatonic.LTR.FiveFibreIsolatedVertex
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1073,3 +1074,8 @@ open Neoplatonic.LTR
 -- LTR-MAN-23: Hermitian opposite-corner elimination and singleton branch exclusions.
 #print axioms Neoplatonic.LTR.fiveFibreSquare_oppositeCouplings_zero
 #print axioms Neoplatonic.LTR.fiveFibreSquare_singletonBranches
+
+-- LTR-MAN-24: canonical 5D isolated-11 support and kernel-constancy obstruction.
+#print axioms Neoplatonic.LTR.fiveFibreSquare_vertex11_isolated
+#print axioms Neoplatonic.LTR.fiveFibreSquare_vertex11_commutes
+#print axioms Neoplatonic.LTR.fiveFibreSquare_noFiniteOppositeMetric
