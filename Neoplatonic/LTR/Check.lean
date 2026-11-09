@@ -1,3 +1,4 @@
+import Neoplatonic.LTR.QFTLatticeDomainResidual
 import Neoplatonic.LTR.QFTLatticeSchur
 import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.GoalQuotientAliasing
@@ -995,3 +996,8 @@ open Neoplatonic.LTR
 #print axioms qftLattice_residual_norm_le
 #print axioms qftLattice_schur_norm_le
 #print axioms qftLattice_schur_rate
+
+-- Domain-aware, unbounded-Hilbert resolvent certificates.
+#print axioms qftLattice_domain_residual_norm_le
+#print axioms qftLattice_domain_residual_certificate
+#print axioms qftLattice_complexBlockDirac_residual_norm_le
