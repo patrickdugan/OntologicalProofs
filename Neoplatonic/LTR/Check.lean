@@ -57,6 +57,7 @@ import Neoplatonic.LTR.FiveDimensionalSignedVectors
 import Neoplatonic.LTR.FiveDimensionalNormExtremal
 import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
 import Neoplatonic.LTR.FiveFibreSquareProducts
+import Neoplatonic.LTR.FiveFibreHermitianSupport
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1068,3 +1069,7 @@ open Neoplatonic.LTR
 
 -- LTR-MAN-22: exact 5x5 coordinate-commutator block product identities.
 #print axioms Neoplatonic.LTR.fiveFibreSquare_product_zero_entries
+
+-- LTR-MAN-23: Hermitian opposite-corner elimination and singleton branch exclusions.
+#print axioms Neoplatonic.LTR.fiveFibreSquare_oppositeCouplings_zero
+#print axioms Neoplatonic.LTR.fiveFibreSquare_singletonBranches
