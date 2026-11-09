@@ -54,6 +54,7 @@ import Neoplatonic.LTR.ScalarFibreNonzeroComposition
 import Neoplatonic.LTR.FiveDimensionalSpectralResidual
 import Neoplatonic.LTR.FiveDimensionalOrthonormalExtension
 import Neoplatonic.LTR.FiveDimensionalSignedVectors
+import Neoplatonic.LTR.FiveDimensionalNormExtremal
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1054,3 +1055,6 @@ open Neoplatonic.LTR
 -- LTR-MAN-19: signed unit eigenvectors generate the 5D zero-product certificate.
 #print axioms Neoplatonic.LTR.selfAdjoint_oppositeSignedEigenvectors_orthogonal
 #print axioms Neoplatonic.LTR.fiveDim_signedUnitEigenvectors_zeroProducts
+
+-- LTR-MAN-20: norm-one Hermitian operator has signed extremal eigenvector.
+#print axioms Neoplatonic.LTR.normOneSelfAdjoint_exists_signedEigenvector
