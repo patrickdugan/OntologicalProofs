@@ -29,7 +29,9 @@ theorem selfAdjoint_oppositeSignedEigenvectors_orthogonal
     (x y : E) (hx : T x = x) (hy : T y = -y) :
     inner ℂ x y = 0 := by
   have hs := (ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.mp hT) x y
-  rw [hx, hy, inner_neg_right] at hs
+  have hx' : (T : E →ₗ[ℂ] E) x = x := hx
+  have hy' : (T : E →ₗ[ℂ] E) y = -y := hy
+  rw [hx', hy', inner_neg_right] at hs
   have hz : (2 : ℂ) * inner ℂ x y = 0 := by
     linear_combination hs
   exact (mul_eq_zero.mp hz).resolve_left (by norm_num)
@@ -77,9 +79,9 @@ theorem fiveDim_signedUnitEigenvectors_zeroProducts
       (by simpa using hA1) (by simpa using hB3)
   have flipZero (x y : E) (hxy : inner ℂ x y = 0) :
       inner ℂ y x = 0 := by
-    have h : star (inner ℂ y x) = 0 := by
+    have h : (starRingEnd ℂ) (inner ℂ y x) = 0 := by
       simpa only [hxy] using (inner_conj_symm (𝕜 := ℂ) x y)
-    simpa using congrArg star h
+    simpa using congrArg (starRingEnd ℂ) h
   have h10 : inner ℂ u1 u0 = 0 := flipZero u0 u1 h01
   have h20 : inner ℂ u2 u0 = 0 := flipZero u0 u2 h02
   have h30 : inner ℂ u3 u0 = 0 := flipZero u0 u3 h03
@@ -100,6 +102,8 @@ theorem fiveDim_signedUnitEigenvectors_zeroProducts
     intro ⟨i,hi⟩ ⟨j,hj⟩
     change inner ℂ (v i) (v j) =
       (if (⟨i,hi⟩ : s) = ⟨j,hj⟩ then (1 : ℂ) else 0)
+    change i < (4 : Fin 5) at hi
+    change j < (4 : Fin 5) at hj
     fin_cases i <;> fin_cases j <;>
       simp_all [s, v, h00, h11, h22, h33,
         h01, h02, h03, h10, h12, h13, h20, h21, h23, h30, h31, h32]
