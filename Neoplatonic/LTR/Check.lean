@@ -62,6 +62,7 @@ import Neoplatonic.LTR.FiveFibreIsolatedVertex
 import Neoplatonic.LTR.FiveFibreConnesDualObstruction
 import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
+import Neoplatonic.LTR.FiveFibreOppositeContractions
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1100,3 +1101,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoBitOppositeCornerSum_unique
 #print axioms Neoplatonic.LTR.twoBitOppositeCornerDifference_unique
 #print axioms Neoplatonic.LTR.twoBitOppositeAttainers_force_coordinateWitnesses
+
+-- LTR-MAN-28: exact 5D commutator identities and opposite-witness norm bounds.
+#print axioms Neoplatonic.LTR.fiveFibreSquareLift_sum_eq
+#print axioms Neoplatonic.LTR.fiveFibreSquareLift_difference_eq
+#print axioms Neoplatonic.LTR.fiveFibreSquare_sumWitness_matrix
+#print axioms Neoplatonic.LTR.fiveFibreSquare_differenceWitness_matrix
+#print axioms Neoplatonic.LTR.fiveFibreSquare_imaginaryOperator_norm
+#print axioms Neoplatonic.LTR.fiveFibreSquare_oppositeWitnesses_contractions
