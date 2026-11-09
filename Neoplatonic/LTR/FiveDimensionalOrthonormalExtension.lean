@@ -162,10 +162,16 @@ theorem fiveDim_extremalOrthonormalFour_zeroProducts
   have hZero := fiveDim_jointExtremalEigenbasis_zeroProducts MA MB
     hMAstar hMBstar hMA0 hMA1 hMA2 hMA3 hMB0 hMB1 hMB2 hMB3
     htrMA htrMB
+  have hmatEq (T : E →ₗ[ℂ] E) :
+      (LinearMap.toMatrixOrthonormal b) T =
+        LinearMap.toMatrix b.toBasis b.toBasis T := by
+    rfl
   constructor
   · apply (LinearMap.toMatrix b.toBasis b.toBasis).injective
-    simpa only [LinearMap.toMatrix_mul, map_zero, MA, MB, a, c] using hZero.1
+    rw [LinearMap.toMatrix_mul, map_zero, ← hmatEq a, ← hmatEq c]
+    exact hZero.1
   · apply (LinearMap.toMatrix b.toBasis b.toBasis).injective
-    simpa only [LinearMap.toMatrix_mul, map_zero, MA, MB, a, c] using hZero.2
+    rw [LinearMap.toMatrix_mul, map_zero, ← hmatEq c, ← hmatEq a]
+    exact hZero.2
 
 end Neoplatonic.LTR
