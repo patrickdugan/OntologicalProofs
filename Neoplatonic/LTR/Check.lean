@@ -65,6 +65,7 @@ import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
 import Neoplatonic.LTR.FiveFibreAdjacentNorms
 import Neoplatonic.LTR.FiveFibreConnesDualDistance
+import Neoplatonic.LTR.FiveFibreAttainerNormalization
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1125,3 +1126,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquare_exactEdgeDistance_normOne
 #print axioms Neoplatonic.LTR.fiveFibreSquare_exactOppositeDistance_dualBound
 #print axioms Neoplatonic.LTR.fiveFibreSquare_exactOppositeDistance_noGo
+
+-- LTR-MAN-31: unit-phase and scalar-translation normalization of Connes attainers.
+#print axioms Neoplatonic.LTR.fiveFibreSquareDiracComm_sub_const
+#print axioms Neoplatonic.LTR.fiveFibreSquare_normalizeDistanceTwoAttainer
+#print axioms Neoplatonic.LTR.fiveFibreSquare_normalizeSubtypeAttainer
