@@ -85,9 +85,9 @@ theorem fiveDim_extremalOrthonormalFour_zeroProducts
   let MA : Matrix (Fin 5) (Fin 5) ℂ := LinearMap.toMatrixOrthonormal b a
   let MB : Matrix (Fin 5) (Fin 5) ℂ := LinearMap.toMatrixOrthonormal b c
   have hAadj : a.adjoint = a :=
-    (ContinuousLinearMap.isSelfAdjoint_toLinearMap_iff A).mp hAself
+    (ContinuousLinearMap.isSelfAdjoint_toLinearMap_iff A).mpr hAself
   have hBadj : c.adjoint = c :=
-    (ContinuousLinearMap.isSelfAdjoint_toLinearMap_iff B).mp hBself
+    (ContinuousLinearMap.isSelfAdjoint_toLinearMap_iff B).mpr hBself
   have hMAHerm : Matrix.conjTranspose MA = MA := by
     change Matrix.conjTranspose (LinearMap.toMatrix b.toBasis b.toBasis a) =
       LinearMap.toMatrix b.toBasis b.toBasis a
@@ -109,33 +109,45 @@ theorem fiveDim_extremalOrthonormalFour_zeroProducts
     (orthonormal_iff_ite.mp b.orthonormal) i j
   have hMA0 (i : Fin 5) : MA i 0 = if i = 0 then 1 else 0 := by
     change LinearMap.toMatrixOrthonormal b a i 0 = _
-    rw [LinearMap.toMatrixOrthonormal_apply_apply, ha0, hpair i 0]
+    rw [LinearMap.toMatrixOrthonormal_apply_apply]
+    change inner ℂ (b i) (A (b 0)) = _
+    rw [ha0, hpair i 0]
   have hMA1 (i : Fin 5) : MA i 1 = if i = 1 then -1 else 0 := by
     change LinearMap.toMatrixOrthonormal b a i 1 = _
-    rw [LinearMap.toMatrixOrthonormal_apply_apply, ha1, inner_neg_right, hpair i 1]
+    rw [LinearMap.toMatrixOrthonormal_apply_apply]
+    change inner ℂ (b i) (A (b 1)) = _
+    rw [ha1, inner_neg_right, hpair i 1]
     by_cases h : i = 1 <;> simp [h]
   have hMA2 (i : Fin 5) : MA i 2 = 0 := by
     change LinearMap.toMatrixOrthonormal b a i 2 = _
     rw [LinearMap.toMatrixOrthonormal_apply_apply]
+    change inner ℂ (b i) (A (b 2)) = 0
     simp [ha2]
   have hMA3 (i : Fin 5) : MA i 3 = 0 := by
     change LinearMap.toMatrixOrthonormal b a i 3 = _
     rw [LinearMap.toMatrixOrthonormal_apply_apply]
+    change inner ℂ (b i) (A (b 3)) = 0
     simp [ha3]
   have hMB0 (i : Fin 5) : MB i 0 = 0 := by
     change LinearMap.toMatrixOrthonormal b c i 0 = _
     rw [LinearMap.toMatrixOrthonormal_apply_apply]
+    change inner ℂ (b i) (B (b 0)) = 0
     simp [hb0zero]
   have hMB1 (i : Fin 5) : MB i 1 = 0 := by
     change LinearMap.toMatrixOrthonormal b c i 1 = _
     rw [LinearMap.toMatrixOrthonormal_apply_apply]
+    change inner ℂ (b i) (B (b 1)) = 0
     simp [hb1zero]
   have hMB2 (i : Fin 5) : MB i 2 = if i = 2 then 1 else 0 := by
     change LinearMap.toMatrixOrthonormal b c i 2 = _
-    rw [LinearMap.toMatrixOrthonormal_apply_apply, hb2eig, hpair i 2]
+    rw [LinearMap.toMatrixOrthonormal_apply_apply]
+    change inner ℂ (b i) (B (b 2)) = _
+    rw [hb2eig, hpair i 2]
   have hMB3 (i : Fin 5) : MB i 3 = if i = 3 then -1 else 0 := by
     change LinearMap.toMatrixOrthonormal b c i 3 = _
-    rw [LinearMap.toMatrixOrthonormal_apply_apply, hb3eig, inner_neg_right, hpair i 3]
+    rw [LinearMap.toMatrixOrthonormal_apply_apply]
+    change inner ℂ (b i) (B (b 3)) = _
+    rw [hb3eig, inner_neg_right, hpair i 3]
     by_cases h : i = 3 <;> simp [h]
   have htrMA : MA.trace = 0 := by
     calc
@@ -152,8 +164,8 @@ theorem fiveDim_extremalOrthonormalFour_zeroProducts
     htrMA htrMB
   constructor
   · apply (LinearMap.toMatrixOrthonormal b).injective
-    simpa only [map_mul, map_zero] using hZero.1
+    simpa only [map_mul, map_zero, MA, MB, a, c] using hZero.1
   · apply (LinearMap.toMatrixOrthonormal b).injective
-    simpa only [map_mul, map_zero] using hZero.2
+    simpa only [map_mul, map_zero, MA, MB, a, c] using hZero.2
 
 end Neoplatonic.LTR
