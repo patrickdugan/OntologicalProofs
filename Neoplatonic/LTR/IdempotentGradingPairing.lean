@@ -67,8 +67,8 @@ theorem anticommuting_endomorphism_flips_eigenvector
     A (G v) = (-λ) • (G v) := by
   have h := congrArg (fun T : E →ₗ[ℂ] E => T v) hanti
   change A (G v) = -(G (A v)) at h
-  rw [hv, map_smul, neg_smul] at h
-  exact h
+  rw [hv, map_smul] at h
+  simpa only [neg_smul] using h
 
 /-- An involution maps nonzero vectors to nonzero vectors. -/
 theorem linearInvolution_map_ne_zero
