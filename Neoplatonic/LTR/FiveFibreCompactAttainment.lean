@@ -145,7 +145,7 @@ theorem fiveFibreSquare_distanceTwo_attained_of_continuous
     have h := fiveFibreSquareConnesDualDistance_bounds D
       u.castSucc v.castSucc 2 (by simp [hduv])
       (fiveFibreSquareLift g) hdup hunit
-    simpa only [fiveFibreSquareLift_castSucc] using h
+    simpa [fiveFibreSquareLift_castSucc] using h
   have hmax_bound (f : fiveFibreSquareAdmissible D) :
       ‖f.val u.castSucc - f.val v.castSucc‖ ≤ ‖g u - g v‖ := by
     let shifted : Fin 5 → ℂ := fun i => f.val i - f.val 0
@@ -170,25 +170,29 @@ theorem fiveFibreSquare_distanceTwo_attained_of_continuous
       change (f.val u.castSucc - f.val 0) -
         (f.val v.castSucc - f.val 0) = _
       ring
-    simpa only [heq] using hmax fr hfr
+    simpa only [heq] using hmax hfr
+  let M : ℝ≥0 := ⟨‖g u - g v‖, norm_nonneg _⟩
   have hsup : fiveFibreSquareConnesDualDistance D
-      u.castSucc v.castSucc ≤
-      ((⟨‖g u - g v‖, norm_nonneg _⟩ : ℝ≥0) : ℝ≥0∞) := by
+      u.castSucc v.castSucc ≤ (M : ℝ≥0∞) := by
     unfold fiveFibreSquareConnesDualDistance
     apply iSup_le
     intro f
     have hm := hmax_bound f
-    have hnn : ‖f.val u.castSucc - f.val v.castSucc‖₊ ≤
-        (⟨‖g u - g v‖, norm_nonneg _⟩ : ℝ≥0) := by
+    have hnn : ‖f.val u.castSucc - f.val v.castSucc‖₊ ≤ M := by
       apply NNReal.coe_le_coe.mp
-      simpa only [coe_nnnorm] using hm
+      change ‖f.val u.castSucc - f.val v.castSucc‖ ≤ ‖g u - g v‖
+      exact hm
     exact ENNReal.coe_le_coe.mpr hnn
-  have hgeNN : (2 : ℝ≥0) ≤
-      (⟨‖g u - g v‖, norm_nonneg _⟩ : ℝ≥0) := by
+  have hgeNN : (2 : ℝ≥0) ≤ M := by
     apply ENNReal.coe_le_coe.mp
-    simpa [hduv] using hsup
+    calc
+      (2 : ℝ≥0∞) = fiveFibreSquareConnesDualDistance D
+          u.castSucc v.castSucc := hduv.symm
+      _ ≤ (M : ℝ≥0∞) := hsup
   have hge : (2 : ℝ) ≤ ‖g u - g v‖ := by
-    simpa using (NNReal.coe_le_coe.mpr hgeNN)
+    have hh := NNReal.coe_le_coe.mpr hgeNN
+    change (2 : ℝ) ≤ ‖g u - g v‖ at hh
+    exact hh
   have heq : ‖g u - g v‖ = 2 := le_antisymm hle hge
   refine ⟨⟨fiveFibreSquareLift g, ⟨hdup, hunit⟩⟩, ?_⟩
   simpa only [fiveFibreSquareLift_castSucc, norm_sub_rev] using heq
