@@ -60,6 +60,7 @@ import Neoplatonic.LTR.FiveFibreSquareProducts
 import Neoplatonic.LTR.FiveFibreHermitianSupport
 import Neoplatonic.LTR.FiveFibreIsolatedVertex
 import Neoplatonic.LTR.FiveFibreConnesDualObstruction
+import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1086,3 +1087,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquareB_eq_diagonal_commutator
 #print axioms Neoplatonic.LTR.fiveFibreSquare_scaledVertex11_commutes
 #print axioms Neoplatonic.LTR.fiveFibreSquare_connesDual_hamming_noGo
+
+-- LTR-MAN-26: complemented coordinate gradings cover all four labelled orientations.
+#print axioms Neoplatonic.LTR.fiveFibreSquareOrientedA_eq
+#print axioms Neoplatonic.LTR.fiveFibreSquareOrientedB_eq
+#print axioms Neoplatonic.LTR.fiveFibreSquare_orientedProducts_to_canonical
+#print axioms Neoplatonic.LTR.fiveFibreSquare_fourOrientations_connesDual_noGo
