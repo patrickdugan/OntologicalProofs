@@ -74,7 +74,9 @@ theorem twoDirection_second_saturating_annihilates_first
     A v = 0 := by
   have hswapPlus : ‖B + A‖ ≤ 1 := by simpa only [add_comm] using hplus
   have hswapMinus : ‖B - A‖ ≤ 1 := by
-    simpa only [← norm_neg, neg_sub] using hminus
+    have heq : B - A = -(A - B) := by abel
+    rw [heq, norm_neg]
+    exact hminus
   exact twoDirection_first_saturating_annihilates_second
     B A hswapPlus hswapMinus v hsaturates
 
