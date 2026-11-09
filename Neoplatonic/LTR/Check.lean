@@ -59,6 +59,7 @@ import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
 import Neoplatonic.LTR.FiveFibreSquareProducts
 import Neoplatonic.LTR.FiveFibreHermitianSupport
 import Neoplatonic.LTR.FiveFibreIsolatedVertex
+import Neoplatonic.LTR.FiveFibreConnesDualObstruction
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1079,3 +1080,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquare_vertex11_isolated
 #print axioms Neoplatonic.LTR.fiveFibreSquare_vertex11_commutes
 #print axioms Neoplatonic.LTR.fiveFibreSquare_noFiniteOppositeMetric
+
+-- LTR-MAN-25: coordinate commutator identities and explicit 00/11 dual metric contradiction.
+#print axioms Neoplatonic.LTR.fiveFibreSquareA_eq_diagonal_commutator
+#print axioms Neoplatonic.LTR.fiveFibreSquareB_eq_diagonal_commutator
+#print axioms Neoplatonic.LTR.fiveFibreSquare_scaledVertex11_commutes
+#print axioms Neoplatonic.LTR.fiveFibreSquare_connesDual_hamming_noGo
