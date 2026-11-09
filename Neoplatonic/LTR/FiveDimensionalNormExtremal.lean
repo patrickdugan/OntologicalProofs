@@ -36,7 +36,13 @@ theorem normOneSelfAdjoint_exists_signedEigenvector
     ∃ (μ : ℂ) (w : E), (μ = 1 ∨ μ = -1) ∧
       w ≠ 0 ∧ T w = μ • w := by
   classical
-  nontriviality E
+  haveI : Nontrivial E := by
+    by_contra hn
+    haveI : Subsingleton E := not_nontrivial_iff_subsingleton.mp hn
+    have hzero : T = 0 := by
+      ext x
+      exact Subsingleton.elim _ _
+    simp [hzero] at hnorm
   haveI : ProperSpace E := FiniteDimensional.proper_rclike ℂ E
   have hcompact : IsCompactOperator T :=
     isCompactOperator_of_locallyCompactSpace_dom T
