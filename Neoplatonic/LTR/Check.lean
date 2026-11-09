@@ -1,3 +1,4 @@
+import Neoplatonic.LTR.QFTLatticeSchur
 import Neoplatonic.LTR.Reconstruction
 import Neoplatonic.LTR.GoalQuotientAliasing
 import Neoplatonic.LTR.UniqueGamesFinite
@@ -989,3 +990,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_commutator_le_one
 #print axioms Neoplatonic.LTR.booleanCubeDistanceObservable_attains
 #print axioms Neoplatonic.LTR.booleanCubeConnesDistance_operator_witness
+
+#print axioms qftLattice_residual_identity
+#print axioms qftLattice_residual_norm_le
+#print axioms qftLattice_schur_norm_le
+#print axioms qftLattice_schur_rate
