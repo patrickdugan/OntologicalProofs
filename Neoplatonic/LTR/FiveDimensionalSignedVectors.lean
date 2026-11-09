@@ -104,9 +104,8 @@ theorem fiveDim_signedUnitEigenvectors_zeroProducts
       (if (⟨i,hi⟩ : s) = ⟨j,hj⟩ then (1 : ℂ) else 0)
     change i < (4 : Fin 5) at hi
     change j < (4 : Fin 5) at hj
-    fin_cases i <;> fin_cases j <;>
-      simp_all [s, v, h00, h11, h22, h33,
-        h01, h02, h03, h10, h12, h13, h20, h21, h23, h30, h31, h32]
+    fin_cases i <;> fin_cases j <;> simp_all [s, v]
+    all_goals norm_num at hi
   exact fiveDim_extremalOrthonormalFour_zeroProducts A B
     hDim hplus hminus hAself hBself htrA htrB v horth
     (by simpa [v] using hA0)
