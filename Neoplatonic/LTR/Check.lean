@@ -45,6 +45,7 @@ import Neoplatonic.LTR.BooleanCubeCapacity
 import Neoplatonic.LTR.BooleanCubeHamming
 import Neoplatonic.LTR.BooleanCubeUnitPairs
 import Neoplatonic.LTR.BooleanCubeConnesDistance
+import Neoplatonic.LTR.TwoDirectionContractions
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1001,3 +1002,8 @@ open Neoplatonic.LTR
 #print axioms qftLattice_domain_residual_norm_le
 #print axioms qftLattice_domain_residual_certificate
 #print axioms qftLattice_complexBlockDirac_residual_norm_le
+
+-- LTR-MAN-12: Hilbert parallelogram contraction underlying low-dimensional no-go.
+#print axioms Neoplatonic.LTR.twoDirection_parallelogram_contraction
+#print axioms Neoplatonic.LTR.twoDirection_first_saturating_annihilates_second
+#print axioms Neoplatonic.LTR.twoDirection_second_saturating_annihilates_first
