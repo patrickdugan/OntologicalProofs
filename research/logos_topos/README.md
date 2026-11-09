@@ -71,6 +71,28 @@ at source commit `4de8d6115ddc21922b1cfc9f843673159f31f7a6`.
 That run completed the Lean build, the axiom audit, and all six finite
 reconstruction tests.
 
+## LTR-MAN-09/11: Finite spectral geometry and low-rank search
+
+The Lean-verified Boolean hypercube edge Dirac construction recovers
+the entire Hamming metric through the actual operator commutator.
+The independent-edge realization uses `m * 2^m` Hilbert coordinates
+for `m ≥ 1`. See
+[HYPERCUBE_SPECTRAL_GEOMETRY_V09.md](HYPERCUBE_SPECTRAL_GEOMETRY_V09.md).
+
+The [four-/five-dimensional no-go ledger](HYPERCUBE_FOUR_DIMENSION_NO_GO_V10.md)
+contains written analytic arguments that the two-bit Hamming square
+requires at least six complex Hilbert dimensions; formalization of
+those obstructions remains open. The verified edge realization
+uses eight dimensions.
+
+The [LTR-MAN-11 dimension scan](HYPERCUBE_DIMENSION_SCAN_V11.md)
+adds reproducible real and complex Hermitian searches for dimensions
+six and seven. Frozen numerical witness matrices are in
+[hypercube_6d_7d_candidates.json](hypercube_6d_7d_candidates.json)
+with a standalone [numerical verifier](verify_hypercube_candidates.py).
+All positive residuals are empirical search outcomes, not a proof of
+optimality or impossibility.
+
 ## LTR-MAN-02: Named sentence realization and finite capacity
 
 The finite diagonal now has a genuine first-order sentence, built from
