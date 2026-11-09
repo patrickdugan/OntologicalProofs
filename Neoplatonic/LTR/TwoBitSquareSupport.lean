@@ -1,6 +1,5 @@
 import Neoplatonic.LTR.TwoDirectionTraceZero
-import Mathlib.Tactic.Omega
-import Mathlib.Tactic.NormNum
+import Mathlib.Tactic
 
 /-!
 # LTR-MAN-15B: exact four-cycle edge/branching obstruction
