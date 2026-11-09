@@ -48,6 +48,8 @@ import Neoplatonic.LTR.BooleanCubeConnesDistance
 import Neoplatonic.LTR.TwoDirectionContractions
 import Neoplatonic.LTR.TwoDirectionExtremalEigenspaces
 import Neoplatonic.LTR.IdempotentGradingPairing
+import Neoplatonic.LTR.TwoDirectionTraceZero
+import Neoplatonic.LTR.TwoBitSquareSupport
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1027,3 +1029,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.anticommuting_endomorphism_flips_eigenvector
 #print axioms Neoplatonic.LTR.linearInvolution_map_ne_zero
 #print axioms Neoplatonic.LTR.anticommuting_involution_pairs_eigenvectors
+
+-- LTR-MAN-15: trace-zero coordinate commutators and exact square-support obstruction.
+#print axioms Neoplatonic.LTR.complexEndomorphism_commutator_trace_zero
+#print axioms Neoplatonic.LTR.imaginary_commutator_trace_zero
+#print axioms Neoplatonic.LTR.twoBitSquare_threeEdges_force_twoBranches
+#print axioms Neoplatonic.LTR.twoBitSquare_oneBranch_atMost_twoEdges
