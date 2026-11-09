@@ -65,6 +65,7 @@ import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
 import Neoplatonic.LTR.FiveFibreAdjacentNorms
 import Neoplatonic.LTR.FiveFibreDiracContinuity
+import Neoplatonic.LTR.FiveFibreExactHammingAttainment
 import Neoplatonic.LTR.FiveFibreConnesDualDistance
 import Neoplatonic.LTR.FiveFibreAttainerNormalization
 import Neoplatonic.LTR.FiveFibreAttainedHammingWitnesses
@@ -1150,3 +1151,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquareLift_smul
 #print axioms Neoplatonic.LTR.fiveFibreSquareDiracComm_add
 #print axioms Neoplatonic.LTR.fiveFibreSquareDiracFourNorm_continuous
+
+-- LTR-MAN-35: unconditional finite dual attainment under exact Hamming distances.
+#print axioms Neoplatonic.LTR.fiveFibreSquare_distanceTwo_attained
+#print axioms Neoplatonic.LTR.fiveFibreSquare_exactHamming_force_witnesses
+#print axioms Neoplatonic.LTR.fiveFibreSquare_exactHamming_normOne
+#print axioms Neoplatonic.LTR.fiveFibreSquare_exactHamming_noGo_of_zeroProducts
