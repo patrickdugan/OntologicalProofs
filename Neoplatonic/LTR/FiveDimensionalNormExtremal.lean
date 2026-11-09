@@ -59,14 +59,15 @@ theorem normOneSelfAdjoint_exists_signedEigenvector
     simp [hz] at hμnorm
   have heig : Module.End.HasEigenvalue (T : Module.End ℂ E) μ :=
     (hcompact.hasEigenvalue_iff_mem_spectrum hμne).mpr hspec
-  have hsym : (T : E →ₗ[ℂ] E).IsSymmetric :=
-    ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.mp hself
-  have hconj : Complex.conj μ = μ := by
-    simpa using hsym.conj_eigenvalue_eq_self heig
+  have hsym : T.toLinearMap.IsSymmetric := by
+    intro x y
+    exact (ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.mp hself) x y
+  have hconj : RCLike.conj μ = μ :=
+    hsym.conj_eigenvalue_eq_self heig
   have hsq : μ ^ 2 = 1 := by
     calc
-      μ ^ 2 = μ * Complex.conj μ := by rw [hconj]; ring
-      _ = (‖μ‖ : ℂ) ^ 2 := by simpa using Complex.mul_conj' μ
+      μ ^ 2 = μ * RCLike.conj μ := by rw [hconj]; ring
+      _ = (‖μ‖ : ℂ) ^ 2 := by simpa using RCLike.mul_conj μ
       _ = 1 := by simp [hμnorm]
   obtain ⟨w, hw⟩ := heig.exists_hasEigenvector
   exact ⟨μ, w, sq_eq_one_iff.mp hsq, hw.2,
