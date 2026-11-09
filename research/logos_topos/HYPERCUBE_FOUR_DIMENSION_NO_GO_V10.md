@@ -1,6 +1,6 @@
 # LTR-MAN-10: A four-dimensional no-go theorem for the two-bit Hamming metric
 
-**November 2026. Status:** Complete written analytic proof; a Lean matrix certificate remains to be formalized. This note accompanies the numerical dimension-search program in the Logos–Topos spectral geometry research.
+**November 2026. Status:** Written analytic four- and five-dimensional no-go arguments. The MAN-12 through MAN-25 Lean sequence verifies the five-dimensional zero-product spectral theorem and the canonical doubled-fibre Connes-dual contradiction with explicit hypotheses. The universal all-representations Lean theorem remains open. See [the formalization ledger](HYPERCUBE_FIVE_DIM_LEAN_LEDGER_V25.md).
 
 ## Statement
 
@@ -182,7 +182,7 @@ The eight-dimensional independent-edge construction of LTR-MAN-09 is an explicit
 \boxed{6\le r_{\rm geom}(2)\le8.}
 \]
 
-The exact values 5, 6, or 7 remain mathematically unresolved. Numerical searches over these dimensions supply candidates but cannot prove feasibility or impossibility.
+The precise minimum among dimensions 6, 7 and 8 remains unresolved under the written lower-bound argument. Numerical searches in six and seven dimensions supply candidates but cannot prove feasibility or impossibility.
 
 The proof is entirely finite-dimensional. Its central components are finite-dimensional projection ranks, the norm of a rank-two star commutator, the Hilbert–Schmidt/operator-norm inequality, the singular values of a \(2\times2\) complex matrix, and the compactness of a finite-dimensional norm ball. This makes it an appropriate next Lean target.
 
