@@ -51,6 +51,7 @@ import Neoplatonic.LTR.IdempotentGradingPairing
 import Neoplatonic.LTR.TwoDirectionTraceZero
 import Neoplatonic.LTR.TwoBitSquareSupport
 import Neoplatonic.LTR.ScalarFibreNonzeroComposition
+import Neoplatonic.LTR.FiveDimensionalSpectralResidual
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1041,3 +1042,6 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.complexLine_linearMap_apply_one
 #print axioms Neoplatonic.LTR.complexLine_linearMap_one_ne_zero
 #print axioms Neoplatonic.LTR.complexLine_nonzero_maps_comp_ne_zero
+
+-- LTR-MAN-17: five-dimensional joint spectral normal form and zero products.
+#print axioms Neoplatonic.LTR.fiveDim_jointExtremalEigenbasis_zeroProducts
