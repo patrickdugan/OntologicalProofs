@@ -63,8 +63,8 @@ theorem anticommuting_endomorphism_flips_eigenvector
     {E : Type*} [AddCommGroup E] [Module ℂ E]
     (A G : E →ₗ[ℂ] E)
     (hanti : A.comp G = -(G.comp A))
-    (λ : ℂ) (v : E) (hv : A v = λ • v) :
-    A (G v) = (-λ) • (G v) := by
+    (mu : ℂ) (v : E) (hv : A v = mu • v) :
+    A (G v) = (-mu) • (G v) := by
   have h := congrArg (fun T : E →ₗ[ℂ] E => T v) hanti
   change A (G v) = -(G (A v)) at h
   rw [hv, map_smul] at h
@@ -90,11 +90,11 @@ theorem anticommuting_involution_pairs_eigenvectors
     (A G : E →ₗ[ℂ] E)
     (hG : G.comp G = LinearMap.id)
     (hanti : A.comp G = -(G.comp A))
-    (λ : ℂ) (v : E)
-    (hv : A v = λ • v) (hvne : v ≠ 0) :
-    A (G v) = (-λ) • (G v) ∧ G v ≠ 0 := by
+    (mu : ℂ) (v : E)
+    (hv : A v = mu • v) (hvne : v ≠ 0) :
+    A (G v) = (-mu) • (G v) ∧ G v ≠ 0 := by
   exact ⟨anticommuting_endomorphism_flips_eigenvector
-      A G hanti λ v hv,
+      A G hanti mu v hv,
     linearInvolution_map_ne_zero G hG v hvne⟩
 
 end Neoplatonic.LTR
