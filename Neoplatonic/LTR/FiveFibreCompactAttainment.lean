@@ -170,7 +170,8 @@ theorem fiveFibreSquare_distanceTwo_attained_of_continuous
       change (f.val u.castSucc - f.val 0) -
         (f.val v.castSucc - f.val 0) = _
       ring
-    simpa only [heq] using hmax hfr
+    have hmaxFr : ‖fr u - fr v‖ ≤ ‖g u - g v‖ := hmax hfr
+    simpa only [heq] using hmaxFr
   let M : ℝ≥0 := ⟨‖g u - g v‖, norm_nonneg _⟩
   have hsup : fiveFibreSquareConnesDualDistance D
       u.castSucc v.castSucc ≤ (M : ℝ≥0∞) := by
