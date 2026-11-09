@@ -66,6 +66,7 @@ import Neoplatonic.LTR.FiveFibreOppositeContractions
 import Neoplatonic.LTR.FiveFibreAdjacentNorms
 import Neoplatonic.LTR.FiveFibreConnesDualDistance
 import Neoplatonic.LTR.FiveFibreAttainerNormalization
+import Neoplatonic.LTR.FiveFibreAttainedHammingWitnesses
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1131,3 +1132,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquareDiracComm_sub_const
 #print axioms Neoplatonic.LTR.fiveFibreSquare_normalizeDistanceTwoAttainer
 #print axioms Neoplatonic.LTR.fiveFibreSquare_normalizeSubtypeAttainer
+
+-- LTR-MAN-32: attained exact Hamming diagonals force explicit witnesses and norm-one directions.
+#print axioms Neoplatonic.LTR.fiveFibreSquareLift_restrict
+#print axioms Neoplatonic.LTR.fiveFibreSquare_attainedOpposites_force_witnesses
+#print axioms Neoplatonic.LTR.fiveFibreSquare_attainedHamming_normOne
