@@ -1,5 +1,6 @@
 import Neoplatonic.LTR.FiveDimensionalSignedVectors
 import Mathlib.Analysis.InnerProductSpace.Rayleigh
+import Mathlib.Analysis.InnerProductSpace.Spectrum
 import Mathlib.Analysis.Normed.Algebra.GelfandFormula
 import Mathlib.Analysis.Normed.Operator.Compact.FredholmAlternative
 import Mathlib.Analysis.Normed.Operator.Compact.FiniteDimension
