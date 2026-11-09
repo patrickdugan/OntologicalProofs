@@ -80,10 +80,14 @@ for `m ≥ 1`. See
 [HYPERCUBE_SPECTRAL_GEOMETRY_V09.md](HYPERCUBE_SPECTRAL_GEOMETRY_V09.md).
 
 The [four-/five-dimensional no-go ledger](HYPERCUBE_FOUR_DIMENSION_NO_GO_V10.md)
-contains written analytic arguments that the two-bit Hamming square
-requires at least six complex Hilbert dimensions; formalization of
-those obstructions remains open. The verified edge realization
-uses eight dimensions.
+contains the written analytic argument that the two-bit Hamming square
+requires at least six complex Hilbert dimensions. The
+[MAN-12 through MAN-25 Lean ledger](HYPERCUBE_FIVE_DIM_LEAN_LEDGER_V25.md)
+tracks the now-verified five-dimensional zero-product spectral theorem
+and the canonical doubled-fibre Connes-dual obstruction, with their
+explicit hypotheses. The universal all-representations no-go theorem
+still needs metric-witness, basis, and square-symmetry integration.
+The verified edge realization uses eight dimensions.
 
 The [LTR-MAN-11 dimension scan](HYPERCUBE_DIMENSION_SCAN_V11.md)
 adds reproducible real and complex Hermitian searches for dimensions
