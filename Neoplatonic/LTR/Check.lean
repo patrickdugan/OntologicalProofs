@@ -63,6 +63,7 @@ import Neoplatonic.LTR.FiveFibreConnesDualObstruction
 import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
 import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreFaithfulLabels
+import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
@@ -1183,3 +1184,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreTruthMultiplicity_pos
 #print axioms Neoplatonic.LTR.fiveFibreTruthMultiplicity_sum
 #print axioms Neoplatonic.LTR.fiveFibreFaithful_uniqueDouble
+
+-- LTR-MAN-39: fibrewise Hilbert coordinate permutations of faithful diagonal truth charts.
+#print axioms Neoplatonic.LTR.fiveFibreCanonicalLabel_multiplicity
+#print axioms Neoplatonic.LTR.fiveFibre_equalMultiplicities_permutation
+#print axioms Neoplatonic.LTR.fiveFibre_faithful_doubleZero_chart
