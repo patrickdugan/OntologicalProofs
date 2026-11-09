@@ -67,6 +67,7 @@ import Neoplatonic.LTR.FiveFibreAdjacentNorms
 import Neoplatonic.LTR.FiveFibreConnesDualDistance
 import Neoplatonic.LTR.FiveFibreAttainerNormalization
 import Neoplatonic.LTR.FiveFibreAttainedHammingWitnesses
+import Neoplatonic.LTR.FiveFibreCompactAttainment
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1137,3 +1138,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquareLift_restrict
 #print axioms Neoplatonic.LTR.fiveFibreSquare_attainedOpposites_force_witnesses
 #print axioms Neoplatonic.LTR.fiveFibreSquare_attainedHamming_normOne
+
+-- LTR-MAN-33: compact normalized Connes unit ball and exact distance attainer.
+#print axioms Neoplatonic.LTR.fiveFibreSquare_normalizedAdmissible_compact
+#print axioms Neoplatonic.LTR.fiveFibreSquare_normalizedAdmissible_nonempty
+#print axioms Neoplatonic.LTR.fiveFibreSquare_distanceTwo_attained_of_continuous
