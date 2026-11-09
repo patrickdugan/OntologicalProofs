@@ -83,10 +83,10 @@ theorem fiveFibreSquare_exactEdgeDistance_normOne
   apply fiveFibreSquare_adjacentDual_normOne D
   · intro f hf hunit
     exact fiveFibreSquareConnesDualDistance_bounds D 0 1 1
-      (by rw [h01]) f hf hunit
+      (by simp [h01]) f hf hunit
   · intro f hf hunit
     exact fiveFibreSquareConnesDualDistance_bounds D 0 2 1
-      (by rw [h02]) f hf hunit
+      (by simp [h02]) f hf hunit
   · exact hsum
   · exact hdiff
 
@@ -100,7 +100,7 @@ theorem fiveFibreSquare_exactOppositeDistance_dualBound
     (hunit : ‖fiveFibreSquareDiracComm D f‖ ≤ 1) :
     ‖f 0 - f 3‖ ≤ 2 :=
   fiveFibreSquareConnesDualDistance_bounds D 0 3 2
-    (by rw [h03]) f hf hunit
+    (by simp [h03]) f hf hunit
 
 /-- The isolated-truth-fibre contradiction uses the actual
 Connes dual metric directly, eliminating the old abstract
