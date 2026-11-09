@@ -50,6 +50,7 @@ import Neoplatonic.LTR.TwoDirectionExtremalEigenspaces
 import Neoplatonic.LTR.IdempotentGradingPairing
 import Neoplatonic.LTR.TwoDirectionTraceZero
 import Neoplatonic.LTR.TwoBitSquareSupport
+import Neoplatonic.LTR.ScalarFibreNonzeroComposition
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1035,3 +1036,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.imaginary_commutator_trace_zero
 #print axioms Neoplatonic.LTR.twoBitSquare_threeEdges_force_twoBranches
 #print axioms Neoplatonic.LTR.twoBitSquare_oneBranch_atMost_twoEdges
+
+-- LTR-MAN-16: nonvanishing composition through one-dimensional complex fibres.
+#print axioms Neoplatonic.LTR.complexLine_linearMap_apply_one
+#print axioms Neoplatonic.LTR.complexLine_linearMap_one_ne_zero
+#print axioms Neoplatonic.LTR.complexLine_nonzero_maps_comp_ne_zero
