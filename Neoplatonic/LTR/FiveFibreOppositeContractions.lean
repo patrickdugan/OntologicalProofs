@@ -57,7 +57,8 @@ theorem fiveFibreSquare_sumWitness_matrix
          Matrix.diagonal
           (fiveFibreSquareLift twoBitOppositeCornerSum) * D) := by
   ext i j
-  simp only [Matrix.add_apply, fiveFibreSquareA, fiveFibreSquareB,
+  simp only [Matrix.add_apply, Matrix.smul_apply,
+    fiveFibreSquareA, fiveFibreSquareB,
     Matrix.sub_apply, Matrix.mul_diagonal, Matrix.diagonal_mul,
     Pi.smul_apply, smul_eq_mul]
   rw [fiveFibreSquareLift_sum_eq, fiveFibreSquareLift_sum_eq]
@@ -74,7 +75,8 @@ theorem fiveFibreSquare_differenceWitness_matrix
          Matrix.diagonal
           (fiveFibreSquareLift twoBitOppositeCornerDifference) * D) := by
   ext i j
-  simp only [Matrix.sub_apply, fiveFibreSquareA, fiveFibreSquareB,
+  simp only [Matrix.sub_apply, Matrix.smul_apply,
+    fiveFibreSquareA, fiveFibreSquareB,
     Matrix.mul_diagonal, Matrix.diagonal_mul,
     Pi.smul_apply, smul_eq_mul]
   rw [fiveFibreSquareLift_difference_eq,
