@@ -24,7 +24,7 @@ and dimension hypotheses is the remaining spectral existence obligation.
 namespace Neoplatonic.LTR
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
-  [FiniteDimensional ℂ E]
+  [FiniteDimensional ℂ E] [CompleteSpace E]
 
 /-- Given four orthonormal signed extremal eigenvectors of two Hermitian
 Hilbert-space coordinate operators, the two-direction contraction and
@@ -88,12 +88,12 @@ theorem fiveDim_extremalOrthonormalFour_zeroProducts
     (ContinuousLinearMap.isSelfAdjoint_toLinearMap_iff A).mp hAself
   have hBadj : c.adjoint = c :=
     (ContinuousLinearMap.isSelfAdjoint_toLinearMap_iff B).mp hBself
-  have hMAHerm : MAᴴ = MA := by
-    change (LinearMap.toMatrix b.toBasis b.toBasis a)ᴴ =
+  have hMAHerm : Matrix.conjTranspose MA = MA := by
+    change Matrix.conjTranspose (LinearMap.toMatrix b.toBasis b.toBasis a) =
       LinearMap.toMatrix b.toBasis b.toBasis a
     rw [← LinearMap.toMatrix_adjoint b b, hAadj]
-  have hMBHerm : MBᴴ = MB := by
-    change (LinearMap.toMatrix b.toBasis b.toBasis c)ᴴ =
+  have hMBHerm : Matrix.conjTranspose MB = MB := by
+    change Matrix.conjTranspose (LinearMap.toMatrix b.toBasis b.toBasis c) =
       LinearMap.toMatrix b.toBasis b.toBasis c
     rw [← LinearMap.toMatrix_adjoint b b, hBadj]
   have hMAstar (i j : Fin 5) : MA i j = star (MA j i) := by
