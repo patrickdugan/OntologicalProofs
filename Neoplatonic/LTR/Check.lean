@@ -60,6 +60,7 @@ import Neoplatonic.LTR.FiveFibreSquareProducts
 import Neoplatonic.LTR.FiveFibreHermitianSupport
 import Neoplatonic.LTR.FiveFibreIsolatedVertex
 import Neoplatonic.LTR.FiveFibreConnesDualObstruction
+import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
 import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
@@ -1157,3 +1158,13 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquare_exactHamming_force_witnesses
 #print axioms Neoplatonic.LTR.fiveFibreSquare_exactHamming_normOne
 #print axioms Neoplatonic.LTR.fiveFibreSquare_exactHamming_noGo_of_zeroProducts
+
+-- LTR-MAN-36: literal Boolean projection and Dirac commutator spectral certificates.
+#print axioms Neoplatonic.LTR.fiveFibreSquarePMatrix_idempotent
+#print axioms Neoplatonic.LTR.fiveFibreSquareQMatrix_idempotent
+#print axioms Neoplatonic.LTR.fiveFibreSquareA_selfAdjoint
+#print axioms Neoplatonic.LTR.fiveFibreSquareB_selfAdjoint
+#print axioms Neoplatonic.LTR.fiveFibreSquareA_trace_zero
+#print axioms Neoplatonic.LTR.fiveFibreSquareB_trace_zero
+#print axioms Neoplatonic.LTR.fiveFibreSquareGradeP_anticommutes
+#print axioms Neoplatonic.LTR.fiveFibreSquareGradeQ_anticommutes
