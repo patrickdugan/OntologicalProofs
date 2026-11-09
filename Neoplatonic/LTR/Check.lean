@@ -64,6 +64,7 @@ import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
 import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreFaithfulLabels
 import Neoplatonic.LTR.FiveFibreChartPermutation
+import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
@@ -1189,3 +1190,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreCanonicalLabel_multiplicity
 #print axioms Neoplatonic.LTR.fiveFibre_equalMultiplicities_permutation
 #print axioms Neoplatonic.LTR.fiveFibre_faithful_doubleZero_chart
+
+-- LTR-MAN-40: arbitrary doubled truth atoms admit standard coordinate-permutation charts.
+#print axioms Neoplatonic.LTR.fiveFibreStandardLabel_multiplicity
+#print axioms Neoplatonic.LTR.fiveFibreStandardLabel_zero
+#print axioms Neoplatonic.LTR.fiveFibreFaithful_exists_standardPermutation
