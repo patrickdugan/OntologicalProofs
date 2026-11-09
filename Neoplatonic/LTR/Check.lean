@@ -47,6 +47,7 @@ import Neoplatonic.LTR.BooleanCubeUnitPairs
 import Neoplatonic.LTR.BooleanCubeConnesDistance
 import Neoplatonic.LTR.TwoDirectionContractions
 import Neoplatonic.LTR.TwoDirectionExtremalEigenspaces
+import Neoplatonic.LTR.IdempotentGradingPairing
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1018,3 +1019,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoDirection_extremalEigenspaces_orthogonal
 #print axioms Neoplatonic.LTR.twoDirection_signedExtremalEigenspaces_le_ker
 #print axioms Neoplatonic.LTR.twoDirection_signedExtremalEigenspaces_le_ker_first
+
+-- LTR-MAN-14: idempotent grading, commutator anticommutation and spectral pairing.
+#print axioms Neoplatonic.LTR.idempotent_grading_square_one
+#print axioms Neoplatonic.LTR.idempotent_grading_commutator_anticommutes
+#print axioms Neoplatonic.LTR.idempotent_commutator_grading_anticommutes
+#print axioms Neoplatonic.LTR.anticommuting_endomorphism_flips_eigenvector
+#print axioms Neoplatonic.LTR.linearInvolution_map_ne_zero
+#print axioms Neoplatonic.LTR.anticommuting_involution_pairs_eigenvectors
