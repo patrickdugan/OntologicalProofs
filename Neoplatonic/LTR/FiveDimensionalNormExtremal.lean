@@ -22,7 +22,7 @@ with the grading involution in MAN-14, and pass them to MAN-19.
 
 namespace Neoplatonic.LTR
 
-open scoped NNReal ENNReal
+open scoped NNReal ENNReal ComplexConjugate
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
   [FiniteDimensional ℂ E] [CompleteSpace E]
@@ -62,12 +62,12 @@ theorem normOneSelfAdjoint_exists_signedEigenvector
   have hsym : T.toLinearMap.IsSymmetric := by
     intro x y
     exact (ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.mp hself) x y
-  have hconj : RCLike.conj μ = μ :=
-    hsym.conj_eigenvalue_eq_self heig
+  have hconj : conj μ = μ :=
+    LinearMap.IsSymmetric.conj_eigenvalue_eq_self hsym heig
   have hsq : μ ^ 2 = 1 := by
     calc
-      μ ^ 2 = μ * RCLike.conj μ := by rw [hconj]; ring
-      _ = (‖μ‖ : ℂ) ^ 2 := by simpa using RCLike.mul_conj μ
+      μ ^ 2 = μ * conj μ := by rw [hconj]; ring
+      _ = (‖μ‖ : ℂ) ^ 2 := by simpa using Complex.mul_conj' μ
       _ = 1 := by simp [hμnorm]
   obtain ⟨w, hw⟩ := heig.exists_hasEigenvector
   exact ⟨μ, w, sq_eq_one_iff.mp hsq, hw.2,
