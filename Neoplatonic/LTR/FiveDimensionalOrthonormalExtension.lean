@@ -163,9 +163,9 @@ theorem fiveDim_extremalOrthonormalFour_zeroProducts
     hMAstar hMBstar hMA0 hMA1 hMA2 hMA3 hMB0 hMB1 hMB2 hMB3
     htrMA htrMB
   constructor
-  · apply (LinearMap.toMatrixOrthonormal b).injective
-    simpa only [map_mul, map_zero, MA, MB, a, c] using hZero.1
-  · apply (LinearMap.toMatrixOrthonormal b).injective
-    simpa only [map_mul, map_zero, MA, MB, a, c] using hZero.2
+  · apply (LinearMap.toMatrix b.toBasis b.toBasis).injective
+    simpa only [LinearMap.toMatrix_mul, map_zero, MA, MB, a, c] using hZero.1
+  · apply (LinearMap.toMatrix b.toBasis b.toBasis).injective
+    simpa only [LinearMap.toMatrix_mul, map_zero, MA, MB, a, c] using hZero.2
 
 end Neoplatonic.LTR
