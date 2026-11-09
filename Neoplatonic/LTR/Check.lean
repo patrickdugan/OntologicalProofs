@@ -53,6 +53,7 @@ import Neoplatonic.LTR.TwoBitSquareSupport
 import Neoplatonic.LTR.ScalarFibreNonzeroComposition
 import Neoplatonic.LTR.FiveDimensionalSpectralResidual
 import Neoplatonic.LTR.FiveDimensionalOrthonormalExtension
+import Neoplatonic.LTR.FiveDimensionalSignedVectors
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1049,3 +1050,7 @@ open Neoplatonic.LTR
 
 -- LTR-MAN-18: lift the 5D matrix certificate through an orthonormal basis extension.
 #print axioms Neoplatonic.LTR.fiveDim_extremalOrthonormalFour_zeroProducts
+
+-- LTR-MAN-19: signed unit eigenvectors generate the 5D zero-product certificate.
+#print axioms Neoplatonic.LTR.selfAdjoint_oppositeSignedEigenvectors_orthogonal
+#print axioms Neoplatonic.LTR.fiveDim_signedUnitEigenvectors_zeroProducts
