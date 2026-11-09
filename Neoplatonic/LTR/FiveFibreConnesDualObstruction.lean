@@ -65,7 +65,7 @@ theorem fiveFibreSquare_scaledVertex11_commutes
   ext i j
   fin_cases i <;> fin_cases j <;>
     simp [Matrix.mul_diagonal, Matrix.diagonal_mul,
-      h03, h43, h13, h23, h30, h34, h31, h32]
+      h03, h43, h13, h23, h30, h34, h31, h32] <;> ring
 
 /-- Canonical five-dimensional spectral obstruction against the
 explicit Connes-dual Hamming upper bound d(00,11) ≤ 2.
@@ -84,7 +84,7 @@ theorem fiveFibreSquare_connesDual_hamming_noGo
     (hdual :
       ∀ f : Fin 5 → ℂ, f 4 = f 0 →
         ‖(D * Matrix.diagonal f -
-          Matrix.diagonal f * D).toEuclideanLin‖ ≤ 1 →
+          Matrix.diagonal f * D).toEuclideanLin.toContinuousLinearMap‖ ≤ 1 →
         ‖f 0 - f 3‖ ≤ (2 : ℝ)) :
     False := by
   obtain ⟨h03, h43, h13, h23⟩ :=
@@ -97,7 +97,7 @@ theorem fiveFibreSquare_connesDual_hamming_noGo
     sub_eq_zero.mpr hcomm
   have hunit :
       ‖(D * Matrix.diagonal f -
-        Matrix.diagonal f * D).toEuclideanLin‖ ≤ 1 := by
+        Matrix.diagonal f * D).toEuclideanLin.toContinuousLinearMap‖ ≤ 1 := by
     rw [hz]
     simp
   have hbound := hdual f hf hunit
