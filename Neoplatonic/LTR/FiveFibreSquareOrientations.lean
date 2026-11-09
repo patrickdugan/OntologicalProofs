@@ -77,10 +77,13 @@ theorem fiveFibreSquare_orientedProducts_to_canonical
   cases flipP <;> cases flipQ
   all_goals
     simp only [fiveFibreSquareOrientedA_eq,
-      fiveFibreSquareOrientedB_eq, Bool.false_eq_true, Bool.true_eq_true,
+      fiveFibreSquareOrientedB_eq, Bool.false_eq_true,
       ↓reduceIte] at hAB hBA hA hB
-    simp_all only [neg_mul, mul_neg, neg_neg, neg_eq_zero,
-      neg_ne_zero]
+    refine ⟨?_, ?_, ?_, ?_⟩
+    · simpa only [neg_mul, mul_neg, neg_neg, neg_eq_zero] using hAB
+    · simpa only [neg_mul, mul_neg, neg_neg, neg_eq_zero] using hBA
+    · simpa only [neg_ne_zero] using hA
+    · simpa only [neg_ne_zero] using hB
 
 /-- The canonical dual Hamming obstruction holds in every Boolean
 truth-coordinate orientation, with its duplicated sector at 0/4. -/
