@@ -64,6 +64,7 @@ import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
 import Neoplatonic.LTR.FiveFibreAdjacentNorms
+import Neoplatonic.LTR.FiveFibreConnesDualDistance
 import Neoplatonic.LTR.NullaryContinuity
 import Neoplatonic.LTR.AtomicTheorySeminorm
 import Neoplatonic.LTR.LogicalPullback
@@ -1118,3 +1119,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquare_secondCoordinate_norm_ge_one
 #print axioms Neoplatonic.LTR.twoDirection_norms_le_one
 #print axioms Neoplatonic.LTR.fiveFibreSquare_adjacentDual_normOne
+
+-- LTR-MAN-30: actual extended Connes dual sup implies Hamming edge/diagonal bounds.
+#print axioms Neoplatonic.LTR.fiveFibreSquareConnesDualDistance_bounds
+#print axioms Neoplatonic.LTR.fiveFibreSquare_exactEdgeDistance_normOne
+#print axioms Neoplatonic.LTR.fiveFibreSquare_exactOppositeDistance_dualBound
+#print axioms Neoplatonic.LTR.fiveFibreSquare_exactOppositeDistance_noGo
