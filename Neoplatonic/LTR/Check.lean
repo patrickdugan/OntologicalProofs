@@ -62,6 +62,7 @@ import Neoplatonic.LTR.FiveFibreIsolatedVertex
 import Neoplatonic.LTR.FiveFibreConnesDualObstruction
 import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
 import Neoplatonic.LTR.FiveFibreCanonicalNoGo
+import Neoplatonic.LTR.FiveFibreFaithfulLabels
 import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
@@ -1177,3 +1178,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreSquare_zeroMatrix_of_zeroEndomorphism
 #print axioms Neoplatonic.LTR.fiveFibreSquare_zeroProducts_of_spectralNorms
 #print axioms Neoplatonic.LTR.fiveFibreSquare_exactHamming_canonical_noGo
+
+-- LTR-MAN-38: faithfulness implies exactly one doubled truth fibre in dimension 5.
+#print axioms Neoplatonic.LTR.fiveFibreTruthMultiplicity_pos
+#print axioms Neoplatonic.LTR.fiveFibreTruthMultiplicity_sum
+#print axioms Neoplatonic.LTR.fiveFibreFaithful_uniqueDouble
