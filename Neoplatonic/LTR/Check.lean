@@ -63,6 +63,7 @@ import Neoplatonic.LTR.TwoDirectionResidualCompression
 import Neoplatonic.LTR.TwoDimensionalPauliResidual
 import Neoplatonic.LTR.OrthogonalTraceDecomposition
 import Neoplatonic.LTR.EigenquartetTrace
+import Neoplatonic.LTR.SignedResidualTraceZero
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1372,3 +1373,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.eigenquartet_span_invariant
 #print axioms Neoplatonic.LTR.eigenquartet_span_restrict_trace
 #print axioms Neoplatonic.LTR.eigenquartet_residual_restrict_trace_zero
+
+-- LTR-MAN-64: signed coordinate eigenvalues and genuine residual zero-trace results.
+#print axioms Neoplatonic.LTR.twoDirectionAQuartetEigenvalues_sum
+#print axioms Neoplatonic.LTR.twoDirectionBQuartetEigenvalues_sum
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.eigenquartet_A
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.eigenquartet_B
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualA_trace_zero
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualB_trace_zero
