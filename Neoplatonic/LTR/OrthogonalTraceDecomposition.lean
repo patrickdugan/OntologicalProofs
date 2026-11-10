@@ -17,7 +17,7 @@ complement Kᗮ, its ambient trace is exactly the sum of the traces
 on those two invariant summands.
 
 This uses Mathlib's true internal direct sum and the
-DirectSum.IsInternal.trace_eq_sum_trace_restrict theorem.
+LinearMap.trace_eq_sum_trace_restrict theorem.
 The remaining application is to compute the zero trace of each
 coordinate operator on the signed extremal quartet's span,
 deducing trace zero for the residual compression.
