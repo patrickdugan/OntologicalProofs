@@ -148,8 +148,9 @@ theorem sixLabelled_opposite03_block_half
     ‖sixTruthFibreBlock label D 0 3‖ ≤ (1 / 2 : ℝ) := by
   have hw :
       ‖(labelledSquareA label D + labelledSquareB label D : SixMat)‖ ≤ 1 := by
-    rw [Matrix.l2_opNorm_def, sixLabelled_sumWitness_matrix,
-      sixLabelled_imaginaryOperator_norm]
+    change ‖(labelledSquareA label D + labelledSquareB label D
+      ).toEuclideanLin.toContinuousLinearMap‖ ≤ 1
+    rw [sixLabelled_sumWitness_matrix, sixLabelled_imaginaryOperator_norm]
     exact hsum
   have hb := (sixTruthFibreBlock_norm_le label
     (labelledSquareA label D + labelledSquareB label D) 0 3).trans hw
@@ -167,8 +168,9 @@ theorem sixLabelled_opposite12_block_half
     ‖sixTruthFibreBlock label D 1 2‖ ≤ (1 / 2 : ℝ) := by
   have hw :
       ‖(labelledSquareB label D - labelledSquareA label D : SixMat)‖ ≤ 1 := by
-    rw [Matrix.l2_opNorm_def, sixLabelled_differenceWitness_matrix,
-      sixLabelled_imaginaryOperator_norm]
+    change ‖(labelledSquareB label D - labelledSquareA label D
+      ).toEuclideanLin.toContinuousLinearMap‖ ≤ 1
+    rw [sixLabelled_differenceWitness_matrix, sixLabelled_imaginaryOperator_norm]
     exact hdiff
   have hb := (sixTruthFibreBlock_norm_le label
     (labelledSquareB label D - labelledSquareA label D) 1 2).trans hw
