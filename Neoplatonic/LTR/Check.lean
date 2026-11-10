@@ -66,6 +66,7 @@ import Neoplatonic.LTR.EigenquartetTrace
 import Neoplatonic.LTR.SignedResidualTraceZero
 import Neoplatonic.LTR.SixDimensionalResidualPauli
 import Neoplatonic.LTR.SixDimensionalResidualQuadratics
+import Neoplatonic.LTR.TwoDimensionalPauliOperatorNorm
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1397,3 +1398,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoDim_pauli_sub_square
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_sum_square
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_difference_square
+
+-- LTR-MAN-67: C*-operator squared norm and Pauli contraction coefficients.
+#print axioms Neoplatonic.LTR.twoDim_pauli_operator_norm_sq
+#print axioms Neoplatonic.LTR.twoDim_pauli_sum_operator_norm_sq
+#print axioms Neoplatonic.LTR.twoDim_pauli_difference_operator_norm_sq
+#print axioms Neoplatonic.LTR.twoDim_pauli_simultaneous_contraction_coefficients
