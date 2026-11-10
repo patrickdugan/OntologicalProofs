@@ -73,6 +73,7 @@ import Neoplatonic.LTR.FiveFibreUnitaryTransport
 import Neoplatonic.LTR.FiveFibreAtomicJointSpectrum
 import Neoplatonic.LTR.FiveFibreAtomicRangeDecomposition
 import Neoplatonic.LTR.FiveFibreAtomicBasisLabels
+import Neoplatonic.LTR.FiveFibreAtomicUnitary
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1257,3 +1258,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasisLabel_surjective
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicProjection_onRange
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasis_eigen
+
+-- LTR-MAN-50: explicit unitary from the common atomic eigenbasis.
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasisUnitary_mulVec
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasisUnitary_star_mulVec
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasis_mulVec_eigen
