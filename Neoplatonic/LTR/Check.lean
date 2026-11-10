@@ -94,6 +94,7 @@ import Neoplatonic.LTR.SixDimensionalExactHammingAttainment
 import Neoplatonic.LTR.SixDimensionalOppositeCornerTrace
 import Neoplatonic.LTR.SixDimensionalOppositeCornerPauliBudget
 import Neoplatonic.LTR.SixDimensionalOppositeCornerEntryBound
+import Neoplatonic.LTR.SixDimensionalOppositeFibreBlockNorm
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1548,3 +1549,15 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_opposite03_entry_half
 #print axioms Neoplatonic.LTR.sixLabelled_opposite12_entry_half
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEntry_half
+
+
+-- LTR-MAN-80: compressed truth-fibre matrix blocks and exact Hamming half-unit operator norms.
+#print axioms Neoplatonic.LTR.sixTruthFibreProjection_norm_le_one
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_entry
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_norm_le
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_smul_of_entries
+#print axioms Neoplatonic.LTR.sixLabelled_sumWitness_opposite03_block
+#print axioms Neoplatonic.LTR.sixLabelled_differenceWitness_opposite12_block
+#print axioms Neoplatonic.LTR.sixLabelled_opposite03_block_half
+#print axioms Neoplatonic.LTR.sixLabelled_opposite12_block_half
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeBlock_half
