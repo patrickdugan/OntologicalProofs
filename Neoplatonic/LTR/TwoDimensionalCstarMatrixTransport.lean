@@ -35,10 +35,8 @@ preserves the actual Hilbert operator norm exactly. -/
 theorem twoEuclideanCstarMatrix_norm
     (T : TwoEuclidean →L[ℂ] TwoEuclidean) :
     ‖twoEuclideanCstarMatrix T‖ = ‖T‖ := by
-  have h := StarAlgEquiv.norm_map
-    (Matrix.toEuclideanCLM (n := Fin 2) (𝕜 := ℂ))
-    (twoEuclideanCstarMatrix T)
-  simpa [twoEuclideanCstarMatrix] using h.symm
+  rw [Matrix.cstar_norm_def]
+  simp [twoEuclideanCstarMatrix]
 
 theorem twoEuclideanCstarMatrix_add
     (T S : TwoEuclidean →L[ℂ] TwoEuclidean) :
