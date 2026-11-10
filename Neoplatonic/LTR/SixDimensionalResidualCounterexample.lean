@@ -1,4 +1,5 @@
 import Mathlib.Analysis.CStarAlgebra.Matrix
+import Mathlib.Analysis.Matrix.Hermitian
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.Tactic
 
@@ -29,20 +30,20 @@ private abbrev SixMat := Matrix (Fin 6) (Fin 6) ℂ
 
 /-- Signed A coordinate weights: extremal +1,-1 and a small
 traceless two-dimensional residual pair. -/
-def sixResidualAWeight (i : Fin 6) : ℂ :=
+noncomputable def sixResidualAWeight (i : Fin 6) : ℂ :=
   if i = 0 then 1 else if i = 1 then -1
   else if i = 4 then (1/4 : ℂ)
   else if i = 5 then (-1/4 : ℂ) else 0
 
 /-- Signed B coordinate weights: disjoint extremal +1,-1 and
 the same small traceless residual pair. -/
-def sixResidualBWeight (i : Fin 6) : ℂ :=
+noncomputable def sixResidualBWeight (i : Fin 6) : ℂ :=
   if i = 2 then 1 else if i = 3 then -1
   else if i = 4 then (1/4 : ℂ)
   else if i = 5 then (-1/4 : ℂ) else 0
 
-def sixResidualA : SixMat := Matrix.diagonal sixResidualAWeight
-def sixResidualB : SixMat := Matrix.diagonal sixResidualBWeight
+noncomputable def sixResidualA : SixMat := Matrix.diagonal sixResidualAWeight
+noncomputable def sixResidualB : SixMat := Matrix.diagonal sixResidualBWeight
 
 /-- The two coordinate operators are Hermitian. -/
 theorem sixResidualA_selfAdjoint : IsSelfAdjoint sixResidualA := by
@@ -60,11 +61,11 @@ theorem sixResidualB_selfAdjoint : IsSelfAdjoint sixResidualB := by
 /-- Each has zero trace, including the residual ±1/4 pair. -/
 theorem sixResidualA_trace_zero : sixResidualA.trace = 0 := by
   simp [sixResidualA, Matrix.trace_diagonal,
-    Fin.sum_univ_six, sixResidualAWeight]
+    Fin.sum_univ_six, sixResidualAWeight] <;> norm_num
 
 theorem sixResidualB_trace_zero : sixResidualB.trace = 0 := by
   simp [sixResidualB, Matrix.trace_diagonal,
-    Fin.sum_univ_six, sixResidualBWeight]
+    Fin.sum_univ_six, sixResidualBWeight] <;> norm_num
 
 /-- Both six-dimensional Hermitian matrices have operator norm one. -/
 theorem sixResidualA_norm_one : ‖sixResidualA‖ = 1 := by
@@ -94,7 +95,8 @@ theorem sixResidual_sum_contraction :
       sixResidualA + sixResidualB =
         Matrix.diagonal (fun i => sixResidualAWeight i + sixResidualBWeight i) := by
     ext i j
-    simp [sixResidualA, sixResidualB, Matrix.diagonal_apply]
+    by_cases h : i = j <;>
+      simp [sixResidualA, sixResidualB, Matrix.diagonal_apply, h]
   rw [heq, Matrix.l2_opNorm_diagonal]
   apply (pi_norm_le_iff_of_nonneg zero_le_one).mpr
   intro i
@@ -107,7 +109,8 @@ theorem sixResidual_difference_contraction :
       sixResidualA - sixResidualB =
         Matrix.diagonal (fun i => sixResidualAWeight i - sixResidualBWeight i) := by
     ext i j
-    simp [sixResidualA, sixResidualB, Matrix.diagonal_apply]
+    by_cases h : i = j <;>
+      simp [sixResidualA, sixResidualB, Matrix.diagonal_apply, h]
   rw [heq, Matrix.l2_opNorm_diagonal]
   apply (pi_norm_le_iff_of_nonneg zero_le_one).mpr
   intro i
