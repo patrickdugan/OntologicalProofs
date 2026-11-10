@@ -86,6 +86,8 @@ def truthMultiplicityPattern7 (a b c d : ℕ) : Prop :=
   (a = 2 ∧ b = 2 ∧ c = 1 ∧ d = 2) ∨
   (a = 2 ∧ b = 2 ∧ c = 2 ∧ d = 1)
 
+set_option maxHeartbeats 1200000 in
+-- Exhaustive arithmetic over four positive fibre sizes requires a larger tactic budget.
 /-- Every faithful diagonal representation of ℂ⁴ on ℂ^6 has
     exactly one of the listed atomic dimension partitions. -/
 theorem truthMultiplicity6_complete
@@ -103,6 +105,8 @@ theorem truthMultiplicity6_complete
   have h3 := truthMultiplicity_pos label hsurj (3 : Fin 4)
   omega
 
+set_option maxHeartbeats 2500000 in
+-- Exhaustive arithmetic over four positive fibre sizes requires a larger tactic budget.
 /-- Every faithful diagonal representation of ℂ⁴ on ℂ^7 has
     exactly one of the listed atomic dimension partitions. -/
 theorem truthMultiplicity7_complete
