@@ -92,8 +92,11 @@ private theorem truthMultiplicityPattern6_of_sum
     (ha : 1 ≤ a) (hb : 1 ≤ b) (hc : 1 ≤ c) (hd : 1 ≤ d)
     (hsum : a + b + c + d = 6) :
     truthMultiplicityPattern6 a b c d := by
-  unfold truthMultiplicityPattern6
-  omega
+  have ha' : a = 1 ∨ a = 2 ∨ a = 3 := by omega
+  have hb' : b = 1 ∨ b = 2 ∨ b = 3 := by omega
+  rcases ha' with ha' | ha' | ha' <;>
+    rcases hb' with hb' | hb' | hb' <;>
+    simp [truthMultiplicityPattern6, ha', hb'] <;> omega
 
 -- All 20 positive partitions of seven are checked on four natural variables.
 set_option maxHeartbeats 1200000 in
@@ -102,8 +105,11 @@ private theorem truthMultiplicityPattern7_of_sum
     (ha : 1 ≤ a) (hb : 1 ≤ b) (hc : 1 ≤ c) (hd : 1 ≤ d)
     (hsum : a + b + c + d = 7) :
     truthMultiplicityPattern7 a b c d := by
-  unfold truthMultiplicityPattern7
-  omega
+  have ha' : a = 1 ∨ a = 2 ∨ a = 3 ∨ a = 4 := by omega
+  have hb' : b = 1 ∨ b = 2 ∨ b = 3 ∨ b = 4 := by omega
+  rcases ha' with ha' | ha' | ha' | ha' <;>
+    rcases hb' with hb' | hb' | hb' | hb' <;>
+    simp [truthMultiplicityPattern7, ha', hb'] <;> omega
 
 /-- Every faithful diagonal representation of ℂ⁴ on ℂ^6 has
     exactly one of the listed atomic dimension partitions. -/
