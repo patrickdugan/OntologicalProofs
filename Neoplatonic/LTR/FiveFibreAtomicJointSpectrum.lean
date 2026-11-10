@@ -74,11 +74,12 @@ theorem FiveFibreAtomicResolution.commute_linear
 the entire five-dimensional complex Hilbert space. This includes
 repeated joint eigenvalues and is independent of the multiplicity
 pattern of the chosen representation. -/
+set_option maxHeartbeats 600000 in
 theorem FiveFibreAtomicResolution.jointEigenspaces_span
     (P : FiveFibreAtomicResolution) :
     (⨆ χ : Fin 4 → ℂ,
       ⨅ v : Fin 4,
-        ((P.proj v).toEuclideanLin : Module.End ℂ FiveTruthH).eigenspace (χ v)) = ⊤ := by
+        Module.End.eigenspace ((P.proj v).toEuclideanLin) (χ v)) = ⊤ := by
   classical
   let T : Fin 4 → (FiveTruthH →ₗ[ℂ] FiveTruthH) :=
     fun v => (P.proj v).toEuclideanLin
