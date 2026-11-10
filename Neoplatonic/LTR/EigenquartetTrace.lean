@@ -27,8 +27,8 @@ variable {E : Type*} [NormedAddCommGroup E]
 the linear span of that quartet. -/
 theorem eigenquartet_span_invariant
     (q : Fin 4 → E) (T : E →ₗ[ℂ] E)
-    (λ : Fin 4 → ℂ)
-    (hEig : ∀ i : Fin 4, T (q i) = λ i • q i) :
+    (eigval : Fin 4 → ℂ)
+    (hEig : ∀ i : Fin 4, T (q i) = eigval i • q i) :
     ∀ x ∈ Submodule.span ℂ (Set.range q),
       T x ∈ Submodule.span ℂ (Set.range q) := by
   intro x hx
@@ -37,7 +37,7 @@ theorem eigenquartet_span_invariant
       obtain ⟨i, rfl⟩ := hx
       rw [hEig i]
       exact (Submodule.span ℂ (Set.range q)).smul_mem
-        (λ i) (Submodule.subset_span (Set.mem_range_self i))
+        (eigval i) (Submodule.subset_span (Set.mem_range_self i))
   | zero =>
       simp
   | add x y hx hy ihx ihy =>
@@ -51,12 +51,12 @@ theorem eigenquartet_span_invariant
 restriction to its span equals the sum of the four eigenvalues. -/
 theorem eigenquartet_span_restrict_trace
     (q : Fin 4 → E) (hq : Orthonormal ℂ q)
-    (T : E →ₗ[ℂ] E) (λ : Fin 4 → ℂ)
-    (hEig : ∀ i : Fin 4, T (q i) = λ i • q i)
+    (T : E →ₗ[ℂ] E) (eigval : Fin 4 → ℂ)
+    (hEig : ∀ i : Fin 4, T (q i) = eigval i • q i)
     (hK : ∀ x ∈ Submodule.span ℂ (Set.range q),
       T x ∈ Submodule.span ℂ (Set.range q)) :
     LinearMap.trace ℂ (Submodule.span ℂ (Set.range q))
-        (T.restrict hK) = ∑ i : Fin 4, λ i := by
+        (T.restrict hK) = ∑ i : Fin 4, eigval i := by
   classical
   let K := Submodule.span ℂ (Set.range q)
   let b0 : Basis (Fin 4) ℂ K := Basis.span hq.linearIndependent
@@ -67,16 +67,16 @@ theorem eigenquartet_span_restrict_trace
   have hb (i : Fin 4) : ((b i : K) : E) = q i := by
     simp [b, b0, OrthonormalBasis.coe_mk, Basis.span_apply]
   have heigB (i : Fin 4) :
-      (T.restrict hK) (b i) = λ i • b i := by
+      (T.restrict hK) (b i) = eigval i • b i := by
     apply Subtype.ext
-    change T (b i : E) = λ i • (b i : E)
+    change T (b i : E) = eigval i • (b i : E)
     rw [hb i]
     exact hEig i
   calc
     LinearMap.trace ℂ K (T.restrict hK) =
         ∑ i : Fin 4, inner ℂ (b i) ((T.restrict hK) (b i)) :=
       LinearMap.trace_eq_sum_inner (T.restrict hK) b
-    _ = ∑ i : Fin 4, λ i := by
+    _ = ∑ i : Fin 4, eigval i := by
       apply Finset.sum_congr rfl
       intro i hi
       rw [heigB i, inner_smul_right]
@@ -89,19 +89,19 @@ theorem eigenquartet_span_restrict_trace
 zero whenever the four orthonormal eigenvalues sum to zero. -/
 theorem eigenquartet_residual_restrict_trace_zero
     (q : Fin 4 → E) (hq : Orthonormal ℂ q)
-    (T : E →ₗ[ℂ] E) (λ : Fin 4 → ℂ)
-    (hEig : ∀ i : Fin 4, T (q i) = λ i • q i)
+    (T : E →ₗ[ℂ] E) (eigval : Fin 4 → ℂ)
+    (hEig : ∀ i : Fin 4, T (q i) = eigval i • q i)
     (htr : LinearMap.trace ℂ E T = 0)
-    (hsum : (∑ i : Fin 4, λ i) = 0)
+    (hsum : (∑ i : Fin 4, eigval i) = 0)
     (hR : ∀ x ∈ (Submodule.span ℂ (Set.range q))ᗮ,
       T x ∈ (Submodule.span ℂ (Set.range q))ᗮ) :
     LinearMap.trace ℂ ((Submodule.span ℂ (Set.range q))ᗮ)
       (T.restrict hR) = 0 := by
-  have hK := eigenquartet_span_invariant q T λ hEig
+  have hK := eigenquartet_span_invariant q T eigval hEig
   have hsplit := orthogonalTwoSummands_trace
     (Submodule.span ℂ (Set.range q)) T hK hR
   have hquartet :=
-    eigenquartet_span_restrict_trace q hq T λ hEig hK
+    eigenquartet_span_restrict_trace q hq T eigval hEig hK
   rw [htr, hquartet, hsum] at hsplit
   simpa using hsplit.symm
 
