@@ -64,6 +64,7 @@ import Neoplatonic.LTR.TwoDimensionalPauliResidual
 import Neoplatonic.LTR.OrthogonalTraceDecomposition
 import Neoplatonic.LTR.EigenquartetTrace
 import Neoplatonic.LTR.SignedResidualTraceZero
+import Neoplatonic.LTR.SixDimensionalResidualPauli
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1381,3 +1382,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.eigenquartet_B
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualA_trace_zero
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualB_trace_zero
+
+-- LTR-MAN-65: actual 6D residual 2x2 Pauli matrices and scalar anticommutator.
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidualMatrixA_isHermitian
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidualMatrixB_isHermitian
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidualMatrixA_trace_zero
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidualMatrixB_trace_zero
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidualMatrices_pauli
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_anticommutator_scalar
