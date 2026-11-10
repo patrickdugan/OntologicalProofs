@@ -46,7 +46,7 @@ theorem twoDim_pauli_sum_operator_norm_sq
     (htrM : M.trace = 0) (htrN : N.trace = 0) :
     ‖pauliQuadratic M + pauliQuadratic N + pauliMixed M N‖ =
       ‖M + N‖ ^ 2 := by
-  have hsumSelf : (M + N)ᴴ = M + N := by
+  have hsumSelf : Matrix.conjTranspose (M + N) = M + N := by
     simp only [Matrix.conjTranspose_add, hM.eq, hN.eq]
   have hCstar := Matrix.l2_opNorm_conjTranspose_mul_self (M + N)
   rw [hsumSelf] at hCstar
@@ -62,7 +62,7 @@ theorem twoDim_pauli_difference_operator_norm_sq
     (htrM : M.trace = 0) (htrN : N.trace = 0) :
     ‖pauliQuadratic M + pauliQuadratic N - pauliMixed M N‖ =
       ‖M - N‖ ^ 2 := by
-  have hsubSelf : (M - N)ᴴ = M - N := by
+  have hsubSelf : Matrix.conjTranspose (M - N) = M - N := by
     simp only [Matrix.conjTranspose_sub, hM.eq, hN.eq]
   have hCstar := Matrix.l2_opNorm_conjTranspose_mul_self (M - N)
   rw [hsubSelf] at hCstar
