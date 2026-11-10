@@ -86,8 +86,25 @@ def truthMultiplicityPattern7 (a b c d : ℕ) : Prop :=
   (a = 2 ∧ b = 2 ∧ c = 1 ∧ d = 2) ∨
   (a = 2 ∧ b = 2 ∧ c = 2 ∧ d = 1)
 
+-- Isolating four numerical variables keeps the exhaustive omega proofs small.
+private theorem truthMultiplicityPattern6_of_sum
+    (a b c d : ℕ)
+    (ha : 1 ≤ a) (hb : 1 ≤ b) (hc : 1 ≤ c) (hd : 1 ≤ d)
+    (hsum : a + b + c + d = 6) :
+    truthMultiplicityPattern6 a b c d := by
+  unfold truthMultiplicityPattern6
+  omega
+
+-- All 20 positive partitions of seven are checked on four natural variables.
 set_option maxHeartbeats 1200000 in
--- Exhaustive arithmetic over four positive fibre sizes requires a larger tactic budget.
+private theorem truthMultiplicityPattern7_of_sum
+    (a b c d : ℕ)
+    (ha : 1 ≤ a) (hb : 1 ≤ b) (hc : 1 ≤ c) (hd : 1 ≤ d)
+    (hsum : a + b + c + d = 7) :
+    truthMultiplicityPattern7 a b c d := by
+  unfold truthMultiplicityPattern7
+  omega
+
 /-- Every faithful diagonal representation of ℂ⁴ on ℂ^6 has
     exactly one of the listed atomic dimension partitions. -/
 theorem truthMultiplicity6_complete
@@ -96,17 +113,13 @@ theorem truthMultiplicity6_complete
     truthMultiplicityPattern6
       (truthMultiplicity label 0) (truthMultiplicity label 1)
       (truthMultiplicity label 2) (truthMultiplicity label 3) := by
-  unfold truthMultiplicityPattern6
-  have hsum := truthMultiplicity_sum label
-  rw [Fin.sum_univ_four] at hsum
-  have h0 := truthMultiplicity_pos label hsurj (0 : Fin 4)
-  have h1 := truthMultiplicity_pos label hsurj (1 : Fin 4)
-  have h2 := truthMultiplicity_pos label hsurj (2 : Fin 4)
-  have h3 := truthMultiplicity_pos label hsurj (3 : Fin 4)
-  omega
+  apply truthMultiplicityPattern6_of_sum
+  · exact truthMultiplicity_pos label hsurj 0
+  · exact truthMultiplicity_pos label hsurj 1
+  · exact truthMultiplicity_pos label hsurj 2
+  · exact truthMultiplicity_pos label hsurj 3
+  · simpa only [Fin.sum_univ_four] using truthMultiplicity_sum label
 
-set_option maxHeartbeats 2500000 in
--- Exhaustive arithmetic over four positive fibre sizes requires a larger tactic budget.
 /-- Every faithful diagonal representation of ℂ⁴ on ℂ^7 has
     exactly one of the listed atomic dimension partitions. -/
 theorem truthMultiplicity7_complete
@@ -115,13 +128,11 @@ theorem truthMultiplicity7_complete
     truthMultiplicityPattern7
       (truthMultiplicity label 0) (truthMultiplicity label 1)
       (truthMultiplicity label 2) (truthMultiplicity label 3) := by
-  unfold truthMultiplicityPattern7
-  have hsum := truthMultiplicity_sum label
-  rw [Fin.sum_univ_four] at hsum
-  have h0 := truthMultiplicity_pos label hsurj (0 : Fin 4)
-  have h1 := truthMultiplicity_pos label hsurj (1 : Fin 4)
-  have h2 := truthMultiplicity_pos label hsurj (2 : Fin 4)
-  have h3 := truthMultiplicity_pos label hsurj (3 : Fin 4)
-  omega
+  apply truthMultiplicityPattern7_of_sum
+  · exact truthMultiplicity_pos label hsurj 0
+  · exact truthMultiplicity_pos label hsurj 1
+  · exact truthMultiplicity_pos label hsurj 2
+  · exact truthMultiplicity_pos label hsurj 3
+  · simpa only [Fin.sum_univ_four] using truthMultiplicity_sum label
 
 end Neoplatonic.LTR
