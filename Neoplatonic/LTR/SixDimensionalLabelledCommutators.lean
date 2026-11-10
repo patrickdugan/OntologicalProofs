@@ -150,8 +150,7 @@ theorem labelledSquare_opposite12_entry_negative {n : ℕ}
     (i j : Fin n) (hi : label i = 1) (hj : label j = 2) :
     labelledSquareA label D i j = -labelledSquareB label D i j := by
   simp [labelledSquareA, labelledSquareB,
-    squareTruthBitP, squareTruthBitQ, hi, hj]
-  ring
+    squareTruthBitP, squareTruthBitQ, hi, hj] <;> ring
 
 /-- If the Dirac operator has no couplings between opposite truth
 atoms, the opposite-order coordinate entries cannot overlap.
