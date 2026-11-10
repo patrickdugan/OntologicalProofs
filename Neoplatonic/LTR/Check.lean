@@ -59,6 +59,7 @@ import Neoplatonic.LTR.FiveDimensionalNormExtremal
 import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
 import Neoplatonic.LTR.TwoDirectionResidualReduction
 import Neoplatonic.LTR.TwoDirectionResidualSubmodule
+import Neoplatonic.LTR.TwoDirectionResidualCompression
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1338,3 +1339,15 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoDirection_residualSubmodule_products_invariant
 #print axioms Neoplatonic.LTR.twoDirection_sixDim_signedResidual_finrank
 #print axioms Neoplatonic.LTR.twoDirection_sevenDim_signedResidual_finrank
+
+-- LTR-MAN-60: genuine residual CLMs, inherited Hermitian symmetry and contractions.
+#print axioms Neoplatonic.LTR.invariantHilbertRestriction_norm_le
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualA_symmetric
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualB_symmetric
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residual_plus_le
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residual_minus_le
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residual_pythagorean
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualA_norm_le_one
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualB_norm_le_one
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualAB_apply_coe
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualBA_apply_coe
