@@ -69,7 +69,8 @@ theorem TwoDirectionExtremalSystem.sixDimResidual_quadraticBound
   intro sign
   obtain ⟨hp, hm⟩ :=
     S.sixDimResidual_pauliCoefficients_le_one hq hDim htrA htrB
-  cases sign <;> simpa only [Bool.false_eq_true, Bool.not_false,
-    ite_true, ite_false, add_neg_eq_sub] using (if sign then hp else hm)
+  cases sign with
+  | false => simpa [add_neg_eq_sub] using hm
+  | true => simpa using hp
 
 end Neoplatonic.LTR
