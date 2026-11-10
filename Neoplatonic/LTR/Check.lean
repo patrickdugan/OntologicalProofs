@@ -53,6 +53,7 @@ import Neoplatonic.LTR.TwoDirectionTraceZero
 import Neoplatonic.LTR.TwoBitSquareSupport
 import Neoplatonic.LTR.ScalarFibreNonzeroComposition
 import Neoplatonic.LTR.FiveDimensionalSpectralResidual
+import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveDimensionalOrthonormalExtension
 import Neoplatonic.LTR.FiveDimensionalSignedVectors
 import Neoplatonic.LTR.FiveDimensionalNormExtremal
@@ -1303,3 +1304,13 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.truthMultiplicity_pos
 #print axioms Neoplatonic.LTR.truthMultiplicity6_complete
 #print axioms Neoplatonic.LTR.truthMultiplicity7_complete
+
+-- LTR-MAN-57: six-dimensional spectral contractions with nonvanishing residual products.
+#print axioms Neoplatonic.LTR.sixResidualA_selfAdjoint
+#print axioms Neoplatonic.LTR.sixResidualB_selfAdjoint
+#print axioms Neoplatonic.LTR.sixResidualA_trace_zero
+#print axioms Neoplatonic.LTR.sixResidualA_norm_one
+#print axioms Neoplatonic.LTR.sixResidual_sum_contraction
+#print axioms Neoplatonic.LTR.sixResidual_difference_contraction
+#print axioms Neoplatonic.LTR.sixResidual_product_nonzero
+#print axioms Neoplatonic.LTR.sixDim_spectralHypotheses_doNotForce_zeroProducts
