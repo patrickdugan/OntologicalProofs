@@ -89,6 +89,7 @@ import Neoplatonic.LTR.SixDimensionalLabelledCommutators
 import Neoplatonic.LTR.SixDimensionalMixedTraceBridge
 import Neoplatonic.LTR.SixDimensionalLabelledExtremalSystem
 import Neoplatonic.LTR.SixDimensionalLabelledWitnesses
+import Neoplatonic.LTR.SixDimensionalLabelledPauliBridge
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1502,3 +1503,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_norm_ge_one
 #print axioms Neoplatonic.LTR.sixLabelledConnesDistance_bounds
 #print axioms Neoplatonic.LTR.sixLabelled_exactEdges_witnessed_extremalSystem
+
+
+-- LTR-MAN-76: concrete labelled Dirac to MAN-75 Pauli coefficient and orthogonality.
+#print axioms Neoplatonic.LTR.sixLabelled_ambientProduct_matrixTrace
+#print axioms Neoplatonic.LTR.sixLabelled_operatorTrace_zero
+#print axioms Neoplatonic.LTR.sixLabelled_extremal_pauliMixed_eq_matrixTrace
+#print axioms Neoplatonic.LTR.sixLabelled_witnessed_noOpposite_pauliOrthogonal
