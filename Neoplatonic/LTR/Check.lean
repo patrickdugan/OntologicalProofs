@@ -62,6 +62,7 @@ import Neoplatonic.LTR.TwoDirectionResidualSubmodule
 import Neoplatonic.LTR.TwoDirectionResidualCompression
 import Neoplatonic.LTR.TwoDimensionalPauliResidual
 import Neoplatonic.LTR.OrthogonalTraceDecomposition
+import Neoplatonic.LTR.EigenquartetTrace
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1366,3 +1367,8 @@ open Neoplatonic.LTR
 -- LTR-MAN-62: exact trace decomposition of an orthogonal invariant subspace pair.
 #print axioms Neoplatonic.LTR.orthogonalTwoSummands_isInternal
 #print axioms Neoplatonic.LTR.orthogonalTwoSummands_trace
+
+-- LTR-MAN-63: invariant eigenquartet span trace and residual trace zero bridge.
+#print axioms Neoplatonic.LTR.eigenquartet_span_invariant
+#print axioms Neoplatonic.LTR.eigenquartet_span_restrict_trace
+#print axioms Neoplatonic.LTR.eigenquartet_residual_restrict_trace_zero
