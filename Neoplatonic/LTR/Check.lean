@@ -58,6 +58,7 @@ import Neoplatonic.LTR.FiveDimensionalSignedVectors
 import Neoplatonic.LTR.FiveDimensionalNormExtremal
 import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
 import Neoplatonic.LTR.TwoDirectionResidualReduction
+import Neoplatonic.LTR.TwoDirectionResidualSubmodule
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
 import Neoplatonic.LTR.FiveFibreHermitianSupport
@@ -1323,3 +1324,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixResidual_difference_contraction
 #print axioms Neoplatonic.LTR.sixResidual_product_nonzero
 #print axioms Neoplatonic.LTR.sixDim_spectralHypotheses_doNotForce_zeroProducts
+
+-- LTR-MAN-59: genuine invariant Hilbert residual submodule and rank certificates.
+#print axioms Neoplatonic.LTR.finiteQuartet_mem_orthogonalSpan_iff
+#print axioms Neoplatonic.LTR.twoDirectionResidualSubmodule_mem_iff
+#print axioms Neoplatonic.LTR.twoDirection_residualSubmodule_invariant
+#print axioms Neoplatonic.LTR.twoDirection_residualSubmodule_products_invariant
+#print axioms Neoplatonic.LTR.twoDirection_sixDim_signedResidual_finrank
+#print axioms Neoplatonic.LTR.twoDirection_sevenDim_signedResidual_finrank
