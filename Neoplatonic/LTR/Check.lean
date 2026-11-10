@@ -67,6 +67,7 @@ import Neoplatonic.LTR.SignedResidualTraceZero
 import Neoplatonic.LTR.SixDimensionalResidualPauli
 import Neoplatonic.LTR.SixDimensionalResidualQuadratics
 import Neoplatonic.LTR.TwoDimensionalPauliOperatorNorm
+import Neoplatonic.LTR.ResidualIsometricConjugation
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1404,3 +1405,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoDim_pauli_sum_operator_norm_sq
 #print axioms Neoplatonic.LTR.twoDim_pauli_difference_operator_norm_sq
 #print axioms Neoplatonic.LTR.twoDim_pauli_simultaneous_contraction_coefficients
+
+-- LTR-MAN-68: isometric residual change of basis and genuine operator contractions.
+#print axioms Neoplatonic.LTR.hilbertIsometricConjugate_norm
+#print axioms Neoplatonic.LTR.hilbertIsometricConjugate_add
+#print axioms Neoplatonic.LTR.hilbertIsometricConjugate_sub
+#print axioms Neoplatonic.LTR.hilbertIsometricConjugate_simultaneous_norm
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimEuclideanResidual_contracts
