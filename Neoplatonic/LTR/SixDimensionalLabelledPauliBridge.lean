@@ -27,6 +27,8 @@ six-dimensional exact-Hamming obstruction is claimed.
 
 namespace Neoplatonic.LTR
 
+open scoped NNReal ENNReal
+
 private abbrev SixH := EuclideanSpace ℂ (Fin 6)
 private abbrev SixMat := Matrix (Fin 6) (Fin 6) ℂ
 
