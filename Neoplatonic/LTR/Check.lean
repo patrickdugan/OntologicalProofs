@@ -88,6 +88,7 @@ import Neoplatonic.LTR.SixDimensionalTruthFibreBranching
 import Neoplatonic.LTR.SixDimensionalLabelledCommutators
 import Neoplatonic.LTR.SixDimensionalMixedTraceBridge
 import Neoplatonic.LTR.SixDimensionalLabelledExtremalSystem
+import Neoplatonic.LTR.SixDimensionalLabelledWitnesses
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1493,3 +1494,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelledSquareA_selfAdjoint
 #print axioms Neoplatonic.LTR.sixLabelledSquareGradeP_anticommutes
 #print axioms Neoplatonic.LTR.sixLabelledSquare_exists_extremalSystem
+
+
+-- LTR-MAN-76: actual labelled Connes witness-to-extremal system bridge.
+#print axioms Neoplatonic.LTR.sixTruthSum_eq_bits
+#print axioms Neoplatonic.LTR.sixLabelled_oppositeWitnesses_contractions
+#print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_norm_ge_one
+#print axioms Neoplatonic.LTR.sixLabelledConnesDistance_bounds
+#print axioms Neoplatonic.LTR.sixLabelled_exactEdges_witnessed_extremalSystem
