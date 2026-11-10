@@ -64,6 +64,7 @@ import Neoplatonic.LTR.FiveFibreConnesDualObstruction
 import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
 import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreFaithfulLabels
+import Neoplatonic.LTR.SixSevenFibrePatterns
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1296,3 +1297,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.booleanSquare_edge_count
 #print axioms Neoplatonic.LTR.booleanSquare_hilbert_coordinate_count
 #print axioms Neoplatonic.LTR.booleanSquare_exactHamming_eightCoordinates
+
+-- LTR-MAN-55: exhaustive faithful truth-fibre multiplicities in dimensions 6 and 7.
+#print axioms Neoplatonic.LTR.truthMultiplicity_sum
+#print axioms Neoplatonic.LTR.truthMultiplicity_pos
+#print axioms Neoplatonic.LTR.truthMultiplicity6_complete
+#print axioms Neoplatonic.LTR.truthMultiplicity7_complete
