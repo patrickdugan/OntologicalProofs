@@ -164,7 +164,7 @@ theorem residualA_norm_le_one (S : TwoDirectionExtremalSystem E) :
   have hp := S.residual_pythagorean x
   have hsq : ‖S.residualA x‖ ^ 2 ≤ ‖x‖ ^ 2 := by
     nlinarith [sq_nonneg (‖S.residualB x‖)]
-  have hx := (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mpr hsq
+  have hx := (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mp hsq
   simpa only [one_mul] using hx
 
 theorem residualB_norm_le_one (S : TwoDirectionExtremalSystem E) :
@@ -174,7 +174,7 @@ theorem residualB_norm_le_one (S : TwoDirectionExtremalSystem E) :
   have hp := S.residual_pythagorean x
   have hsq : ‖S.residualB x‖ ^ 2 ≤ ‖x‖ ^ 2 := by
     nlinarith [sq_nonneg (‖S.residualA x‖)]
-  have hx := (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mpr hsq
+  have hx := (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mp hsq
   simpa only [one_mul] using hx
 
 /-- The ordered operator products on the residual space are
