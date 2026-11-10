@@ -111,6 +111,7 @@ theorem TwoDirectionExtremalSystem.ambientProduct_trace_eq_residual
   let T := S.A.toLinearMap * S.B.toLinearMap
   have hEig : ∀ i : Fin 4, T (q i) = (0 : ℂ) • q i := by
     intro i
+    simp only [zero_smul]
     have ha := S.eigenquartet_A i
     have hb := S.eigenquartet_B i
     change S.A.toLinearMap (S.B.toLinearMap (q i)) = 0
@@ -136,7 +137,6 @@ theorem TwoDirectionExtremalSystem.ambientProduct_trace_eq_residual
       T.restrict hR =
         S.residualA.toLinearMap * S.residualB.toLinearMap := by
     ext x
-    apply Subtype.ext
     rfl
   rw [hres] at hsplit
   exact hsplit
