@@ -21,6 +21,8 @@ forces the trace of the invariant residual compression to vanish.
 
 namespace Neoplatonic.LTR
 
+open Module
+
 variable {E : Type*} [NormedAddCommGroup E]
   [InnerProductSpace ℂ E] [FiniteDimensional ℂ E] [CompleteSpace E]
 
