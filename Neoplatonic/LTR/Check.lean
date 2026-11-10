@@ -87,6 +87,9 @@ import Neoplatonic.LTR.SixSevenFibrePatterns
 import Neoplatonic.LTR.SixDimensionalTruthFibreBranching
 import Neoplatonic.LTR.SixDimensionalLabelledCommutators
 import Neoplatonic.LTR.SixDimensionalMixedTraceBridge
+import Neoplatonic.LTR.SixDimensionalLabelledExtremalSystem
+import Neoplatonic.LTR.SixDimensionalLabelledWitnesses
+import Neoplatonic.LTR.SixDimensionalLabelledPauliBridge
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1485,3 +1488,25 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.ambientProduct_trace_eq_residual
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_product_matrixTrace
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDim_ambientProduct_trace_eq_pauliMixed
+
+
+-- LTR-MAN-76: genuine labelled six-dimensional coordinate gradings and spectral quartet.
+#print axioms Neoplatonic.LTR.sixLabelledSquareP_idempotent
+#print axioms Neoplatonic.LTR.sixLabelledSquareA_selfAdjoint
+#print axioms Neoplatonic.LTR.sixLabelledSquareGradeP_anticommutes
+#print axioms Neoplatonic.LTR.sixLabelledSquare_exists_extremalSystem
+
+
+-- LTR-MAN-76: actual labelled Connes witness-to-extremal system bridge.
+#print axioms Neoplatonic.LTR.sixTruthSum_eq_bits
+#print axioms Neoplatonic.LTR.sixLabelled_oppositeWitnesses_contractions
+#print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_norm_ge_one
+#print axioms Neoplatonic.LTR.sixLabelledConnesDistance_bounds
+#print axioms Neoplatonic.LTR.sixLabelled_exactEdges_witnessed_extremalSystem
+
+
+-- LTR-MAN-76: concrete labelled Dirac to MAN-75 Pauli coefficient and orthogonality.
+#print axioms Neoplatonic.LTR.sixLabelled_ambientProduct_matrixTrace
+#print axioms Neoplatonic.LTR.sixLabelled_operatorTrace_zero
+#print axioms Neoplatonic.LTR.sixLabelled_extremal_pauliMixed_eq_matrixTrace
+#print axioms Neoplatonic.LTR.sixLabelled_witnessed_noOpposite_pauliOrthogonal
