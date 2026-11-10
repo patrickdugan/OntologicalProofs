@@ -30,7 +30,7 @@ theorem FiveFibreAtomicResolution.atomicRange_nonzero
     simpa only [FiveFibreAtomicResolution.atomicRange] using hz
   have hlin : (P.proj v).toEuclideanLin = 0 :=
     LinearMap.range_eq_bot.mp hr
-  exact P.nonzero v (Matrix.toEuclideanLin.injective hlin)
+  exact P.nonzero v (Matrix.toEuclideanLin.injective (by simpa using hlin))
 
 /-- Every truth atom has at least one coordinate in the subordinate
 orthonormal basis, so its label map is faithful. -/
