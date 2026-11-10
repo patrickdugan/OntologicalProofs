@@ -45,7 +45,7 @@ theorem fiveFibre_reindex_operatorNorm
   have h := StarAlgEquiv.norm_map (fiveFibre_reindexStarAlgEquiv e) M
   simpa only [fiveFibre_reindexStarAlgEquiv,
     StarAlgEquiv.ofAlgEquiv_apply,
-    Matrix.coe_reindexAlgEquiv, Matrix.cstar_norm_def] using h
+    Matrix.coe_reindexAlgEquiv, Matrix.l2_opNorm_def] using h
 
 /-- A diagonal represented truth observable reindexes by
 precomposing its values with the inverse coordinate permutation. -/
@@ -54,8 +54,7 @@ theorem fiveFibre_reindex_diagonal
     Matrix.reindex e e (Matrix.diagonal f) =
       Matrix.diagonal (fun i => f (e.symm i)) := by
   ext i j
-  simp [Matrix.reindex_apply, Matrix.diagonal_apply,
-    Equiv.injective.eq_iff]
+  simp [Matrix.reindex_apply, Matrix.diagonal_apply]
 
 /-- Reindexing a Dirac matrix and a truth observable produces
 the same literal commutator as reindexing their commutator. -/
