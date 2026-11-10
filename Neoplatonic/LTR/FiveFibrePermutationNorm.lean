@@ -30,15 +30,15 @@ private theorem fiveFibre_permMatrix_mul_left
     (σ : Equiv.Perm (Fin 5))
     (M : Matrix (Fin 5) (Fin 5) ℂ) (i j : Fin 5) :
     (σ.permMatrix ℂ * M) i j = M (σ i) j := by
-  change ((σ.permMatrix ℂ) *ᵥ (fun k => M k j)) i = _
+  change (Matrix.mulVec (σ.permMatrix ℂ) (fun k => M k j)) i = _
   rw [Matrix.permMatrix_mulVec]
   rfl
 
 private theorem fiveFibre_permMatrix_mul_right
     (σ : Equiv.Perm (Fin 5))
     (M : Matrix (Fin 5) (Fin 5) ℂ) (i j : Fin 5) :
-    (M * σ.symm.permMatrix ℂ) i j = M i (σ j) := by
-  change ((fun k => M i k) ᵥ* (σ.symm.permMatrix ℂ)) j = _
+    (M * (σ⁻¹).permMatrix ℂ) i j = M i (σ j) := by
+  change (Matrix.vecMul (fun k => M i k) ((σ⁻¹).permMatrix ℂ)) j = _
   rw [Matrix.vecMul_permMatrix]
   rfl
 
@@ -48,7 +48,7 @@ theorem fiveFibre_submatrix_eq_permutationConjugation
     (σ : Equiv.Perm (Fin 5))
     (M : Matrix (Fin 5) (Fin 5) ℂ) :
     M.submatrix σ σ =
-      σ.permMatrix ℂ * M * σ.symm.permMatrix ℂ := by
+      σ.permMatrix ℂ * M * (σ⁻¹).permMatrix ℂ := by
   ext i j
   change M (σ i) (σ j) = _
   rw [fiveFibre_permMatrix_mul_right σ
@@ -61,15 +61,15 @@ private theorem fiveFibre_submatrix_opNorm_le
     ‖M.submatrix σ σ‖ ≤ ‖M‖ := by
   have hp : ‖σ.permMatrix ℂ‖ = 1 :=
     Matrix.permMatrix_l2_opNorm_eq σ
-  have hq : ‖σ.symm.permMatrix ℂ‖ = 1 :=
-    Matrix.permMatrix_l2_opNorm_eq σ.symm
+  have hq : ‖(σ⁻¹).permMatrix ℂ‖ = 1 :=
+    Matrix.permMatrix_l2_opNorm_eq (σ⁻¹)
   rw [fiveFibre_submatrix_eq_permutationConjugation]
   calc
-    ‖σ.permMatrix ℂ * M * σ.symm.permMatrix ℂ‖ ≤
-        ‖σ.permMatrix ℂ * M‖ * ‖σ.symm.permMatrix ℂ‖ :=
+    ‖σ.permMatrix ℂ * M * (σ⁻¹).permMatrix ℂ‖ ≤
+        ‖σ.permMatrix ℂ * M‖ * ‖(σ⁻¹).permMatrix ℂ‖ :=
       Matrix.l2_opNorm_mul _ _
     _ ≤ (‖σ.permMatrix ℂ‖ * ‖M‖) *
-        ‖σ.symm.permMatrix ℂ‖ :=
+        ‖(σ⁻¹).permMatrix ℂ‖ :=
       mul_le_mul_of_nonneg_right
         (Matrix.l2_opNorm_mul _ _) (norm_nonneg _)
     _ = ‖M‖ := by rw [hp, hq]; ring
