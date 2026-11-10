@@ -90,6 +90,7 @@ import Neoplatonic.LTR.SixDimensionalMixedTraceBridge
 import Neoplatonic.LTR.SixDimensionalLabelledExtremalSystem
 import Neoplatonic.LTR.SixDimensionalLabelledWitnesses
 import Neoplatonic.LTR.SixDimensionalLabelledPauliBridge
+import Neoplatonic.LTR.SixDimensionalExactHammingAttainment
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1510,3 +1511,14 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_operatorTrace_zero
 #print axioms Neoplatonic.LTR.sixLabelled_extremal_pauliMixed_eq_matrixTrace
 #print axioms Neoplatonic.LTR.sixLabelled_witnessed_noOpposite_pauliOrthogonal
+
+
+-- LTR-MAN-77: compact dual attainment and exact 6D Hamming witness derivation.
+#print axioms Neoplatonic.LTR.sixLabelledDiracComm_sub_const
+#print axioms Neoplatonic.LTR.sixLabelledDiracFourNorm_continuous
+#print axioms Neoplatonic.LTR.sixLabelled_normalizedAdmissible_compact
+#print axioms Neoplatonic.LTR.sixLabelled_distanceTwo_attained
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_force_witnesses
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_exists_extremalSystem
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_noOpposite_pauliOrthogonal
+#print axioms Neoplatonic.LTR.sixLabelled_fullHamming_force_witnesses
