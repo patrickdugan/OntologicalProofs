@@ -75,6 +75,7 @@ import Neoplatonic.LTR.FiveFibreAtomicRangeDecomposition
 import Neoplatonic.LTR.FiveFibreAtomicBasisLabels
 import Neoplatonic.LTR.FiveFibreAtomicUnitary
 import Neoplatonic.LTR.FiveFibreAtomicConjugacy
+import Neoplatonic.LTR.FiveFibreAtomicConnesNoGo
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1269,3 +1270,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicProjection_mul_unitary
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicProjection_eq_unitaryConj
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicProjection_diagonalized
+
+-- LTR-MAN-52: arbitrary faithful atomic representations and Connes exact-Hamming no-go.
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.sum_diagonalIndicators
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.representedObservable_eq_unitaryConj
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicDiracComm_eq_conjugated
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicConnesDistance_eq_conjugated
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.exactHamming_noGo
