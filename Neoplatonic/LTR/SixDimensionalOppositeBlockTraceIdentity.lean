@@ -62,7 +62,7 @@ theorem sixTruthFibreBlockEnergy_cast_eq_orientedProduct
   by_cases h : label i = u ∧ label j = v
   · simp only [if_pos h]
     rw [hD j i]
-    exact complex_cast_norm_sq_eq_mul_star (D i j)
+    simpa using complex_cast_norm_sq_eq_mul_star (D i j)
   · simp [h]
 
 /-- Exchanging the two truth fibres preserves the oriented sum
@@ -79,7 +79,7 @@ theorem sixOrientedTruthProduct_reverse
   apply Finset.sum_congr rfl
   intro j hj
   by_cases h : label j = u ∧ label i = v
-  · simp [h, h.1, h.2, mul_comm]
+  · simp [h, mul_comm]
   · have h' : ¬(label i = v ∧ label j = u) := by
       simpa [and_comm] using h
     simp [h, h']
@@ -115,9 +115,9 @@ theorem sixTruthPair_bidirectional_eq_two_oriented
         calc
           u = label i := h1.1.symm
           _ = v := h.1
-      simp [h1, h2]
+      simp [h1, h2, huv]
     · by_cases h2 : label i = v ∧ label j = u <;>
-        simp [h1, h2]
+        simp [h1, h2, huv]
   rw [hsplit, ← sixOrientedTruthProduct_reverse label D u v]
   ring
 
