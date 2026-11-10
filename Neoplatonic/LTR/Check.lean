@@ -61,6 +61,7 @@ import Neoplatonic.LTR.TwoDirectionResidualReduction
 import Neoplatonic.LTR.TwoDirectionResidualSubmodule
 import Neoplatonic.LTR.TwoDirectionResidualCompression
 import Neoplatonic.LTR.TwoDimensionalPauliResidual
+import Neoplatonic.LTR.OrthogonalTraceDecomposition
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1361,3 +1362,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoDim_tracelessHermitian_pauli_normal_form
 #print axioms Neoplatonic.LTR.twoDim_tracelessHermitian_square_scalar
 #print axioms Neoplatonic.LTR.twoDim_tracelessHermitian_anticommutator_scalar
+
+-- LTR-MAN-62: exact trace decomposition of an orthogonal invariant subspace pair.
+#print axioms Neoplatonic.LTR.orthogonalTwoSummands_isInternal
+#print axioms Neoplatonic.LTR.orthogonalTwoSummands_trace
