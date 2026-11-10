@@ -86,6 +86,7 @@ import Neoplatonic.LTR.FiveFibreFaithfulLabels
 import Neoplatonic.LTR.SixSevenFibrePatterns
 import Neoplatonic.LTR.SixDimensionalTruthFibreBranching
 import Neoplatonic.LTR.SixDimensionalLabelledCommutators
+import Neoplatonic.LTR.SixDimensionalMixedTraceBridge
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1475,3 +1476,12 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.labelledSquare_opposite03_entry_equal
 #print axioms Neoplatonic.LTR.labelledSquare_opposite12_entry_negative
 #print axioms Neoplatonic.LTR.labelledSquare_crossTrace_zero_of_noOpposite
+
+
+-- LTR-MAN-75: ambient operator product trace, residual matrices, and true Pauli mixed coefficient.
+#print axioms Neoplatonic.LTR.twoDim_pauli_mixed_eq_product_trace
+#print axioms Neoplatonic.LTR.hilbertIsometricConjugate_mul
+#print axioms Neoplatonic.LTR.hilbertIsometricConjugate_trace
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.ambientProduct_trace_eq_residual
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_product_matrixTrace
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDim_ambientProduct_trace_eq_pauliMixed
