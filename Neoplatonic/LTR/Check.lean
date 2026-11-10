@@ -69,6 +69,7 @@ import Neoplatonic.LTR.SixDimensionalResidualQuadratics
 import Neoplatonic.LTR.TwoDimensionalPauliOperatorNorm
 import Neoplatonic.LTR.ResidualIsometricConjugation
 import Neoplatonic.LTR.TwoDimensionalCstarMatrixTransport
+import Neoplatonic.LTR.ResidualMatrixIdentification
 import Neoplatonic.LTR.SixDimensionalTruePauliBounds
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
@@ -1427,3 +1428,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarMatrices_hermitian
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarMatrices_trace_zero
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDim_truePauliCoefficientBounds
+
+-- LTR-MAN-70: exact identification of residual matrix representations and C*-norm contractions.
+#print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_apply_inner
+#print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_isometricConjugate
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarResidualMatrixA_eq
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarResidualMatrixB_eq
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidualMatrix_contracts
