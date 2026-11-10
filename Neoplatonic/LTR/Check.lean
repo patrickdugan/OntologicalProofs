@@ -71,6 +71,7 @@ import Neoplatonic.LTR.FiveFibreLabelledMetricTransport
 import Neoplatonic.LTR.FiveFibreFaithfulDiagonalNoGo
 import Neoplatonic.LTR.FiveFibreUnitaryTransport
 import Neoplatonic.LTR.FiveFibreAtomicJointSpectrum
+import Neoplatonic.LTR.FiveFibreAtomicRangeDecomposition
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1243,3 +1244,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.symmetric
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.commute_linear
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.jointEigenspaces_span
+
+-- LTR-MAN-48: orthogonal ranges, internal sum, and subordinate orthonormal basis.
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicRange_orthogonal
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicRanges_span
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicRanges_internal
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasis_subordinate
