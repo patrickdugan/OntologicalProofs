@@ -67,6 +67,7 @@ import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
 import Neoplatonic.LTR.FiveFibreLabelledConnesDistance
+import Neoplatonic.LTR.FiveFibreTruthMetricInvariance
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1217,3 +1218,7 @@ open Neoplatonic.LTR
 -- LTR-MAN-42: invariance of the labelled extended Connes dual metric under Hilbert basis reindexing.
 #print axioms Neoplatonic.LTR.fiveFibreLabelledDiracComm_reindex_norm
 #print axioms Neoplatonic.LTR.fiveFibreLabelledConnesDistance_reindex
+
+-- LTR-MAN-43: invariance of the labelled Connes dual metric under arbitrary truth relabelings.
+#print axioms Neoplatonic.LTR.fiveFibreLabelledConnesDistance_truthEquiv
+#print axioms Neoplatonic.LTR.fiveFibreLabelledConnesDistance_squareTranslation
