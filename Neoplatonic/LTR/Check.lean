@@ -85,6 +85,7 @@ import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreFaithfulLabels
 import Neoplatonic.LTR.SixSevenFibrePatterns
 import Neoplatonic.LTR.SixDimensionalTruthFibreBranching
+import Neoplatonic.LTR.SixDimensionalLabelledCommutators
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1465,3 +1466,12 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.squareBranchSupported_fourEdges_dimension_eight
 #print axioms Neoplatonic.LTR.squareBranchSupported_sixDim_threeEdges_adjacentDoubles
 #print axioms Neoplatonic.LTR.squareBranchSupported_sevenDim_noFullSquare
+
+
+-- LTR-MAN-74: concrete labelled truth coordinates, actual Dirac commutators and mixed trace.
+#print axioms Neoplatonic.LTR.squareTruthOpposite_iff_bits
+#print axioms Neoplatonic.LTR.labelledSquareA_eq_diagonal_commutator
+#print axioms Neoplatonic.LTR.labelledSquareA_trace_zero
+#print axioms Neoplatonic.LTR.labelledSquare_opposite03_entry_equal
+#print axioms Neoplatonic.LTR.labelledSquare_opposite12_entry_negative
+#print axioms Neoplatonic.LTR.labelledSquare_crossTrace_zero_of_noOpposite
