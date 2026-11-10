@@ -36,6 +36,7 @@ theorem selfAdjoint_preserves_orthogonal_to_eigenvector
     (hux : inner ℂ u x = 0) :
     inner ℂ u (T x) = 0 := by
   have hs := (ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.mp hT) u x
+  change inner ℂ (T u) x = inner ℂ u (T x) at hs
   rw [hu] at hs
   simpa [hux] using hs.symm
 
@@ -148,7 +149,8 @@ theorem twoDirection_sixDim_residual_finrank
   let S := Submodule.span ℂ (Set.range q)
   have hspan : Module.finrank ℂ S = 4 :=
     twoDirection_extremalQuartet_span_finrank q hq
-  have h := S.finrank_add_finrank_orthogonal
+  change Module.finrank ℂ Sᗮ = 2
+  apply Submodule.finrank_add_finrank_orthogonal'
   omega
 
 /-- The analogous residual complement in ambient dimension
@@ -160,7 +162,8 @@ theorem twoDirection_sevenDim_residual_finrank
   let S := Submodule.span ℂ (Set.range q)
   have hspan : Module.finrank ℂ S = 4 :=
     twoDirection_extremalQuartet_span_finrank q hq
-  have h := S.finrank_add_finrank_orthogonal
+  change Module.finrank ℂ Sᗮ = 3
+  apply Submodule.finrank_add_finrank_orthogonal'
   omega
 
 end FiniteDimensional
