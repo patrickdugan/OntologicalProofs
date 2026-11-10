@@ -69,6 +69,7 @@ import Neoplatonic.LTR.FiveFibrePermutationNorm
 import Neoplatonic.LTR.FiveFibreLabelledConnesDistance
 import Neoplatonic.LTR.FiveFibreLabelledMetricTransport
 import Neoplatonic.LTR.FiveFibreFaithfulDiagonalNoGo
+import Neoplatonic.LTR.FiveFibreUnitaryTransport
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1228,3 +1229,10 @@ open Neoplatonic.LTR
 
 -- LTR-MAN-45: universal faithful diagonal two-bit exact Hamming no-go.
 #print axioms Neoplatonic.LTR.fiveFibreFaithfulDiagonal_exactHamming_noGo
+
+-- LTR-MAN-46: unitary covariance of the genuine Connes dual distance.
+#print axioms Neoplatonic.LTR.fiveFibre_unitaryAut_operatorNorm
+#print axioms Neoplatonic.LTR.fiveFibreConjugatedDiracComm_norm
+#print axioms Neoplatonic.LTR.fiveFibreConjugatedConnesDistance_eq_labelled
+#print axioms Neoplatonic.LTR.fiveFibre_unitaryAut_hermitian
+#print axioms Neoplatonic.LTR.fiveFibreUnitaryFaithful_exactHamming_noGo
