@@ -64,6 +64,7 @@ import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
 import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreFaithfulLabels
 import Neoplatonic.LTR.FiveFibreChartPermutation
+import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
@@ -1195,3 +1196,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreStandardLabel_multiplicity
 #print axioms Neoplatonic.LTR.fiveFibreStandardLabel_zero
 #print axioms Neoplatonic.LTR.fiveFibreFaithful_exists_standardPermutation
+
+-- LTR-MAN-40: every faithful five-dimensional diagonal truth chart is a square-isometric relabeling of canonical.
+#print axioms Neoplatonic.LTR.twoBitSquareTranslation_self_to_zero
+#print axioms Neoplatonic.LTR.twoBitSquareTranslation_hamming
+#print axioms Neoplatonic.LTR.fiveFibre_faithful_allLabels_chart
