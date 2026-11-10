@@ -96,6 +96,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeCornerPauliBudget
 import Neoplatonic.LTR.SixDimensionalOppositeCornerEntryBound
 import Neoplatonic.LTR.SixDimensionalOppositeFibreBlockNorm
 import Neoplatonic.LTR.SixDimensionalTruthBlockColumnEnergy
+import Neoplatonic.LTR.SixDimensionalTruthBlockHermitianEnergy
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1568,3 +1569,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_columnEnergy_le_operatorNorm_sq
 #print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_le_inputMultiplicity_quarter
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeBlock_energyBudget
+
+
+-- LTR-MAN-82: Hermitian block adjoints, reversed energy, and min-fibre squared energy budget.
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_conjTranspose
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_norm_reverse
+#print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_reverse
+#print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_le_minMultiplicity_quarter
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeBlock_minEnergy
