@@ -65,7 +65,7 @@ noncomputable def fiveFibreCanonicalAdmissibleEquiv
     intro f
     apply Subtype.ext
     funext i
-    simp [fiveFibreSquareRestrict, fiveFibreSquareLift]
+    fin_cases i <;> simp [fiveFibreSquareRestrict, fiveFibreSquareLift]
   right_inv := by
     intro g
     apply Subtype.ext
@@ -83,8 +83,10 @@ theorem fiveFibreLabelledConnesDistance_canonical
     fiveFibreSquareConnesDualDistance
   refine Equiv.iSup_congr (fiveFibreCanonicalAdmissibleEquiv D) ?_
   intro f
-  simp [fiveFibreCanonicalAdmissibleEquiv,
-    fiveFibreSquareLift_castSucc]
+  change (‖fiveFibreSquareLift f.val u.castSucc -
+      fiveFibreSquareLift f.val v.castSucc‖₊ : ℝ≥0∞) =
+    (‖f.val u - f.val v‖₊ : ℝ≥0∞)
+  simp only [fiveFibreSquareLift_castSucc]
 
 /-- A truth-atom bijection induces an actual equivalence of the
 admissible truth-observable spaces, by precomposition. -/
@@ -103,7 +105,7 @@ noncomputable def fiveFibreTruthRelabelAdmissibleEquiv
     refine ⟨fun i => g.val (τ.symm i), ?_⟩
     change ‖fiveFibreSquareDiracComm D
       (fun k => g.val (τ.symm (τ (label k))))‖ ≤ 1
-    simpa using g.property
+    simpa [fiveFibreLabelledDiracComm] using g.property
   left_inv := by
     intro f
     apply Subtype.ext
