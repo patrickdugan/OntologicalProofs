@@ -76,6 +76,7 @@ import Neoplatonic.LTR.FiveFibreAtomicBasisLabels
 import Neoplatonic.LTR.FiveFibreAtomicUnitary
 import Neoplatonic.LTR.FiveFibreAtomicConjugacy
 import Neoplatonic.LTR.FiveFibreAtomicConnesNoGo
+import Neoplatonic.LTR.FiveFibreFaithfulStarRepresentation
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1277,3 +1278,14 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicDiracComm_eq_conjugated
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicConnesDistance_eq_conjugated
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.exactHamming_noGo
+
+-- LTR-MAN-53: faithful unital star representations and universal 5D exact-Hamming no-go.
+#print axioms Neoplatonic.LTR.fiveFibreTruthAtom_star
+#print axioms Neoplatonic.LTR.fiveFibreTruthAtom_idempotent
+#print axioms Neoplatonic.LTR.fiveFibreTruthAtom_orthogonal
+#print axioms Neoplatonic.LTR.fiveFibreTruthAtom_sum_one
+#print axioms Neoplatonic.LTR.fiveFibreTruthAtom_sum_repr
+#print axioms Neoplatonic.LTR.fiveFibreStarRep_eq_atomicObservable
+#print axioms Neoplatonic.LTR.fiveFibreStarRepDiracComm_eq_atomic
+#print axioms Neoplatonic.LTR.fiveFibreStarRepConnesDistance_eq_atomic
+#print axioms Neoplatonic.LTR.fiveFibreFaithfulStarRep_exactHamming_noGo
