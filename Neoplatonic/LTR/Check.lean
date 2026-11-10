@@ -74,6 +74,7 @@ import Neoplatonic.LTR.FiveFibreAtomicJointSpectrum
 import Neoplatonic.LTR.FiveFibreAtomicRangeDecomposition
 import Neoplatonic.LTR.FiveFibreAtomicBasisLabels
 import Neoplatonic.LTR.FiveFibreAtomicUnitary
+import Neoplatonic.LTR.FiveFibreAtomicConjugacy
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1263,3 +1264,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasisUnitary_mulVec
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasisUnitary_star_mulVec
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasis_mulVec_eigen
+
+-- LTR-MAN-51: simultaneous unitary conjugacy for all atomic truth projectors.
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicProjection_mul_unitary
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicProjection_eq_unitaryConj
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicProjection_diagonalized
