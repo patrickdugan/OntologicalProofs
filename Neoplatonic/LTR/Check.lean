@@ -91,6 +91,8 @@ import Neoplatonic.LTR.SixDimensionalLabelledExtremalSystem
 import Neoplatonic.LTR.SixDimensionalLabelledWitnesses
 import Neoplatonic.LTR.SixDimensionalLabelledPauliBridge
 import Neoplatonic.LTR.SixDimensionalExactHammingAttainment
+import Neoplatonic.LTR.SixDimensionalOppositeCornerTrace
+import Neoplatonic.LTR.SixDimensionalOppositeCornerPauliBudget
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1522,3 +1524,17 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_exists_extremalSystem
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_noOpposite_pauliOrthogonal
 #print axioms Neoplatonic.LTR.sixLabelled_fullHamming_force_witnesses
+
+
+-- LTR-MAN-78: signed opposite-corner support and exact ambient mixed-trace identity.
+#print axioms Neoplatonic.LTR.squareOppositeSignedWeight_eq_bitDifferences
+#print axioms Neoplatonic.LTR.labelledSquare_crossTerm_signed
+#print axioms Neoplatonic.LTR.labelledSquare_crossTrace_signed
+#print axioms Neoplatonic.LTR.labelledSquare_crossTrace_eq_energyDifference
+
+
+-- LTR-MAN-78: true six-dimensional exact-Hamming opposite-corner energy and Pauli balance.
+#print axioms Neoplatonic.LTR.complex_twoSided_mixed_norm_le_one
+#print axioms Neoplatonic.LTR.sixLabelled_extremal_oppositeEnergy_eq_pauliMixed
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEnergy_budget
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_balancedOpposites_pauliOrthogonal
