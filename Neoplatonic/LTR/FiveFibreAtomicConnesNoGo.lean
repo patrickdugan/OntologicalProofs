@@ -82,7 +82,6 @@ theorem FiveFibreAtomicResolution.atomicDiracComm_eq_conjugated
   unfold FiveFibreAtomicResolution.atomicDiracComm
     fiveFibreConjugatedDiracComm
   rw [P.representedObservable_eq_unitaryConj]
-  rfl
 
 /-- Complex four-truth observables in the actual Connes Dirac
 commutator unit ball of an arbitrary faithful atomic resolution. -/
