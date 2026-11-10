@@ -65,6 +65,7 @@ import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreFaithfulLabels
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
+import Neoplatonic.LTR.FiveFibrePermutationNorm
 import Neoplatonic.LTR.FiveFibreSquareOrientations
 import Neoplatonic.LTR.TwoBitOppositeWitnesses
 import Neoplatonic.LTR.FiveFibreOppositeContractions
@@ -1195,3 +1196,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreStandardLabel_multiplicity
 #print axioms Neoplatonic.LTR.fiveFibreStandardLabel_zero
 #print axioms Neoplatonic.LTR.fiveFibreFaithful_exists_standardPermutation
+
+-- LTR-MAN-41: Hilbert norm/Dirac commutator invariance under coordinate permutations.
+#print axioms Neoplatonic.LTR.fiveFibre_submatrix_eq_permutationConjugation
+#print axioms Neoplatonic.LTR.fiveFibre_submatrix_opNorm_eq
+#print axioms Neoplatonic.LTR.fiveFibre_permutedDiracComm_matrix
+#print axioms Neoplatonic.LTR.fiveFibre_permutedDiracComm_norm
