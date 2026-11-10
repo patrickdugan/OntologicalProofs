@@ -63,12 +63,21 @@ theorem eigenquartet_span_restrict_trace
   classical
   let K := Submodule.span ℂ (Set.range q)
   let b0 : Basis (Fin 4) ℂ K := Basis.span hq.linearIndependent
+  have hb0 (i : Fin 4) : (b0 i : E) = q i := by
+    simpa only [b0] using
+      (Basis.coe_span_apply (hli := hq.linearIndependent) i)
   have horth : Orthonormal ℂ (b0 : Fin 4 → K) := by
-    simpa only [b0, Basis.span_apply] using (orthonormal_span hq)
+    have hfun : (b0 : Fin 4 → K) =
+        (fun i => (⟨q i, Submodule.subset_span (Set.mem_range_self i)⟩ : K)) := by
+      funext i
+      apply Subtype.ext
+      exact hb0 i
+    rw [hfun]
+    exact orthonormal_span hq
   let b : OrthonormalBasis (Fin 4) ℂ K :=
     OrthonormalBasis.mk horth b0.span_eq.ge
   have hb (i : Fin 4) : ((b i : K) : E) = q i := by
-    simp [b, b0, OrthonormalBasis.coe_mk, Basis.span_apply]
+    simpa only [b, OrthonormalBasis.coe_mk] using hb0 i
   have heigB (i : Fin 4) :
       (T.restrict hK) (b i) = eigval i • b i := by
     apply Subtype.ext
@@ -84,8 +93,7 @@ theorem eigenquartet_span_restrict_trace
       intro i hi
       rw [heigB i, inner_smul_right]
       have hinner : inner ℂ (b i) (b i) = 1 := by
-        simpa only [if_pos rfl] using
-          (orthonormal_iff_ite.mp b.orthonormal) i i
+        simpa using (orthonormal_iff_ite.mp b.orthonormal) i i
       simp [hinner]
 
 /-- For an ambient trace-zero operator, the residual trace is
