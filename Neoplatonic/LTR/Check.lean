@@ -63,6 +63,7 @@ import Neoplatonic.LTR.FiveFibreConnesDualObstruction
 import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
 import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreFaithfulLabels
+import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
 import Neoplatonic.LTR.FiveFibreTruthTranslations
@@ -1208,3 +1209,6 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibre_reindex_diagonal
 #print axioms Neoplatonic.LTR.fiveFibre_reindex_commutator
 #print axioms Neoplatonic.LTR.fiveFibre_reindex_commutator_norm
+
+-- LTR-MAN-42: four-truth-value iSup equals the original five-coordinate dual Connes distance.
+#print axioms Neoplatonic.LTR.fiveFibreFourTruthDualDistance_eq_connes
