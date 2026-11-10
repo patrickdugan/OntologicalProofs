@@ -69,6 +69,7 @@ import Neoplatonic.LTR.FiveFibrePermutationNorm
 import Neoplatonic.LTR.FiveFibreLabelledConnesDistance
 import Neoplatonic.LTR.FiveFibreLabelledMetricTransport
 import Neoplatonic.LTR.FiveFibreFaithfulDiagonalNoGo
+import Neoplatonic.LTR.FiveFibreAtomicJointSpectrum
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1228,3 +1229,9 @@ open Neoplatonic.LTR
 
 -- LTR-MAN-45: universal faithful diagonal two-bit exact Hamming no-go.
 #print axioms Neoplatonic.LTR.fiveFibreFaithfulDiagonal_exactHamming_noGo
+
+-- LTR-MAN-47: complete joint eigenspace decomposition of four atomic truth projections.
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.commute
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.symmetric
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.commute_linear
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.jointEigenspaces_span
