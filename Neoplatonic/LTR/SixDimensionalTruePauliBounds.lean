@@ -148,10 +148,14 @@ theorem TwoDirectionExtremalSystem.sixDimCstarMatrices_trace_zero
     (S.sixDimCstarResidualMatrixA hq hDim).trace = 0 ∧
     (S.sixDimCstarResidualMatrixB hq hDim).trace = 0 := by
   constructor
-  · rw [twoEuclideanCstarMatrix_trace,
+  · change (twoEuclideanCstarMatrix
+        (S.sixDimEuclideanResidualA hq hDim)).trace = 0
+    rw [twoEuclideanCstarMatrix_trace,
       S.sixDimEuclideanResidualA_trace hq hDim]
     exact S.residualA_trace_zero hq htrA
-  · rw [twoEuclideanCstarMatrix_trace,
+  · change (twoEuclideanCstarMatrix
+        (S.sixDimEuclideanResidualB hq hDim)).trace = 0
+    rw [twoEuclideanCstarMatrix_trace,
       S.sixDimEuclideanResidualB_trace hq hDim]
     exact S.residualB_trace_zero hq htrB
 
