@@ -70,6 +70,7 @@ import Neoplatonic.LTR.TwoDimensionalPauliOperatorNorm
 import Neoplatonic.LTR.ResidualIsometricConjugation
 import Neoplatonic.LTR.TwoDimensionalCstarMatrixTransport
 import Neoplatonic.LTR.ResidualMatrixIdentification
+import Neoplatonic.LTR.SixDimensionalPauliNecessaryBounds
 import Neoplatonic.LTR.SixDimensionalTruePauliBounds
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
@@ -1435,3 +1436,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarResidualMatrixA_eq
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarResidualMatrixB_eq
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidualMatrix_contracts
+
+-- LTR-MAN-71: actual six-dimensional residual Pauli coefficient inequalities.
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_pauliCoefficients_le_one
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_quadraticBound
