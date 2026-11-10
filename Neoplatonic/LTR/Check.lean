@@ -45,6 +45,7 @@ import Neoplatonic.LTR.BooleanCubeCapacity
 import Neoplatonic.LTR.BooleanCubeHamming
 import Neoplatonic.LTR.BooleanCubeUnitPairs
 import Neoplatonic.LTR.BooleanCubeConnesDistance
+import Neoplatonic.LTR.BooleanCubeExactDualSupremum
 import Neoplatonic.LTR.TwoDirectionContractions
 import Neoplatonic.LTR.TwoDirectionExtremalEigenspaces
 import Neoplatonic.LTR.IdempotentGradingPairing
@@ -1289,3 +1290,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreStarRepDiracComm_eq_atomic
 #print axioms Neoplatonic.LTR.fiveFibreStarRepConnesDistance_eq_atomic
 #print axioms Neoplatonic.LTR.fiveFibreFaithfulStarRep_exactHamming_noGo
+
+-- LTR-MAN-54: literal dual supremum and eight-coordinate square realization.
+#print axioms Neoplatonic.LTR.booleanCubeConnesDualSupremum_eq_hamming
+#print axioms Neoplatonic.LTR.booleanSquare_edge_count
+#print axioms Neoplatonic.LTR.booleanSquare_hilbert_coordinate_count
+#print axioms Neoplatonic.LTR.booleanSquare_exactHamming_eightCoordinates
