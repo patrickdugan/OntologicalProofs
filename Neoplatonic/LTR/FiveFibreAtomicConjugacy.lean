@@ -22,7 +22,7 @@ private abbrev FiveMat := Matrix (Fin 5) (Fin 5) ℂ
 
 /-- The diagonal characteristic function of atom v in the
 faithful simultaneous-eigenbasis labeling. -/
-def FiveFibreAtomicResolution.atomicIndicator
+noncomputable def FiveFibreAtomicResolution.atomicIndicator
     (P : FiveFibreAtomicResolution) (v : Fin 4) (j : Fin 5) : ℂ :=
   if v = P.atomicBasisLabel j then 1 else 0
 
@@ -34,15 +34,15 @@ theorem FiveFibreAtomicResolution.atomicProjection_mul_unitary
       (P.atomicBasisUnitary : FiveMat) *
         Matrix.diagonal (P.atomicIndicator v) := by
   ext i j
-  have hvec := P.atomicBasis_mulVec_eigen v j
   have hcol :
-      P.proj v *ᵥ Matrix.col (P.atomicBasisUnitary : FiveMat) j =
-        (P.atomicIndicator v j) •
-          Matrix.col (P.atomicBasisUnitary : FiveMat) j := by
-    simpa only [P.atomicBasisUnitary_col, atomicIndicator] using hvec
+      (P.proj v * (P.atomicBasisUnitary : FiveMat)) *ᵥ Pi.single j 1 =
+        ((P.atomicBasisUnitary : FiveMat) *
+          Matrix.diagonal (P.atomicIndicator v)) *ᵥ Pi.single j 1 := by
+    simp only [Matrix.mulVec_mulVec, Matrix.diagonal_mulVec_single,
+      Matrix.mulVec_smul, P.atomicBasisUnitary_mulVec]
+    simpa only [atomicIndicator] using P.atomicBasis_mulVec_eigen v j
   have hi := congrArg (fun x : Fin 5 → ℂ => x i) hcol
-  simpa [Matrix.mul_apply, Matrix.mulVec, Matrix.mul_diagonal,
-    Matrix.col, smul_eq_mul, mul_comm] using hi
+  simpa only [Matrix.mulVec_single_one, Matrix.col_apply] using hi
 
 /-- Each of the four original atomic projectors is exactly the
 unitary conjugate of its labelled diagonal truth indicator. -/
@@ -57,14 +57,17 @@ theorem FiveFibreAtomicResolution.atomicProjection_eq_unitaryConj
     (U : FiveMat) * Matrix.diagonal (P.atomicIndicator v) at hmul
   calc
     P.proj v = P.proj v * ((U : FiveMat) * star (U : FiveMat)) := by
-      rw [Unitary.coe_mul_star_self, mul_one]
+      have hu : (U : FiveMat) * star (U : FiveMat) = 1 := by
+        simpa only [map_star] using (Unitary.coe_mul_star_self U)
+      rw [hu, mul_one]
     _ = (P.proj v * (U : FiveMat)) * star (U : FiveMat) := by
       rw [mul_assoc]
     _ = ((U : FiveMat) * Matrix.diagonal (P.atomicIndicator v)) *
           star (U : FiveMat) := by rw [hmul]
     _ = (fiveFibre_unitaryAut P.atomicBasisUnitary)
           (Matrix.diagonal (P.atomicIndicator v)) := by
-      simp only [fiveFibre_unitaryAut, Unitary.conjStarAlgAut_apply]
+      dsimp [U, fiveFibre_unitaryAut]
+      rw [Unitary.conjStarAlgAut_apply]
 
 /-- In the recovered orthonormal coordinate chart, each original
 atomic projection is precisely its diagonal indicator matrix. -/
