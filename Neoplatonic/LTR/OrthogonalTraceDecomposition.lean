@@ -73,17 +73,6 @@ theorem orthogonalTwoSummands_trace
   change LinearMap.trace ℂ E T =
     LinearMap.trace ℂ K (T.restrict (hmaps 0)) +
       LinearMap.trace ℂ Kᗮ (T.restrict (hmaps 1)) at h
-  have h0 : (T.restrict (hmaps 0)) = T.restrict hK := by
-    apply LinearMap.ext
-    intro x
-    apply Subtype.ext
-    rfl
-  have h1 : (T.restrict (hmaps 1)) = T.restrict hR := by
-    apply LinearMap.ext
-    intro x
-    apply Subtype.ext
-    rfl
-  rw [h0, h1] at h
   exact h
 
 end Neoplatonic.LTR
