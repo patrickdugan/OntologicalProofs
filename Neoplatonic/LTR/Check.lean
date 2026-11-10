@@ -70,6 +70,7 @@ import Neoplatonic.LTR.FiveFibreLabelledConnesDistance
 import Neoplatonic.LTR.FiveFibreLabelledMetricTransport
 import Neoplatonic.LTR.FiveFibreFaithfulDiagonalNoGo
 import Neoplatonic.LTR.FiveFibreUnitaryTransport
+import Neoplatonic.LTR.FiveFibreAtomicJointSpectrum
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1236,3 +1237,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreConjugatedConnesDistance_eq_labelled
 #print axioms Neoplatonic.LTR.fiveFibre_unitaryAut_hermitian
 #print axioms Neoplatonic.LTR.fiveFibreUnitaryFaithful_exactHamming_noGo
+
+-- LTR-MAN-47: joint spectral completeness for faithful atomic truth resolutions.
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.commute
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.symmetric
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.commute_linear
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.jointEigenspaces_span
