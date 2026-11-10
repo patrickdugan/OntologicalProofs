@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.SixDimensionalLabelledAttainment
+import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.SixDimensionalLabelledPauliBridge
 import Mathlib.Tactic
 
