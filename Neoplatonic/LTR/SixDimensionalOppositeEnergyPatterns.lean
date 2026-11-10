@@ -82,10 +82,18 @@ theorem sixLabelled_exactHamming_oppositeEnergy_threeCases
     ⟨hm03, hm12⟩ | ⟨hm03, hm12⟩ | ⟨hm03, hm12⟩
   · exact Or.inl ⟨by simpa [hm03] using h03,
       by simpa [hm12] using h12⟩
-  · exact Or.inr (Or.inl ⟨by simpa [hm03] using h03,
+  · exact Or.inr (Or.inl ⟨by
+      calc
+        sixTruthFibreBlockEnergy label D 0 3 ≤ (2 : ℝ) / 4 := by
+          simpa [hm03] using h03
+        _ = 1 / 2 := by norm_num,
       by simpa [hm12] using h12⟩)
   · exact Or.inr (Or.inr ⟨by simpa [hm03] using h03,
-      by simpa [hm12] using h12⟩)
+      by
+        calc
+          sixTruthFibreBlockEnergy label D 1 2 ≤ (2 : ℝ) / 4 := by
+            simpa [hm12] using h12
+          _ = 1 / 2 := by norm_num⟩)
 
 /-- The sum of both oriented opposite-truth-pair squared coupling
 energies is bounded by three quarters in every faithful six-dimensional
