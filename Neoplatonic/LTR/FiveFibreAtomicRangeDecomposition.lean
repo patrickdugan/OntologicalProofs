@@ -25,7 +25,7 @@ private abbrev FiveAtomicH := EuclideanSpace ℂ (Fin 5)
 private abbrev FiveAtomicMat := Matrix (Fin 5) (Fin 5) ℂ
 
 /-- The Hilbert range of one atomic projection. -/
-def FiveFibreAtomicResolution.atomicRange
+noncomputable def FiveFibreAtomicResolution.atomicRange
     (P : FiveFibreAtomicResolution) (v : Fin 4) :
     Submodule ℂ FiveAtomicH :=
   ((P.proj v).toEuclideanLin).range
