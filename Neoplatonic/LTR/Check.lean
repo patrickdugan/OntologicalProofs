@@ -59,6 +59,7 @@ import Neoplatonic.LTR.FiveDimensionalNormExtremal
 import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
 import Neoplatonic.LTR.TwoDirectionResidualReduction
 import Neoplatonic.LTR.TwoDirectionResidualSubmodule
+import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
 import Neoplatonic.LTR.FiveFibreHermitianSupport
@@ -1324,6 +1325,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixResidual_difference_contraction
 #print axioms Neoplatonic.LTR.sixResidual_product_nonzero
 #print axioms Neoplatonic.LTR.sixDim_spectralHypotheses_doNotForce_zeroProducts
+
+-- LTR-MAN-58: construct extremal quartet and residual dimensions from graded norm hypotheses.
+#print axioms Neoplatonic.LTR.twoDirection_gradedCoordinates_exists_orthonormalQuartet
+#print axioms Neoplatonic.LTR.twoDirection_sixDim_graded_exists_residual2
+#print axioms Neoplatonic.LTR.twoDirection_sevenDim_graded_exists_residual3
 
 -- LTR-MAN-59: genuine invariant Hilbert residual submodule and rank certificates.
 #print axioms Neoplatonic.LTR.finiteQuartet_mem_orthogonalSpan_iff
