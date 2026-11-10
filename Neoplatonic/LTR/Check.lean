@@ -64,6 +64,7 @@ import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
 import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreFaithfulLabels
 import Neoplatonic.LTR.FiveFibreChartPermutation
+import Neoplatonic.LTR.FiveFibrePermutationNorm
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1201,3 +1202,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoBitSquareTranslation_self_to_zero
 #print axioms Neoplatonic.LTR.twoBitSquareTranslation_hamming
 #print axioms Neoplatonic.LTR.fiveFibre_faithful_allLabels_chart
+
+-- LTR-MAN-41: unitary Hilbert coordinate reindexing preserves the C*-operator commutator norm.
+#print axioms Neoplatonic.LTR.fiveFibre_reindex_operatorNorm
+#print axioms Neoplatonic.LTR.fiveFibre_reindex_diagonal
+#print axioms Neoplatonic.LTR.fiveFibre_reindex_commutator
+#print axioms Neoplatonic.LTR.fiveFibre_reindex_commutator_norm
