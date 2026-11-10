@@ -72,6 +72,7 @@ import Neoplatonic.LTR.TwoDimensionalCstarMatrixTransport
 import Neoplatonic.LTR.ResidualMatrixIdentification
 import Neoplatonic.LTR.SixDimensionalPauliNecessaryBounds
 import Neoplatonic.LTR.SixDimensionalRealPauliGram
+import Neoplatonic.LTR.TwoDimensionalRealPauliVectors
 import Neoplatonic.LTR.SixDimensionalTruePauliBounds
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
@@ -1447,3 +1448,12 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.complex_simultaneous_real_abs_bound
 #print axioms Neoplatonic.LTR.twoDim_pauli_realGram_bound
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_realGram_bound
+
+
+-- LTR-MAN-72: real three-vector identification and positive semidefinite Gram cone.
+#print axioms Neoplatonic.LTR.pauliRealQuadratic_eq_dot
+#print axioms Neoplatonic.LTR.pauliRealMixed_eq_two_dot
+#print axioms Neoplatonic.LTR.pauliRealDot_lagrange
+#print axioms Neoplatonic.LTR.twoDim_pauli_realGram_psd
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_realGram_cone
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_realVectorGram_bound
