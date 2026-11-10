@@ -38,7 +38,7 @@ theorem FiveFibreAtomicResolution.atomicProjection_mul_unitary
       (P.proj v * (P.atomicBasisUnitary : FiveMat)) *ᵥ Pi.single j 1 =
         ((P.atomicBasisUnitary : FiveMat) *
           Matrix.diagonal (P.atomicIndicator v)) *ᵥ Pi.single j 1 := by
-    simp only [Matrix.mulVec_mulVec, Matrix.diagonal_mulVec_single,
+    simp only [← Matrix.mulVec_mulVec, Matrix.diagonal_mulVec_single,
       Matrix.mulVec_smul, P.atomicBasisUnitary_mulVec]
     simpa only [atomicIndicator] using P.atomicBasis_mulVec_eigen v j
   have hi := congrArg (fun x : Fin 5 → ℂ => x i) hcol
@@ -58,7 +58,7 @@ theorem FiveFibreAtomicResolution.atomicProjection_eq_unitaryConj
   calc
     P.proj v = P.proj v * ((U : FiveMat) * star (U : FiveMat)) := by
       have hu : (U : FiveMat) * star (U : FiveMat) = 1 := by
-        simpa only [map_star] using (Unitary.coe_mul_star_self U)
+        simpa only [Unitary.coe_star] using (Unitary.coe_mul_star_self U)
       rw [hu, mul_one]
     _ = (P.proj v * (U : FiveMat)) * star (U : FiveMat) := by
       rw [mul_assoc]
@@ -67,7 +67,6 @@ theorem FiveFibreAtomicResolution.atomicProjection_eq_unitaryConj
     _ = (fiveFibre_unitaryAut P.atomicBasisUnitary)
           (Matrix.diagonal (P.atomicIndicator v)) := by
       dsimp [U, fiveFibre_unitaryAut]
-      rw [Unitary.conjStarAlgAut_apply]
 
 /-- In the recovered orthonormal coordinate chart, each original
 atomic projection is precisely its diagonal indicator matrix. -/
