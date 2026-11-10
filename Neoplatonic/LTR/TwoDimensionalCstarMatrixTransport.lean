@@ -1,5 +1,6 @@
 import Neoplatonic.LTR.ResidualIsometricConjugation
 import Mathlib.Analysis.CStarAlgebra.Matrix
+import Mathlib.Algebra.Star.UnitaryStarAlgAut
 import Mathlib.Tactic
 
 /-!
