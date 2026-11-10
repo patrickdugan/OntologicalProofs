@@ -65,6 +65,7 @@ import Neoplatonic.LTR.OrthogonalTraceDecomposition
 import Neoplatonic.LTR.EigenquartetTrace
 import Neoplatonic.LTR.SignedResidualTraceZero
 import Neoplatonic.LTR.SixDimensionalResidualPauli
+import Neoplatonic.LTR.SixDimensionalResidualQuadratics
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1390,3 +1391,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidualMatrixB_trace_zero
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidualMatrices_pauli
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_anticommutator_scalar
+
+-- LTR-MAN-66: exact scalar-square formula for 6D compressed Pauli sum/difference.
+#print axioms Neoplatonic.LTR.twoDim_pauli_add_square
+#print axioms Neoplatonic.LTR.twoDim_pauli_sub_square
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_sum_square
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_difference_square
