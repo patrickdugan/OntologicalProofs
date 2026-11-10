@@ -38,7 +38,10 @@ theorem selfAdjoint_preserves_orthogonal_to_eigenvector
   have hs := (ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.mp hT) u x
   change inner ℂ (T u) x = inner ℂ u (T x) at hs
   rw [hu] at hs
-  simpa [hux] using hs.symm
+  have hz : inner ℂ (μ • u) x = 0 := by
+    rw [inner_smul_left, hux]
+    simp
+  exact hs.symm.trans hz
 
 /-- Orthogonality to the four extremal eigenvectors of the two
 coordinate operators. -/
