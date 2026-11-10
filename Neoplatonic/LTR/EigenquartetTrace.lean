@@ -2,6 +2,7 @@ import Neoplatonic.LTR.OrthogonalTraceDecomposition
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Mathlib.Analysis.InnerProductSpace.Trace
 import Mathlib.Analysis.InnerProductSpace.Subspace
+import Mathlib.LinearAlgebra.Basis.Submodule
 import Mathlib.Tactic
 
 /-!
