@@ -93,6 +93,7 @@ import Neoplatonic.LTR.SixDimensionalLabelledPauliBridge
 import Neoplatonic.LTR.SixDimensionalExactHammingAttainment
 import Neoplatonic.LTR.SixDimensionalOppositeCornerTrace
 import Neoplatonic.LTR.SixDimensionalOppositeCornerPauliBudget
+import Neoplatonic.LTR.SixDimensionalOppositeCornerEntryBound
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1538,3 +1539,12 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_extremal_oppositeEnergy_eq_pauliMixed
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEnergy_budget
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_balancedOpposites_pauliOrthogonal
+
+
+-- LTR-MAN-79: Euclidean matrix entry norm and exact Hamming half-unit opposite-corner bounds.
+#print axioms Neoplatonic.LTR.sixMatrix_entryNorm_le_operatorNorm
+#print axioms Neoplatonic.LTR.sixLabelled_sumWitness_opposite03_entry
+#print axioms Neoplatonic.LTR.sixLabelled_differenceWitness_opposite12_entry
+#print axioms Neoplatonic.LTR.sixLabelled_opposite03_entry_half
+#print axioms Neoplatonic.LTR.sixLabelled_opposite12_entry_half
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEntry_half
