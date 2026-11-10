@@ -71,6 +71,7 @@ import Neoplatonic.LTR.ResidualIsometricConjugation
 import Neoplatonic.LTR.TwoDimensionalCstarMatrixTransport
 import Neoplatonic.LTR.ResidualMatrixIdentification
 import Neoplatonic.LTR.SixDimensionalPauliNecessaryBounds
+import Neoplatonic.LTR.SixDimensionalRealPauliGram
 import Neoplatonic.LTR.SixDimensionalTruePauliBounds
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
@@ -1440,3 +1441,9 @@ open Neoplatonic.LTR
 -- LTR-MAN-71: actual six-dimensional residual Pauli coefficient inequalities.
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_pauliCoefficients_le_one
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_quadraticBound
+
+
+-- LTR-MAN-72: real Gram budget for the true six-dimensional residual.
+#print axioms Neoplatonic.LTR.complex_simultaneous_real_abs_bound
+#print axioms Neoplatonic.LTR.twoDim_pauli_realGram_bound
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_realGram_bound
