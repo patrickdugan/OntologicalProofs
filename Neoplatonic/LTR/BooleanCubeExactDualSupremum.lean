@@ -56,7 +56,12 @@ theorem booleanCubeConnesDualSupremum_eq_hamming
   · have hweqnn :
         (‖w x - w y‖₊ : ℝ≥0∞) =
           (hammingDist x y : ℝ≥0∞) := by
-      exact_mod_cast hweq
+      have hreal : (‖w x - w y‖₊ : ℝ) =
+          (hammingDist x y : ℝ) := by
+        simpa only [coe_nnnorm] using hweq
+      have hnn : ‖w x - w y‖₊ =
+          (hammingDist x y : ℝ≥0) := NNReal.coe_injective hreal
+      exact congrArg (fun t : ℝ≥0 => (t : ℝ≥0∞)) hnn
     rw [← hweqnn]
     unfold booleanCubeConnesDualSupremum
     exact le_iSup
