@@ -69,6 +69,7 @@ import Neoplatonic.LTR.SixDimensionalResidualQuadratics
 import Neoplatonic.LTR.TwoDimensionalPauliOperatorNorm
 import Neoplatonic.LTR.ResidualIsometricConjugation
 import Neoplatonic.LTR.TwoDimensionalCstarMatrixTransport
+import Neoplatonic.LTR.SixDimensionalTruePauliBounds
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1418,3 +1419,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_norm
 #print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_simultaneous_norm
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarResidual_contracts
+
+-- LTR-MAN-70: genuine 6D Hermitian trace-zero residual matrices and Pauli coefficient bounds.
+#print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_trace
+#print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_isHermitian
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimEuclideanResidualA_trace
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarMatrices_hermitian
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarMatrices_trace_zero
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDim_truePauliCoefficientBounds
