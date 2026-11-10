@@ -21,6 +21,8 @@ between the Pauli normal form and the genuine operator contractions.
 
 namespace Neoplatonic.LTR
 
+open scoped Matrix.Norms.L2Operator
+
 private abbrev TwoEuclidean := EuclideanSpace ℂ (Fin 2)
 private abbrev TwoMat := Matrix (Fin 2) (Fin 2) ℂ
 
@@ -33,14 +35,15 @@ theorem twoEuclideanCstarMatrix_apply_inner
         (T (EuclideanSpace.basisFun (Fin 2) ℂ j)) := by
   change (LinearMap.toMatrixOrthonormal
     (EuclideanSpace.basisFun (Fin 2) ℂ) T.toLinearMap) i j = _
-  exact LinearMap.toMatrixOrthonormal_apply_apply T.toLinearMap i j
+  exact LinearMap.toMatrixOrthonormal_apply_apply
+    (EuclideanSpace.basisFun (Fin 2) ℂ) T.toLinearMap i j
 
 /-- A bounded operator represented through a genuine orthonormal
 basis agrees with the C*-matrix representation of its isometric
 conjugate on standard Euclidean space. -/
 theorem twoEuclideanCstarMatrix_isometricConjugate
     {H : Type*} [NormedAddCommGroup H]
-    [InnerProductSpace ℂ H] [CompleteSpace H]
+    [InnerProductSpace ℂ H] [FiniteDimensional ℂ H] [CompleteSpace H]
     (b : OrthonormalBasis (Fin 2) ℂ H)
     (T : H →L[ℂ] H) :
     twoEuclideanCstarMatrix
