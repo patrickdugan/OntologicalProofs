@@ -84,6 +84,7 @@ import Neoplatonic.LTR.FiveFibreCoordinateSpectralFacts
 import Neoplatonic.LTR.FiveFibreCanonicalNoGo
 import Neoplatonic.LTR.FiveFibreFaithfulLabels
 import Neoplatonic.LTR.SixSevenFibrePatterns
+import Neoplatonic.LTR.SixDimensionalTruthFibreBranching
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1457,3 +1458,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoDim_pauli_realGram_psd
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_realGram_cone
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_realVectorGram_bound
+
+
+-- LTR-MAN-73: truth-fibre dimension budgets and necessary six-dimensional path patterns.
+#print axioms Neoplatonic.LTR.squareBranchSupported_dimension_budget
+#print axioms Neoplatonic.LTR.squareBranchSupported_fourEdges_dimension_eight
+#print axioms Neoplatonic.LTR.squareBranchSupported_sixDim_threeEdges_adjacentDoubles
+#print axioms Neoplatonic.LTR.squareBranchSupported_sevenDim_noFullSquare
