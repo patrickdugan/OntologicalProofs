@@ -98,6 +98,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeFibreBlockNorm
 import Neoplatonic.LTR.SixDimensionalTruthBlockColumnEnergy
 import Neoplatonic.LTR.SixDimensionalTruthBlockHermitianEnergy
 import Neoplatonic.LTR.SixDimensionalOppositeEnergyPatterns
+import Neoplatonic.LTR.SixDimensionalOppositeBlockTraceIdentity
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1586,3 +1587,13 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEnergy_threeCases
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEnergy_sum_le_threeQuarters
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oneOppositeEnergy_le_quarter
+
+
+-- LTR-MAN-84: actual complex quadratic trace equals two times real oriented energy difference.
+#print axioms Neoplatonic.LTR.complex_cast_norm_sq_eq_mul_star
+#print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_cast_eq_orientedProduct
+#print axioms Neoplatonic.LTR.sixOrientedTruthProduct_reverse
+#print axioms Neoplatonic.LTR.sixTruthPair_bidirectional_eq_two_oriented
+#print axioms Neoplatonic.LTR.sixLabelled_opposite03Energy_eq_two_blockEnergy
+#print axioms Neoplatonic.LTR.sixLabelled_opposite12Energy_eq_two_blockEnergy
+#print axioms Neoplatonic.LTR.sixLabelled_crossTrace_eq_two_orientedEnergyDifference
