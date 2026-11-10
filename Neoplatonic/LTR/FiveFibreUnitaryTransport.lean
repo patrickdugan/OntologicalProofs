@@ -38,7 +38,7 @@ theorem fiveFibre_unitaryAut_operatorNorm
     ‖((fiveFibre_unitaryAut U) M).toEuclideanLin.toContinuousLinearMap‖ =
       ‖M.toEuclideanLin.toContinuousLinearMap‖ := by
   have h := StarAlgEquiv.norm_map (fiveFibre_unitaryAut U) M
-  simpa only [Matrix.l2_opNorm_def] using h
+  simpa [Matrix.l2_opNorm_def] using h
 
 /-- Dirac commutator with the represented four-atom observable
 after a unitary change of Hilbert basis. -/
@@ -141,10 +141,10 @@ theorem fiveFibre_unitaryAut_hermitian
     change star ((fiveFibre_unitaryAut U) D) =
       (fiveFibre_unitaryAut U) D
     rw [← map_star, hDself.star_eq]
-  have hM : ((fiveFibre_unitaryAut U) D).IsHermitian :=
-    Matrix.isHermitian_iff_isSelfAdjoint.mpr hMself
   intro i j
-  exact (hM i j).symm
+  have hentry := congrArg
+    (fun M : FiveMat => M i j) hMself.star_eq
+  simpa [Matrix.conjTranspose_apply] using hentry.symm
 
 /-- Every unitary change of Hilbert basis of a faithful diagonal
 representation is subject to the five-dimensional exact Hamming
