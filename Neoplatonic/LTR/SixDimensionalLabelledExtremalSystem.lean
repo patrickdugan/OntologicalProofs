@@ -208,16 +208,22 @@ theorem sixLabelledAOperator_selfAdjoint
     (label : Fin 6 → Fin 4) (D : SixMat)
     (hD : ∀ i j, D i j = star (D j i)) :
     IsSelfAdjoint (sixLabelledAOperator label D) :=
-  fiveFibreSquare_matrixSelfAdjoint_toCLM
-    (labelledSquareA label D) (sixLabelledSquareA_selfAdjoint label D hD)
+by
+  apply ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.mpr
+  exact Matrix.isSymmetric_toEuclideanLin_iff.mpr
+    (Matrix.isHermitian_iff_isSelfAdjoint.mpr
+      (sixLabelledSquareA_selfAdjoint label D hD))
 
 /-- The labelled second coordinate commutator is self-adjoint. -/
 theorem sixLabelledBOperator_selfAdjoint
     (label : Fin 6 → Fin 4) (D : SixMat)
     (hD : ∀ i j, D i j = star (D j i)) :
     IsSelfAdjoint (sixLabelledBOperator label D) :=
-  fiveFibreSquare_matrixSelfAdjoint_toCLM
-    (labelledSquareB label D) (sixLabelledSquareB_selfAdjoint label D hD)
+by
+  apply ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.mpr
+  exact Matrix.isSymmetric_toEuclideanLin_iff.mpr
+    (Matrix.isHermitian_iff_isSelfAdjoint.mpr
+      (sixLabelledSquareB_selfAdjoint label D hD))
 
 /-- The actual labelled Dirac pair satisfies the MAN-58
 signed-eigenquartet hypotheses whenever the two coordinate norms
