@@ -60,7 +60,7 @@ def connes_distances(
     d: np.ndarray,
     label: Sequence[int],
     *,
-    ftol: float = 1e-8,
+    ftol: float = 1e-7,
     maxiter: int = 100,
 ) -> tuple[np.ndarray, bool]:
     """Compute six real-observable Connes distances using spectral constraints.
