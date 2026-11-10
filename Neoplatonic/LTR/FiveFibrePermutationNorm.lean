@@ -45,7 +45,8 @@ theorem fiveFibre_reindex_operatorNorm
   have h := StarAlgEquiv.norm_map (fiveFibre_reindexStarAlgEquiv e) M
   simpa only [fiveFibre_reindexStarAlgEquiv,
     StarAlgEquiv.ofAlgEquiv_apply,
-    Matrix.coe_reindexAlgEquiv, Matrix.l2_opNorm_def] using h
+    Matrix.coe_reindexAlgEquiv, Matrix.l2_opNorm_def,
+    LinearEquiv.trans_apply] using h
 
 /-- A diagonal represented truth observable reindexes by
 precomposing its values with the inverse coordinate permutation. -/
