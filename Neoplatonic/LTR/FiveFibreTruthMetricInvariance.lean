@@ -55,7 +55,7 @@ theorem fiveFibreLabelledConnesDistance_truthEquiv
           (fun w => f.val (τ.symm w))‖ ≤ 1 := by
       change ‖fiveFibreSquareDiracComm D
         (fun i => f.val (τ.symm (τ (label i))))‖ ≤ 1
-      simpa only [Equiv.symm_apply_apply] using f.property
+      simpa [fiveFibreLabelledDiracComm] using f.property
     let g : fiveFibreLabelledAdmissible
         (fun i => τ (label i)) D :=
       ⟨fun w => f.val (τ.symm w), hunit⟩
