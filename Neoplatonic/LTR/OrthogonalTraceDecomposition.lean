@@ -69,6 +69,21 @@ theorem orthogonalTwoSummands_trace
       exact hR x (by simpa [orthogonalTwoSummands] using hx)
   have h := LinearMap.trace_eq_sum_trace_restrict
     (orthogonalTwoSummands_isInternal K) (f := T) hmaps
-  simpa [orthogonalTwoSummands, Fin.sum_univ_two, LinearMap.restrict] using h
+  rw [Fin.sum_univ_two] at h
+  change LinearMap.trace ℂ E T =
+    LinearMap.trace ℂ K (T.restrict (hmaps 0)) +
+      LinearMap.trace ℂ Kᗮ (T.restrict (hmaps 1)) at h
+  have h0 : (T.restrict (hmaps 0)) = T.restrict hK := by
+    apply LinearMap.ext
+    intro x
+    apply Subtype.ext
+    rfl
+  have h1 : (T.restrict (hmaps 1)) = T.restrict hR := by
+    apply LinearMap.ext
+    intro x
+    apply Subtype.ext
+    rfl
+  rw [h0, h1] at h
+  exact h
 
 end Neoplatonic.LTR
