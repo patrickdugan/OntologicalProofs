@@ -68,6 +68,7 @@ import Neoplatonic.LTR.SixDimensionalResidualPauli
 import Neoplatonic.LTR.SixDimensionalResidualQuadratics
 import Neoplatonic.LTR.TwoDimensionalPauliOperatorNorm
 import Neoplatonic.LTR.ResidualIsometricConjugation
+import Neoplatonic.LTR.TwoDimensionalCstarMatrixTransport
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1412,3 +1413,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.hilbertIsometricConjugate_sub
 #print axioms Neoplatonic.LTR.hilbertIsometricConjugate_simultaneous_norm
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimEuclideanResidual_contracts
+
+-- LTR-MAN-69: true 2D matrix C*-norm transport and residual contractions.
+#print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_norm
+#print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_simultaneous_norm
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimCstarResidual_contracts
