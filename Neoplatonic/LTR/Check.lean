@@ -99,6 +99,7 @@ import Neoplatonic.LTR.SixDimensionalTruthBlockColumnEnergy
 import Neoplatonic.LTR.SixDimensionalTruthBlockHermitianEnergy
 import Neoplatonic.LTR.SixDimensionalOppositeEnergyPatterns
 import Neoplatonic.LTR.SixDimensionalOppositeBlockTraceIdentity
+import Neoplatonic.LTR.SixDimensionalPauliOppositeEnergyRegions
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1597,3 +1598,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_opposite03Energy_eq_two_blockEnergy
 #print axioms Neoplatonic.LTR.sixLabelled_opposite12Energy_eq_two_blockEnergy
 #print axioms Neoplatonic.LTR.sixLabelled_crossTrace_eq_two_orientedEnergyDifference
+
+
+-- LTR-MAN-84: concrete residual Pauli real energy overlap, signed regions, and sharpened |c| ≤ 1/2.
+#print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_nonneg
+#print axioms Neoplatonic.LTR.sixLabelled_extremal_pauliMixed_eq_realImbalance
+#print axioms Neoplatonic.LTR.sixLabelled_extremal_pauliDot_eq_blockEnergyDifference
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_realPauli_threeIntervals
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeMinOne_pauliMixed_half
