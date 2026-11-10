@@ -68,6 +68,7 @@ import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
 import Neoplatonic.LTR.FiveFibreLabelledConnesDistance
 import Neoplatonic.LTR.FiveFibreLabelledMetricTransport
+import Neoplatonic.LTR.FiveFibreFaithfulDiagonalNoGo
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1224,3 +1225,6 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.fiveFibreLabelledConnesDistance_canonical
 #print axioms Neoplatonic.LTR.fiveFibreLabelledConnesDistance_truthEquiv
 #print axioms Neoplatonic.LTR.fiveFibre_reindex_hermitian
+
+-- LTR-MAN-45: universal faithful diagonal two-bit exact Hamming no-go.
+#print axioms Neoplatonic.LTR.fiveFibreFaithfulDiagonal_exactHamming_noGo
