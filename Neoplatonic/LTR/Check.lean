@@ -87,6 +87,7 @@ import Neoplatonic.LTR.SixSevenFibrePatterns
 import Neoplatonic.LTR.SixDimensionalTruthFibreBranching
 import Neoplatonic.LTR.SixDimensionalLabelledCommutators
 import Neoplatonic.LTR.SixDimensionalMixedTraceBridge
+import Neoplatonic.LTR.SixDimensionalLabelledExtremalSystem
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1485,3 +1486,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.ambientProduct_trace_eq_residual
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_product_matrixTrace
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDim_ambientProduct_trace_eq_pauliMixed
+
+
+-- LTR-MAN-76: genuine labelled six-dimensional coordinate gradings and spectral quartet.
+#print axioms Neoplatonic.LTR.sixLabelledSquareP_idempotent
+#print axioms Neoplatonic.LTR.sixLabelledSquareA_selfAdjoint
+#print axioms Neoplatonic.LTR.sixLabelledSquareGradeP_anticommutes
+#print axioms Neoplatonic.LTR.sixLabelledSquare_exists_extremalSystem
