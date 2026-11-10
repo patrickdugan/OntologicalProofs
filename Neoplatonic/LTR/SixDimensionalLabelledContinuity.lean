@@ -69,8 +69,11 @@ noncomputable def sixLabelledDiracFourLinearMap
     exact sixLabelledDiracComm_add label D f g
   map_smul' := by
     intro c f
-    simpa only [Pi.smul_apply, smul_eq_mul] using
-      sixLabelledDiracComm_smul label D f c
+    have heq : (c • f : Fin 4 → ℂ) = (fun i => c * f i) := by
+      funext i
+      simp
+    rw [heq]
+    exact sixLabelledDiracComm_smul label D f c
 
 /-- The actual six-dimensional Dirac commutator norm is continuous
 on the four-complex-dimensional space of truth observables. -/
