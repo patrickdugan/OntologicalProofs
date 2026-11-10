@@ -72,6 +72,7 @@ import Neoplatonic.LTR.FiveFibreFaithfulDiagonalNoGo
 import Neoplatonic.LTR.FiveFibreUnitaryTransport
 import Neoplatonic.LTR.FiveFibreAtomicJointSpectrum
 import Neoplatonic.LTR.FiveFibreAtomicRangeDecomposition
+import Neoplatonic.LTR.FiveFibreAtomicBasisLabels
 import Neoplatonic.LTR.FiveFibreTruthTranslations
 import Neoplatonic.LTR.FiveFibreCanonicalPermutation
 import Neoplatonic.LTR.FiveFibreSquareOrientations
@@ -1250,3 +1251,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicRanges_span
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicRanges_internal
 #print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasis_subordinate
+
+-- LTR-MAN-49: nonzero atomic ranges produce faithful truth labels and eigenbasis.
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicRange_nonzero
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasisLabel_surjective
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicProjection_onRange
+#print axioms Neoplatonic.LTR.FiveFibreAtomicResolution.atomicBasis_eigen
