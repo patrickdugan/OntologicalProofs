@@ -97,6 +97,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeCornerEntryBound
 import Neoplatonic.LTR.SixDimensionalOppositeFibreBlockNorm
 import Neoplatonic.LTR.SixDimensionalTruthBlockColumnEnergy
 import Neoplatonic.LTR.SixDimensionalTruthBlockHermitianEnergy
+import Neoplatonic.LTR.SixDimensionalOppositeEnergyPatterns
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1577,3 +1578,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_reverse
 #print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_le_minMultiplicity_quarter
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeBlock_minEnergy
+
+
+-- LTR-MAN-83: faithful six-fibre multiplicity patterns and numerical opposite-energy budgets.
+#print axioms Neoplatonic.LTR.sixTruthOppositeMinimums_threeCases
+#print axioms Neoplatonic.LTR.sixTruthOppositeMinimums_sum_le_three
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEnergy_threeCases
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEnergy_sum_le_threeQuarters
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oneOppositeEnergy_le_quarter
