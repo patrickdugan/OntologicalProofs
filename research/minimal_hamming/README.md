@@ -50,6 +50,7 @@ Install NumPy and SciPy, then run:
 python research/minimal_hamming/search.py --smoke
 python research/minimal_hamming/search.py --dimension 6 --seeds 3 --max-nfev 20
 python research/minimal_hamming/search.py --dimension 7 --seeds 3 --max-nfev 20
+python research/minimal_hamming/search.py --dimension 6 --complex-dirac --seeds 3 --max-nfev 20
 ~~~
 
 The smoke test evaluates the four independent two-point Dirac blocks whose
@@ -59,7 +60,8 @@ within \(10^{-4}\), and prints measured numerical error.
 
 For each six/seven-dimensional multiplicity representative, the script
 forms a real-symmetric Dirac matrix with all cross-atom couplings
-variable. It fixes \(f(0)=0\) and numerically computes six support
+variable. With --complex-dirac it searches the full Hermitian family
+of inter-atom blocks, using independent real and imaginary components. It fixes \(f(0)=0\) and numerically computes six support
 functions
 
 \[
@@ -89,7 +91,9 @@ Since \(D=D^*\) and the representation is a star-homomorphism,
 
 Consequently the complex and real observable suprema agree for any
 fixed Hermitian \(D\). The numerical search here restricts the Dirac
-matrix itself to real-symmetric matrices, a genuine limitation.
+matrix itself to real-symmetric matrices unless --complex-dirac is selected.
+The enlarged search covers complex Hermitian cross-fibre couplings, including
+nontrivial loop phases. Neither mode gives certified lower bounds.
 
 ### Interpreting search output
 
@@ -100,6 +104,6 @@ semidefinite solvers and exact algebraic certification. A positive
 value from a finite optimization search establishes no dimension
 lower bound.
 
-Future work: include complex Hermitian Dirac parameters, certified
-interval or SDP bounds, and a Lean proof for each remaining six- and
-seven-dimensional multiplicity pattern if no exact construction emerges.
+Future work: certified interval or SDP bounds, with exact algebraic
+certificates and Lean proofs for the remaining six- and seven-dimensional
+multiplicity patterns if no exact construction emerges.
