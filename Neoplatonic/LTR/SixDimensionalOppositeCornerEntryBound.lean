@@ -35,7 +35,7 @@ theorem sixMatrix_entryNorm_le_operatorNorm
   have he : ‖e‖ = 1 := by simp [e]
   have heval :
       (M.toEuclideanLin.toContinuousLinearMap e) i = M i j := by
-    change (Matrix.toEuclideanCLM M
+    change (((Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ)) M)
       (PiLp.toLp 2 (Pi.single j (1 : ℂ)))) i = M i j
     rw [Matrix.toEuclideanCLM_toLp]
     simp [Matrix.mulVec_single_one]
