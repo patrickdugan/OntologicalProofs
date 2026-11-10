@@ -72,9 +72,9 @@ theorem sixTruthFibreBlockEnergy_reverse
   apply Finset.sum_congr rfl
   intro j hj
   have hentry :
-      sixTruthFibreBlock label D u v j i =
-        star (sixTruthFibreBlock label D v u i j) := by
-    have h := congrArg (fun M : SixMat => M j i)
+      sixTruthFibreBlock label D u v i j =
+        star (sixTruthFibreBlock label D v u j i) := by
+    have h := congrArg (fun M : SixMat => M i j)
       (sixTruthFibreBlock_conjTranspose label D hD v u)
     simpa only [Matrix.conjTranspose_apply] using h.symm
   rw [hentry, norm_star]
