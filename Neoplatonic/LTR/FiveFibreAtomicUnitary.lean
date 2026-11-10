@@ -18,6 +18,8 @@ unitary change of basis suitable for conjugating all four projectors.
 
 namespace Neoplatonic.LTR
 
+open scoped Matrix
+
 private abbrev FiveAtomicH := EuclideanSpace ℂ (Fin 5)
 private abbrev FiveAtomicMat := Matrix (Fin 5) (Fin 5) ℂ
 
