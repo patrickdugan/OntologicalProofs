@@ -38,7 +38,13 @@ theorem FiveFibreAtomicResolution.atomicProjection_mul_unitary
       (P.proj v * (P.atomicBasisUnitary : FiveMat)) *ᵥ Pi.single j 1 =
         ((P.atomicBasisUnitary : FiveMat) *
           Matrix.diagonal (P.atomicIndicator v)) *ᵥ Pi.single j 1 := by
-    simp only [← Matrix.mulVec_mulVec, Matrix.diagonal_mulVec_single,
+    have hs :
+        Pi.single j (P.atomicIndicator v j * (1 : ℂ)) =
+          P.atomicIndicator v j • Pi.single j (1 : ℂ) := by
+      simpa only [smul_eq_mul] using
+        (Pi.single_smul' j (P.atomicIndicator v j) (1 : ℂ))
+    simp only [← Matrix.mulVec_mulVec, Matrix.diagonal_mulVec_single]
+    rw [P.atomicBasisUnitary_mulVec, hs,
       Matrix.mulVec_smul, P.atomicBasisUnitary_mulVec]
     simpa only [atomicIndicator] using P.atomicBasis_mulVec_eigen v j
   have hi := congrArg (fun x : Fin 5 → ℂ => x i) hcol
