@@ -70,7 +70,7 @@ theorem TwoDirectionExtremalSystem.sixDimResidual_quadraticBound
   obtain ⟨hp, hm⟩ :=
     S.sixDimResidual_pauliCoefficients_le_one hq hDim htrA htrB
   cases sign with
-  | false => simpa [add_neg_eq_sub] using hm
+  | false => simpa [sub_eq_add_neg] using hm
   | true => simpa using hp
 
 end Neoplatonic.LTR
