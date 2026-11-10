@@ -63,10 +63,12 @@ theorem orthogonalTwoSummands_trace
         (orthogonalTwoSummands K i) := by
     intro i
     fin_cases i
-    · simpa [orthogonalTwoSummands] using hK
-    · simpa [orthogonalTwoSummands] using hR
-  have h := (orthogonalTwoSummands_isInternal K).trace_eq_sum_trace_restrict
-    (f := T) hmaps
+    · intro x hx
+      exact hK x (by simpa [orthogonalTwoSummands] using hx)
+    · intro x hx
+      exact hR x (by simpa [orthogonalTwoSummands] using hx)
+  have h := DirectSum.IsInternal.trace_eq_sum_trace_restrict
+    (orthogonalTwoSummands_isInternal K) (f := T) hmaps
   simpa [orthogonalTwoSummands, Fin.sum_univ_two] using h
 
 end Neoplatonic.LTR
