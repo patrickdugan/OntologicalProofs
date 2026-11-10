@@ -95,6 +95,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeCornerTrace
 import Neoplatonic.LTR.SixDimensionalOppositeCornerPauliBudget
 import Neoplatonic.LTR.SixDimensionalOppositeCornerEntryBound
 import Neoplatonic.LTR.SixDimensionalOppositeFibreBlockNorm
+import Neoplatonic.LTR.SixDimensionalTruthBlockColumnEnergy
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1561,3 +1562,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_opposite03_block_half
 #print axioms Neoplatonic.LTR.sixLabelled_opposite12_block_half
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeBlock_half
+
+
+-- LTR-MAN-81: column norm-square and full-fibre rank-sensitive energy bound.
+#print axioms Neoplatonic.LTR.sixMatrix_columnEnergy_le_operatorNorm_sq
+#print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_le_inputMultiplicity_quarter
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeBlock_energyBudget
