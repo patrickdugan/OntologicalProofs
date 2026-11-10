@@ -40,12 +40,22 @@ PATTERNS: dict[int, dict[str, tuple[int, ...]]] = {
 
 
 def matrix_from_couplings(
-    couplings: np.ndarray, label: Sequence[int], pairs: np.ndarray
+    couplings: np.ndarray, label: Sequence[int], pairs: np.ndarray,
+    *, complex_dirac: bool = False,
 ) -> np.ndarray:
-    """Build a real symmetric Dirac matrix, omitting commuting fibre blocks."""
-    d = np.zeros((len(label), len(label)))
-    d[pairs[:, 0], pairs[:, 1]] = couplings
-    return d + d.T
+    """Build a Hermitian Dirac, omitting blocks commuting with every observable."""
+    if not complex_dirac:
+        d = np.zeros((len(label), len(label)))
+        d[pairs[:, 0], pairs[:, 1]] = couplings
+        return d + d.T
+    n_edges = len(pairs)
+    if len(couplings) != 2 * n_edges:
+        raise ValueError("Complex mode expects real and imaginary edge parameters")
+    z = couplings[:n_edges] + 1j * couplings[n_edges:]
+    d = np.zeros((len(label), len(label)), dtype=complex)
+    d[pairs[:, 0], pairs[:, 1]] = z
+    d[pairs[:, 1], pairs[:, 0]] = z.conj()
+    return d
 
 
 def cross_fibre_pairs(label: Sequence[int]) -> np.ndarray:
@@ -116,7 +126,8 @@ def hamming_8d_control() -> tuple[np.ndarray, list[int]]:
 
 
 def fit_pattern(
-    label: Sequence[int], *, seed: int, max_nfev: int, inner_maxiter: int
+    label: Sequence[int], *, seed: int, max_nfev: int, inner_maxiter: int,
+    complex_dirac: bool = False,
 ) -> dict:
     edge_indices = cross_fibre_pairs(label)
     rng = np.random.default_rng(seed)
@@ -125,7 +136,7 @@ def fit_pattern(
     def residual(theta: np.ndarray) -> np.ndarray:
         nonlocal calls
         calls += 1
-        d = matrix_from_couplings(theta, label, edge_indices)
+        d = matrix_from_couplings(theta, label, edge_indices, complex_dirac=complex_dirac)
         distances, converged = connes_distances(d, label, maxiter=inner_maxiter)
         if not converged or not np.all(np.isfinite(distances)) or min(distances) <= 0:
             return np.ones(len(TARGET)) * 100.0
@@ -137,13 +148,13 @@ def fit_pattern(
     start = time.monotonic()
     fit = least_squares(
         residual,
-        rng.normal(0, 0.6, len(edge_indices)),
+        rng.normal(0, 0.6, len(edge_indices) * (2 if complex_dirac else 1)),
         max_nfev=max_nfev,
         ftol=1e-6,
         xtol=1e-6,
         gtol=1e-6,
     )
-    matrix = matrix_from_couplings(fit.x, label, edge_indices)
+    matrix = matrix_from_couplings(fit.x, label, edge_indices, complex_dirac=complex_dirac)
     distances, inner_ok = connes_distances(matrix, label, maxiter=inner_maxiter)
     scale = float((TARGET @ distances) / (distances @ distances))
     err = scale * distances - TARGET
@@ -159,7 +170,9 @@ def fit_pattern(
         "scale_invariant_l2_error": float(np.linalg.norm(err)),
         "scale_invariant_linf_error": float(np.max(np.abs(err))),
         "seconds": round(time.monotonic() - start, 3),
-        "dirac_matrix": matrix.tolist(),
+        "dirac_matrix_real": np.real(matrix).tolist(),
+        "dirac_matrix_imag": np.imag(matrix).tolist(),
+        "complex_hermitian_dirac": complex_dirac,
     }
 
 
@@ -170,6 +183,8 @@ def main() -> None:
     ap.add_argument("--max-nfev", type=int, default=15)
     ap.add_argument("--inner-maxiter", type=int, default=100)
     ap.add_argument("--smoke", action="store_true")
+    ap.add_argument("--complex-dirac", action="store_true",
+                    help="search complex Hermitian cross-atom couplings")
     args = ap.parse_args()
 
     if args.smoke:
@@ -192,13 +207,15 @@ def main() -> None:
         for seed in range(args.seeds):
             row = fit_pattern(
                 label, seed=seed, max_nfev=args.max_nfev,
-                inner_maxiter=args.inner_maxiter
+                inner_maxiter=args.inner_maxiter,
+                complex_dirac=args.complex_dirac,
             )
             row["pattern"] = pattern
             records.append(row)
             print(json.dumps(row, sort_keys=True), flush=True)
     print(json.dumps({
-        "experimental_scope": "real symmetric D only; numerical heuristic",
+        "experimental_scope": ("complex Hermitian D" if args.complex_dirac
+                               else "real symmetric D") + "; numerical heuristic",
         "best_by_pattern": {
             name: min(
                 (r["scale_invariant_l2_error"] for r in records if r["pattern"] == name),
