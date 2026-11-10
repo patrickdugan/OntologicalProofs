@@ -70,11 +70,12 @@ theorem FiveFibreAtomicResolution.commute_linear
   simpa only [fiveFibreSquare_toEuclidean_mul, Module.End.mul_eq_comp]
     using h
 
+set_option maxHeartbeats 600000 in
+-- Expanding the full lattice of common eigenspaces needs a larger elaboration budget.
 /-- The common eigenspaces of the four truth-atom projections span
 the entire five-dimensional complex Hilbert space. This includes
 repeated joint eigenvalues and is independent of the multiplicity
 pattern of the chosen representation. -/
-set_option maxHeartbeats 600000 in
 theorem FiveFibreAtomicResolution.jointEigenspaces_span
     (P : FiveFibreAtomicResolution) :
     (⨆ χ : Fin 4 → ℂ,
