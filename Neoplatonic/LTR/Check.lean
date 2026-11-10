@@ -58,6 +58,7 @@ import Neoplatonic.LTR.FiveDimensionalSignedVectors
 import Neoplatonic.LTR.FiveDimensionalNormExtremal
 import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
 import Neoplatonic.LTR.TwoDirectionResidualReduction
+import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.FiveFibreSquareProducts
 import Neoplatonic.LTR.FiveFibreHermitianSupport
 import Neoplatonic.LTR.FiveFibreIsolatedVertex
@@ -1312,3 +1313,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoDirection_extremalQuartet_span_finrank
 #print axioms Neoplatonic.LTR.twoDirection_sixDim_residual_finrank
 #print axioms Neoplatonic.LTR.twoDirection_sevenDim_residual_finrank
+
+-- LTR-MAN-58: construct extremal quartet and residual dimensions from graded norm hypotheses.
+#print axioms Neoplatonic.LTR.twoDirection_gradedCoordinates_exists_orthonormalQuartet
+#print axioms Neoplatonic.LTR.twoDirection_sixDim_graded_exists_residual2
+#print axioms Neoplatonic.LTR.twoDirection_sevenDim_graded_exists_residual3
