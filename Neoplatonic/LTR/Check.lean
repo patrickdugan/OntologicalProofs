@@ -60,6 +60,7 @@ import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
 import Neoplatonic.LTR.TwoDirectionResidualReduction
 import Neoplatonic.LTR.TwoDirectionResidualSubmodule
 import Neoplatonic.LTR.TwoDirectionResidualCompression
+import Neoplatonic.LTR.TwoDimensionalPauliResidual
 import Neoplatonic.LTR.TwoDirectionQuartetExistence
 import Neoplatonic.LTR.SixDimensionalResidualCounterexample
 import Neoplatonic.LTR.FiveFibreSquareProducts
@@ -1351,3 +1352,12 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualB_norm_le_one
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualAB_apply_coe
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualBA_apply_coe
+
+-- LTR-MAN-61: exact 2x2 Pauli-form residual algebra and scalar products.
+#print axioms Neoplatonic.LTR.pauliResidualMatrix_trace_zero
+#print axioms Neoplatonic.LTR.pauliResidualMatrix_isHermitian
+#print axioms Neoplatonic.LTR.pauliResidualMatrix_square_scalar
+#print axioms Neoplatonic.LTR.pauliResidualMatrix_anticommutator_scalar
+#print axioms Neoplatonic.LTR.twoDim_tracelessHermitian_pauli_normal_form
+#print axioms Neoplatonic.LTR.twoDim_tracelessHermitian_square_scalar
+#print axioms Neoplatonic.LTR.twoDim_tracelessHermitian_anticommutator_scalar
