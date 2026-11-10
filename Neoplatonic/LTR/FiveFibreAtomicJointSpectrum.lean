@@ -46,7 +46,7 @@ theorem FiveFibreAtomicResolution.commute
   · change P.proj v * P.proj w = P.proj w * P.proj v
     calc
       P.proj v * P.proj w = 0 := P.orthogonal v w hvw
-      _ = P.proj w * P.proj v := (P.orthogonal w v hvw.symm).symm
+      _ = P.proj w * P.proj v := (P.orthogonal w v (Ne.symm hvw)).symm
 
 /-- The linear operators associated to all atomic projections
 are symmetric on the genuine complex Euclidean Hilbert space. -/
@@ -65,6 +65,8 @@ theorem FiveFibreAtomicResolution.commute_linear
     P.commute v w
   have h := congrArg
     (fun M : FiveTruthMatrix => M.toEuclideanLin) hm
+  change (P.proj v).toEuclideanLin * (P.proj w).toEuclideanLin =
+    (P.proj w).toEuclideanLin * (P.proj v).toEuclideanLin
   simpa only [fiveFibreSquare_toEuclidean_mul, Module.End.mul_eq_comp]
     using h
 
@@ -76,7 +78,7 @@ theorem FiveFibreAtomicResolution.jointEigenspaces_span
     (P : FiveFibreAtomicResolution) :
     (⨆ χ : Fin 4 → ℂ,
       ⨅ v : Fin 4,
-        (P.proj v).toEuclideanLin.eigenspace (χ v)) = ⊤ := by
+        ((P.proj v).toEuclideanLin : Module.End ℂ FiveTruthH).eigenspace (χ v)) = ⊤ := by
   classical
   let T : Fin 4 → (FiveTruthH →ₗ[ℂ] FiveTruthH) :=
     fun v => (P.proj v).toEuclideanLin
