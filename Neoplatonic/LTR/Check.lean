@@ -57,6 +57,7 @@ import Neoplatonic.LTR.FiveDimensionalOrthonormalExtension
 import Neoplatonic.LTR.FiveDimensionalSignedVectors
 import Neoplatonic.LTR.FiveDimensionalNormExtremal
 import Neoplatonic.LTR.FiveDimensionalGradedZeroProduct
+import Neoplatonic.LTR.TwoDirectionResidualReduction
 import Neoplatonic.LTR.FiveFibreSquareProducts
 import Neoplatonic.LTR.FiveFibreHermitianSupport
 import Neoplatonic.LTR.FiveFibreIsolatedVertex
@@ -1303,3 +1304,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.truthMultiplicity_pos
 #print axioms Neoplatonic.LTR.truthMultiplicity6_complete
 #print axioms Neoplatonic.LTR.truthMultiplicity7_complete
+
+-- LTR-MAN-56: invariant two-direction residual, product support, and residual dimensions.
+#print axioms Neoplatonic.LTR.selfAdjoint_preserves_orthogonal_to_eigenvector
+#print axioms Neoplatonic.LTR.twoDirection_extremalResidual_invariant
+#print axioms Neoplatonic.LTR.twoDirection_extremalProducts_vanish_on_quartet
+#print axioms Neoplatonic.LTR.twoDirection_extremalQuartet_span_finrank
+#print axioms Neoplatonic.LTR.twoDirection_sixDim_residual_finrank
+#print axioms Neoplatonic.LTR.twoDirection_sevenDim_residual_finrank
