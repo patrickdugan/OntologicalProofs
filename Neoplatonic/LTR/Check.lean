@@ -162,6 +162,7 @@ import Neoplatonic.LTR.SixDimensionalStrictPauliImbalance
 import Neoplatonic.LTR.SixDimensionalNearSaturatedPauliStability
 import Neoplatonic.LTR.SixDimensionalActualNearPauliStability
 import Neoplatonic.LTR.SixDimensionalNearSignedDefect
+import Neoplatonic.LTR.SixDimensionalNonSaturatedCornerDefect
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2109,3 +2110,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.realGram_nearHalf_positive_signedDefects
 #print axioms Neoplatonic.LTR.realGram_nearHalf_negative_signedDefects
 #print axioms Neoplatonic.LTR.realGram_nearHalf_signedDefect_dichotomy
+
+-- MAN-140: genuine nonsaturated signed corner and neutral exchange defect equations.
+#print axioms Neoplatonic.LTR.sixMatrix_zeroNeutral_fullBlockDefect
+#print axioms Neoplatonic.LTR.sixMatrix_hermitian_zeroNeutral_blockDefect
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_nonSaturated_blockDefect
