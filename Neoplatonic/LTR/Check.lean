@@ -161,6 +161,7 @@ import Neoplatonic.LTR.SixDimensionalPositiveMaxImbalanceNoGo
 import Neoplatonic.LTR.SixDimensionalStrictPauliImbalance
 import Neoplatonic.LTR.SixDimensionalNearSaturatedPauliStability
 import Neoplatonic.LTR.SixDimensionalActualNearPauliStability
+import Neoplatonic.LTR.SixDimensionalNearSignedDefect
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2103,3 +2104,8 @@ open Neoplatonic.LTR
 
 -- MAN-141: genuine exact-Hamming residual near-saturation quantitative stability.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_nearHalf_realPauli_stability
+
+-- MAN-142: quantitative signed spectral-defect dichotomy at near sharp Pauli overlap.
+#print axioms Neoplatonic.LTR.realGram_nearHalf_positive_signedDefects
+#print axioms Neoplatonic.LTR.realGram_nearHalf_negative_signedDefects
+#print axioms Neoplatonic.LTR.realGram_nearHalf_signedDefect_dichotomy
