@@ -141,6 +141,7 @@ import Neoplatonic.LTR.SixDimensionalTriple03SeparatingProbe
 import Neoplatonic.LTR.SixDimensionalTriple03ProbeHammingNoGo
 import Neoplatonic.LTR.SixDimensionalTriple11ProbeHammingNoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton11NoGo
+import Neoplatonic.LTR.SixDimensionalTruthRelabelSaturation
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
@@ -1989,3 +1990,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_isometry_columnTrace
 #print axioms Neoplatonic.LTR.sixPlusNeutral_mul_fibre1_or_fibre2
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeDouble_transitionTrace
+
+-- MAN-116: Connes truth-equivariance and negative saturated fibre classification.
+#print axioms Neoplatonic.LTR.sixLabelledConnesDistance_truthEquiv
+#print axioms Neoplatonic.LTR.sixTruthMultiplicity_truthEquiv
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_truthEquiv
+#print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_truthEquiv
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_truthTranslation
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_onlyOppositeDoubles
