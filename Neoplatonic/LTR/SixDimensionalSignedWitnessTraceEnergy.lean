@@ -50,9 +50,11 @@ theorem sixPlusNeutral_card_eq_fibreSum
     (Finset.univ.filter (fun i : Fin 6 =>
       squarePlusNeutral (label i))).card = (s1 ∪ s2).card := by
         congr 1
-        ext i
-        simp only [Finset.mem_filter, Finset.mem_univ, true_and,
-          Finset.mem_union, squarePlusNeutral]
+        change (Finset.univ.filter (fun i : Fin 6 =>
+            label i = 1 ∨ label i = 2)) =
+          (Finset.univ.filter (fun i : Fin 6 => label i = 1)) ∪
+          (Finset.univ.filter (fun i : Fin 6 => label i = 2))
+        exact Finset.filter_or
     _ = s1.card + s2.card := Finset.card_union_of_disjoint hd
     _ = truthMultiplicity label 1 + truthMultiplicity label 2 := rfl
 
@@ -78,9 +80,11 @@ theorem sixMinusNeutral_card_eq_fibreSum
     (Finset.univ.filter (fun i : Fin 6 =>
       squareMinusNeutral (label i))).card = (s0 ∪ s3).card := by
         congr 1
-        ext i
-        simp only [Finset.mem_filter, Finset.mem_univ, true_and,
-          Finset.mem_union, squareMinusNeutral]
+        change (Finset.univ.filter (fun i : Fin 6 =>
+            label i = 0 ∨ label i = 3)) =
+          (Finset.univ.filter (fun i : Fin 6 => label i = 0)) ∪
+          (Finset.univ.filter (fun i : Fin 6 => label i = 3))
+        exact Finset.filter_or
     _ = s0.card + s3.card := Finset.card_union_of_disjoint hd
     _ = truthMultiplicity label 0 + truthMultiplicity label 3 := rfl
 
