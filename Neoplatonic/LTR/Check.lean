@@ -148,6 +148,7 @@ import Neoplatonic.LTR.SixDimensionalTruthRelabelSaturation
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
+import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSaturated03TransitionTrace
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
@@ -2022,3 +2023,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_X_product_zero
 #print axioms Neoplatonic.LTR.sixMatrix_disjointNeutralEdges_product_zero
 #print axioms Neoplatonic.LTR.sixMatrix_offdiagonal_threeEdgeProducts_zero
+
+-- MAN-124: positive signed witness corner off-diagonal in original coordinates.
+#print axioms Neoplatonic.LTR.sixMatrix_corner_offdiagonal_of_zeroSelfBlocks
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_selfFibre_zero
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_actualCorner_offdiagonal
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_actualCorner_twoRows_zero
