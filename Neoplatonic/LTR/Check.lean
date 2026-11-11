@@ -120,6 +120,7 @@ import Neoplatonic.LTR.SixDimensionalNeutralCornerTripotence
 import Neoplatonic.LTR.SixDimensionalSignedCornerTripotence
 import Neoplatonic.LTR.SixDimensionalZeroNeutralBlockEquations
 import Neoplatonic.LTR.SixDimensionalSignedWitnessPartialIsometry
+import Neoplatonic.LTR.SixDimensionalCornerSpectralRank
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1778,3 +1779,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthSectorProjection_isHermitian
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_partialIsometry
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_partialIsometry
+
+
+-- MAN-94: idempotent corner-square trace gives exact rank two in a neutral-trace-two involution.
+#print axioms Neoplatonic.LTR.sixMatrix_involution_zeroNeutral_cornerSquare_trace
+#print axioms Neoplatonic.LTR.sixMatrix_tripotent_square_idempotent
+#print axioms Neoplatonic.LTR.sixMatrix_idempotent_trace_eq_rank
+#print axioms Neoplatonic.LTR.sixMatrix_involution_neutralTraceTwo_cornerRankTwo
