@@ -157,6 +157,7 @@ import Neoplatonic.LTR.SixDimensionalSignedCornerTrueEdge
 import Neoplatonic.LTR.SixDimensionalBistochasticThreeEdgeNoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03ActualNormNoGo
 import Neoplatonic.LTR.SixDimensionalBothSignedSaturationNoGo
+import Neoplatonic.LTR.SixDimensionalPositivePauliOverlapNoGo
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2081,3 +2082,8 @@ open Neoplatonic.LTR
 -- MAN-136: mirrored negative saturation and both pure signed six-dimensional no-go.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_actualNorm_impossible
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_pureSaturation_impossible
+
+-- MAN-137: sharp positive Pauli overlap forces actual signed involution, pure energy, contradiction.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positivePauliMax_plus_involution
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positivePauliMax_forcesPure
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positivePauliMax_impossible
