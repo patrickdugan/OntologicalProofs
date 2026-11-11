@@ -162,6 +162,7 @@ import Neoplatonic.LTR.SixDimensionalStrictPauliImbalance
 import Neoplatonic.LTR.SixDimensionalNearSaturatedPauliStability
 import Neoplatonic.LTR.SixDimensionalActualNearPauliStability
 import Neoplatonic.LTR.SixDimensionalNearSignedDefect
+import Neoplatonic.LTR.SixDimensionalSpectralDefectNorm
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2109,3 +2110,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.realGram_nearHalf_positive_signedDefects
 #print axioms Neoplatonic.LTR.realGram_nearHalf_negative_signedDefects
 #print axioms Neoplatonic.LTR.realGram_nearHalf_signedDefect_dichotomy
+
+-- MAN-143: operator norm controls for the genuine-sized corner-neutral leakage.
+#print axioms Neoplatonic.LTR.sixMatrix_cornerNeutral_product_norm_le_defect
+#print axioms Neoplatonic.LTR.sixMatrix_cornerNeutral_product_norm_le_twoSlack
