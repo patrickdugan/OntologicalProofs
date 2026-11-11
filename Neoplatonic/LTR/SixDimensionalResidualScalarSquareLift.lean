@@ -37,6 +37,7 @@ theorem twoEuclideanCstarMatrix_scalarSquare_lift
   have h' : F (T * T) = mu • (1 : TwoMat) := by
     simpa only [twoEuclideanCstarMatrix, map_mul] using h
   apply F.injective
+  change F (T * T) = F (mu • (1 : TwoH →L[ℂ] TwoH))
   simpa only [map_smul, map_one] using h'
 
 /-- Isometric Hilbert conjugation reflects scalar-square
