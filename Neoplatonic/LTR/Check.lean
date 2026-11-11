@@ -126,6 +126,7 @@ import Neoplatonic.LTR.SixDimensionalCornerComplementaryProjections
 import Neoplatonic.LTR.SixDimensionalSignedCornerComplementaryProjections
 import Neoplatonic.LTR.SixDimensionalOppositeDoubleUnitaryObstruction
 import Neoplatonic.LTR.SixDimensionalOppositeDoubleCanonicalSquares
+import Neoplatonic.LTR.SixDimensionalOppositeDoubleCanonicalNormObstruction
 import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
@@ -1871,3 +1872,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_disjointCorner_hermitianGram
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_cornerSquare_oppositeGram
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_cornerSquare_oppositeGram
+
+-- MAN-101: exact complex unitary paired moduli and canonical coordinate norm contradiction.
+#print axioms Neoplatonic.LTR.twoMatrix_unitary_firstColumn_energy
+#print axioms Neoplatonic.LTR.twoMatrix_unitary_secondRow_energy
+#print axioms Neoplatonic.LTR.twoMatrix_unitary_pairedModuli
+#print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalA_norm_lt_one
+#print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalB_norm_lt_one
+#print axioms Neoplatonic.LTR.twoMatrix_unitary_canonicalSignedWitness_normObstruction
