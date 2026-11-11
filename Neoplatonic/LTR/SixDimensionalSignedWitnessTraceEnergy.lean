@@ -51,7 +51,8 @@ theorem sixPlusNeutral_card_eq_fibreSum
       squarePlusNeutral (label i))).card = (s1 ∪ s2).card := by
         congr 1
         ext i
-        simp [s1, s2, squarePlusNeutral]
+        simp only [Finset.mem_filter, Finset.mem_univ, true_and,
+          Finset.mem_union, squarePlusNeutral]
     _ = s1.card + s2.card := Finset.card_union_of_disjoint hd
     _ = truthMultiplicity label 1 + truthMultiplicity label 2 := rfl
 
@@ -78,7 +79,8 @@ theorem sixMinusNeutral_card_eq_fibreSum
       squareMinusNeutral (label i))).card = (s0 ∪ s3).card := by
         congr 1
         ext i
-        simp [s0, s3, squareMinusNeutral]
+        simp only [Finset.mem_filter, Finset.mem_univ, true_and,
+          Finset.mem_union, squareMinusNeutral]
     _ = s0.card + s3.card := Finset.card_union_of_disjoint hd
     _ = truthMultiplicity label 0 + truthMultiplicity label 3 := rfl
 
@@ -182,6 +184,7 @@ theorem sixLabelled_plusWitness_saturated_neutral_fibreSum_two
   have hc :
       (((truthMultiplicity label 1 + truthMultiplicity label 2 : ℕ) : ℂ)) =
         (2 : ℂ) := by
+    push_cast
     norm_num at hh
     linear_combination (-1 / 2 : ℂ) * hh
   exact_mod_cast hc
@@ -202,6 +205,7 @@ theorem sixLabelled_minusWitness_saturated_neutral_fibreSum_two
   have hc :
       (((truthMultiplicity label 0 + truthMultiplicity label 3 : ℕ) : ℂ)) =
         (2 : ℂ) := by
+    push_cast
     norm_num at hh
     linear_combination (-1 / 2 : ℂ) * hh
   exact_mod_cast hc
