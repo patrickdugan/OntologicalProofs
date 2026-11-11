@@ -24,6 +24,8 @@ the surviving block is nonzero with all 2×2 minors zero.
 
 namespace Neoplatonic.LTR
 
+open scoped NNReal ENNReal
+
 private abbrev SixMat := Matrix (Fin 6) (Fin 6) ℂ
 
 /-- A truth fibre of multiplicity one has exactly one Hilbert
@@ -123,7 +125,7 @@ theorem sixTruthFibreBlock_minOne_allTwoByTwoMinors_zero
       label D u v hmin i k j l hik hjl
   have hright :=
     sixTruthFibreBlock_minOne_disjoint_product_zero
-      label D u v hmin i k l j hik hjl.symm
+      label D u v hmin i k l j hik (Ne.symm hjl)
   rw [hleft, hright]
 
 /-- The signed-quartet saturation geometry produces a concrete
