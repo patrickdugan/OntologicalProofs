@@ -178,15 +178,15 @@ theorem sixLabelled_exactHamming_minOne_saturation_oppositeCouplingsZero
     (∀ i j : Fin 6, label i = 1 → label j = 2 → D i j = 0) := by
   rcases sixLabelled_exactHamming_minOne_saturation_blocksExclusive
     label D hD hham hmin03 hmin12 hsat with h | h
-  · right
-    exact (sixTruthFibreBlockEnergy_zero_iff_couplings_zero
-      label D 1 2).mp
-        ((sixTruthFibreBlockEnergy_zero_iff_block_zero
-          label D 1 2).mpr h.1)
   · left
     exact (sixTruthFibreBlockEnergy_zero_iff_couplings_zero
       label D 0 3).mp
         ((sixTruthFibreBlockEnergy_zero_iff_block_zero
           label D 0 3).mpr h.1)
+  · right
+    exact (sixTruthFibreBlockEnergy_zero_iff_couplings_zero
+      label D 1 2).mp
+        ((sixTruthFibreBlockEnergy_zero_iff_block_zero
+          label D 1 2).mpr h.1)
 
 end Neoplatonic.LTR
