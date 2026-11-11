@@ -141,4 +141,82 @@ theorem twoMatrix_doubleImagPartialIsometry_traceOne_rankOne
   exact twoMatrix_scaledPartialIsometry_traceOne_rankOne
     B ((2 : ℂ) * Complex.I) (by norm_num) hproj htrace
 
+/-! ## Abstract four-dimensional opposite-corner tripotence -/
+
+private abbrev FourMat :=
+  Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℂ
+
+/-- The surviving four-dimensional opposite-double corner, written
+as the off-diagonal Hermitian block matrix of the scaled 2x2 map. -/
+def twoFibreOppositeCorner (T : TwoMat) : FourMat :=
+  Matrix.fromBlocks 0 T T.conjTranspose 0
+
+/-- The MAN-93 tripotence identity of an off-diagonal Hermitian
+four-corner immediately makes T Tᴴ idempotent. -/
+theorem twoFibreOppositeCorner_tripotent_projection
+    (T : TwoMat)
+    (htrip : twoFibreOppositeCorner T *
+        twoFibreOppositeCorner T *
+        twoFibreOppositeCorner T =
+          twoFibreOppositeCorner T) :
+    (T * T.conjTranspose) * (T * T.conjTranspose) =
+      T * T.conjTranspose := by
+  let K : FourMat := twoFibreOppositeCorner T
+  have hKsq :
+      K * K = Matrix.fromBlocks (T * T.conjTranspose)
+        (0 : TwoMat) 0 (T.conjTranspose * T) := by
+    dsimp [K, twoFibreOppositeCorner]
+    rw [Matrix.fromBlocks_multiply]
+    simp
+  have hKcube :
+      K * K * K =
+        Matrix.fromBlocks (0 : TwoMat)
+          ((T * T.conjTranspose) * T)
+          ((T.conjTranspose * T) * T.conjTranspose)
+          (0 : TwoMat) := by
+    rw [hKsq]
+    dsimp [K, twoFibreOppositeCorner]
+    rw [Matrix.fromBlocks_multiply]
+    simp
+  have hTTT : (T * T.conjTranspose) * T = T := by
+    have h := congrArg (fun M : FourMat => M.toBlocks₁₂) htrip
+    change (K * K * K).toBlocks₁₂ = K.toBlocks₁₂ at h
+    rw [hKcube] at h
+    simpa [K, twoFibreOppositeCorner] using h
+  calc
+    (T * T.conjTranspose) * (T * T.conjTranspose) =
+        ((T * T.conjTranspose) * T) * T.conjTranspose := by noncomm_ring
+    _ = T * T.conjTranspose := by rw [hTTT]
+
+/-- Rank one follows directly from corner tripotence and its
+fixed unit trace, using the two-dimensional determinant criterion. -/
+theorem twoFibreOppositeCorner_tripotent_traceOne_rankOne
+    (B : TwoMat) (s : ℂ) (hs : s ≠ 0)
+    (htrip :
+      let T : TwoMat := s • B
+      twoFibreOppositeCorner T * twoFibreOppositeCorner T *
+        twoFibreOppositeCorner T = twoFibreOppositeCorner T)
+    (htrace :
+      let T : TwoMat := s • B
+      (T * T.conjTranspose).trace = 1) :
+    B.rank = 1 ∧ B.det = 0 := by
+  apply twoMatrix_scaledPartialIsometry_traceOne_rankOne B s hs
+  · exact twoFibreOppositeCorner_tripotent_projection (s • B) htrip
+  · exact htrace
+
+/-- Specialized off-diagonal corner model for a Hermitian Hamming
+witness with actual scalar coefficient 2i. -/
+theorem twoFibreOppositeCorner_doubleImag_tripotent_rankOne
+    (B : TwoMat)
+    (htrip :
+      let T : TwoMat := ((2 : ℂ) * Complex.I) • B
+      twoFibreOppositeCorner T * twoFibreOppositeCorner T *
+        twoFibreOppositeCorner T = twoFibreOppositeCorner T)
+    (htrace :
+      let T : TwoMat := ((2 : ℂ) * Complex.I) • B
+      (T * T.conjTranspose).trace = 1) :
+    B.rank = 1 ∧ B.det = 0 := by
+  exact twoFibreOppositeCorner_tripotent_traceOne_rankOne
+    B ((2 : ℂ) * Complex.I) (by norm_num) htrip htrace
+
 end Neoplatonic.LTR
