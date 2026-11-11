@@ -107,6 +107,7 @@ import Neoplatonic.LTR.SixDimensionalResidualPauliHalfSatEquality
 import Neoplatonic.LTR.SixDimensionalExactHammingResidualWitnessExtinction
 import Neoplatonic.LTR.SixDimensionalOppositeBlockSignSelection
 import Neoplatonic.LTR.SixDimensionalResidualPauliInvolution
+import Neoplatonic.LTR.SixDimensionalExactHammingResidualInvolution
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1670,3 +1671,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.pauliQuadratic_eq_realQuadratic_of_hermitian
 #print axioms Neoplatonic.LTR.twoDim_pauli_quarter_double_involution
 #print axioms Neoplatonic.LTR.twoDim_pauli_quarter_negDouble_involution
+
+-- LTR-MAN-89: saturated actual Hamming signed witness residual squares to identity.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_residualPlus_involution
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_residualMinus_involution
