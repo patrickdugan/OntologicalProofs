@@ -115,6 +115,7 @@ import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
 import Neoplatonic.LTR.SixDimensionalSignedWitnessCornerWeights
 import Neoplatonic.LTR.SixDimensionalSignedWitnessTraceEnergy
 import Neoplatonic.LTR.SixDimensionalSaturatedFibreClassification
+import Neoplatonic.LTR.SixDimensionalUnconditionalSaturationCases
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1736,3 +1737,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_saturated12_neutralFibres_singleton
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_sixFibreCases
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_noAdjacentDoubles
+
+
+-- MAN-92: adjacent-double saturation excluded without min-one premises; exactly six candidates.
+#print axioms Neoplatonic.LTR.sixDimAdjacentDoubles_oppositeMinima_one
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturation_noAdjacentDoubles
+#print axioms Neoplatonic.LTR.sixTruthFibre_noAdjacent_sixCases
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturation_sixFibreCases
