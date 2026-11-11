@@ -77,7 +77,11 @@ theorem sixMatrix_idempotent_trace_eq_rank
   have htr := (LinearMap.IsIdempotentElem.isProj_range e he).trace
   change LinearMap.trace ℂ (Fin 6 → ℂ) e =
     (Module.finrank ℂ (LinearMap.range e) : ℂ) at htr
-  simpa only [e, Matrix.trace_toLin'_eq, Matrix.toLin'_apply', Matrix.rank] using htr
+  dsimp only [e] at htr
+  rw [Matrix.trace_toLin'_eq] at htr
+  rw [Matrix.toLin'_apply'] at htr
+  change M.trace = (M.rank : ℂ) at htr
+  exact htr
 
 /-- If the neutral projection of a six-dimensional involution
 has trace two, the complementary corner matrix X has exactly
