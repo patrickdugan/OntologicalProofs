@@ -130,6 +130,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeDoubleCanonicalNormObstruction
 import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
+import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.SixDimensionalTransitionGramPositivity
@@ -2005,3 +2006,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_transitionTrace_nonnegativeReal
 #print axioms Neoplatonic.LTR.twoTransitionNonnegative_rowHalf
 #print axioms Neoplatonic.LTR.twoTransitionNonnegative_bistochastic_bounds
+
+-- MAN-121: actual positive-saturation coordinate matrices split into three undirected truth edges.
+#print axioms Neoplatonic.LTR.sixLabelled_zero12_block_entries
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_zero12_coordinateA_threeEdges
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_zero12_coordinateB_threeEdges
+#print axioms Neoplatonic.LTR.sixTruthUndirectedBlock_hermitian
