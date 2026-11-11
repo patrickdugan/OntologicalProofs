@@ -65,7 +65,7 @@ theorem sixMatrix_trace_square_neutral_decomposition
           apply Finset.sum_congr rfl
           intro j hj
           exact hpoint i j
-      _ = _ := by simp only [Finset.sum_add_distrib]; ring
+      _ = _ := by simp only [Finset.sum_add_distrib]
   have hswap :
       (∑ i : Fin 6, ∑ j : Fin 6,
         if neutral j then W i j * W j i else 0) =
