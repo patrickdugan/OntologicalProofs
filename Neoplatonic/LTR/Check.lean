@@ -122,6 +122,10 @@ import Neoplatonic.LTR.SixDimensionalZeroNeutralBlockEquations
 import Neoplatonic.LTR.SixDimensionalSignedWitnessPartialIsometry
 import Neoplatonic.LTR.SixDimensionalCornerSpectralRank
 import Neoplatonic.LTR.SixDimensionalSignedCornerRankTwo
+import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
+import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
+import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
+import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1793,3 +1797,39 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthSectorProjection_trace_eq_card
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_cornerRankTwo
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_cornerRankTwo
+
+
+-- MAN-95: 2x2 idempotent trace, determinant, and scaled partial-isometry rank-one certificate.
+#print axioms Neoplatonic.LTR.twoMatrix_idempotent_trace_eq_rank
+#print axioms Neoplatonic.LTR.twoMatrix_idempotent_traceOne_det_zero
+#print axioms Neoplatonic.LTR.twoMatrix_scaledPartialIsometry_traceOne_rankOne
+#print axioms Neoplatonic.LTR.twoMatrix_doubleImagPartialIsometry_traceOne_rankOne
+
+#print axioms Neoplatonic.LTR.twoFibreOppositeCorner_tripotent_projection
+#print axioms Neoplatonic.LTR.twoFibreOppositeCorner_tripotent_traceOne_rankOne
+#print axioms Neoplatonic.LTR.twoFibreOppositeCorner_doubleImag_tripotent_rankOne
+
+#print axioms Neoplatonic.LTR.fourMatrix_diagonalBlock_trace
+#print axioms Neoplatonic.LTR.twoFibreOppositeCorner_square_trace
+#print axioms Neoplatonic.LTR.twoFibreOppositeCorner_tripotent_squareTraceTwo_rankOne
+#print axioms Neoplatonic.LTR.twoFibreOppositeCorner_doubleImag_squareTraceTwo_rankOne
+
+#print axioms Neoplatonic.LTR.sixMatrix_bipartite_partialIsometry_rankOne
+#print axioms Neoplatonic.LTR.sixMatrix_bipartite_tripotent_extract
+#print axioms Neoplatonic.LTR.sixMatrix_bipartite_tripotent_traceTwo_rankOne
+
+#print axioms Neoplatonic.LTR.sixPlus_complement_eq_oppositeFibreProjections
+#print axioms Neoplatonic.LTR.sixOpposite03_fibreProjections_orthogonal
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_oppositeInternalBlocks_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeBlockRankOne
+
+#print axioms Neoplatonic.LTR.sixMinus_complement_eq_oppositeFibreProjections
+#print axioms Neoplatonic.LTR.sixOpposite12_fibreProjections_orthogonal
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_oppositeInternalBlocks_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_oppositeBlockRankOne
+
+#print axioms Neoplatonic.LTR.sixMatrix_rankOne_allTwoByTwoMinors_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeBlock_allMinors_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_oppositeBlock_allMinors_zero
+
+-- MAN-95: original-chart minor certificates also cover the 2+2 opposite-double case.
