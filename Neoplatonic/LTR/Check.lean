@@ -151,6 +151,7 @@ import Neoplatonic.LTR.SixDimensionalTruthRelabelSaturation
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
+import Neoplatonic.LTR.SixDimensionalApproximateNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalNeutralEdgeOriginalBridge
@@ -2144,3 +2145,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusDefect_norm_eq_realPauli
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_defect_norm_le
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_cornerLeakage
+
+-- MAN-149: exact XY fibre projection and approximate three-channel orthogonality.
+#print axioms Neoplatonic.LTR.sixMatrix_offdiagonal_XY_split_exact
+#print axioms Neoplatonic.LTR.sixMatrix_offdiagonal_XY_split_norm_le
+#print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_X_product_eq
+#print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_X_norm_le
+#print axioms Neoplatonic.LTR.sixMatrix_offdiagonal_threeEdge_approxOrthogonal
