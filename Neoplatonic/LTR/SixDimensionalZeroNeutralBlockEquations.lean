@@ -13,9 +13,9 @@ six-dimensional matrix ring:
 
     X² + YZ = C,    XY=0,    ZX=0,    ZY=Q.
 
-With W and Q Hermitian, Z=Yᴴ, so
+With W and Q Hermitian, Z=Y.conjTranspose, so
 
-    X² + YYᴴ = C,   XY=0,   YᴴY=Q.
+    X² + YY.conjTranspose = C,   XY=0,   Y.conjTransposeY=Q.
 
 This supplies the complementary partial-isometry equations underlying
 the opposite-double rank problem. No coordinate pattern, rank
@@ -160,16 +160,16 @@ theorem sixMatrix_involution_zeroNeutral_fullBlockEquations
 the conjugate transpose of the corner-to-neutral block. -/
 theorem sixCornerToNeutralBlock_conjTranspose
     (W Q : SixMat) (hW : W.IsHermitian) (hQ : Q.IsHermitian) :
-    (sixCornerToNeutralBlock W Q)ᴴ =
+    (sixCornerToNeutralBlock W Q).conjTranspose =
       sixNeutralToCornerBlock W Q := by
-  have hC : (1 - Q)ᴴ = (1 - Q : SixMat) := by
+  have hC : (1 - Q).conjTranspose = (1 - Q : SixMat) := by
     simp [Matrix.conjTranspose_sub, hQ.eq]
   unfold sixCornerToNeutralBlock sixNeutralToCornerBlock
   simp only [Matrix.conjTranspose_mul, hW.eq, hQ.eq, hC]
   noncomm_ring
 
 /-- The Hermitian corner-neutral block equations become
-X²+YYᴴ=C, XY=0, and YᴴY=Q, proving the neutral-to-corner
+X²+YY.conjTranspose=C, XY=0, and Y.conjTransposeY=Q, proving the neutral-to-corner
 map is a partial isometry with initial projection Q. -/
 theorem sixMatrix_hermitianInvolution_zeroNeutral_partialIsometry
     (W Q : SixMat)
@@ -181,15 +181,15 @@ theorem sixMatrix_hermitianInvolution_zeroNeutral_partialIsometry
     let C : SixMat := 1 - Q
     let X : SixMat := C * W * C
     let Y : SixMat := C * W * Q
-    X * X + Y * Yᴴ = C ∧ X * Y = 0 ∧ Yᴴ * Y = Q := by
+    X * X + Y * Y.conjTranspose = C ∧ X * Y = 0 ∧ Y.conjTranspose * Y = Q := by
   let C : SixMat := 1 - Q
   let X : SixMat := C * W * C
   let Y : SixMat := C * W * Q
   let Z : SixMat := Q * W * C
-  change X * X + Y * Yᴴ = C ∧ X * Y = 0 ∧ Yᴴ * Y = Q
+  change X * X + Y * Y.conjTranspose = C ∧ X * Y = 0 ∧ Y.conjTranspose * Y = Q
   obtain ⟨hX, hXY, _, hZY⟩ :=
     sixMatrix_involution_zeroNeutral_fullBlockEquations W Q hW hQ hQQ
-  have hYZ : Yᴴ = Z :=
+  have hYZ : Y.conjTranspose = Z :=
     sixCornerToNeutralBlock_conjTranspose W Q hWW hQH
   exact ⟨by rw [hYZ]; exact hX, hXY,
     by rw [hYZ]; exact hZY⟩
