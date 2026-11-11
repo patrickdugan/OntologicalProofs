@@ -42,16 +42,20 @@ theorem sixMatrix_projector_transitionTrace_compression
       (P * Y * N) * (N * Y.conjTranspose * P) =
         P * Y * (N * N) * Y.conjTranspose * P := by noncomm_ring
       _ = P * Y * N * Y.conjTranspose * P := by rw [hN]
+  have hTraceP :
+      (P * Y * N * Y.conjTranspose * P).trace =
+        (P * Y * N * Y.conjTranspose).trace := by
+    calc
+      (P * Y * N * Y.conjTranspose * P).trace =
+          (P * (P * Y * N * Y.conjTranspose)).trace :=
+            Matrix.trace_mul_comm (P * Y * N * Y.conjTranspose) P
+      _ = ((P * P) * Y * N * Y.conjTranspose).trace := by
+        congr 1
+        noncomm_ring
+      _ = (P * Y * N * Y.conjTranspose).trace := by rw [hP]
   calc
     (P * Y * N * Y.conjTranspose).trace =
-        (P * Y * N * Y.conjTranspose * P).trace := by
-          calc
-            _ = (P * (P * Y * N * Y.conjTranspose)).trace :=
-              Matrix.trace_mul_comm (P * Y * N * Y.conjTranspose) P
-            _ = ((P * P) * Y * N * Y.conjTranspose).trace := by
-              congr 1
-              noncomm_ring
-            _ = (P * Y * N * Y.conjTranspose).trace := by rw [hP]
+        (P * Y * N * Y.conjTranspose * P).trace := hTraceP.symm
     _ = ((P * Y * N) * (P * Y * N).conjTranspose).trace := by
       rw [hGram]
 
