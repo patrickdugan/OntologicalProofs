@@ -133,6 +133,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.SixDimensionalSingletonInputGramScalar
+import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalTransitionGramPositivity
 import Neoplatonic.LTR.SixDimensionalActualTransitionHalfEnergy
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
@@ -2014,3 +2015,7 @@ open Neoplatonic.LTR
 -- MAN-119: scalar Gram spectrum for singleton truth input columns.
 #print axioms Neoplatonic.LTR.sixMatrix_singletonInput_gram_eq_trace_smul_fibre
 #print axioms Neoplatonic.LTR.sixMatrix_singletonInput_gram_nonnegativeScalar
+
+-- MAN-122: singleton neutral projector has unit C*-norm and its channel operator norm square equals its Frobenius energy.
+#print axioms Neoplatonic.LTR.sixTruthFibreProjection_singleton_operatorNorm_one
+#print axioms Neoplatonic.LTR.sixMatrix_singletonInput_opNormSq_eq_entryEnergy
