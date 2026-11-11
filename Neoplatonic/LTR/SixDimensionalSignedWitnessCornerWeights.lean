@@ -33,6 +33,14 @@ def squarePlusNeutral (u : Fin 4) : Prop := u = 1 ∨ u = 2
 internal block. -/
 def squareMinusNeutral (u : Fin 4) : Prop := u = 0 ∨ u = 3
 
+instance (u : Fin 4) : Decidable (squarePlusNeutral u) := by
+  unfold squarePlusNeutral
+  infer_instance
+
+instance (u : Fin 4) : Decidable (squareMinusNeutral u) := by
+  unfold squareMinusNeutral
+  infer_instance
+
 /-- Whole first-coordinate plus second-coordinate witness vanishes
 between neutral truth atoms 01 and 10. -/
 theorem sixLabelled_plusWitness_neutral_pair_zero
