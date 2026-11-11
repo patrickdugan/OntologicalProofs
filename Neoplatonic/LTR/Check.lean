@@ -132,6 +132,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
+import Neoplatonic.LTR.SixDimensionalTransitionGramPositivity
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeExhaustion
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralRowExtinction
@@ -1998,3 +1999,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthFibreBlockEnergy_truthEquiv
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_truthTranslation
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_onlyOppositeDoubles
+
+-- MAN-118: positive transition energies and doubly-stochastic half-energy gate.
+#print axioms Neoplatonic.LTR.sixMatrix_transitionTrace_eq_gramTrace
+#print axioms Neoplatonic.LTR.sixMatrix_transitionTrace_nonnegativeReal
+#print axioms Neoplatonic.LTR.twoTransitionNonnegative_rowHalf
+#print axioms Neoplatonic.LTR.twoTransitionNonnegative_bistochastic_bounds
