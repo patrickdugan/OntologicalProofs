@@ -122,6 +122,7 @@ import Neoplatonic.LTR.SixDimensionalZeroNeutralBlockEquations
 import Neoplatonic.LTR.SixDimensionalSignedWitnessPartialIsometry
 import Neoplatonic.LTR.SixDimensionalCornerSpectralRank
 import Neoplatonic.LTR.SixDimensionalSignedCornerRankTwo
+import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1793,3 +1794,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthSectorProjection_trace_eq_card
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_cornerRankTwo
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_cornerRankTwo
+
+
+-- MAN-95: 2x2 idempotent trace, determinant, and scaled partial-isometry rank-one certificate.
+#print axioms Neoplatonic.LTR.twoMatrix_idempotent_trace_eq_rank
+#print axioms Neoplatonic.LTR.twoMatrix_idempotent_traceOne_det_zero
+#print axioms Neoplatonic.LTR.twoMatrix_scaledPartialIsometry_traceOne_rankOne
+#print axioms Neoplatonic.LTR.twoMatrix_doubleImagPartialIsometry_traceOne_rankOne
