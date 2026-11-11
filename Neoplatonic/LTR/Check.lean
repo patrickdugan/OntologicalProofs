@@ -133,6 +133,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
+import Neoplatonic.LTR.SixDimensionalSingletonOppositeExhaustion
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
@@ -1898,3 +1899,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_twoFibre_neutralGram_compressions
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_fibreNeutralGram
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_fibreNeutralGram
+
+-- MAN-105: a saturated rank-one opposite Gram channel fully occupies any singleton truth fibre.
+#print axioms Neoplatonic.LTR.sixMatrix_idempotent_traceZero_eq_zero
+#print axioms Neoplatonic.LTR.sixMatrix_nestedTraceOneProjectors_equal
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_singleton_finalGram_eq_fibre
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton00_finalGram
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_singleton01_finalGram
