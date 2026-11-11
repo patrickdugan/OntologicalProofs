@@ -113,6 +113,7 @@ import Neoplatonic.LTR.SixDimensionalResidualScalarSquareLift
 import Neoplatonic.LTR.SixDimensionalAmbientPauliDefectNorm
 import Neoplatonic.LTR.SixDimensionalRealPauliDefectLeakage
 import Neoplatonic.LTR.SixDimensionalSignedBitFlipTransport
+import Neoplatonic.LTR.SixDimensionalNegativeNearHalfDefect
 import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
 import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
@@ -2162,3 +2163,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_secondCoordinate_translationOne
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_translationOne_eq_negMinus
 #print axioms Neoplatonic.LTR.sixTruthPlusNeutralProjection_translationOne
+
+-- MAN-151: sign-flipped real Pauli imbalance and negative signed defect bound.
+#print axioms Neoplatonic.LTR.sixOrientedOppositeEnergyImbalance_translationOne_neg
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_negativeNearHalf_minusDefect_norm_le
