@@ -35,16 +35,13 @@ theorem sixMatrix_involution_of_trueHilbert_involution
     (h : W.toEuclideanLin.toContinuousLinearMap *
       W.toEuclideanLin.toContinuousLinearMap = 1) :
     W * W = 1 := by
-  let F := Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ)
+  let F := (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ)).toRingEquiv
   have h' : F W * F W = 1 := by
     change W.toEuclideanLin.toContinuousLinearMap *
       W.toEuclideanLin.toContinuousLinearMap = 1
     exact h
-  have hm : F (W * W) = F W * F W := map_mul F W W
-  have hone : F (1 : SixMat) = 1 := map_one F
   apply F.injective
-  rw [hm, hone]
-  exact h'
+  simpa only [map_mul, map_one] using h'
 
 /-- The actual 00--11 saturated Hermitian Dirac witness A+B
 is an involution on the entire six-dimensional complex Hilbert
