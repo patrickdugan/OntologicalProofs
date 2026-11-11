@@ -121,6 +121,7 @@ import Neoplatonic.LTR.SixDimensionalSignedCornerTripotence
 import Neoplatonic.LTR.SixDimensionalZeroNeutralBlockEquations
 import Neoplatonic.LTR.SixDimensionalSignedWitnessPartialIsometry
 import Neoplatonic.LTR.SixDimensionalCornerSpectralRank
+import Neoplatonic.LTR.SixDimensionalSignedCornerRankTwo
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1786,3 +1787,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_tripotent_square_idempotent
 #print axioms Neoplatonic.LTR.sixMatrix_idempotent_trace_eq_rank
 #print axioms Neoplatonic.LTR.sixMatrix_involution_neutralTraceTwo_cornerRankTwo
+
+
+-- MAN-94: signed saturated Hamming Dirac witness corner rank two, including opposite-double chart.
+#print axioms Neoplatonic.LTR.sixTruthSectorProjection_trace_eq_card
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_cornerRankTwo
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_cornerRankTwo
