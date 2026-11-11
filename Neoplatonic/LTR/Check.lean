@@ -109,6 +109,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeBlockSignSelection
 import Neoplatonic.LTR.SixDimensionalResidualPauliInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingResidualInvolution
 import Neoplatonic.LTR.SixDimensionalHilbertResidualInvolution
+import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1682,3 +1683,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.hilbertIsometricConjugate_involution_lift
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualPlus_involution_of_pauli
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualMinus_involution_of_pauli
+
+
+-- MAN-91: orthogonal eigenspace decomposition promotes genuine 2D residual involution to 6D.
+#print axioms Neoplatonic.LTR.hilbert_square_one_of_span_and_orthogonal
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.plus_square_one_on_quartet
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.minus_square_one_on_quartet
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.ambientPlus_involution_of_residual
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.ambientMinus_involution_of_residual
