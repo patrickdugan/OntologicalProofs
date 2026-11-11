@@ -125,6 +125,7 @@ import Neoplatonic.LTR.SixDimensionalSignedCornerRankTwo
 import Neoplatonic.LTR.SixDimensionalCornerComplementaryProjections
 import Neoplatonic.LTR.SixDimensionalSignedCornerComplementaryProjections
 import Neoplatonic.LTR.SixDimensionalOppositeDoubleUnitaryObstruction
+import Neoplatonic.LTR.SixDimensionalOppositeDoubleCanonicalSquares
 import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
@@ -1857,3 +1858,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoMatrix_unitary_firstRow_energy
 #print axioms Neoplatonic.LTR.twoMatrix_unitary_firstRow_halfDichotomy
 #print axioms Neoplatonic.LTR.twoMatrix_unitary_firstRow_cannotBothUnit
+
+-- MAN-99: canonical finite 6×6 Hermitian coordinate commutators and diagonal squares.
+#print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalA_square
+#print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalB_square
+#print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalA_hermitian
+#print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalB_hermitian
