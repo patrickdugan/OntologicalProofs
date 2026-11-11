@@ -142,12 +142,14 @@ theorem sixTruthUndirectedBlock_hermitian
     (label : Fin 6 → Fin 4) (W : SixMat)
     (hW : W.IsHermitian) (u v : Fin 4) :
     (sixTruthUndirectedBlock label W u v).IsHermitian := by
+  have hEntries : ∀ i j, W i j = star (W j i) := by
+    intro i j
+    have h := congrArg (fun M : SixMat => M i j) hW.eq
+    simpa only [Matrix.conjTranspose_apply] using h.symm
   have hblock :
       (sixTruthFibreBlock label W u v).conjTranspose =
         sixTruthFibreBlock label W v u :=
-    sixTruthFibreBlock_conjTranspose label W
-      (fun i j => by simpa [Matrix.IsHermitian, Matrix.conjTranspose_apply] using
-        congrArg (fun M : SixMat => M j i) hW) u v
+    sixTruthFibreBlock_conjTranspose label W hEntries u v
   change (sixTruthUndirectedBlock label W u v).conjTranspose =
     sixTruthUndirectedBlock label W u v
   dsimp [sixTruthUndirectedBlock]
