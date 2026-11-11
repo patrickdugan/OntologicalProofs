@@ -53,6 +53,7 @@ theorem sixLabelled_exactHamming_saturated03_residualPlus_involution
       label D hD hham h03 h12
   let M := S.sixDimResidualMatrixA hq (by simp)
   let N := S.sixDimResidualMatrixB hq (by simp)
+  have hMNeq : M = N := hMN
   have hc : pauliRealMixed M N = (1 / 2 : ℝ) := by
     change (pauliMixed M N).re = _
     rw [sixLabelled_extremal_pauliMixed_eq_realImbalance
@@ -70,7 +71,7 @@ theorem sixLabelled_exactHamming_saturated03_residualPlus_involution
     rw [hMN, pauliRealMixed_self_eq_twoQuadratic N hN] at hc
     linarith
   have hsum : M + N = (2 : ℂ) • N := by
-    rw [hMN]
+    rw [hMNeq]
     ext i j
     simp [Matrix.add_apply, Matrix.smul_apply, smul_eq_mul]
     ring
@@ -107,6 +108,7 @@ theorem sixLabelled_exactHamming_saturated12_residualMinus_involution
       label D hD hham h03 h12
   let M := S.sixDimResidualMatrixA hq (by simp)
   let N := S.sixDimResidualMatrixB hq (by simp)
+  have hMNneg : M = -N := hMN
   have hc : pauliRealMixed M N = -(1 / 2 : ℝ) := by
     change (pauliMixed M N).re = _
     rw [sixLabelled_extremal_pauliMixed_eq_realImbalance
@@ -125,7 +127,7 @@ theorem sixLabelled_exactHamming_saturated12_residualMinus_involution
       pauliRealMixed_self_eq_twoQuadratic N hN] at hc
     linarith
   have hdiff : M - N = -((2 : ℂ) • N) := by
-    rw [hMN]
+    rw [hMNneg]
     ext i j
     simp [Matrix.sub_apply, Matrix.neg_apply,
       Matrix.smul_apply, smul_eq_mul]
