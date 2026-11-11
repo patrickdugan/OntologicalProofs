@@ -152,6 +152,7 @@ import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
+import Neoplatonic.LTR.SixDimensionalSignedCornerTrueEdge
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
@@ -2047,3 +2048,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_zero12_coordinateA_threeEdges
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_zero12_coordinateB_threeEdges
 #print axioms Neoplatonic.LTR.sixMatrix_singletonInput_opNormSq_eq_entryEnergy
+
+-- MAN-132: true opposite compressed corner equals the positive signed undirected edge.
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_corner_eq_undirected03
+#print axioms Neoplatonic.LTR.sixLabelled_plusActiveHalf_eq_trueCornerHalf
