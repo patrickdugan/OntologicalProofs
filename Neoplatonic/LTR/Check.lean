@@ -155,6 +155,7 @@ import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeIdentification
 import Neoplatonic.LTR.SixDimensionalSaturatedHalfCornerNorm
 import Neoplatonic.LTR.SixDimensionalSignedCornerTrueEdge
 import Neoplatonic.LTR.SixDimensionalBistochasticThreeEdgeNoGo
+import Neoplatonic.LTR.SixDimensionalSaturated03ActualNormNoGo
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2070,3 +2071,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_corner_eq_undirected03
 #print axioms Neoplatonic.LTR.sixLabelled_plusActiveHalf_eq_trueCornerHalf
 #print axioms Neoplatonic.LTR.sixMatrix_bistochastic_threeEdge_unitNorm_impossible
+
+-- MAN-135: actual labelled six-dimensional positive Hamming saturation norm no-go.
+#print axioms Neoplatonic.LTR.sixTruthUndirectedBlock_swap
+#print axioms Neoplatonic.LTR.sixMatrix_singletonNeutralEdge_normSq_of_trace
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_actualNorm_impossible
