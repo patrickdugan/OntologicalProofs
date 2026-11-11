@@ -137,6 +137,7 @@ import Neoplatonic.LTR.SixDimensionalSingletonOppositeExhaustion
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralRowExtinction
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.SixDimensionalTriple03SeparatingProbe
+import Neoplatonic.LTR.SixDimensionalTriple03ProbeHammingNoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
 import Neoplatonic.LTR.FiveFibreFourTruthDual
@@ -1924,3 +1925,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTriple03Probe_signConjugate_plusWitness
 #print axioms Neoplatonic.LTR.squareTriple03Probe_gap01
 #print axioms Neoplatonic.LTR.squareTriple03Probe_gap02
+
+-- MAN-108: exact Connes-Hamming triple-probe contradiction given zero 00-neutral support.
+#print axioms Neoplatonic.LTR.sixTriple03SignMatrix_hermitian
+#print axioms Neoplatonic.LTR.sixMatrix_hermitianInvolution_operatorNorm_one
+#print axioms Neoplatonic.LTR.sixMatrix_hermitianInvolution_signConjugate_norm_one
+#print axioms Neoplatonic.LTR.sixTriple03ProbeImagComm_eq_iDirac
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_zeroNeutralRows_impossible
