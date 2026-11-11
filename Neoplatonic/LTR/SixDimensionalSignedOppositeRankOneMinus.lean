@@ -2,7 +2,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
 import Mathlib.Tactic
 
 /-!
-# LTR-MAN-95: genuine labelled saturated positive opposite Dirac block
+# LTR-MAN-95: genuine labelled saturated negative opposite Dirac block
 
 This module specializes the six-dimensional bipartite rank-one theorem
 to the exact common Dirac matrix used for the Hamming commutators.
@@ -86,8 +86,8 @@ theorem sixLabelled_exactHamming_saturated12_oppositeBlockRankOne
     (hham : ∀ u v : Fin 4,
       sixLabelledConnesDistance label D u v =
         (twoBitSquareHamming u v : ℝ≥0∞))
-    (h03 : sixTruthFibreBlockEnergy label D 0 3 = (1 / 4 : ℝ))
-    (h12 : sixTruthFibreBlockEnergy label D 1 2 = 0) :
+    (h03 : sixTruthFibreBlockEnergy label D 0 3 = 0)
+    (h12 : sixTruthFibreBlockEnergy label D 1 2 = (1 / 4 : ℝ)) :
     (sixTruthFibreBlock label D 1 2).rank = 1 := by
   let W : SixMat := labelledSquareA label D - labelledSquareB label D
   let Q : SixMat := sixTruthSectorProjection label squareMinusNeutral
