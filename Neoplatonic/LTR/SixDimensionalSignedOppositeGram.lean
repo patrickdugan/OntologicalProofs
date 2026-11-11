@@ -41,7 +41,8 @@ theorem sixMatrix_gram_trace_eq_entryEnergy (B : SixMat) :
   intro j hj
   apply Finset.sum_congr rfl
   intro i hi
-  exact (complex_cast_norm_sq_eq_mul_star (B i j)).symm
+  simpa only [map_pow] using
+    (complex_cast_norm_sq_eq_mul_star (B i j)).symm
 
 /-- The square of the true truth-fibre block, traced on the
 output fibre, is the oriented squared coupling energy. -/
@@ -120,7 +121,6 @@ theorem sixMatrix_rankOne_quarterGram_projection
       _ = ((1 / 4 : ℂ) • B) * B.conjTranspose := by rw [hCube]
       _ = (1 / 4 : ℂ) • H := by
         rw [Matrix.smul_mul]
-        rfl
   constructor
   · change ((4 : ℂ) • H) * ((4 : ℂ) • H) = (4 : ℂ) • H
     rw [Matrix.smul_mul, Matrix.mul_smul, hHH]
