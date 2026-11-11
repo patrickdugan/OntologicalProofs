@@ -139,6 +139,7 @@ import Neoplatonic.LTR.SixDimensionalSingleton11NeutralRowExtinction
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.SixDimensionalTriple03SeparatingProbe
 import Neoplatonic.LTR.SixDimensionalTriple03ProbeHammingNoGo
+import Neoplatonic.LTR.SixDimensionalTriple11ProbeHammingNoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
@@ -1948,3 +1949,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_scalarReverseGram
 #print axioms Neoplatonic.LTR.sixMatrix_positiveDoubleImagReverseGram
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton11_neutralRow_zero
+
+-- MAN-111: mirrored triple probe f=(2,3,3,0) and conditional saturated Hamming contradiction.
+#print axioms Neoplatonic.LTR.squareTriple11Probe_coefficient_of_notBad
+#print axioms Neoplatonic.LTR.sixTriple11SignMatrix_involution
+#print axioms Neoplatonic.LTR.sixTriple11SignMatrix_hermitian
+#print axioms Neoplatonic.LTR.sixTriple11Probe_signConjugate_plusWitness
+#print axioms Neoplatonic.LTR.sixTriple11ProbeImagComm_eq_iDirac
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_zeroNeutral11Rows_impossible
