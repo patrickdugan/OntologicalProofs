@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.SixDimensionalCornerSpectralRank
+import Neoplatonic.LTR.SixDimensionalSignedWitnessTraceEnergy
 import Mathlib.Tactic
 
 /-!
