@@ -150,6 +150,7 @@ import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
+import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSaturated03TransitionTrace
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
@@ -2034,3 +2035,6 @@ open Neoplatonic.LTR
 -- MAN-125: six actual Dirac neutral-edge orthogonality products.
 #print axioms Neoplatonic.LTR.sixTruthFibreProjection_mul_zero_of_distinct
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_actual_neutralEdges_products_zero
+
+-- MAN-128: exact C*-norm of an orthogonal Hermitian edge.
+#print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_normSq_eq_orientedNormSq
