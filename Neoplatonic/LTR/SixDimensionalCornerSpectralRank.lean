@@ -79,7 +79,6 @@ theorem sixMatrix_idempotent_trace_eq_rank
     (Module.finrank ℂ (LinearMap.range e) : ℂ) at htr
   dsimp only [e] at htr
   rw [Matrix.trace_toLin'_eq] at htr
-  rw [Matrix.toLin'_apply'] at htr
   change M.trace = (M.rank : ℂ) at htr
   exact htr
 
