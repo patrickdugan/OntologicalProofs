@@ -142,7 +142,8 @@ theorem twoDim_pauliRealVector_opposite_implies_matrix_negative
       fin_cases i <;> fin_cases j <;>
         simp [pauliResidualMatrix, ha, hz, Matrix.neg_apply]
     _ = -N := by
-      rw [twoDim_tracelessHermitian_pauli_normal_form N hN htrN]
+      exact congrArg (fun X : TwoMat => -X)
+        (twoDim_tracelessHermitian_pauli_normal_form N hN htrN).symm
 
 /-- Sharp half-saturation of the real mixed Gram coefficient
 forces actual matrix coincidence up to sign. -/
