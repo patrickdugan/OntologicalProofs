@@ -116,6 +116,7 @@ import Neoplatonic.LTR.SixDimensionalSignedWitnessCornerWeights
 import Neoplatonic.LTR.SixDimensionalSignedWitnessTraceEnergy
 import Neoplatonic.LTR.SixDimensionalSaturatedFibreClassification
 import Neoplatonic.LTR.SixDimensionalUnconditionalSaturationCases
+import Neoplatonic.LTR.SixDimensionalNeutralCornerTripotence
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1744,3 +1745,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturation_noAdjacentDoubles
 #print axioms Neoplatonic.LTR.sixTruthFibre_noAdjacent_sixCases
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturation_sixFibreCases
+
+
+-- MAN-93: tripotent compressed corner block of any involution with zero neutral block.
+#print axioms Neoplatonic.LTR.sixMatrix_involution_zeroNeutral_corner_tripotent
+#print axioms Neoplatonic.LTR.sixMatrix_involution_neutralColumns_orthonormal
