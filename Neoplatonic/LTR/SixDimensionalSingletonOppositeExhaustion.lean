@@ -39,7 +39,8 @@ theorem sixMatrix_idempotent_traceZero_eq_zero
     dsimp only [e]
     rw [Matrix.trace_toLin'_eq]
     exact hTrace
-  have hzero : e = 0 := he.eq_zero_of_trace_eq_zero ht
+  have hzero : e = 0 :=
+    (LinearMap.IsIdempotentElem.trace_eq_zero_iff he).mp ht
   apply Matrix.toLin'.injective
   simpa only [e, map_zero] using hzero
 
