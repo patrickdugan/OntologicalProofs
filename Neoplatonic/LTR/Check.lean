@@ -110,6 +110,7 @@ import Neoplatonic.LTR.SixDimensionalResidualPauliInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingResidualInvolution
 import Neoplatonic.LTR.SixDimensionalHilbertResidualInvolution
 import Neoplatonic.LTR.SixDimensionalResidualScalarSquareLift
+import Neoplatonic.LTR.SixDimensionalAmbientPauliDefectNorm
 import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
 import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
@@ -2132,3 +2133,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_scalarSquare_lift
 #print axioms Neoplatonic.LTR.hilbertIsometricConjugate_scalarSquare_lift
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualPlus_scalarSquare_of_pauli
+
+-- MAN-146: exact original Dirac six-dimensional signed defect from residual Pauli scalar.
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.ambientPlus_defect_norm_eq_pauliScalar
+#print axioms Neoplatonic.LTR.sixMatrix_squaredDefect_opNorm_transport
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusDefect_norm_eq_pauliScalar
