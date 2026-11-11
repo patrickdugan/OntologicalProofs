@@ -144,6 +144,7 @@ import Neoplatonic.LTR.SixDimensionalSaturated03Singleton11NoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
+import Neoplatonic.LTR.SixDimensionalSaturated03TransitionTrace
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
 import Neoplatonic.LTR.SixDimensionalSignedNeutralGramCross
 import Neoplatonic.LTR.FiveFibreFourTruthDual
@@ -1979,3 +1980,12 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_twoFibre_neutralGram_cross_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_neutralCrossGram_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_neutralCrossGram_zero
+
+-- MAN-117: original 6D 2x2 neutral-channel transition traces are doubly stochastic.
+#print axioms Neoplatonic.LTR.twoByTwo_complex_bistochastic_oppositeEqual
+#print axioms Neoplatonic.LTR.sixMatrix_twoByTwo_transitionTrace_bistochastic
+#print axioms Neoplatonic.LTR.sixPlusNeutral_eq_fibre01_add_fibre10
+#print axioms Neoplatonic.LTR.sixMatrix_trace_doubleCompression_eq_leftCompression
+#print axioms Neoplatonic.LTR.sixMatrix_isometry_columnTrace
+#print axioms Neoplatonic.LTR.sixPlusNeutral_mul_fibre1_or_fibre2
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeDouble_transitionTrace
