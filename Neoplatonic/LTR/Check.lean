@@ -151,6 +151,7 @@ import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalNeutralEdgeOriginalBridge
+import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeIdentification
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2057,3 +2058,6 @@ open Neoplatonic.LTR
 -- MAN-130: singleton neutral edge norm square is a trace energy.
 #print axioms Neoplatonic.LTR.sixMatrix_singletonNeutralEdge_trace_eq_normSq
 #print axioms Neoplatonic.LTR.sixMatrix_singletonNeutralEdge_halfEnergy_normSq_le
+
+-- MAN-129: actual labelled positive neutral edge equals original truth block.
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_actualNeutralEdge_eq_truthBlock
