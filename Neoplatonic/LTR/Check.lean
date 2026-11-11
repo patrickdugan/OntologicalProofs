@@ -100,6 +100,7 @@ import Neoplatonic.LTR.SixDimensionalTruthBlockHermitianEnergy
 import Neoplatonic.LTR.SixDimensionalOppositeEnergyPatterns
 import Neoplatonic.LTR.SixDimensionalOppositeBlockTraceIdentity
 import Neoplatonic.LTR.SixDimensionalPauliOppositeEnergyRegions
+import Neoplatonic.LTR.SixDimensionalExactHammingPauliSaturation
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1606,3 +1607,14 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_extremal_pauliDot_eq_blockEnergyDifference
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_realPauli_threeIntervals
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeMinOne_pauliMixed_half
+
+
+-- LTR-MAN-85: sharp residual Pauli Gram spectral bound and actual Dirac saturation rigidity.
+#print axioms Neoplatonic.LTR.realGram_mixed_abs_le_half
+#print axioms Neoplatonic.LTR.realGram_half_saturation_rigid
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_pauliMixed_abs_le_half
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_half_saturation_rigid
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEnergyDiff_abs_le_quarter
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_universalPauliMixed_half
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_energySaturation_residualRigid
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_energyExclusive
