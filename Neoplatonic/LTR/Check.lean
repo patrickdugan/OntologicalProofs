@@ -135,6 +135,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeExhaustion
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralRowExtinction
+import Neoplatonic.LTR.SixDimensionalSingleton11NeutralRowExtinction
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.SixDimensionalTriple03SeparatingProbe
 import Neoplatonic.LTR.SixDimensionalTriple03ProbeHammingNoGo
@@ -1940,3 +1941,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixPlusWitness_00neutral_entry
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton00_noNeutralDirac
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton00_impossible
+
+-- MAN-110: reverse oriented saturated Gram and singleton 11 neutral-row extinction.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_reverseBlock_quarterGram
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton11_finalGram
+#print axioms Neoplatonic.LTR.sixMatrix_scalarReverseGram
+#print axioms Neoplatonic.LTR.sixMatrix_positiveDoubleImagReverseGram
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton11_neutralRow_zero
