@@ -1810,3 +1810,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoFibreOppositeCorner_square_trace
 #print axioms Neoplatonic.LTR.twoFibreOppositeCorner_tripotent_squareTraceTwo_rankOne
 #print axioms Neoplatonic.LTR.twoFibreOppositeCorner_doubleImag_squareTraceTwo_rankOne
+
+#print axioms Neoplatonic.LTR.sixMatrix_bipartite_partialIsometry_rankOne
+#print axioms Neoplatonic.LTR.sixMatrix_bipartite_tripotent_extract
+#print axioms Neoplatonic.LTR.sixMatrix_bipartite_tripotent_traceTwo_rankOne
