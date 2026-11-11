@@ -150,6 +150,9 @@ import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
+import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
+import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
+import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSaturated03TransitionTrace
@@ -2038,3 +2041,9 @@ open Neoplatonic.LTR
 
 -- MAN-128: exact C*-norm of an orthogonal Hermitian edge.
 #print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_normSq_eq_orientedNormSq
+
+-- MAN-126: integrated staged norms and original signed three-edge split.
+#print axioms Neoplatonic.LTR.sixMatrix_threeOrthogonalHermitian_unitNorm_obstruction
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_zero12_coordinateA_threeEdges
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_zero12_coordinateB_threeEdges
+#print axioms Neoplatonic.LTR.sixMatrix_singletonInput_opNormSq_eq_entryEnergy
