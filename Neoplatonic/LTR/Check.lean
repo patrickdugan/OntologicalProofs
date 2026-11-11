@@ -134,6 +134,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeExhaustion
+import Neoplatonic.LTR.SixDimensionalSingleton11ReverseGram
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralRowExtinction
 import Neoplatonic.LTR.SixDimensionalSingleton11NeutralRowExtinction
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
@@ -1973,3 +1974,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_double00_defect
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_double11_defect
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeDouble_twoRankOneChannels
+
+-- MAN-110: reverse quarter-Gram projector fills singleton 11 input truth fibre.
+#print axioms Neoplatonic.LTR.sixMatrix_rankOne_quarterReverseGram_projection
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton11_finalGram
