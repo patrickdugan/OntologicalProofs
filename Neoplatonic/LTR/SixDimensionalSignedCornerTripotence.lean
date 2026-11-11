@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.SixDimensionalNeutralCornerTripotence
+import Neoplatonic.LTR.SixDimensionalSignedWitnessCornerWeights
 import Mathlib.Tactic
 
 /-!
