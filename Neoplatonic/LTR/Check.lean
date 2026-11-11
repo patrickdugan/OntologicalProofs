@@ -111,6 +111,11 @@ import Neoplatonic.LTR.SixDimensionalExactHammingResidualInvolution
 import Neoplatonic.LTR.SixDimensionalHilbertResidualInvolution
 import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
+import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
+import Neoplatonic.LTR.SixDimensionalSignedWitnessCornerWeights
+import Neoplatonic.LTR.SixDimensionalSignedWitnessTraceEnergy
+import Neoplatonic.LTR.SixDimensionalSaturatedFibreClassification
+import Neoplatonic.LTR.SixDimensionalUnconditionalSaturationCases
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1700,3 +1705,42 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_ambientMinus_involution
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_trueMatrixPlus_involution
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_trueMatrixMinus_involution
+
+
+-- MAN-92: trace decomposition of matrix involution by a neutral truth sector.
+#print axioms Neoplatonic.LTR.sixMatrix_trace_square_neutral_decomposition
+#print axioms Neoplatonic.LTR.sixMatrix_involution_neutral_card_budget
+
+
+-- MAN-92: exact plus/minus witness neutral-sector support and opposite corner product table.
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_neutral_pair_zero
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_neutral_pair_zero
+#print axioms Neoplatonic.LTR.squarePlusWitness_complement_product_truthTable
+#print axioms Neoplatonic.LTR.squareMinusWitness_complement_product_truthTable
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_complement_product
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_complement_product
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_complement_energy
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_complement_energy
+
+
+-- MAN-92: genuine plus/minus Hamming witness full trace and saturated neutral multiplicity budgets.
+#print axioms Neoplatonic.LTR.sixPlusNeutral_card_eq_fibreSum
+#print axioms Neoplatonic.LTR.sixMinusNeutral_card_eq_fibreSum
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_involution_trace_energy
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_involution_trace_energy
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_saturated_neutral_fibreSum_two
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_saturated_neutral_fibreSum_two
+
+
+-- MAN-92: exact-Hamming saturated opposite witness fixes singleton neutral atoms and six fibre patterns.
+#print axioms Neoplatonic.LTR.sixLabelled_saturated03_neutralFibres_singleton
+#print axioms Neoplatonic.LTR.sixLabelled_saturated12_neutralFibres_singleton
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_sixFibreCases
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_noAdjacentDoubles
+
+
+-- MAN-92: adjacent-double saturation excluded without min-one premises; exactly six candidates.
+#print axioms Neoplatonic.LTR.sixDimAdjacentDoubles_oppositeMinima_one
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturation_noAdjacentDoubles
+#print axioms Neoplatonic.LTR.sixTruthFibre_noAdjacent_sixCases
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturation_sixFibreCases
