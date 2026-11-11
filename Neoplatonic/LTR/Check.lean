@@ -158,6 +158,7 @@ import Neoplatonic.LTR.SixDimensionalBistochasticThreeEdgeNoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03ActualNormNoGo
 import Neoplatonic.LTR.SixDimensionalBothSignedSaturationNoGo
 import Neoplatonic.LTR.SixDimensionalPositiveMaxImbalanceNoGo
+import Neoplatonic.LTR.SixDimensionalStrictPauliImbalance
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2087,3 +2088,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_maxPositiveImbalance_plusInvolution
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_maxPositiveImbalance_pure
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_maxPositiveImbalance_impossible
+
+-- MAN-138: negative endpoint no-go and strict original six-dimensional residual Pauli overlap.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_maxNegativeImbalance_impossible
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEnergyDiff_abs_lt_quarter
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_realPauliMixed_strict_half
