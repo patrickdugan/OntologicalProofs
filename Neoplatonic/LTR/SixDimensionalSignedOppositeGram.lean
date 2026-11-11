@@ -36,13 +36,12 @@ theorem sixMatrix_gram_trace_eq_entryEnergy (B : SixMat) :
     simp [Matrix.trace, Matrix.diag, Matrix.mul_apply,
       Matrix.conjTranspose_apply]
   rw [htr, Finset.sum_comm]
-  push_cast
+  simp only [map_sum]
   apply Finset.sum_congr rfl
   intro j hj
   apply Finset.sum_congr rfl
   intro i hi
-  simpa only [map_pow] using
-    (complex_cast_norm_sq_eq_mul_star (B i j)).symm
+  exact (complex_cast_norm_sq_eq_mul_star (B i j)).symm
 
 /-- The square of the true truth-fibre block, traced on the
 output fibre, is the oriented squared coupling energy. -/
