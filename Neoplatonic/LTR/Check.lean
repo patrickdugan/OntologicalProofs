@@ -135,6 +135,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
+import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1892,3 +1893,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthFibreBlock_doubleFibre_gramDefectRankOne
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_double00_gramDefectRankOne
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_double01_gramDefectRankOne
+
+-- MAN-104: exact fibre-local neutral exchange Gram compression equals the opposite Dirac Gram defect.
+#print axioms Neoplatonic.LTR.sixMatrix_twoFibre_neutralGram_compressions
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_fibreNeutralGram
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_fibreNeutralGram
