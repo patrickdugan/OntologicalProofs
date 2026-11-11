@@ -2036,5 +2036,5 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthFibreProjection_mul_zero_of_distinct
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_actual_neutralEdges_products_zero
 
--- MAN-127: exact C*-norm of an orthogonal Hermitian edge.
+-- MAN-128: exact C*-norm of an orthogonal Hermitian edge.
 #print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_normSq_eq_orientedNormSq
