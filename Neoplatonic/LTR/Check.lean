@@ -152,6 +152,9 @@ import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalNeutralEdgeOriginalBridge
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeIdentification
+import Neoplatonic.LTR.SixDimensionalSaturatedHalfCornerNorm
+import Neoplatonic.LTR.SixDimensionalSignedCornerTrueEdge
+import Neoplatonic.LTR.SixDimensionalBistochasticThreeEdgeNoGo
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2061,3 +2064,9 @@ open Neoplatonic.LTR
 
 -- MAN-129: actual labelled positive neutral edge equals original truth block.
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_actualNeutralEdge_eq_truthBlock
+
+-- MAN-134: integrate actual signed corner norm, true undirected opposite edge, and scalar three-channel no-go.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_halfCorner_norm_le
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_corner_eq_undirected03
+#print axioms Neoplatonic.LTR.sixLabelled_plusActiveHalf_eq_trueCornerHalf
+#print axioms Neoplatonic.LTR.sixMatrix_bistochastic_threeEdge_unitNorm_impossible
