@@ -108,6 +108,7 @@ import Neoplatonic.LTR.SixDimensionalExactHammingResidualWitnessExtinction
 import Neoplatonic.LTR.SixDimensionalOppositeBlockSignSelection
 import Neoplatonic.LTR.SixDimensionalResidualPauliInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingResidualInvolution
+import Neoplatonic.LTR.SixDimensionalHilbertResidualInvolution
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1675,3 +1676,9 @@ open Neoplatonic.LTR
 -- LTR-MAN-89: saturated actual Hamming signed witness residual squares to identity.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_residualPlus_involution
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_residualMinus_involution
+
+-- LTR-MAN-90: lift actual saturated Pauli residual involution through isometric Hilbert conjugation.
+#print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_involution_lift
+#print axioms Neoplatonic.LTR.hilbertIsometricConjugate_involution_lift
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualPlus_involution_of_pauli
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualMinus_involution_of_pauli
