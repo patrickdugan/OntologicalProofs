@@ -71,9 +71,8 @@ theorem sixMatrix_idempotent_trace_eq_rank
     M.trace = (M.rank : ℂ) := by
   let e : (Fin 6 → ℂ) →ₗ[ℂ] (Fin 6 → ℂ) := M.toLin'
   have he : IsIdempotentElem e := by
-    change e * e = e
-    have hm := congrArg Matrix.toLin' h
-    simpa only [e, Matrix.toLin'_mul, LinearMap.mul_eq_comp] using hm
+    change e ∘ₗ e = e
+    simpa only [e, Matrix.toLin'_mul] using congrArg Matrix.toLin' h
   have htr := he.isProj_range.trace
   change LinearMap.trace ℂ (Fin 6 → ℂ) e =
     (Module.finrank ℂ (LinearMap.range e) : ℂ) at htr
@@ -90,6 +89,7 @@ theorem sixMatrix_involution_neutralTraceTwo_cornerRankTwo
       ((sixComplementCornerBlock W Q) *
         (sixComplementCornerBlock W Q)).rank = 2 := by
   let X : SixMat := sixComplementCornerBlock W Q
+  change X.rank = 2 ∧ (X * X).rank = 2
   have hX3 : X * X * X = X :=
     sixMatrix_involution_zeroNeutral_corner_tripotent W Q hW hQ hQQ
   have hX2id := sixMatrix_tripotent_square_idempotent X hX3
@@ -110,6 +110,7 @@ theorem sixMatrix_involution_neutralTraceTwo_cornerRankTwo
       X.rank = (X * X * X).rank := congrArg Matrix.rank hX3.symm
       _ ≤ (X * X).rank := Matrix.rank_mul_le_left (X * X) X
   have hle' : (X * X).rank ≤ X.rank := Matrix.rank_mul_le_left X X
-  exact ⟨by omega, hrankSq⟩
+  have hrankX : X.rank = (X * X).rank := le_antisymm hle hle'
+  exact ⟨hrankX.trans hrankSq, hrankSq⟩
 
 end Neoplatonic.LTR
