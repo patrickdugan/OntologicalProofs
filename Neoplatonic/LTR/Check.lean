@@ -105,6 +105,7 @@ import Neoplatonic.LTR.SixDimensionalZeroEnergyBlocks
 import Neoplatonic.LTR.SixDimensionalSaturatedRankOneBlocks
 import Neoplatonic.LTR.SixDimensionalResidualPauliHalfSatEquality
 import Neoplatonic.LTR.SixDimensionalExactHammingResidualWitnessExtinction
+import Neoplatonic.LTR.SixDimensionalOppositeBlockSignSelection
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1653,3 +1654,13 @@ open Neoplatonic.LTR
 -- MAN-87: actual exact-Hamming residual spectral matrix equality and signed witness extinction.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_energySat_residualPauli_equalOrNeg
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_energySat_residualWitness_zero
+
+
+-- MAN-88: signed real Pauli overlap selects the exact matrix equality and residual witness.
+#print axioms Neoplatonic.LTR.pauliRealMixed_neg_left
+#print axioms Neoplatonic.LTR.pauliRealMixed_self_eq_twoQuadratic
+#print axioms Neoplatonic.LTR.twoDim_pauli_halfSat_positive_select_equal
+#print axioms Neoplatonic.LTR.twoDim_pauli_halfSat_negative_select_opposite
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_residualDifference_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_residualSum_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_signMatchedBlocks
