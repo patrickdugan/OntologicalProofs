@@ -1,5 +1,6 @@
 import Mathlib.Analysis.CStarAlgebra.GelfandDuality
 import Mathlib.Analysis.CStarAlgebra.Matrix
+import Mathlib.LinearAlgebra.Matrix.Hermitian
 import Mathlib.Tactic
 
 /-!
