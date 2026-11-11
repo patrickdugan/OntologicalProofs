@@ -132,6 +132,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
+import Neoplatonic.LTR.SixDimensionalSingletonInputGramScalar
 import Neoplatonic.LTR.SixDimensionalTransitionGramPositivity
 import Neoplatonic.LTR.SixDimensionalActualTransitionHalfEnergy
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
@@ -2009,3 +2010,7 @@ open Neoplatonic.LTR
 
 -- MAN-119: original 6D nonnegative neutral-transition half-energy obstruction.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_transitionHalfEnergy
+
+-- MAN-119: scalar Gram spectrum for singleton truth input columns.
+#print axioms Neoplatonic.LTR.sixMatrix_singletonInput_gram_eq_trace_smul_fibre
+#print axioms Neoplatonic.LTR.sixMatrix_singletonInput_gram_nonnegativeScalar
