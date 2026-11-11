@@ -172,6 +172,7 @@ import Neoplatonic.LTR.SixDimensionalNonSaturatedCornerDefect
 import Neoplatonic.LTR.SixDimensionalDefectCompressionNorm
 import Neoplatonic.LTR.SixDimensionalResidualDefectProjection
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
+import Neoplatonic.LTR.SixDimensionalPerturbedThreeChannelNorm
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
@@ -2167,3 +2168,9 @@ open Neoplatonic.LTR
 -- MAN-151: sign-flipped real Pauli imbalance and negative signed defect bound.
 #print axioms Neoplatonic.LTR.sixOrientedOppositeEnergyImbalance_translationOne_neg
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_negativeNearHalf_minusDefect_norm_le
+
+-- MAN-153: quantitative C*-norm gap for almost orthogonal Hermitian channels.
+#print axioms Neoplatonic.LTR.sixMatrix_twoHermitian_sum_normSq_le
+#print axioms Neoplatonic.LTR.sixMatrix_orthogonalHermitian_edgePair_normSq_eq_max
+#print axioms Neoplatonic.LTR.sixMatrix_threeChannel_perturbed_normSq_le
+#print axioms Neoplatonic.LTR.sixMatrix_threeChannel_perturbed_halfEnergy_norm_lt_one
