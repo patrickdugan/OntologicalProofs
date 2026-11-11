@@ -140,6 +140,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.SixDimensionalTriple03SeparatingProbe
 import Neoplatonic.LTR.SixDimensionalTriple03ProbeHammingNoGo
 import Neoplatonic.LTR.SixDimensionalTriple11ProbeHammingNoGo
+import Neoplatonic.LTR.SixDimensionalSaturated03Singleton11NoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
@@ -1957,3 +1958,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTriple11Probe_signConjugate_plusWitness
 #print axioms Neoplatonic.LTR.sixTriple11ProbeImagComm_eq_iDirac
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_zeroNeutral11Rows_impossible
+
+-- MAN-112: singleton11 no-go and sharp pure-positive-saturation opposite-double classification.
+#print axioms Neoplatonic.LTR.sixPlusNeutral_fibre11_orthogonal
+#print axioms Neoplatonic.LTR.sixPlusWitness_11neutral_entry
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton11_noNeutralDirac
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton11_impossible
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_onlyOppositeDoubles
