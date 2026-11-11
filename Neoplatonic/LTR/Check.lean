@@ -147,6 +147,7 @@ import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSaturated03TransitionTrace
+import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
 import Neoplatonic.LTR.SixDimensionalSignedNeutralGramCross
 import Neoplatonic.LTR.FiveFibreFourTruthDual
@@ -2005,3 +2006,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_transitionTrace_nonnegativeReal
 #print axioms Neoplatonic.LTR.twoTransitionNonnegative_rowHalf
 #print axioms Neoplatonic.LTR.twoTransitionNonnegative_bistochastic_bounds
+
+-- MAN-120: three mutually orthogonal Hermitian channels obey the exact maximum C*-norm bound.
+#print axioms Neoplatonic.LTR.sixMatrix_orthogonalHermitian_norm_add_eq_max
+#print axioms Neoplatonic.LTR.sixMatrix_threeOrthogonalHermitian_norm_eq_max
+#print axioms Neoplatonic.LTR.sixMatrix_threeOrthogonalHermitian_halfEnergy_norm_lt_one
+#print axioms Neoplatonic.LTR.sixMatrix_threeOrthogonalHermitian_unitNorm_obstruction
