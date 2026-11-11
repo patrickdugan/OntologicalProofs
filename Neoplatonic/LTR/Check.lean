@@ -163,6 +163,7 @@ import Neoplatonic.LTR.SixDimensionalNearSaturatedPauliStability
 import Neoplatonic.LTR.SixDimensionalActualNearPauliStability
 import Neoplatonic.LTR.SixDimensionalNearSignedDefect
 import Neoplatonic.LTR.SixDimensionalNonSaturatedCornerDefect
+import Neoplatonic.LTR.SixDimensionalDefectCompressionNorm
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2115,3 +2116,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_zeroNeutral_fullBlockDefect
 #print axioms Neoplatonic.LTR.sixMatrix_hermitian_zeroNeutral_blockDefect
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_nonSaturated_blockDefect
+
+-- MAN-143: actual labelled nonsaturated spectral-defect Hilbert norm bounds.
+#print axioms Neoplatonic.LTR.sixMatrix_twoContraction_compression_norm_le
+#print axioms Neoplatonic.LTR.sixTruthSectorProjection_generic_norm_le_one
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_nonSaturated_normDefect
