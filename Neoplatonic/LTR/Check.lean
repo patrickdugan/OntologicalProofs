@@ -159,6 +159,7 @@ import Neoplatonic.LTR.SixDimensionalSaturated03ActualNormNoGo
 import Neoplatonic.LTR.SixDimensionalBothSignedSaturationNoGo
 import Neoplatonic.LTR.SixDimensionalPositiveMaxImbalanceNoGo
 import Neoplatonic.LTR.SixDimensionalStrictPauliImbalance
+import Neoplatonic.LTR.SixDimensionalNearSaturatedPauliStability
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2093,3 +2094,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_maxNegativeImbalance_impossible
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_oppositeEnergyDiff_abs_lt_quarter
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_realPauliMixed_strict_half
+
+-- MAN-139: quantitative real Gram stability approaching forbidden Pauli endpoint.
+#print axioms Neoplatonic.LTR.realGram_nearHalf_oneSignedEnergy_small
+#print axioms Neoplatonic.LTR.realGram_nearHalf_sum_length_near_quarter
+#print axioms Neoplatonic.LTR.realGram_nearHalf_length_difference_sq_le
