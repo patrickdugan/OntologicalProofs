@@ -160,6 +160,7 @@ import Neoplatonic.LTR.SixDimensionalBothSignedSaturationNoGo
 import Neoplatonic.LTR.SixDimensionalPositiveMaxImbalanceNoGo
 import Neoplatonic.LTR.SixDimensionalStrictPauliImbalance
 import Neoplatonic.LTR.SixDimensionalNearSaturatedPauliStability
+import Neoplatonic.LTR.SixDimensionalActualNearPauliStability
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2099,3 +2100,6 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.realGram_nearHalf_oneSignedEnergy_small
 #print axioms Neoplatonic.LTR.realGram_nearHalf_sum_length_near_quarter
 #print axioms Neoplatonic.LTR.realGram_nearHalf_length_difference_sq_le
+
+-- MAN-141: genuine exact-Hamming residual near-saturation quantitative stability.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_nearHalf_realPauli_stability
