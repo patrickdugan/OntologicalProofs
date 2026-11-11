@@ -116,6 +116,8 @@ import Neoplatonic.LTR.SixDimensionalSignedWitnessCornerWeights
 import Neoplatonic.LTR.SixDimensionalSignedWitnessTraceEnergy
 import Neoplatonic.LTR.SixDimensionalSaturatedFibreClassification
 import Neoplatonic.LTR.SixDimensionalUnconditionalSaturationCases
+import Neoplatonic.LTR.SixDimensionalNeutralCornerTripotence
+import Neoplatonic.LTR.SixDimensionalSignedCornerTripotence
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1744,3 +1746,21 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturation_noAdjacentDoubles
 #print axioms Neoplatonic.LTR.sixTruthFibre_noAdjacent_sixCases
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturation_sixFibreCases
+
+
+-- MAN-93: tripotent compressed corner block of any involution with zero neutral block.
+#print axioms Neoplatonic.LTR.sixMatrix_involution_zeroNeutral_corner_tripotent
+#print axioms Neoplatonic.LTR.sixMatrix_involution_neutralColumns_orthonormal
+
+
+-- MAN-93: true saturated Hamming witness corner tripotence and neutral isometry.
+#print axioms Neoplatonic.LTR.sixTruthSectorProjection_idempotent
+#print axioms Neoplatonic.LTR.sixTruthSectorProjection_W_zero
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_neutral_entry_zero
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_neutral_entry_zero
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_isHermitian
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_isHermitian
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_corner_tripotent
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_corner_tripotent
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_neutral_isometry
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_neutral_isometry
