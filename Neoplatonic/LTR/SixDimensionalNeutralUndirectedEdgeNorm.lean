@@ -4,7 +4,7 @@ import Mathlib.Analysis.CStarAlgebra.Matrix
 import Mathlib.Tactic
 
 /-!
-# LTR-MAN-127: norm of an undirected corner-neutral edge
+# LTR-MAN-128: norm of an undirected corner-neutral edge
 
 For Hermitian orthogonal truth-fibre projectors P,N, put K=PYN.
 The corresponding undirected edge is E=PYN+NYᴴP=K+Kᴴ.
