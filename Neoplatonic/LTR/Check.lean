@@ -1831,3 +1831,5 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_rankOne_allTwoByTwoMinors_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeBlock_allMinors_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_oppositeBlock_allMinors_zero
+
+-- MAN-95: original-chart minor certificates also cover the 2+2 opposite-double case.
