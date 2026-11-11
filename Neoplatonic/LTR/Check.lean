@@ -151,6 +151,7 @@ import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
+import Neoplatonic.LTR.SixDimensionalSaturatedHalfCornerNorm
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSaturated03TransitionTrace
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
@@ -2038,3 +2039,8 @@ open Neoplatonic.LTR
 
 -- MAN-128: exact C*-norm of an orthogonal Hermitian edge.
 #print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_normSq_eq_orientedNormSq
+
+-- MAN-129: genuine saturated signed witness half-corner norm bound.
+#print axioms Neoplatonic.LTR.sixTruthSectorProjection_complement_norm_le_one
+#print axioms Neoplatonic.LTR.sixMatrix_twoSidedCompression_norm_le_one
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_halfCorner_norm_le
