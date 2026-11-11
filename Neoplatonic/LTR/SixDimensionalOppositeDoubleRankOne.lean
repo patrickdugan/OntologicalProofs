@@ -219,4 +219,67 @@ theorem twoFibreOppositeCorner_doubleImag_tripotent_rankOne
   exact twoFibreOppositeCorner_tripotent_traceOne_rankOne
     B ((2 : ℂ) * Complex.I) (by norm_num) htrip htrace
 
+/-! ## Square-trace bridge: the MAN-94 numerical invariant -/
+
+/-- Trace of the diagonal two-by-two blocks in the canonical
+four-dimensional direct-sum chart. -/
+theorem fourMatrix_diagonalBlock_trace
+    (A B : TwoMat) :
+    (Matrix.fromBlocks A 0 0 B : FourMat).trace = A.trace + B.trace := by
+  simp [Matrix.trace, Matrix.diag, Fintype.sum_sum_type, Matrix.fromBlocks]
+
+/-- The square of the opposite-double Hermitian corner has
+twice the trace of the positive two-dimensional Gram matrix. -/
+theorem twoFibreOppositeCorner_square_trace (T : TwoMat) :
+    (twoFibreOppositeCorner T * twoFibreOppositeCorner T).trace =
+      (2 : ℂ) * (T * T.conjTranspose).trace := by
+  have hsq : twoFibreOppositeCorner T * twoFibreOppositeCorner T =
+      Matrix.fromBlocks (T * T.conjTranspose)
+        (0 : TwoMat) 0 (T.conjTranspose * T) := by
+    unfold twoFibreOppositeCorner
+    rw [Matrix.fromBlocks_multiply]
+    simp
+  rw [hsq, fourMatrix_diagonalBlock_trace]
+  have hcyc : (T.conjTranspose * T).trace =
+      (T * T.conjTranspose).trace :=
+    Matrix.trace_mul_comm T.conjTranspose T
+  rw [hcyc]
+  ring
+
+/-- A tripotent four-dimensional opposite corner of square-trace
+two has rank-one off-diagonal 2x2 block and zero determinant.
+This is the exact spectral consequence needed after transporting
+MAN-94 from the six-coordinate Dirac chart. -/
+theorem twoFibreOppositeCorner_tripotent_squareTraceTwo_rankOne
+    (B : TwoMat) (s : ℂ) (hs : s ≠ 0)
+    (htrip :
+      let T : TwoMat := s • B
+      twoFibreOppositeCorner T * twoFibreOppositeCorner T *
+        twoFibreOppositeCorner T = twoFibreOppositeCorner T)
+    (htrace2 :
+      let T : TwoMat := s • B
+      (twoFibreOppositeCorner T * twoFibreOppositeCorner T).trace = 2) :
+    B.rank = 1 ∧ B.det = 0 := by
+  apply twoFibreOppositeCorner_tripotent_traceOne_rankOne B s hs htrip
+  have ht := twoFibreOppositeCorner_square_trace (s • B)
+  change (twoFibreOppositeCorner (s • B) *
+      twoFibreOppositeCorner (s • B)).trace = 2 at htrace2
+  rw [htrace2] at ht
+  linear_combination (-1 / 2 : ℂ) * ht
+
+/-- The 2i-scaled opposite-double corner is rank one as soon as
+its intrinsic tripotence and square-trace-two properties hold. -/
+theorem twoFibreOppositeCorner_doubleImag_squareTraceTwo_rankOne
+    (B : TwoMat)
+    (htrip :
+      let T : TwoMat := ((2 : ℂ) * Complex.I) • B
+      twoFibreOppositeCorner T * twoFibreOppositeCorner T *
+        twoFibreOppositeCorner T = twoFibreOppositeCorner T)
+    (htrace2 :
+      let T : TwoMat := ((2 : ℂ) * Complex.I) • B
+      (twoFibreOppositeCorner T * twoFibreOppositeCorner T).trace = 2) :
+    B.rank = 1 ∧ B.det = 0 := by
+  exact twoFibreOppositeCorner_tripotent_squareTraceTwo_rankOne
+    B ((2 : ℂ) * Complex.I) (by norm_num) htrip htrace2
+
 end Neoplatonic.LTR
