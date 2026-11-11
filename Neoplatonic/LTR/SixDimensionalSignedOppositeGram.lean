@@ -86,7 +86,7 @@ theorem sixMatrix_rankOne_gram_cubic
           intro k hk
           apply Finset.sum_congr rfl
           intro l hl
-          rw [hminor i k j l]
+          rw [← hminor i k j l]
     _ = (∑ k : Fin 6, ∑ l : Fin 6,
           B k l * star (B k l)) * B i j := by
           simp only [Finset.sum_mul, Finset.mul_sum]
