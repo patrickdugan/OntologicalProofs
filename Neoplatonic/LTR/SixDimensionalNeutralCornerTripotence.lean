@@ -77,7 +77,7 @@ theorem sixMatrix_involution_zeroNeutral_corner_tripotent
       _ = _ := by noncomm_ring
   have hQWCWC : Q * W * C * W * C = 0 := by
     rw [hQQ] at hsplit
-    simp only [zero_mul, zero_add] at hsplit
+    simp only [zero_mul, add_zero] at hsplit
     exact hsplit.symm.trans hQW2
   have hCW2 : C * W * W * C = C := by
     calc
@@ -100,7 +100,6 @@ theorem sixMatrix_involution_zeroNeutral_corner_tripotent
     calc
       X * X * X = (C - C * W * Q * W * C) * (C * W * C) := by
         rw [hX2]
-        rfl
       _ = C * W * C - C * W * (Q * W * C * W * C) := by
         calc
           _ = (C * C) * W * C -
