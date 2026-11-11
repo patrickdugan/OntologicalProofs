@@ -38,8 +38,7 @@ theorem sixTruthFibreProjection_mul_zero_of_distinct
   simp only [sixTruthFibreProjection, Matrix.diagonal_mul,
     Matrix.diagonal_apply]
   by_cases hi : label i = u
-  · have hiv : label i ≠ v := by simpa [hi] using h
-    simp [hi, hiv]
+  · simp [hi, h]
   · simp [hi]
 
 /-- Under genuine positive saturation, the two incident
