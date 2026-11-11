@@ -111,6 +111,7 @@ import Neoplatonic.LTR.SixDimensionalExactHammingResidualInvolution
 import Neoplatonic.LTR.SixDimensionalHilbertResidualInvolution
 import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
+import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1700,3 +1701,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_ambientMinus_involution
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_trueMatrixPlus_involution
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_trueMatrixMinus_involution
+
+
+-- MAN-92: trace decomposition of matrix involution by a neutral truth sector.
+#print axioms Neoplatonic.LTR.sixMatrix_trace_square_neutral_decomposition
+#print axioms Neoplatonic.LTR.sixMatrix_involution_neutral_card_budget
