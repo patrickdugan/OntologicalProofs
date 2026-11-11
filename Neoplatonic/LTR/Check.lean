@@ -133,6 +133,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
+import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1880,3 +1881,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalA_norm_lt_one
 #print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalB_norm_lt_one
 #print axioms Neoplatonic.LTR.twoMatrix_unitary_canonicalSignedWitness_normObstruction
+
+-- MAN-102: original-coordinate neutral-exchange defect equals the complement of the two oriented Gram projections.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_neutralExchange_defect
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_neutralExchange_defect
