@@ -131,6 +131,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
+import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1864,3 +1865,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalB_square
 #print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalA_hermitian
 #print axioms Neoplatonic.LTR.sixOppositeDoubleCanonicalB_hermitian
+
+-- MAN-100: true six-coordinate corner square equals the two oriented scaled Gram terms.
+#print axioms Neoplatonic.LTR.sixMatrix_disjointCorner_square
+#print axioms Neoplatonic.LTR.sixMatrix_disjointCorner_hermitianGram
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_cornerSquare_oppositeGram
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_cornerSquare_oppositeGram
