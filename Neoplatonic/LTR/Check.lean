@@ -113,6 +113,7 @@ import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
 import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
 import Neoplatonic.LTR.SixDimensionalSignedWitnessCornerWeights
+import Neoplatonic.LTR.SixDimensionalSignedWitnessTraceEnergy
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1718,3 +1719,12 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_minusWitness_complement_product
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_complement_energy
 #print axioms Neoplatonic.LTR.sixLabelled_minusWitness_complement_energy
+
+
+-- MAN-92: genuine plus/minus Hamming witness full trace and saturated neutral multiplicity budgets.
+#print axioms Neoplatonic.LTR.sixPlusNeutral_card_eq_fibreSum
+#print axioms Neoplatonic.LTR.sixMinusNeutral_card_eq_fibreSum
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_involution_trace_energy
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_involution_trace_energy
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_saturated_neutral_fibreSum_two
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_saturated_neutral_fibreSum_two
