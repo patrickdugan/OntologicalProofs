@@ -300,7 +300,7 @@ theorem sixMatrix_bipartite_partialIsometry_rankOne
     calc
       (B + Z) * (B + Z) =
           B * B + B * Z + Z * B + Z * Z := by noncomm_ring
-      _ = B * Z + Z * B := by rw [hBB, hZZ]; noncomm_ring
+      _ = B * Z + Z * B := by rw [hBB, hZZ]; simp
   have hsum : (B * Z).trace + (Z * B).trace = (2 : ℂ) := by
     have h := congrArg Matrix.trace hSq
     rw [Matrix.trace_add] at h
@@ -344,7 +344,7 @@ theorem sixMatrix_bipartite_tripotent_extract
     calc
       (B + Z) * (B + Z) =
           B * B + B * Z + Z * B + Z * Z := by noncomm_ring
-      _ = B * Z + Z * B := by rw [hBB, hZZ]; noncomm_ring
+      _ = B * Z + Z * B := by rw [hBB, hZZ]; simp
   have hCube :
       (B + Z) * (B + Z) * (B + Z) =
         B * Z * B + Z * B * Z := by
