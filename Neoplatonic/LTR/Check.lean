@@ -156,6 +156,7 @@ import Neoplatonic.LTR.SixDimensionalSaturatedHalfCornerNorm
 import Neoplatonic.LTR.SixDimensionalSignedCornerTrueEdge
 import Neoplatonic.LTR.SixDimensionalBistochasticThreeEdgeNoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03ActualNormNoGo
+import Neoplatonic.LTR.SixDimensionalBothSignedSaturationNoGo
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2076,3 +2077,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthUndirectedBlock_swap
 #print axioms Neoplatonic.LTR.sixMatrix_singletonNeutralEdge_normSq_of_trace
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_actualNorm_impossible
+
+-- MAN-136: mirrored negative saturation and both pure signed six-dimensional no-go.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_actualNorm_impossible
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_pureSaturation_impossible
