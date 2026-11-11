@@ -86,15 +86,6 @@ theorem twoMatrix_scaledPartialIsometry_traceOne_rankOne
       (T * T.conjTranspose) hproj
     rw [htrace] at h
     exact_mod_cast h.symm
-  have hTrank : T.rank = 1 := by
-    rw [← Matrix.rank_self_mul_conjTranspose]
-    exact hPrank
-  have hBrank : B.rank = 1 := by
-    have hr : T.rank = B.rank := by
-      change (s • B).rank = B.rank
-      exact Matrix.rank_smul_of_mem_nonZeroDivisors B
-        (mem_nonZeroDivisors_of_ne_zero hs)
-    exact hr.symm.trans hTrank
   have hPdet : (T * T.conjTranspose).det = 0 :=
     twoMatrix_idempotent_traceOne_det_zero
       (T * T.conjTranspose) hproj htrace
@@ -104,6 +95,28 @@ theorem twoMatrix_scaledPartialIsometry_traceOne_rankOne
     · exact h
     · have h' := congrArg star h
       simpa using h'
+  have hTle : T.rank ≤ 1 := by
+    by_contra hle
+    have hmax : T.rank ≤ 2 := Matrix.rank_le_width T
+    have hfull : T.rank = 2 := by omega
+    have hsurj : Function.Surjective T.mulVec :=
+      Matrix.mulVec_surjective_iff_rank_eq_card.mpr (by
+        simpa only [Fintype.card_fin] using hfull)
+    have hunit : IsUnit T := Matrix.mulVec_surjective_iff_isUnit.mp hsurj
+    have hdet_ne : T.det ≠ 0 :=
+      ((Matrix.isUnit_iff_isUnit_det T).mp hunit).ne_zero
+    exact hdet_ne hTdet
+  have hTge : 1 ≤ T.rank := by
+    have hle : (T * T.conjTranspose).rank ≤ T.rank :=
+      Matrix.rank_mul_le_left T T.conjTranspose
+    omega
+  have hTrank : T.rank = 1 := by omega
+  have hBrank : B.rank = 1 := by
+    have hr : T.rank = B.rank := by
+      change (s • B).rank = B.rank
+      exact Matrix.rank_smul_of_mem_nonZeroDivisors B
+        (mem_nonZeroDivisors_of_ne_zero hs)
+    exact hr.symm.trans hTrank
   have hBdet : B.det = 0 := by
     change (s • B).det = 0 at hTdet
     rw [Matrix.det_smul] at hTdet
