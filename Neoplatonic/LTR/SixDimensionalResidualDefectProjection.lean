@@ -7,17 +7,17 @@ import Mathlib.Tactic
 
 Suppose the square of a bounded complex Hilbert operator T fixes a
 finite quartet q pointwise and acts as multiplication by a scalar
-λ on the orthogonal complement of the quartet's span.
+mu on the orthogonal complement of the quartet's span.
 
 The entire operator defect then equals
-  I - T² = (1 - λ) • P_res
+  I - T² = (1 - mu) • P_res
 where P_res is the genuine orthogonal Hilbert projection onto
 (span(q))ᗮ. This is an operator identity on the original ambient
 space, independent of any chosen eigenbasis in the residual.
 
 If the residual submodule is nonzero, the norm of its orthogonal
 projection is one, giving the exact C*-norm identity
-  ||I-T²|| = |1-λ|.
+  ||I-T²|| = |1-mu|.
 
 These abstract lemmas are used with the signed Hamming quartet and
 its two-dimensional residual, and eventually with the genuine
@@ -34,12 +34,12 @@ scalar times the orthogonal projection onto the complement. -/
 theorem hilbert_square_defect_eq_residual_projection
     {E : Type*} [NormedAddCommGroup E]
     [InnerProductSpace ℂ E] [FiniteDimensional ℂ E] [CompleteSpace E]
-    (T : E →L[ℂ] E) (q : Fin 4 → E) (λ : ℂ)
+    (T : E →L[ℂ] E) (q : Fin 4 → E) (mu : ℂ)
     (hquartet : ∀ i : Fin 4, T (T (q i)) = q i)
     (hresidual : ∀ x ∈ (Submodule.span ℂ (Set.range q))ᗮ,
-      T (T x) = λ • x) :
+      T (T x) = mu • x) :
     (1 : E →L[ℂ] E) - T * T =
-      ((1 : ℂ) - λ) •
+      ((1 : ℂ) - mu) •
         ((Submodule.span ℂ (Set.range q))ᗮ).starProjection := by
   let K : Submodule ℂ E := Submodule.span ℂ (Set.range q)
   have hK : ∀ x ∈ K, T (T x) = x := by
@@ -68,7 +68,7 @@ theorem hilbert_square_defect_eq_residual_projection
   have hPz : Kᗮ.starProjection z = z :=
     Kᗮ.starProjection_eq_self_iff.mpr hz
   change x - T (T x) =
-    (((1 : ℂ) - λ) • Kᗮ.starProjection) x
+    (((1 : ℂ) - mu) • Kᗮ.starProjection) x
   rw [← hsum']
   simp only [map_add, hK y hy, hresidual z hz,
     ContinuousLinearMap.smul_apply, hPy, hPz]
@@ -80,14 +80,14 @@ as its Hilbert C*-operator norm. -/
 theorem hilbert_square_defect_norm_eq_residual_scalar
     {E : Type*} [NormedAddCommGroup E]
     [InnerProductSpace ℂ E] [FiniteDimensional ℂ E] [CompleteSpace E]
-    (T : E →L[ℂ] E) (q : Fin 4 → E) (λ : ℂ)
+    (T : E →L[ℂ] E) (q : Fin 4 → E) (mu : ℂ)
     (hquartet : ∀ i : Fin 4, T (T (q i)) = q i)
     (hresidual : ∀ x ∈ (Submodule.span ℂ (Set.range q))ᗮ,
-      T (T x) = λ • x)
+      T (T x) = mu • x)
     (hNonzero : (Submodule.span ℂ (Set.range q))ᗮ ≠ ⊥) :
-    ‖(1 : E →L[ℂ] E) - T * T‖ = ‖(1 : ℂ) - λ‖ := by
+    ‖(1 : E →L[ℂ] E) - T * T‖ = ‖(1 : ℂ) - mu‖ := by
   rw [hilbert_square_defect_eq_residual_projection
-    T q λ hquartet hresidual]
+    T q mu hquartet hresidual]
   rw [norm_smul,
     (Submodule.span ℂ (Set.range q))ᗮ.norm_starProjection hNonzero]
   simp
