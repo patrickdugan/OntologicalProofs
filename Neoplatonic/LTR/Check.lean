@@ -110,6 +110,7 @@ import Neoplatonic.LTR.SixDimensionalResidualPauliInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingResidualInvolution
 import Neoplatonic.LTR.SixDimensionalHilbertResidualInvolution
 import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
+import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1691,3 +1692,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.minus_square_one_on_quartet
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.ambientPlus_involution_of_residual
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.ambientMinus_involution_of_residual
+
+
+-- MAN-91: exact labelled Connes Hamming saturation yields genuine 6D matrix involutions.
+#print axioms Neoplatonic.LTR.sixMatrix_involution_of_trueHilbert_involution
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_ambientPlus_involution
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_ambientMinus_involution
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_trueMatrixPlus_involution
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_trueMatrixMinus_involution
