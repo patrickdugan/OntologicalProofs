@@ -145,6 +145,7 @@ import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
+import Neoplatonic.LTR.SixDimensionalSignedNeutralGramCross
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1973,3 +1974,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_double00_defect
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_double11_defect
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeDouble_twoRankOneChannels
+
+-- MAN-114: neutral exchange Gram orthogonality across opposite truth fibres.
+#print axioms Neoplatonic.LTR.sixMatrix_twoFibre_neutralGram_cross_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_neutralCrossGram_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_neutralCrossGram_zero
