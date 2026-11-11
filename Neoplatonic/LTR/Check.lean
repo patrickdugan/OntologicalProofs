@@ -126,6 +126,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
+import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1833,3 +1834,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_oppositeBlock_allMinors_zero
 
 -- MAN-95: original-chart minor certificates also cover the 2+2 opposite-double case.
+
+-- MAN-96: exact energy-to-Gram spectral polynomial on original six-coordinate Dirac blocks.
+#print axioms Neoplatonic.LTR.sixMatrix_gram_trace_eq_entryEnergy
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_gram_trace_eq_energy
+#print axioms Neoplatonic.LTR.sixMatrix_rankOne_gram_cubic
+#print axioms Neoplatonic.LTR.sixMatrix_rankOne_quarterGram_projection
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeBlock_quarterGram
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_oppositeBlock_quarterGram
