@@ -112,6 +112,7 @@ import Neoplatonic.LTR.SixDimensionalHilbertResidualInvolution
 import Neoplatonic.LTR.SixDimensionalResidualScalarSquareLift
 import Neoplatonic.LTR.SixDimensionalAmbientPauliDefectNorm
 import Neoplatonic.LTR.SixDimensionalRealPauliDefectLeakage
+import Neoplatonic.LTR.SixDimensionalSignedBitFlipTransport
 import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
 import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
@@ -2152,3 +2153,12 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_X_product_eq
 #print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_X_norm_le
 #print axioms Neoplatonic.LTR.sixMatrix_offdiagonal_threeEdge_approxOrthogonal
+
+-- MAN-148: original signed witness and neutral projector bit-translation identities.
+#print axioms Neoplatonic.LTR.squareTruthBitP_translationOne
+#print axioms Neoplatonic.LTR.squareTruthBitQ_translationOne
+#print axioms Neoplatonic.LTR.squarePlusNeutral_translationOne_iff
+#print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_translationOne
+#print axioms Neoplatonic.LTR.sixLabelled_secondCoordinate_translationOne
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_translationOne_eq_negMinus
+#print axioms Neoplatonic.LTR.sixTruthPlusNeutralProjection_translationOne
