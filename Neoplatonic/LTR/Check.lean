@@ -154,6 +154,7 @@ import Neoplatonic.LTR.SixDimensionalNeutralEdgeOriginalBridge
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
+import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSaturated03TransitionTrace
@@ -2052,3 +2053,7 @@ open Neoplatonic.LTR
 -- MAN-127: corner-neutral Hermitian edge equals original signed truth block.
 #print axioms Neoplatonic.LTR.sixMatrix_cornerNeutralBlock_forward
 #print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_eq_originalTruthEdge
+
+-- MAN-130: singleton neutral edge norm square is a trace energy.
+#print axioms Neoplatonic.LTR.sixMatrix_singletonNeutralEdge_trace_eq_normSq
+#print axioms Neoplatonic.LTR.sixMatrix_singletonNeutralEdge_halfEnergy_normSq_le
