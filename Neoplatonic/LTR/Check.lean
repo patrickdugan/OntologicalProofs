@@ -143,6 +143,7 @@ import Neoplatonic.LTR.SixDimensionalTriple11ProbeHammingNoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton11NoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
+import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
@@ -1965,3 +1966,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton11_noNeutralDirac
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton11_impossible
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_onlyOppositeDoubles
+
+-- MAN-113: true 2+2 neutral exchange splits into two rank-one defect channels.
+#print axioms Neoplatonic.LTR.sixMatrix_neutralGram_eq_sum_oppositeDefects
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_neutralGram_twoDefects
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_double00_defect
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_double11_defect
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeDouble_twoRankOneChannels
