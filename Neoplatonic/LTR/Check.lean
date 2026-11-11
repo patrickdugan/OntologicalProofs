@@ -124,6 +124,7 @@ import Neoplatonic.LTR.SixDimensionalCornerSpectralRank
 import Neoplatonic.LTR.SixDimensionalSignedCornerRankTwo
 import Neoplatonic.LTR.SixDimensionalCornerComplementaryProjections
 import Neoplatonic.LTR.SixDimensionalSignedCornerComplementaryProjections
+import Neoplatonic.LTR.SixDimensionalOppositeDoubleUnitaryObstruction
 import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
@@ -1851,3 +1852,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_hermitianInvolution_zeroNeutral_orthogonalCornerSplit
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_cornerOrthogonalSplit
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_cornerOrthogonalSplit
+
+-- MAN-98: exact U(2) unitary row-energy obstruction, conditional step toward saturated metric no-go.
+#print axioms Neoplatonic.LTR.twoMatrix_unitary_firstRow_energy
+#print axioms Neoplatonic.LTR.twoMatrix_unitary_firstRow_halfDichotomy
+#print axioms Neoplatonic.LTR.twoMatrix_unitary_firstRow_cannotBothUnit
