@@ -52,9 +52,10 @@ theorem hilbertIsometricConjugate_involution_lift
   intro x
   have hx := congrArg
     (fun R : F →L[ℂ] F => R (U x)) h
-  change U (T (T (U.symm (U x)))) = U x at hx
+  have hx' : U (T (T x)) = U x := by
+    simpa [hilbertIsometricConjugate] using hx
   change T (T x) = x
-  exact U.injective (by simpa using hx)
+  exact U.injective hx'
 
 /-- A genuine six-dimensional extremal system whose two
 residual Pauli matrices have involutive sum has a square-one
