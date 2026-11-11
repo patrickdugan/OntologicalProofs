@@ -122,6 +122,8 @@ import Neoplatonic.LTR.SixDimensionalZeroNeutralBlockEquations
 import Neoplatonic.LTR.SixDimensionalSignedWitnessPartialIsometry
 import Neoplatonic.LTR.SixDimensionalCornerSpectralRank
 import Neoplatonic.LTR.SixDimensionalSignedCornerRankTwo
+import Neoplatonic.LTR.SixDimensionalCornerComplementaryProjections
+import Neoplatonic.LTR.SixDimensionalSignedCornerComplementaryProjections
 import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
@@ -1842,3 +1844,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_rankOne_quarterGram_projection
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeBlock_quarterGram
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_oppositeBlock_quarterGram
+
+-- MAN-97: complementary idempotents and genuine Hermitian rank-two corner splitting.
+#print axioms Neoplatonic.LTR.sixMatrix_involution_zeroNeutral_complementaryCornerProjections
+#print axioms Neoplatonic.LTR.sixMatrix_involution_neutralTraceTwo_bothCornerRanksTwo
+#print axioms Neoplatonic.LTR.sixMatrix_hermitianInvolution_zeroNeutral_orthogonalCornerSplit
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_cornerOrthogonalSplit
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_cornerOrthogonalSplit
