@@ -152,6 +152,7 @@ import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalNeutralEdgeOriginalBridge
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
+import Neoplatonic.LTR.SixDimensionalBistochasticThreeEdgeNoGo
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2052,3 +2053,6 @@ open Neoplatonic.LTR
 -- MAN-127: corner-neutral Hermitian edge equals original signed truth block.
 #print axioms Neoplatonic.LTR.sixMatrix_cornerNeutralBlock_forward
 #print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_eq_originalTruthEdge
+
+-- MAN-133: finite bistochastic three-channel Hermitian C*-norm contradiction.
+#print axioms Neoplatonic.LTR.sixMatrix_bistochastic_threeEdge_unitNorm_impossible
