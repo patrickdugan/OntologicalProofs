@@ -119,6 +119,7 @@ import Neoplatonic.LTR.SixDimensionalUnconditionalSaturationCases
 import Neoplatonic.LTR.SixDimensionalNeutralCornerTripotence
 import Neoplatonic.LTR.SixDimensionalSignedCornerTripotence
 import Neoplatonic.LTR.SixDimensionalZeroNeutralBlockEquations
+import Neoplatonic.LTR.SixDimensionalSignedWitnessPartialIsometry
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1771,3 +1772,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_involution_zeroNeutral_fullBlockEquations
 #print axioms Neoplatonic.LTR.sixCornerToNeutralBlock_conjTranspose
 #print axioms Neoplatonic.LTR.sixMatrix_hermitianInvolution_zeroNeutral_partialIsometry
+
+
+-- MAN-94: original six-dimensional Dirac Hamming witnesses obey exact partial-isometry block equations.
+#print axioms Neoplatonic.LTR.sixTruthSectorProjection_isHermitian
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_partialIsometry
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_partialIsometry
