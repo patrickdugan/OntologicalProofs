@@ -102,6 +102,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeBlockTraceIdentity
 import Neoplatonic.LTR.SixDimensionalPauliOppositeEnergyRegions
 import Neoplatonic.LTR.SixDimensionalExactHammingPauliSaturation
 import Neoplatonic.LTR.SixDimensionalZeroEnergyBlocks
+import Neoplatonic.LTR.SixDimensionalSaturatedRankOneBlocks
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1628,3 +1629,12 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthFibreBlock_zero_reverse
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_blocksExclusive
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_oppositeCouplingsZero
+
+
+-- MAN-86: fibre singleton, support geometry, all 2x2 minors and saturated rank-one dichotomy.
+#print axioms Neoplatonic.LTR.sixTruthFibreMultiplicity_one_unique
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_nonzero_support
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_minOne_nonzero_share_index
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_minOne_disjoint_product_zero
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_minOne_allTwoByTwoMinors_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_rankOneDichotomy
