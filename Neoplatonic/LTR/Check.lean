@@ -103,6 +103,8 @@ import Neoplatonic.LTR.SixDimensionalPauliOppositeEnergyRegions
 import Neoplatonic.LTR.SixDimensionalExactHammingPauliSaturation
 import Neoplatonic.LTR.SixDimensionalZeroEnergyBlocks
 import Neoplatonic.LTR.SixDimensionalSaturatedRankOneBlocks
+import Neoplatonic.LTR.SixDimensionalResidualPauliHalfSatEquality
+import Neoplatonic.LTR.SixDimensionalExactHammingResidualWitnessExtinction
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1638,3 +1640,16 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthFibreBlock_minOne_disjoint_product_zero
 #print axioms Neoplatonic.LTR.sixTruthFibreBlock_minOne_allTwoByTwoMinors_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_rankOneDichotomy
+
+
+-- MAN-87: saturated real Pauli coordinates force exact residual matrix equality or negation.
+#print axioms Neoplatonic.LTR.pauliRealVectors_halfSat_equal_or_opposite
+#print axioms Neoplatonic.LTR.twoDim_pauliRealVector_equal_implies_matrix_equal
+#print axioms Neoplatonic.LTR.twoDim_pauliRealVector_opposite_implies_matrix_negative
+#print axioms Neoplatonic.LTR.twoDim_pauli_halfSat_matrices_equal_or_negative
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.sixDimResidual_halfSat_matrixEqualOrNeg
+
+
+-- MAN-87: actual exact-Hamming residual spectral matrix equality and signed witness extinction.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_energySat_residualPauli_equalOrNeg
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_energySat_residualWitness_zero
