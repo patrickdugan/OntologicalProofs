@@ -118,6 +118,7 @@ import Neoplatonic.LTR.SixDimensionalSaturatedFibreClassification
 import Neoplatonic.LTR.SixDimensionalUnconditionalSaturationCases
 import Neoplatonic.LTR.SixDimensionalNeutralCornerTripotence
 import Neoplatonic.LTR.SixDimensionalSignedCornerTripotence
+import Neoplatonic.LTR.SixDimensionalZeroNeutralBlockEquations
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1764,3 +1765,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_corner_tripotent
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_neutral_isometry
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_neutral_isometry
+
+
+-- MAN-94: exact four block equations of an involution and Hermitian corner-to-neutral partial isometry.
+#print axioms Neoplatonic.LTR.sixMatrix_involution_zeroNeutral_fullBlockEquations
+#print axioms Neoplatonic.LTR.sixCornerToNeutralBlock_conjTranspose
+#print axioms Neoplatonic.LTR.sixMatrix_hermitianInvolution_zeroNeutral_partialIsometry
