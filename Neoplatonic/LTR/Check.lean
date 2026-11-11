@@ -114,6 +114,7 @@ import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
 import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
 import Neoplatonic.LTR.SixDimensionalSignedWitnessCornerWeights
 import Neoplatonic.LTR.SixDimensionalSignedWitnessTraceEnergy
+import Neoplatonic.LTR.SixDimensionalSaturatedFibreClassification
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1728,3 +1729,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_minusWitness_involution_trace_energy
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_saturated_neutral_fibreSum_two
 #print axioms Neoplatonic.LTR.sixLabelled_minusWitness_saturated_neutral_fibreSum_two
+
+
+-- MAN-92: exact-Hamming saturated opposite witness fixes singleton neutral atoms and six fibre patterns.
+#print axioms Neoplatonic.LTR.sixLabelled_saturated03_neutralFibres_singleton
+#print axioms Neoplatonic.LTR.sixLabelled_saturated12_neutralFibres_singleton
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_sixFibreCases
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minOne_saturation_noAdjacentDoubles
