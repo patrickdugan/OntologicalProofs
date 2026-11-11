@@ -109,6 +109,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeBlockSignSelection
 import Neoplatonic.LTR.SixDimensionalResidualPauliInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingResidualInvolution
 import Neoplatonic.LTR.SixDimensionalHilbertResidualInvolution
+import Neoplatonic.LTR.SixDimensionalResidualScalarSquareLift
 import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
 import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
@@ -2126,3 +2127,8 @@ open Neoplatonic.LTR
 -- MAN-144: original Hilbert-square spectral defect is scalar residual projection.
 #print axioms Neoplatonic.LTR.hilbert_square_defect_eq_residual_projection
 #print axioms Neoplatonic.LTR.hilbert_square_defect_norm_eq_residual_scalar
+
+-- MAN-145: exact scalar square transport through actual residual Hilbert representation.
+#print axioms Neoplatonic.LTR.twoEuclideanCstarMatrix_scalarSquare_lift
+#print axioms Neoplatonic.LTR.hilbertIsometricConjugate_scalarSquare_lift
+#print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.residualPlus_scalarSquare_of_pauli
