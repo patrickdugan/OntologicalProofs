@@ -1801,3 +1801,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.twoMatrix_idempotent_traceOne_det_zero
 #print axioms Neoplatonic.LTR.twoMatrix_scaledPartialIsometry_traceOne_rankOne
 #print axioms Neoplatonic.LTR.twoMatrix_doubleImagPartialIsometry_traceOne_rankOne
+
+#print axioms Neoplatonic.LTR.twoFibreOppositeCorner_tripotent_projection
+#print axioms Neoplatonic.LTR.twoFibreOppositeCorner_tripotent_traceOne_rankOne
+#print axioms Neoplatonic.LTR.twoFibreOppositeCorner_doubleImag_tripotent_rankOne
