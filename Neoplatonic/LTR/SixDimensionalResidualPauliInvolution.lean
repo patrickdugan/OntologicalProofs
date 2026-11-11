@@ -35,7 +35,7 @@ theorem pauliQuadratic_eq_realQuadratic_of_hermitian
     pauliRealVector_diagonal_im_zero M hM
   apply Complex.ext
   · simp [pauliRealQuadratic]
-  · simp [pauliQuadratic, Complex.mul_im, Complex.star_def, hdiag]
+  · simp [pauliQuadratic, pow_two, Complex.mul_im, Complex.star_def, hdiag]
     ring
 
 /-- Twice a genuine Hermitian traceless Pauli matrix of
