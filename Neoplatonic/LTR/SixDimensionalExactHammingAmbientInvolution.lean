@@ -40,8 +40,11 @@ theorem sixMatrix_involution_of_trueHilbert_involution
     change W.toEuclideanLin.toContinuousLinearMap *
       W.toEuclideanLin.toContinuousLinearMap = 1
     exact h
+  have hm : F (W * W) = F W * F W := map_mul F W W
+  have hone : F (1 : SixMat) = 1 := map_one F
   apply F.injective
-  simpa only [map_mul, map_one] using h'
+  rw [hm, hone]
+  exact h'
 
 /-- The actual 00--11 saturated Hermitian Dirac witness A+B
 is an involution on the entire six-dimensional complex Hilbert
