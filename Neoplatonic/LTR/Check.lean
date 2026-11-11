@@ -138,6 +138,7 @@ import Neoplatonic.LTR.SixDimensionalSingletonNeutralRowExtinction
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.SixDimensionalTriple03SeparatingProbe
 import Neoplatonic.LTR.SixDimensionalTriple03ProbeHammingNoGo
+import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
 import Neoplatonic.LTR.FiveFibreFourTruthDual
@@ -1932,3 +1933,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_hermitianInvolution_signConjugate_norm_one
 #print axioms Neoplatonic.LTR.sixTriple03ProbeImagComm_eq_iDirac
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_zeroNeutralRows_impossible
+
+-- MAN-109: exact labelled Dirac singleton00 no-go under positive saturated Hamming geometry.
+#print axioms Neoplatonic.LTR.sixMatrix_neutralRow_zero_implies_fullRow_zero
+#print axioms Neoplatonic.LTR.sixPlusNeutral_fibre00_orthogonal
+#print axioms Neoplatonic.LTR.sixPlusWitness_00neutral_entry
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton00_noNeutralDirac
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton00_impossible
