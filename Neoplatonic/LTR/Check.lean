@@ -111,6 +111,7 @@ import Neoplatonic.LTR.SixDimensionalExactHammingResidualInvolution
 import Neoplatonic.LTR.SixDimensionalHilbertResidualInvolution
 import Neoplatonic.LTR.SixDimensionalResidualScalarSquareLift
 import Neoplatonic.LTR.SixDimensionalAmbientPauliDefectNorm
+import Neoplatonic.LTR.SixDimensionalRealPauliDefectLeakage
 import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
 import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
@@ -2138,3 +2139,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.TwoDirectionExtremalSystem.ambientPlus_defect_norm_eq_pauliScalar
 #print axioms Neoplatonic.LTR.sixMatrix_squaredDefect_opNorm_transport
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusDefect_norm_eq_pauliScalar
+
+-- MAN-147: exact real Pauli spectral defect and quantitative 6D leakage.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusDefect_norm_eq_realPauli
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_defect_norm_le
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_cornerLeakage
