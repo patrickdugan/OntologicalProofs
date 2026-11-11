@@ -55,6 +55,10 @@ theorem sixPlusNeutral_card_eq_fibreSum
           (Finset.univ.filter (fun i : Fin 6 => label i = 1)) ∪
           (Finset.univ.filter (fun i : Fin 6 => label i = 2))
         exact Finset.filter_or
+          (fun i : Fin 6 => label i = 0)
+          (fun i : Fin 6 => label i = 3) Finset.univ
+          (fun i : Fin 6 => label i = 1)
+          (fun i : Fin 6 => label i = 2) Finset.univ
     _ = s1.card + s2.card := Finset.card_union_of_disjoint hd
     _ = truthMultiplicity label 1 + truthMultiplicity label 2 := rfl
 
