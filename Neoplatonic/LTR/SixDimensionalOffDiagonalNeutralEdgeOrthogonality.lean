@@ -94,7 +94,7 @@ theorem sixMatrix_neutralUndirectedEdge_hermitian
   simp only [sixMatrix_neutralUndirectedEdge,
     Matrix.conjTranspose_add, Matrix.conjTranspose_mul,
     hP.eq, hN.eq, Matrix.conjTranspose_conjTranspose]
-  abel
+  noncomm_ring
 
 /-- An individual corner-neutral edge is killed by X as soon as
 the corresponding projected row of XY and X's neutral column vanish. -/
