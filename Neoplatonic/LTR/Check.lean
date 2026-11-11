@@ -134,6 +134,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeExhaustion
+import Neoplatonic.LTR.SixDimensionalSingletonNeutralRowExtinction
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
@@ -1906,3 +1907,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthFibreBlock_singleton_finalGram_eq_fibre
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton00_finalGram
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_singleton01_finalGram
+
+-- MAN-106: saturation forces neutral exchange to vanish at singleton opposite truth atoms.
+#print axioms Neoplatonic.LTR.sixMatrix_hermitianGramCompression_zero_forces_zero
+#print axioms Neoplatonic.LTR.sixMatrix_scalarGram
+#print axioms Neoplatonic.LTR.sixMatrix_positiveDoubleImagGram
+#print axioms Neoplatonic.LTR.sixMatrix_negativeDoubleImagGram
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton00_neutralRow_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_singleton01_neutralRow_zero
