@@ -132,6 +132,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
+import Neoplatonic.LTR.SixDimensionalTransitionTracePositivity
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeExhaustion
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralRowExtinction
@@ -1979,3 +1980,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_twoFibre_neutralGram_cross_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_neutralCrossGram_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_neutralCrossGram_zero
+
+-- MAN-118: positivity and reality of complex neutral transition traces in the original Hilbert chart.
+#print axioms Neoplatonic.LTR.sixMatrix_projector_transitionTrace_compression
+#print axioms Neoplatonic.LTR.sixMatrix_projector_transitionTrace_nonneg
+#print axioms Neoplatonic.LTR.sixMatrix_projector_transitionTrace_im_zero
+#print axioms Neoplatonic.LTR.sixMatrix_projector_transitionTrace_re_nonneg
