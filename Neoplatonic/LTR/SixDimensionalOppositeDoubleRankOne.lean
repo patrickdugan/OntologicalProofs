@@ -20,6 +20,7 @@ block-identification lemma remains a separate bridge.
 namespace Neoplatonic.LTR
 
 private abbrev TwoMat := Matrix (Fin 2) (Fin 2) ℂ
+private abbrev SixMat := Matrix (Fin 6) (Fin 6) ℂ
 
 /-- A complex 2x2 idempotent has trace equal to its matrix rank. -/
 theorem twoMatrix_idempotent_trace_eq_rank
@@ -281,5 +282,120 @@ theorem twoFibreOppositeCorner_doubleImag_squareTraceTwo_rankOne
     B.rank = 1 ∧ B.det = 0 := by
   exact twoFibreOppositeCorner_tripotent_squareTraceTwo_rankOne
     B ((2 : ℂ) * Complex.I) (by norm_num) htrip htrace2
+
+/-! ## Full six-dimensional bipartite rank certificate -/
+
+/-- In the actual six-dimensional algebra, a rank-one conclusion
+follows directly from a bipartite tripotent and its square trace.
+The matrix B is allowed to be six-by-six, with its nonzero entries
+supported on a proper rectangular truth-fibre block. -/
+theorem sixMatrix_bipartite_partialIsometry_rankOne
+    (B Z : SixMat)
+    (hBB : B * B = 0)
+    (hZZ : Z * Z = 0)
+    (hBZB : B * Z * B = B)
+    (htrace : ((B + Z) * (B + Z)).trace = (2 : ℂ)) :
+    B.rank = 1 := by
+  have hSq : (B + Z) * (B + Z) = B * Z + Z * B := by
+    calc
+      (B + Z) * (B + Z) =
+          B * B + B * Z + Z * B + Z * Z := by noncomm_ring
+      _ = B * Z + Z * B := by rw [hBB, hZZ]; noncomm_ring
+  have hsum : (B * Z).trace + (Z * B).trace = (2 : ℂ) := by
+    have h := congrArg Matrix.trace hSq
+    rw [Matrix.trace_add] at h
+    rw [htrace] at h
+    exact h.symm
+  have hcyc := Matrix.trace_mul_comm B Z
+  rw [← hcyc] at hsum
+  have hBZtrace : (B * Z).trace = (1 : ℂ) := by
+    linear_combination (1 / 2 : ℂ) * hsum
+  have hProj : (B * Z) * (B * Z) = B * Z := by
+    calc
+      (B * Z) * (B * Z) = (B * Z * B) * Z := by noncomm_ring
+      _ = B * Z := by rw [hBZB]
+  have hRankBZ : (B * Z).rank = 1 := by
+    have h := sixMatrix_idempotent_trace_eq_rank (B * Z) hProj
+    rw [hBZtrace] at h
+    exact_mod_cast h.symm
+  have hle : B.rank ≤ (B * Z).rank := by
+    calc
+      B.rank = (B * Z * B).rank := congrArg Matrix.rank hBZB.symm
+      _ ≤ (B * Z).rank := Matrix.rank_mul_le_left (B * Z) B
+  have hge : (B * Z).rank ≤ B.rank :=
+    Matrix.rank_mul_le_left B Z
+  omega
+
+/-- A pair of square-zero off-diagonal blocks is individually
+tripotent in the required sense whenever the total corner is
+tripotent and the two sectors have disjoint left/right supports. -/
+theorem sixMatrix_bipartite_tripotent_extract
+    (B Z P R : SixMat)
+    (hBB : B * B = 0)
+    (hZZ : Z * Z = 0)
+    (hPB : P * B = B)
+    (hBR : B * R = B)
+    (hPZ : P * Z = 0)
+    (hZR : Z * R = 0)
+    (htrip :
+      (B + Z) * (B + Z) * (B + Z) = B + Z) :
+    B * Z * B = B := by
+  have hSq : (B + Z) * (B + Z) = B * Z + Z * B := by
+    calc
+      (B + Z) * (B + Z) =
+          B * B + B * Z + Z * B + Z * Z := by noncomm_ring
+      _ = B * Z + Z * B := by rw [hBB, hZZ]; noncomm_ring
+  have hCube :
+      (B + Z) * (B + Z) * (B + Z) =
+        B * Z * B + Z * B * Z := by
+    rw [hSq]
+    calc
+      (B * Z + Z * B) * (B + Z) =
+          B * Z * B + B * (Z * Z) +
+            Z * (B * B) + Z * B * Z := by noncomm_ring
+      _ = B * Z * B + Z * B * Z := by rw [hBB, hZZ]; simp
+  have hL : P * (B * Z * B) * R = B * Z * B := by
+    calc
+      P * (B * Z * B) * R = (P * B) * Z * (B * R) := by noncomm_ring
+      _ = B * Z * B := by rw [hPB, hBR]
+  have hZ : P * (Z * B * Z) * R = 0 := by
+    calc
+      P * (Z * B * Z) * R = (P * Z) * B * (Z * R) := by noncomm_ring
+      _ = 0 := by rw [hPZ, hZR]; simp
+  have hR : P * (B + Z) * R = B := by
+    calc
+      P * (B + Z) * R = P * B * R + P * Z * R := by noncomm_ring
+      _ = B := by rw [hPB, hBR, hPZ]; simp
+  have hSum :
+      P * (B * Z * B + Z * B * Z) * R = B * Z * B := by
+    calc
+      _ = P * (B * Z * B) * R + P * (Z * B * Z) * R := by
+        noncomm_ring
+      _ = B * Z * B := by rw [hL, hZ]; simp
+  calc
+    B * Z * B = P * (B * Z * B + Z * B * Z) * R := hSum.symm
+    _ = P * ((B + Z) * (B + Z) * (B + Z)) * R := by rw [hCube]
+    _ = P * (B + Z) * R := by rw [htrip]
+    _ = B := hR
+
+/-- The complete six-dimensional rank-one theorem, with
+precise bipartite support assumptions kept explicit.
+This avoids any complex-star ordered-field rank lemmas. -/
+theorem sixMatrix_bipartite_tripotent_traceTwo_rankOne
+    (B Z P R : SixMat)
+    (hBB : B * B = 0)
+    (hZZ : Z * Z = 0)
+    (hPB : P * B = B)
+    (hBR : B * R = B)
+    (hPZ : P * Z = 0)
+    (hZR : Z * R = 0)
+    (htrip :
+      (B + Z) * (B + Z) * (B + Z) = B + Z)
+    (htrace : ((B + Z) * (B + Z)).trace = (2 : ℂ)) :
+    B.rank = 1 :=
+  sixMatrix_bipartite_partialIsometry_rankOne B Z hBB hZZ
+    (sixMatrix_bipartite_tripotent_extract
+      B Z P R hBB hZZ hPB hBR hPZ hZR htrip)
+    htrace
 
 end Neoplatonic.LTR
