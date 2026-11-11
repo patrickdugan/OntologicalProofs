@@ -123,6 +123,7 @@ import Neoplatonic.LTR.SixDimensionalSignedWitnessPartialIsometry
 import Neoplatonic.LTR.SixDimensionalCornerSpectralRank
 import Neoplatonic.LTR.SixDimensionalSignedCornerRankTwo
 import Neoplatonic.LTR.SixDimensionalOppositeDoubleRankOne
+import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.FiveFibreFourTruthDual
 import Neoplatonic.LTR.FiveFibreChartPermutation
 import Neoplatonic.LTR.FiveFibrePermutationNorm
@@ -1814,3 +1815,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_bipartite_partialIsometry_rankOne
 #print axioms Neoplatonic.LTR.sixMatrix_bipartite_tripotent_extract
 #print axioms Neoplatonic.LTR.sixMatrix_bipartite_tripotent_traceTwo_rankOne
+
+#print axioms Neoplatonic.LTR.sixPlus_complement_eq_oppositeFibreProjections
+#print axioms Neoplatonic.LTR.sixOpposite03_fibreProjections_orthogonal
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_oppositeInternalBlocks_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeBlockRankOne
