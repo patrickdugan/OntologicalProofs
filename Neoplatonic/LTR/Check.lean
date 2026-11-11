@@ -147,6 +147,7 @@ import Neoplatonic.LTR.SixDimensionalSaturated03Singleton11NoGo
 import Neoplatonic.LTR.SixDimensionalTruthRelabelSaturation
 import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
+import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSaturated03TransitionTrace
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
@@ -2014,3 +2015,10 @@ open Neoplatonic.LTR
 -- MAN-119: scalar Gram spectrum for singleton truth input columns.
 #print axioms Neoplatonic.LTR.sixMatrix_singletonInput_gram_eq_trace_smul_fibre
 #print axioms Neoplatonic.LTR.sixMatrix_singletonInput_gram_nonnegativeScalar
+
+-- MAN-123: abstract opposite-corner zero-product splitting into three actual-sized neutral edges.
+#print axioms Neoplatonic.LTR.sixMatrix_offdiagonal_XY_zero_split
+#print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_hermitian
+#print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_X_product_zero
+#print axioms Neoplatonic.LTR.sixMatrix_disjointNeutralEdges_product_zero
+#print axioms Neoplatonic.LTR.sixMatrix_offdiagonal_threeEdgeProducts_zero
