@@ -132,6 +132,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOne
 import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
+import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.FiveFibreFourTruthDual
@@ -1885,3 +1886,9 @@ open Neoplatonic.LTR
 -- MAN-102: original-coordinate neutral-exchange defect equals the complement of the two oriented Gram projections.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_neutralExchange_defect
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_neutralExchange_defect
+
+-- MAN-103: rank-one true doubled-fibre projection defect.
+#print axioms Neoplatonic.LTR.sixMatrix_rankTwoProjection_sub_rankOneProjection
+#print axioms Neoplatonic.LTR.sixTruthFibreBlock_doubleFibre_gramDefectRankOne
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_double00_gramDefectRankOne
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_double01_gramDefectRankOne
