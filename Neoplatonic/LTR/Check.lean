@@ -136,6 +136,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeExhaustion
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralRowExtinction
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGramCornerBridge
+import Neoplatonic.LTR.SixDimensionalTriple03SeparatingProbe
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
 import Neoplatonic.LTR.FiveFibreFourTruthDual
@@ -1915,3 +1916,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_negativeDoubleImagGram
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_singleton00_neutralRow_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated12_singleton01_neutralRow_zero
+
+-- MAN-107: exact triple-corner separating probe truth-table and sign conjugation.
+#print axioms Neoplatonic.LTR.squareTriple03Probe_coefficient_of_notBad
+#print axioms Neoplatonic.LTR.squareTriple03Sign_square_one
+#print axioms Neoplatonic.LTR.sixTriple03SignMatrix_involution
+#print axioms Neoplatonic.LTR.sixTriple03Probe_signConjugate_plusWitness
+#print axioms Neoplatonic.LTR.squareTriple03Probe_gap01
+#print axioms Neoplatonic.LTR.squareTriple03Probe_gap02
