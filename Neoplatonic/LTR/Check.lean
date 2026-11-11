@@ -150,6 +150,7 @@ import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
+import Neoplatonic.LTR.SixDimensionalNeutralEdgeOriginalBridge
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2047,3 +2048,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_zero12_coordinateA_threeEdges
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_zero12_coordinateB_threeEdges
 #print axioms Neoplatonic.LTR.sixMatrix_singletonInput_opNormSq_eq_entryEnergy
+
+-- MAN-127: corner-neutral Hermitian edge equals original signed truth block.
+#print axioms Neoplatonic.LTR.sixMatrix_cornerNeutralBlock_forward
+#print axioms Neoplatonic.LTR.sixMatrix_neutralUndirectedEdge_eq_originalTruthEdge
