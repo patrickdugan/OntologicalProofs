@@ -73,7 +73,7 @@ theorem sixMatrix_idempotent_trace_eq_rank
   have he : IsIdempotentElem e := by
     change e ∘ₗ e = e
     simpa only [e, Matrix.toLin'_mul] using congrArg Matrix.toLin' h
-  have htr := he.isProj_range.trace
+  have htr := (IsIdempotentElem.isProj_range e he).trace
   change LinearMap.trace ℂ (Fin 6 → ℂ) e =
     (Module.finrank ℂ (LinearMap.range e) : ℂ) at htr
   simpa [e, Matrix.trace_toLin'_eq, Matrix.rank] using htr
