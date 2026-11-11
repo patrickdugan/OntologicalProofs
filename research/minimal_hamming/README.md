@@ -48,29 +48,29 @@ equal to the two-bit Hamming metric.
 - **MAN-137 and MAN-138:** even maximal *non-pure* residual Pauli
   overlap is excluded. The universal necessary inequality is strict:
   
-  \\[
-  |E_{03}-E_{12}|<\\frac14,\\qquad |c|<\\frac12,\\qquad
+  \[
+  |E_{03}-E_{12}|<\frac14,\qquad |c|<\frac12,\qquad
   c=2(E_{03}-E_{12}).
-  \\]
+  \]
   
   Here E03 and E12 are oriented squared Dirac block energies.
   This theorem excludes both endpoints of the sharp Pauli overlap
   region. It does not exclude the strict interior.
 - **MAN-139, MAN-141, MAN-142:** quantitative real Pauli Gram
   estimates for near-endpoint witnesses are proved, including
-  \\( |q+r-\\tfrac12|\\le\\varepsilon \\),
-  \\( (q-r)^2\\le 2\\varepsilon \\), and bounds on one signed
+  \( |q+r-\tfrac12|\le\varepsilon \),
+  \( (q-r)^2\le 2\varepsilon \), and bounds on one signed
   residual quadratic energy and the complementary spectral defect.
 - **MAN-140:** the nonsaturated signed witness W=A+B is governed by
-  an exact spectral defect \\(\\Delta=I-W^2\\).
+  an exact spectral defect \(\Delta=I-W^2\).
   For neutral projector Q, C=I-Q, X=CWC, and Y=CWQ, the original
   complex six-coordinate equations are
   
-  \\[
-  X^2+YY^\\dagger=C-C\\Delta C,\\quad
-  XY=-C\\Delta Q,\\quad
-  Y^\\dagger Y=Q-Q\\Delta Q.
-  \\]
+  \[
+  X^2+YY^\dagger=C-C\Delta C,\quad
+  XY=-C\Delta Q,\quad
+  Y^\dagger Y=Q-Q\Delta Q.
+  \]
 
   This is the relevant replacement for the saturated MAN-94
   partial-isometry equations.
