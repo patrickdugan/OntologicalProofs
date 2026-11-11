@@ -30,7 +30,7 @@ private abbrev TwoMat := Matrix (Fin 2) (Fin 2) ℂ
 private abbrev SixMat := Matrix (Fin 6) (Fin 6) ℂ
 
 /-- Canonical first coordinate commutator of the opposite-double model. -/
-def sixOppositeDoubleCanonicalA (U : TwoMat) : SixMat :=
+noncomputable def sixOppositeDoubleCanonicalA (U : TwoMat) : SixMat :=
   !![(0 : ℂ), 0, 0, 0, (1 / 2 : ℂ), 0;
      0, 0, 0, U 0 1, 0, 0;
      0, 0, 0, 0, 0, star (U 1 0);
@@ -39,7 +39,7 @@ def sixOppositeDoubleCanonicalA (U : TwoMat) : SixMat :=
      0, 0, U 1 0, 0, 0, 0]
 
 /-- Canonical second coordinate commutator of the opposite-double model. -/
-def sixOppositeDoubleCanonicalB (U : TwoMat) : SixMat :=
+noncomputable def sixOppositeDoubleCanonicalB (U : TwoMat) : SixMat :=
   !![(0 : ℂ), 0, 0, 0, (1 / 2 : ℂ), 0;
      0, 0, U 0 0, 0, 0, 0;
      0, star (U 0 0), 0, 0, 0, 0;
