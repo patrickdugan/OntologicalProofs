@@ -1,5 +1,6 @@
 import Neoplatonic.LTR.SixDimensionalSignedWitnessPartialIsometry
 import Mathlib.LinearAlgebra.Trace
+import Mathlib.LinearAlgebra.Projection
 import Mathlib.LinearAlgebra.Matrix.Rank
 import Mathlib.Tactic
 
