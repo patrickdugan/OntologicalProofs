@@ -171,9 +171,9 @@ theorem sixLabelled_exactHamming_saturated03_actualCorner_twoRows_zero
             P * P + P * R + R * P + R * R := by noncomm_ring
         _ = P + R := by rw [hPP, hPR, hRP, hRR]; simp
     calc
-      (P + R) * Y = C * (C * W * Q) := by rw [← hC]; rfl
+      (P + R) * Y = C * (C * W * Q) := by rw [← hC]
       _ = (C * C) * W * Q := by noncomm_ring
-      _ = Y := by rw [hC2]; rfl
+      _ = Y := by rw [hC2]
   have hXY : X * Y = 0 := by
     have h := sixLabelled_exactHamming_saturated03_partialIsometry
       label D hD hham h03 h12
