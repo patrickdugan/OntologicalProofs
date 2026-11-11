@@ -133,6 +133,7 @@ import Neoplatonic.LTR.SixDimensionalSignedOppositeRankOneMinus
 import Neoplatonic.LTR.SixDimensionalSignedOppositeMinors
 import Neoplatonic.LTR.SixDimensionalSignedOppositeGram
 import Neoplatonic.LTR.SixDimensionalTransitionGramPositivity
+import Neoplatonic.LTR.SixDimensionalActualTransitionHalfEnergy
 import Neoplatonic.LTR.SixDimensionalOppositeFibreProjectionDefect
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeExhaustion
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralRowExtinction
@@ -2005,3 +2006,6 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_transitionTrace_nonnegativeReal
 #print axioms Neoplatonic.LTR.twoTransitionNonnegative_rowHalf
 #print axioms Neoplatonic.LTR.twoTransitionNonnegative_bistochastic_bounds
+
+-- MAN-119: original 6D nonnegative neutral-transition half-energy obstruction.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_transitionHalfEnergy
