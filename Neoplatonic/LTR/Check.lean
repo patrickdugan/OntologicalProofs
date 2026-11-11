@@ -149,6 +149,7 @@ import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
+import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalSaturated03TransitionTrace
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
@@ -2029,3 +2030,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_selfFibre_zero
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_actualCorner_offdiagonal
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_actualCorner_twoRows_zero
+
+-- MAN-125: six actual Dirac neutral-edge orthogonality products.
+#print axioms Neoplatonic.LTR.sixTruthFibreProjection_mul_zero_of_distinct
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_actual_neutralEdges_products_zero
