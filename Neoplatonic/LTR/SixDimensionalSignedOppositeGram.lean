@@ -36,11 +36,12 @@ theorem sixMatrix_gram_trace_eq_entryEnergy (B : SixMat) :
     simp [Matrix.trace, Matrix.diag, Matrix.mul_apply,
       Matrix.conjTranspose_apply]
   rw [htr, Finset.sum_comm]
-  simp only [map_sum]
+  push_cast
   apply Finset.sum_congr rfl
   intro j hj
   apply Finset.sum_congr rfl
   intro i hi
+  rw [← Complex.ofReal_pow]
   exact (complex_cast_norm_sq_eq_mul_star (B i j)).symm
 
 /-- The square of the true truth-fibre block, traced on the
