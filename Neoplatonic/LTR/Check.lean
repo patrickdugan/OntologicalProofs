@@ -198,6 +198,7 @@ import Neoplatonic.LTR.SixDimensionalPositiveDefectDiagonal
 import Neoplatonic.LTR.SixDimensionalSharpenedNearHalfEnergy
 import Neoplatonic.LTR.SixDimensionalOverneutralSignedRank
 import Neoplatonic.LTR.SixDimensionalOverneutralResidualDefect
+import Neoplatonic.LTR.SixDimensionalAmbientResidualRankTransport
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2319,3 +2320,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_scalarProjection_defect_fullRank
 #print axioms Neoplatonic.LTR.sixMatrix_rank_le_four_scalarProjection_defect_eq_one
 #print axioms Neoplatonic.LTR.sixLabelled_minusWitness_overneutral_scalarDefect_eq_one
+
+-- MAN-176: ambient scalar spectral projection transfers to genuine 6x6 rank obstruction.
+#print axioms Neoplatonic.LTR.sixMatrix_residualProjection_transport_idempotent
+#print axioms Neoplatonic.LTR.sixMatrix_residualScalarSquare_transport
+#print axioms Neoplatonic.LTR.sixMatrix_rank_le_four_residualSquare_scalar_zero
