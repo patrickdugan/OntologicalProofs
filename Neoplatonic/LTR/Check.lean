@@ -161,7 +161,6 @@ import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalNeutralEdgeOriginalBridge
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeIdentification
 import Neoplatonic.LTR.SixDimensionalSaturatedHalfCornerNorm
-import Neoplatonic.LTR.SixDimensionalUniformHalfCornerBound
 import Neoplatonic.LTR.SixDimensionalSignedCornerTrueEdge
 import Neoplatonic.LTR.SixDimensionalBistochasticThreeEdgeNoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03ActualNormNoGo
@@ -176,8 +175,11 @@ import Neoplatonic.LTR.SixDimensionalDefectCompressionNorm
 import Neoplatonic.LTR.SixDimensionalResidualDefectProjection
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalPerturbedThreeChannelNorm
+import Neoplatonic.LTR.SixDimensionalPerturbedFourChannelNorm
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalNonsaturatedCoordinateFourEdges
+import Neoplatonic.LTR.SixDimensionalFourthEdgeHermitian
+import Neoplatonic.LTR.SixDimensionalUniformHalfCornerBound
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2188,6 +2190,14 @@ open Neoplatonic.LTR
 -- MAN-154: true nonsaturated coordinate four-edge signed Dirac decompositions.
 #print axioms Neoplatonic.LTR.sixLabelled_coordinateA_fourEdges
 #print axioms Neoplatonic.LTR.sixLabelled_coordinateB_fourEdges
+
+-- MAN-155: robust four-channel C*-norm obstruction with extra opposite neutral edge.
+#print axioms Neoplatonic.LTR.sixMatrix_fourChannel_perturbed_halfEnergy_norm_lt_one
+#print axioms Neoplatonic.LTR.sixMatrix_fourChannel_perturbed_unitNorm_impossible
+
+-- MAN-156: Hermitian first coordinate and additional unsaturated neutral-opposite channel.
+#print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_isHermitian
+#print axioms Neoplatonic.LTR.sixPlusOppositeNeutralEdge_isHermitian
 
 -- MAN-157: exact-Hamming positive signed and unsaturated active half-corner uniform contractions.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusWitness_norm_le_one
