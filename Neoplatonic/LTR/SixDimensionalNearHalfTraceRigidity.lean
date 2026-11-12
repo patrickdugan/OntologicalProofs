@@ -42,8 +42,9 @@ theorem sixMatrix_signedDiagonalSum_norm_le_six
     ‖∑ i : Fin 6, if neutral i then -(M i i) else M i i‖ ≤
       6 * ‖M‖ := by
   have hentry (i : Fin 6) : ‖M i i‖ ≤ ‖M‖ := by
-    have h := sixMatrix_entryNorm_le_operatorNorm M i i
-    simpa only [Matrix.cstar_norm_def] using h
+    rw [Matrix.cstar_norm_def]
+    change ‖M i i‖ ≤ ‖M.toEuclideanLin.toContinuousLinearMap‖
+    exact sixMatrix_entryNorm_le_operatorNorm M i i
   calc
     ‖∑ i : Fin 6, if neutral i then -(M i i) else M i i‖ ≤
         ∑ i : Fin 6, ‖if neutral i then -(M i i) else M i i‖ :=
@@ -112,11 +113,14 @@ theorem sixLabelled_plusWitness_traceDefect_signedIdentity
             intro i hi
             exact hpoint i
       _ = ((Finset.univ.filter neutral).card : ℂ) - SN := by
-        simp [SN, Finset.sum_sub_distrib,
-          Finset.sum_ite, Finset.sum_const, nsmul_eq_mul]
+        have hones : (∑ i : Fin 6, if neutral i then (1 : ℂ) else 0) =
+            ((Finset.univ.filter neutral).card : ℂ) := by
+          rw [← Finset.sum_filter]
+          simp
+        rw [Finset.sum_sub_distrib, hones]
+        rfl
       _ = (m : ℂ) - SN := by
         rw [sixPlusNeutral_card_eq_fibreSum label]
-        rfl
   have hComplementEnergy :
       (∑ i : Fin 6, ∑ j : Fin 6,
         if ¬neutral i ∧ ¬neutral j then W i j * W j i else 0) =
