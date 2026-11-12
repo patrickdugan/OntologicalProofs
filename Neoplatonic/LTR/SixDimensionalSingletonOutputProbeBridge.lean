@@ -72,6 +72,7 @@ theorem sixMatrix_singletonOutputEdge_normSq_eq_transitionTraceRe
       _ = (N * Y.conjTranspose * P *
           (Y.conjTranspose).conjTranspose).trace := by
         rw [Matrix.conjTranspose_conjTranspose]
+        simp only [Matrix.mul_assoc]
   change sixMatrix_transitionTrace N Y.conjTranspose P = (e : ℂ)
     at hTrace
   change
