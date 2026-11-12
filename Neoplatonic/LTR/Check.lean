@@ -181,6 +181,7 @@ import Neoplatonic.LTR.SixDimensionalNonsaturatedCoordinateFourEdges
 import Neoplatonic.LTR.SixDimensionalFourthEdgeHermitian
 import Neoplatonic.LTR.SixDimensionalUniformHalfCornerBound
 import Neoplatonic.LTR.SixDimensionalNearPositiveSingletonEnergy
+import Neoplatonic.LTR.SixDimensionalSingletonOppositeNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2207,3 +2208,10 @@ open Neoplatonic.LTR
 -- MAN-158: quantitative opposite Dirac energy concentration near positive Pauli saturation.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_nearPositive_singleton03_energy12_le
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_nearPositive_singleton03_energy03_band
+
+-- MAN-159: opposite-neutral fourth-edge singleton squared norm equals original E12.
+#print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_opposite12_orientedBlock
+#print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_opposite12_energy_eq
+#print axioms Neoplatonic.LTR.sixLabelled_singletonNeutral2_fourthEdge_normSq_eq_energy12
+#print axioms Neoplatonic.LTR.sixLabelled_singletonNeutral1_fourthEdge_normSq_eq_energy12
+#print axioms Neoplatonic.LTR.sixLabelled_singletonNeutralEither_fourthEdge_normSq_eq_energy12
