@@ -202,6 +202,7 @@ import Neoplatonic.LTR.SixDimensionalAmbientResidualRankTransport
 import Neoplatonic.LTR.SixDimensionalActualResidualRankPauliZero
 import Neoplatonic.LTR.SixDimensionalActualMinusResidualRankZero
 import Neoplatonic.LTR.SixDimensionalOverneutralPauliSign
+import Neoplatonic.LTR.SixDimensionalOppositePauliSignChambers
 import Neoplatonic.LTR.SixDimensionalOverneutralPauliGramEquality
 import Neoplatonic.LTR.SixDimensionalOverneutralResidualMatrixZero
 import Neoplatonic.LTR.SixDimensionalOverneutralMinusCubic
@@ -2356,6 +2357,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_pauliImbalance_eq_residualSquares
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_pauliImbalance_nonneg
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_oppositeEnergy_order
+
+-- MAN-182: interior signed Pauli chambers for the two opposite singleton pairs.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_opposite00and11Singletons_pauliImbalance_nonpos
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_opposite01and10Singletons_positivePauliChamber
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_opposite00and11Singletons_negativePauliChamber
 
 -- MAN-183: overneutral interior Pauli Gram lengths and original energy equality.
 #print axioms Neoplatonic.LTR.realGram_sum_eq_mixed_forces_equal_lengths
