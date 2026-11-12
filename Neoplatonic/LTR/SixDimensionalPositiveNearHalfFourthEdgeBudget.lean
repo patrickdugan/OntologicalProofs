@@ -22,6 +22,8 @@ inserted directly into the four-channel norm gate.
 
 namespace Neoplatonic.LTR
 
+open scoped NNReal ENNReal
+
 private abbrev SixMat := Matrix (Fin 6) (Fin 6) ℂ
 
 /-- Positive near-half Pauli overlap bounds the squared Euclidean
