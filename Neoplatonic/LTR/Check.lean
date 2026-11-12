@@ -2203,3 +2203,5 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_opposite12_orientedBlock
 #print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_opposite12_energy_eq
 #print axioms Neoplatonic.LTR.sixLabelled_singletonNeutral2_fourthEdge_normSq_eq_energy12
+#print axioms Neoplatonic.LTR.sixLabelled_singletonNeutral1_fourthEdge_normSq_eq_energy12
+#print axioms Neoplatonic.LTR.sixLabelled_singletonNeutralEither_fourthEdge_normSq_eq_energy12
