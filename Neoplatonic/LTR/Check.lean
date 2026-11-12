@@ -190,6 +190,7 @@ import Neoplatonic.LTR.SixDimensionalNearHalfTransitionGramBudget
 import Neoplatonic.LTR.SixDimensionalNearHalfActualBistochasticBudgets
 import Neoplatonic.LTR.SixDimensionalRationalNearHalfFourChannelGate
 import Neoplatonic.LTR.SixDimensionalPositiveNearHalfOppositeDoubleNoGo
+import Neoplatonic.LTR.SixDimensionalNearHalfSingletonRowBudget
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2265,3 +2266,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_singletonNeutralEdge_normSq_eq_transitionTraceRe
 #print axioms Neoplatonic.LTR.sixMatrix_halfCorner_edgeProduct_oneOver250
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_oppositeDouble_impossible
+
+-- MAN-168: nonsaturated singleton output neutral-row energy budget.
+#print axioms Neoplatonic.LTR.sixMatrix_nearHalf_singletonRow_scalarBudget
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_singletonCorner_rowBudget
