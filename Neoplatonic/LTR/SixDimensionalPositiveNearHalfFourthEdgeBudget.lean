@@ -22,7 +22,7 @@ inserted directly into the four-channel norm gate.
 
 namespace Neoplatonic.LTR
 
-open scoped NNReal ENNReal
+open scoped NNReal ENNReal Matrix.Norms.L2Operator
 
 private abbrev SixMat := Matrix (Fin 6) (Fin 6) ℂ
 
