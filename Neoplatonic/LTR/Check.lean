@@ -196,6 +196,7 @@ import Neoplatonic.LTR.SixDimensionalNearHalfSingleton00ProbeNoGo
 import Neoplatonic.LTR.SixDimensionalUniformSignedPauliMargin
 import Neoplatonic.LTR.SixDimensionalPositiveDefectDiagonal
 import Neoplatonic.LTR.SixDimensionalSharpenedNearHalfEnergy
+import Neoplatonic.LTR.SixDimensionalOverneutralSignedRank
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2303,3 +2304,11 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_J_normSq_le_epsilon
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_oppositeDouble_rows_sharp
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_oppositeDouble_transitionBudgets_sharp
+
+-- MAN-174: neutral 4x4 block forces rank≤4 of original signed witness.
+#print axioms Neoplatonic.LTR.sixMatrix_rank_add_le
+#print axioms Neoplatonic.LTR.sixMatrix_zeroNeutral_rank_le_twoComplement
+#print axioms Neoplatonic.LTR.sixTruthFibreProjection_rank_eq_multiplicity
+#print axioms Neoplatonic.LTR.sixMinusNeutral_complement_eq_plusNeutral
+#print axioms Neoplatonic.LTR.sixPlusNeutral_projection_rank_eq_fibreSum
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_rank_le_four_of_neutralSingletons
