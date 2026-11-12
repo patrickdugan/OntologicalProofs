@@ -51,6 +51,7 @@ theorem sixLabelled_exactHamming_plusWitness_norm_le_one
     exact map_add (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ)) _ _
   change ‖W‖ ≤ (1 : ℝ)
   rw [Matrix.cstar_norm_def]
+  change ‖W.toEuclideanLin.toContinuousLinearMap‖ ≤ (1 : ℝ)
   rw [hmap, ← hA, ← hB]
   exact S.plus_le
 
