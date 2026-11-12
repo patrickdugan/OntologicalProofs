@@ -197,6 +197,7 @@ import Neoplatonic.LTR.SixDimensionalUniformSignedPauliMargin
 import Neoplatonic.LTR.SixDimensionalPositiveDefectDiagonal
 import Neoplatonic.LTR.SixDimensionalSharpenedNearHalfEnergy
 import Neoplatonic.LTR.SixDimensionalOverneutralSignedRank
+import Neoplatonic.LTR.SixDimensionalOverneutralResidualDefect
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2312,3 +2313,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMinusNeutral_complement_eq_plusNeutral
 #print axioms Neoplatonic.LTR.sixPlusNeutral_projection_rank_eq_fibreSum
 #print axioms Neoplatonic.LTR.sixLabelled_minusWitness_rank_le_four_of_neutralSingletons
+
+-- MAN-175: rank deficiency forces full scalar residual projection defect.
+#print axioms Neoplatonic.LTR.sixMatrix_scalarProjection_defect_rightInverse
+#print axioms Neoplatonic.LTR.sixMatrix_scalarProjection_defect_fullRank
+#print axioms Neoplatonic.LTR.sixMatrix_rank_le_four_scalarProjection_defect_eq_one
+#print axioms Neoplatonic.LTR.sixLabelled_minusWitness_overneutral_scalarDefect_eq_one
