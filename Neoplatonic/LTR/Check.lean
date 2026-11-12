@@ -203,6 +203,7 @@ import Neoplatonic.LTR.SixDimensionalActualResidualRankPauliZero
 import Neoplatonic.LTR.SixDimensionalActualMinusResidualRankZero
 import Neoplatonic.LTR.SixDimensionalOverneutralPauliSign
 import Neoplatonic.LTR.SixDimensionalOverneutralResidualMatrixZero
+import Neoplatonic.LTR.SixDimensionalOverneutralMinusCubic
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2342,6 +2343,13 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_twoDim_hermitian_square_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_translatedResidual_sum_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_translatedResidual_opposites
+
+-- MAN-180: original negative Hamming witness obeys the exact cubic W³=W.
+#print axioms Neoplatonic.LTR.sixMatrix_complement_projection_idempotent
+#print axioms Neoplatonic.LTR.sixMatrix_hermitian_square_idempotent_cubic
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_translatedPlus_square_idempotent
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minus_square_idempotent
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minus_cubic
 
 -- MAN-181: exact original overneutral Pauli overlap sign and opposite energy ordering.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_pauliImbalance_eq_residualSquares
