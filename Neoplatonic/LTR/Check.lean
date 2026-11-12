@@ -2245,3 +2245,4 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_twoFibre_neutralGram_perturbedCompressions
 #print axioms Neoplatonic.LTR.sixTruthFibreProjection_defectTrace_norm_le
 #print axioms Neoplatonic.LTR.sixMatrix_neutralColumnTrace_defect
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_nonsaturated_fibreNeutralGram
