@@ -193,6 +193,7 @@ import Neoplatonic.LTR.SixDimensionalPositiveNearHalfOppositeDoubleNoGo
 import Neoplatonic.LTR.SixDimensionalNearHalfSingletonRowBudget
 import Neoplatonic.LTR.SixDimensionalSingletonOutputProbeBridge
 import Neoplatonic.LTR.SixDimensionalNearHalfSingleton00ProbeNoGo
+import Neoplatonic.LTR.SixDimensionalUniformSignedPauliMargin
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2281,3 +2282,9 @@ open Neoplatonic.LTR
 -- MAN-170: true original 6D singleton 00 near-half separating-probe contradiction.
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_singleton00_neutralEdge_normSq_eq_rowEnergy
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_singleton00_impossible
+
+-- MAN-171: uniform six-dimensional signed Pauli exclusion margin.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_singleton11_impossible
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_uniform_impossible
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_negativeNearHalf_uniform_impossible
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_realPauliMixed_abs_lt_62over125
