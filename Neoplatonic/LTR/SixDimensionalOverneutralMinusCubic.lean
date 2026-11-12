@@ -131,7 +131,10 @@ theorem sixLabelled_exactHamming_overneutral_translatedPlus_square_idempotent
       (1 : SixH →L[ℂ] SixH) -
         (S.A + S.B) * (S.A + S.B) = P := by
     have h := hilbert_square_defect_eq_residual_projection
-      (S.A + S.B) q 0 hQuartet hResPoint
+      (S.A + S.B) q 0 hQuartet
+        (by
+          intro x hx
+          simpa only [zero_smul] using hResPoint x hx)
     simpa [P] using h
   have hProj : P * P = P := K.isIdempotentElem_starProjection
   let F := Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ)
