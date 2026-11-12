@@ -69,10 +69,9 @@ theorem sixMatrix_singletonOutputEdge_normSq_eq_transitionTraceRe
             noncomm_ring
       _ = ((N * Y.conjTranspose) * (P * Y)).trace :=
         Matrix.trace_mul_comm (P * Y) (N * Y.conjTranspose)
-      _ = (N * Y.conjTranspose * P * Y).trace := by
-        simp only [Matrix.conjTranspose_conjTranspose]
-        congr 1
-        noncomm_ring
+      _ = (N * Y.conjTranspose * P *
+          (Y.conjTranspose).conjTranspose).trace := by
+        rw [Matrix.conjTranspose_conjTranspose]
   change sixMatrix_transitionTrace N Y.conjTranspose P = (e : ℂ)
     at hTrace
   change
