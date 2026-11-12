@@ -179,6 +179,7 @@ import Neoplatonic.LTR.SixDimensionalPerturbedFourChannelNorm
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalNonsaturatedCoordinateFourEdges
 import Neoplatonic.LTR.SixDimensionalFourthEdgeHermitian
+import Neoplatonic.LTR.SixDimensionalSingletonOppositeNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2197,3 +2198,8 @@ open Neoplatonic.LTR
 -- MAN-156: Hermitian first coordinate and additional unsaturated neutral-opposite channel.
 #print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_isHermitian
 #print axioms Neoplatonic.LTR.sixPlusOppositeNeutralEdge_isHermitian
+
+-- MAN-159: opposite-neutral fourth-edge singleton squared norm equals original E12.
+#print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_opposite12_orientedBlock
+#print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_opposite12_energy_eq
+#print axioms Neoplatonic.LTR.sixLabelled_singletonNeutral2_fourthEdge_normSq_eq_energy12
