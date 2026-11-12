@@ -186,6 +186,7 @@ import Neoplatonic.LTR.SixDimensionalPositiveNearHalfFourthEdgeBudget
 import Neoplatonic.LTR.SixDimensionalNearHalfTraceRigidity
 import Neoplatonic.LTR.SixDimensionalNearHalfNeutralSingletons
 import Neoplatonic.LTR.SixDimensionalApproxBistochasticFourChannelGate
+import Neoplatonic.LTR.SixDimensionalNearHalfTransitionGramBudget
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2239,3 +2240,8 @@ open Neoplatonic.LTR
 -- MAN-163: approximate bistochastic half-pair and robust four-channel unit obstruction.
 #print axioms Neoplatonic.LTR.fourTransition_approxBistochastic_halfPair
 #print axioms Neoplatonic.LTR.sixMatrix_approxBistochastic_fourChannel_unitNorm_impossible
+
+-- MAN-164: nonsaturated local Gram identities and rank-sensitive trace bounds.
+#print axioms Neoplatonic.LTR.sixMatrix_twoFibre_neutralGram_perturbedCompressions
+#print axioms Neoplatonic.LTR.sixTruthFibreProjection_defectTrace_norm_le
+#print axioms Neoplatonic.LTR.sixMatrix_neutralColumnTrace_defect
