@@ -194,6 +194,7 @@ import Neoplatonic.LTR.SixDimensionalNearHalfSingletonRowBudget
 import Neoplatonic.LTR.SixDimensionalSingletonOutputProbeBridge
 import Neoplatonic.LTR.SixDimensionalNearHalfSingleton00ProbeNoGo
 import Neoplatonic.LTR.SixDimensionalUniformSignedPauliMargin
+import Neoplatonic.LTR.SixDimensionalPositiveDefectDiagonal
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2288,3 +2289,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_uniform_impossible
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_negativeNearHalf_uniform_impossible
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_realPauliMixed_abs_lt_62over125
+
+-- MAN-172: positive contraction diagonal and one-sided spectral defect traces.
+#print axioms Neoplatonic.LTR.sixMatrix_contraction_squareDefect_diagonal_re_nonneg
+#print axioms Neoplatonic.LTR.sixTruthFibre_contraction_squareDefect_trace_re_nonneg
+#print axioms Neoplatonic.LTR.sixMatrix_signedDiagonal_re_lower_of_nonneg
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusDefect_fibreTrace_re_nonneg
