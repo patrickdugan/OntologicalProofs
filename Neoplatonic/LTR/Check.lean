@@ -201,6 +201,7 @@ import Neoplatonic.LTR.SixDimensionalOverneutralResidualDefect
 import Neoplatonic.LTR.SixDimensionalAmbientResidualRankTransport
 import Neoplatonic.LTR.SixDimensionalActualResidualRankPauliZero
 import Neoplatonic.LTR.SixDimensionalActualMinusResidualRankZero
+import Neoplatonic.LTR.SixDimensionalOverneutralResidualMatrixZero
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2335,3 +2336,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_rank_neg_eq
 #print axioms Neoplatonic.LTR.sixLabelled_minusNeutralSingletons_translatedPlus_rank_le_four
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minusResidualPauli_zero
+
+-- MAN-179: full Hermitian residual matrix vanishes under overneutral signed rank obstruction.
+#print axioms Neoplatonic.LTR.sixMatrix_twoDim_hermitian_square_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_translatedResidual_sum_zero
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_translatedResidual_opposites
