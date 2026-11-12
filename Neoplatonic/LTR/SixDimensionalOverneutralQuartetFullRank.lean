@@ -37,7 +37,11 @@ theorem sixMatrix_rank_eq_finrank_range_toEuclideanLin (W : SixMat) :
   have h := W.rank_eq_finrank_range_toLin
     (PiLp.basisFun (2 : ℝ≥0∞) ℂ (Fin 6))
     (PiLp.basisFun (2 : ℝ≥0∞) ℂ (Fin 6))
-  simpa only [Matrix.toLpLin_eq_toLin] using h
+  change W.rank = Module.finrank ℂ
+    (LinearMap.range
+      ((Matrix.toLin (PiLp.basisFun (2 : ℝ≥0∞) ℂ (Fin 6))
+        (PiLp.basisFun (2 : ℝ≥0∞) ℂ (Fin 6))) W))
+  exact h
 
 /-- Four orthonormal vectors fixed by the square of a 6D
 complex matrix force its range to have dimension at least four. -/
@@ -82,7 +86,8 @@ theorem sixLabelled_exactHamming_minusWitness_rank_ge_four
       W.toEuclideanLin.toContinuousLinearMap = S.A - S.B := by
     change (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
       (labelledSquareA label D - labelledSquareB label D) = S.A - S.B
-    rw [map_sub, hA, hB]
+    rw [map_sub]
+    rfl
   have hSquare (i : Fin 4) :
       W.toEuclideanLin (W.toEuclideanLin (q i)) = q i := by
     change W.toEuclideanLin.toContinuousLinearMap
