@@ -185,6 +185,7 @@ import Neoplatonic.LTR.SixDimensionalSingletonOppositeNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalPositiveNearHalfFourthEdgeBudget
 import Neoplatonic.LTR.SixDimensionalNearHalfTraceRigidity
 import Neoplatonic.LTR.SixDimensionalNearHalfNeutralSingletons
+import Neoplatonic.LTR.SixDimensionalApproxBistochasticFourChannelGate
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2234,3 +2235,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_E03_upper
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_E12_le_twoEpsilon
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_J_normSq_le_twoEpsilon
+
+-- MAN-163: approximate bistochastic half-pair and robust four-channel unit obstruction.
+#print axioms Neoplatonic.LTR.fourTransition_approxBistochastic_halfPair
+#print axioms Neoplatonic.LTR.sixMatrix_approxBistochastic_fourChannel_unitNorm_impossible
