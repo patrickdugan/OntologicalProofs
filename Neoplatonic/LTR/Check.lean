@@ -204,6 +204,7 @@ import Neoplatonic.LTR.SixDimensionalActualMinusResidualRankZero
 import Neoplatonic.LTR.SixDimensionalOverneutralPauliSign
 import Neoplatonic.LTR.SixDimensionalOppositePauliSignChambers
 import Neoplatonic.LTR.SixDimensionalOverneutralPauliGramEquality
+import Neoplatonic.LTR.SixDimensionalOverneutralExchangeRank
 import Neoplatonic.LTR.SixDimensionalOverneutralResidualMatrixZero
 import Neoplatonic.LTR.SixDimensionalOverneutralMinusCubic
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2367,3 +2368,9 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.realGram_sum_eq_mixed_forces_equal_lengths
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_residualPauli_lengths_equal
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_energyDiff_eq_residualPauliLength
+
+-- MAN-184: overneutral cubic exchange cancellation and sharp rank gate.
+#print axioms Neoplatonic.LTR.sixMatrix_zeroNeutral_rank_le_complement_plus_exchange
+#print axioms Neoplatonic.LTR.sixMatrix_zeroNeutral_cubic_exchange_sandwich_zero
+#print axioms Neoplatonic.LTR.sixMatrix_zeroNeutral_exchange_rank_two
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minus_cubic_exchange_sandwich_zero
