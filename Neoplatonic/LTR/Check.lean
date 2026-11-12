@@ -205,6 +205,7 @@ import Neoplatonic.LTR.SixDimensionalOverneutralPauliSign
 import Neoplatonic.LTR.SixDimensionalOppositePauliSignChambers
 import Neoplatonic.LTR.SixDimensionalOverneutralPauliGramEquality
 import Neoplatonic.LTR.SixDimensionalOverneutralExchangeRank
+import Neoplatonic.LTR.SixDimensionalOverneutralQuartetFullRank
 import Neoplatonic.LTR.SixDimensionalFullExchangeSandwichCancellation
 import Neoplatonic.LTR.SixDimensionalOverneutralResidualMatrixZero
 import Neoplatonic.LTR.SixDimensionalOverneutralMinusCubic
@@ -2375,6 +2376,13 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_zeroNeutral_cubic_exchange_sandwich_zero
 #print axioms Neoplatonic.LTR.sixMatrix_zeroNeutral_exchange_rank_two
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minus_cubic_exchange_sandwich_zero
+
+-- MAN-185: genuine minus signed quartet certifies rank four and rank-two exchange.
+#print axioms Neoplatonic.LTR.sixMatrix_rank_eq_finrank_range_toEuclideanLin
+#print axioms Neoplatonic.LTR.sixMatrix_rank_ge_four_of_orthonormal_square_one
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minusWitness_rank_ge_four
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minusWitness_rank_eq_four
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minus_exchange_rank_two
 
 -- MAN-186: full-rank exchange factorization and exact Hermitian corner cancellation.
 #print axioms Neoplatonic.LTR.sixMatrix_fullExchange_exists_rightFactor
