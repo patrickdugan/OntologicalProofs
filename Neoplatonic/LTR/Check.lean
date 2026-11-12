@@ -2246,3 +2246,6 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixTruthFibreProjection_defectTrace_norm_le
 #print axioms Neoplatonic.LTR.sixMatrix_neutralColumnTrace_defect
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_nonsaturated_fibreNeutralGram
+#print axioms Neoplatonic.LTR.sixMatrix_transitionTrace_rowSum
+#print axioms Neoplatonic.LTR.sixMatrix_transitionTrace_columnSum
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_nonsaturated_transitionTable_traceIdentities
