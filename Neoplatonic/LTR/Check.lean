@@ -206,6 +206,7 @@ import Neoplatonic.LTR.SixDimensionalOppositePauliSignChambers
 import Neoplatonic.LTR.SixDimensionalOverneutralPauliGramEquality
 import Neoplatonic.LTR.SixDimensionalOverneutralExchangeRank
 import Neoplatonic.LTR.SixDimensionalOverneutralQuartetFullRank
+import Neoplatonic.LTR.SixDimensionalFullExchangeSandwichCancellation
 import Neoplatonic.LTR.SixDimensionalOverneutralResidualMatrixZero
 import Neoplatonic.LTR.SixDimensionalOverneutralMinusCubic
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2382,3 +2383,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_minusWitness_rank_ge_four
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minusWitness_rank_eq_four
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minus_exchange_rank_two
+
+-- MAN-186: full-rank exchange factorization and exact Hermitian corner cancellation.
+#print axioms Neoplatonic.LTR.sixMatrix_fullExchange_exists_rightFactor
+#print axioms Neoplatonic.LTR.sixMatrix_rightFactor_sandwich_zero_forces_corner_zero
+#print axioms Neoplatonic.LTR.sixMatrix_fullRankExchange_sandwich_zero_forces_corner_zero
