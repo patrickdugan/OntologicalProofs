@@ -56,6 +56,7 @@ theorem sixMatrix_scalarProjection_defect_rightInverse
                 (t • P + t • (P * (k • P))) := by
                   simp only [sub_mul, mul_add, one_mul,
                     mul_one, Matrix.smul_mul]
+                  abel
             _ = 1 + k • P - t • P -
                 (t * k) • (P * P) := by
                   rw [Matrix.mul_smul, smul_smul]
