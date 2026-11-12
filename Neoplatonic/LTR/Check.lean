@@ -114,6 +114,7 @@ import Neoplatonic.LTR.SixDimensionalAmbientPauliDefectNorm
 import Neoplatonic.LTR.SixDimensionalRealPauliDefectLeakage
 import Neoplatonic.LTR.SixDimensionalSignedBitFlipTransport
 import Neoplatonic.LTR.SixDimensionalNegativeNearHalfDefect
+import Neoplatonic.LTR.SixDimensionalNegativeNearHalfLeakage
 import Neoplatonic.LTR.SixDimensionalAmbientSignedInvolution
 import Neoplatonic.LTR.SixDimensionalExactHammingAmbientInvolution
 import Neoplatonic.LTR.SixDimensionalNeutralTraceDecomposition
@@ -2178,3 +2179,6 @@ open Neoplatonic.LTR
 
 -- MAN-150: actual near-half neutral edge product bound for each signed coordinate.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_actualEdges_smallProducts
+
+-- MAN-152: actual negative-signed corner-neutral leakage and isometry defect bounds.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_negativeNearHalf_cornerLeakage
