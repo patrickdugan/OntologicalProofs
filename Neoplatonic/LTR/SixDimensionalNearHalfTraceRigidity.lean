@@ -118,7 +118,6 @@ theorem sixLabelled_plusWitness_traceDefect_signedIdentity
           rw [← Finset.sum_filter]
           simp
         rw [Finset.sum_sub_distrib, hones]
-        rfl
       _ = (m : ℂ) - SN := by
         rw [sixPlusNeutral_card_eq_fibreSum label]
   have hComplementEnergy :
