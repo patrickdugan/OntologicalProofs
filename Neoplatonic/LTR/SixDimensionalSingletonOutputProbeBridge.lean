@@ -69,9 +69,9 @@ theorem sixMatrix_singletonOutputEdge_normSq_eq_transitionTraceRe
             noncomm_ring
       _ = ((N * Y.conjTranspose) * (P * Y)).trace :=
         Matrix.trace_mul_comm (P * Y) (N * Y.conjTranspose)
-      _ = (N * Y.conjTranspose * P * Y).trace := by
-        congr 1
-        noncomm_ring
+      _ = (N * Y.conjTranspose * P *
+          (Y.conjTranspose).conjTranspose).trace := by
+        rw [Matrix.conjTranspose_conjTranspose]
   change sixMatrix_transitionTrace N Y.conjTranspose P = (e : ℂ)
     at hTrace
   change
@@ -112,7 +112,7 @@ theorem sixTriple03Probe_deviation_eq_fourNeutralEdges
       Matrix.add_apply, Matrix.smul_apply,
       Matrix.diagonal_mul, Matrix.mul_diagonal,
       squareTriple03Probe, squareTriple03Sign,
-      squareTruthBitP, squareTruthBitQ] <;> ring
+      squareTruthBitP, squareTruthBitQ] <;> ring <;> simp
 
 /-- The norm of an exact diagonal sign-conjugated plus witness
 with a quarter-sized undirected error channel is at most two. -/
