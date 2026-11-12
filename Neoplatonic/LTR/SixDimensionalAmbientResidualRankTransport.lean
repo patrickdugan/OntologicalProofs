@@ -67,14 +67,15 @@ theorem sixMatrix_residualScalarSquare_transport
   let F := Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ)
   let PM : SixMat := F.symm P
   change W * W = 1 - (1 - mu) • PM
-  apply F.injective
-  rw [map_mul, map_sub, map_one, map_smul]
-  change
-    W.toEuclideanLin.toContinuousLinearMap *
-      W.toEuclideanLin.toContinuousLinearMap =
-      1 - (1 - mu) • F PM
-  rw [show F PM = P from F.apply_symm_apply P]
-  linear_combination -hSq
+  have hOp :
+      F.symm ((1 : SixH →L[ℂ] SixH) - F W * F W) =
+        F.symm ((1 - mu) • P) := by
+    exact congrArg F.symm hSq
+  have hMatrix :
+      1 - W * W = (1 - mu) • PM := by
+    simpa only [map_sub, map_one, map_mul, map_smul,
+      F.symm_apply_apply] using hOp
+  linear_combination -hMatrix
 
 /-- Any genuine 6×6 witness of rank≤4 whose ambient Hilbert
 square differs from identity by a scalar multiple of a
