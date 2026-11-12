@@ -44,7 +44,7 @@ theorem sixMatrix_fullExchange_exists_rightFactor
       C.mulVec (Y.mulVec x) = Y.mulVec x := by
     calc
       C.mulVec (Y.mulVec x) = (C * Y).mulVec x :=
-        (Matrix.mulVec_mulVec C Y x).symm
+        Matrix.mulVec_mulVec x C Y
       _ = Y.mulVec x := by rw [hCY]
   have hRangeLe :
       LinearMap.range Y.mulVecLin ≤ LinearMap.range C.mulVecLin := by
@@ -71,8 +71,9 @@ theorem sixMatrix_fullExchange_exists_rightFactor
   refine ⟨R, ?_⟩
   ext i j
   have h := congrArg (fun v : Fin 6 → ℂ => v i) (hx j)
-  simpa [R, Matrix.mulVec, Matrix.mul_apply, Matrix.col_apply,
-    dotProduct] using h
+  change (∑ k : Fin 6, Y i k * R k j) = C i j
+  simpa only [R, Matrix.mulVec, dotProduct, Matrix.col_apply]
+    using h
 
 /-- A right factor of a Hermitian corner projection allows exact
 cancellation of a full-rank neutral-exchange Gram sandwich. -/
