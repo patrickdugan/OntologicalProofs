@@ -1,5 +1,6 @@
 import Neoplatonic.LTR.SixDimensionalNearHalfTransitionGramBudget
 import Neoplatonic.LTR.SixDimensionalApproxBistochasticFourChannelGate
+import Neoplatonic.LTR.SixDimensionalTransitionGramPositivity
 import Mathlib.Analysis.CStarAlgebra.Matrix
 import Mathlib.Tactic
 
@@ -155,26 +156,30 @@ theorem sixLabelled_exactHamming_positiveNearHalf_oppositeDouble_transitionBudge
     label Δ 0
   change ‖z0‖ ≤ (truthMultiplicity label 0 : ℝ) * ‖Δ‖ at hZ0
   rw [hm0] at hZ0
+  norm_num at hZ0
   have hz0 : ‖z0‖ ≤ 4 * epsilon := by
-    nlinarith [norm_nonneg Δ]
+    linarith only [hZ0, hDef]
   have hZ3 := sixTruthFibreProjection_defectTrace_norm_le
     label Δ 3
   change ‖z3‖ ≤ (truthMultiplicity label 3 : ℝ) * ‖Δ‖ at hZ3
   rw [hm3] at hZ3
+  norm_num at hZ3
   have hz3 : ‖z3‖ ≤ 4 * epsilon := by
-    nlinarith [norm_nonneg Δ]
+    linarith only [hZ3, hDef]
   have hZ1 := sixTruthFibreProjection_defectTrace_norm_le
     label Δ 1
   change ‖z1‖ ≤ (truthMultiplicity label 1 : ℝ) * ‖Δ‖ at hZ1
   rw [hm1] at hZ1
+  norm_num at hZ1
   have hz1 : ‖z1‖ ≤ 2 * epsilon := by
-    nlinarith [norm_nonneg Δ]
+    linarith only [hZ1, hDef]
   have hZ2 := sixTruthFibreProjection_defectTrace_norm_le
     label Δ 2
   change ‖z2‖ ≤ (truthMultiplicity label 2 : ℝ) * ‖Δ‖ at hZ2
   rw [hm2] at hZ2
+  norm_num at hZ2
   have hz2 : ‖z2‖ ≤ 2 * epsilon := by
-    nlinarith [norm_nonneg Δ]
+    linarith only [hZ2, hDef]
   have hz0lower : -4 * epsilon ≤ z0.re := by
     have h := (abs_le.mp (Complex.abs_re_le_norm z0)).1
     linarith
