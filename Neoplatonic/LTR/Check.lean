@@ -101,6 +101,7 @@ import Neoplatonic.LTR.SixDimensionalOppositeEnergyPatterns
 import Neoplatonic.LTR.SixDimensionalOppositeBlockTraceIdentity
 import Neoplatonic.LTR.SixDimensionalPauliOppositeEnergyRegions
 import Neoplatonic.LTR.SixDimensionalExactHammingPauliSaturation
+import Neoplatonic.LTR.SixDimensionalNearPositiveSingletonEnergy
 import Neoplatonic.LTR.SixDimensionalZeroEnergyBlocks
 import Neoplatonic.LTR.SixDimensionalSaturatedRankOneBlocks
 import Neoplatonic.LTR.SixDimensionalResidualPauliHalfSatEquality
@@ -2187,3 +2188,7 @@ open Neoplatonic.LTR
 -- MAN-154: true nonsaturated coordinate four-edge signed Dirac decompositions.
 #print axioms Neoplatonic.LTR.sixLabelled_coordinateA_fourEdges
 #print axioms Neoplatonic.LTR.sixLabelled_coordinateB_fourEdges
+
+-- MAN-158: quantitative opposite Dirac energy concentration near positive Pauli saturation.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_nearPositive_singleton03_energy12_le
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_nearPositive_singleton03_energy03_band
