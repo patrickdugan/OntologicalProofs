@@ -74,8 +74,7 @@ theorem sixMatrix_residualScalarSquare_transport
       W.toEuclideanLin.toContinuousLinearMap =
       1 - (1 - mu) • F PM
   rw [show F PM = P from F.apply_symm_apply P]
-  module at hSq ⊢
-  exact hSq
+  linear_combination -hSq
 
 /-- Any genuine 6×6 witness of rank≤4 whose ambient Hilbert
 square differs from identity by a scalar multiple of a
@@ -99,6 +98,6 @@ theorem sixMatrix_rank_le_four_residualSquare_scalar_zero
     sixMatrix_residualScalarSquare_transport W P mu hSq
   have hDefect := sixMatrix_rank_le_four_scalarProjection_defect_eq_one
     W PM (1 - mu) hRank hPM hSqM
-  exact sub_eq_iff_eq_add.mp hDefect |>.symm
+  linear_combination -hDefect
 
 end Neoplatonic.LTR
