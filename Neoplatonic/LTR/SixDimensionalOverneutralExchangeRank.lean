@@ -27,7 +27,7 @@ forcing X=0, hence elimination of the 01↔10 Dirac corner.
 
 namespace Neoplatonic.LTR
 
-open scoped NNReal ENNReal Matrix.Norms.L2Operator
+open scoped NNReal ENNReal ComplexOrder Matrix.Norms.L2Operator
 
 private abbrev SixMat := Matrix (Fin 6) (Fin 6) ℂ
 
@@ -50,10 +50,13 @@ theorem sixMatrix_zeroNeutral_rank_le_complement_plus_exchange
         simp
   have h0 : (C * W).rank ≤ C.rank :=
     Matrix.rank_mul_le_left C W
-  have h1 := sixMatrix_rank_add_le (Q * W * C) (C * W)
-  rw [hDecomp]
-  change (Q * W * C + C * W).rank ≤
-    C.rank + (Q * W * C).rank
+  have h1 : W.rank ≤ (Q * W * C).rank + (C * W).rank := by
+    calc
+      W.rank = (Q * W * C + C * W).rank :=
+        congrArg Matrix.rank hDecomp
+      _ ≤ (Q * W * C).rank + (C * W).rank :=
+        sixMatrix_rank_add_le _ _
+  change W.rank ≤ C.rank + (Q * W * C).rank
   omega
 
 /-- The neutral compression of a Hermitian cubic signed witness
@@ -118,7 +121,7 @@ theorem sixMatrix_zeroNeutral_cubic_exchange_sandwich_zero
                 noncomm_ring
               _ = Q * W * C * W * C * W * Q := by rw [hCC]
               _ = (Q * W * C) * W * (C * W * Q) := by noncomm_ring
-      _ = (Q * W) * W * (W * Q) := by rw [hQW, hWQ]
+      _ = (Q * W) * W * (W * Q) := by rw [← hQW, ← hWQ]
       _ = Q * (W * W * W) * Q := by noncomm_ring
   rw [hYstar]
   exact hBlock.trans hQcube
