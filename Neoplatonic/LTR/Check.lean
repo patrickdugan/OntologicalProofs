@@ -175,6 +175,7 @@ import Neoplatonic.LTR.SixDimensionalDefectCompressionNorm
 import Neoplatonic.LTR.SixDimensionalResidualDefectProjection
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalPerturbedThreeChannelNorm
+import Neoplatonic.LTR.SixDimensionalPerturbedFourChannelNorm
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalNonsaturatedCoordinateFourEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
@@ -2187,3 +2188,7 @@ open Neoplatonic.LTR
 -- MAN-154: true nonsaturated coordinate four-edge signed Dirac decompositions.
 #print axioms Neoplatonic.LTR.sixLabelled_coordinateA_fourEdges
 #print axioms Neoplatonic.LTR.sixLabelled_coordinateB_fourEdges
+
+-- MAN-155: robust four-channel C*-norm obstruction with extra opposite neutral edge.
+#print axioms Neoplatonic.LTR.sixMatrix_fourChannel_perturbed_halfEnergy_norm_lt_one
+#print axioms Neoplatonic.LTR.sixMatrix_fourChannel_perturbed_unitNorm_impossible
