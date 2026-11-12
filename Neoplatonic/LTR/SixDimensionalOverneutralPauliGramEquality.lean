@@ -41,8 +41,11 @@ theorem realGram_sum_eq_mixed_forces_equal_lengths
     (hDet : c ^ 2 ≤ 4 * q * r)
     (hSum : c = q + r) :
     q = r ∧ c = 2 * q := by
+  have hDet' : (q + r) ^ 2 ≤ 4 * q * r := by
+    rw [← hSum]
+    exact hDet
   have hDiff : (q - r) ^ 2 ≤ 0 := by
-    nlinarith [hDet]
+    nlinarith only [hDet']
   have hqr : q = r := by
     nlinarith [sq_nonneg (q - r)]
   exact ⟨hqr, by linarith⟩
@@ -91,7 +94,7 @@ theorem sixLabelled_exactHamming_overneutral_residualPauli_lengths_equal
   have hMixed : pauliRealMixed M N = -c := by
     change (pauliMixed M N).re = -c
     rw [hMixedBridge, sixOrientedOppositeEnergyImbalance_translationOne_neg]
-    simp
+    simp [c]
   have hGram := twoDim_pauli_realGram_psd M N hM hN
   change (pauliRealMixed M N) ^ 2 ≤ 4 * q * rr at hGram
   have hDet : c ^ 2 ≤ 4 * q * rr := by
