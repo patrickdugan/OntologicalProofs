@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.SixDimensionalFourthEdgeHermitian
+import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
 import Neoplatonic.LTR.SixDimensionalTruthBlockHermitianEnergy
@@ -36,7 +37,7 @@ theorem sixLabelled_firstCoordinate_opposite12_orientedBlock
       (-Complex.I) • sixTruthFibreBlock label D 1 2 := by
   apply sixTruthFibreBlock_smul_of_entries
   intro i j hi hj
-  simp [labelledSquareA, squareTruthBitP, hi, hj, smul_eq_mul] <;> ring
+  simp [labelledSquareA, squareTruthBitP, hi, hj, smul_eq_mul]
 
 /-- Multiplication by the unit complex scalar -i preserves the
 oriented block's sum of squared entry magnitudes. -/
