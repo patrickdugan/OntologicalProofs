@@ -180,4 +180,99 @@ theorem sixMatrix_neutralColumnTrace_defect
         rw [Matrix.trace_sub, hTrace]
   linear_combination hFirst
 
+
+/-- The nonsaturated MAN-140/100 square equations give exact
+local output-fibre Gram formulas for the original positive
+Dirac witness, in the same fixed six-dimensional coordinates. -/
+theorem sixLabelled_plusWitness_nonsaturated_fibreNeutralGram
+    (label : Fin 6 → Fin 4) (D : SixMat)
+    (hD : ∀ i j, D i j = star (D j i)) :
+    let W := labelledSquareA label D + labelledSquareB label D
+    let Q := sixTruthSectorProjection label squarePlusNeutral
+    let C := (1 - Q : SixMat)
+    let Y := C * W * Q
+    let Δ := (1 : SixMat) - W * W
+    let P0 := sixTruthFibreProjection label 0
+    let P3 := sixTruthFibreProjection label 3
+    let T := ((2 : ℂ) * Complex.I) • sixTruthFibreBlock label D 0 3
+    P0 * (Y * Y.conjTranspose) * P0 =
+      P0 - T * T.conjTranspose - P0 * Δ * P0 ∧
+    P3 * (Y * Y.conjTranspose) * P3 =
+      P3 - T.conjTranspose * T - P3 * Δ * P3 := by
+  dsimp only
+  let W : SixMat := labelledSquareA label D + labelledSquareB label D
+  let Q : SixMat := sixTruthSectorProjection label squarePlusNeutral
+  let C : SixMat := 1 - Q
+  let X : SixMat := C * W * C
+  let Y : SixMat := C * W * Q
+  let Δ : SixMat := 1 - W * W
+  let P0 : SixMat := sixTruthFibreProjection label 0
+  let P3 : SixMat := sixTruthFibreProjection label 3
+  let T : SixMat := ((2 : ℂ) * Complex.I) •
+    sixTruthFibreBlock label D 0 3
+  change
+    P0 * (Y * Y.conjTranspose) * P0 =
+      P0 - T * T.conjTranspose - P0 * Δ * P0 ∧
+    P3 * (Y * Y.conjTranspose) * P3 =
+      P3 - T.conjTranspose * T - P3 * Δ * P3
+  have hP02 : P0 * P0 = P0 := by
+    simpa only [P0, sixTruthFibreProjection, sixTruthSectorProjection]
+      using (sixTruthSectorProjection_idempotent label
+        (fun u : Fin 4 => u = 0))
+  have hP32 : P3 * P3 = P3 := by
+    simpa only [P3, sixTruthFibreProjection, sixTruthSectorProjection]
+      using (sixTruthSectorProjection_idempotent label
+        (fun u : Fin 4 => u = 3))
+  have hP0H : P0.IsHermitian := by
+    simpa only [P0, sixTruthFibreProjection, sixTruthSectorProjection]
+      using sixTruthSectorProjection_isHermitian label
+        (fun u : Fin 4 => u = 0)
+  have hP3H : P3.IsHermitian := by
+    simpa only [P3, sixTruthFibreProjection, sixTruthSectorProjection]
+      using sixTruthSectorProjection_isHermitian label
+        (fun u : Fin 4 => u = 3)
+  obtain ⟨hPR, hRP⟩ := sixOpposite03_fibreProjections_orthogonal label
+  have hC : C = P0 + P3 :=
+    sixPlus_complement_eq_oppositeFibreProjections label
+  have hPT : P0 * T = T := by
+    change P0 * (((2 : ℂ) * Complex.I) • (P0 * D * P3)) =
+      ((2 : ℂ) * Complex.I) • (P0 * D * P3)
+    rw [Matrix.mul_smul]
+    congr 1
+    calc
+      P0 * (P0 * D * P3) = (P0 * P0) * D * P3 := by
+        noncomm_ring
+      _ = P0 * D * P3 := by rw [hP02]
+  have hTR : T * P3 = T := by
+    change (((2 : ℂ) * Complex.I) • (P0 * D * P3)) * P3 =
+      ((2 : ℂ) * Complex.I) • (P0 * D * P3)
+    rw [Matrix.smul_mul]
+    congr 1
+    calc
+      (P0 * D * P3) * P3 = P0 * D * (P3 * P3) := by
+        noncomm_ring
+      _ = P0 * D * P3 := by rw [hP32]
+  have hBlock := sixLabelled_plusWitness_nonSaturated_blockDefect
+    label D hD
+  change X * X + Y * Y.conjTranspose = C - C * Δ * C ∧
+    X * Y = -(C * Δ * Q) ∧
+    Y.conjTranspose * Y = Q - Q * Δ * Q at hBlock
+  have hX : X * X = T * T.conjTranspose +
+      T.conjTranspose * T := by
+    have h := sixLabelled_exactHamming_saturated03_cornerSquare_oppositeGram
+      label D hD
+    change X * X = T * T.conjTranspose + T.conjTranspose * T at h
+    exact h
+  have hGram : Y * Y.conjTranspose + T * T.conjTranspose +
+      T.conjTranspose * T = C - C * Δ * C := by
+    calc
+      Y * Y.conjTranspose + T * T.conjTranspose +
+          T.conjTranspose * T = X * X + Y * Y.conjTranspose := by
+            rw [hX]
+            abel
+      _ = C - C * Δ * C := hBlock.1
+  exact sixMatrix_twoFibre_neutralGram_perturbedCompressions
+    P0 P3 T (Y * Y.conjTranspose) C Δ
+    hP02 hP32 hP0H hP3H hPR hRP hPT hTR hC hGram
+
 end Neoplatonic.LTR
