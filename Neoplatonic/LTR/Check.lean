@@ -182,6 +182,7 @@ import Neoplatonic.LTR.SixDimensionalFourthEdgeHermitian
 import Neoplatonic.LTR.SixDimensionalUniformHalfCornerBound
 import Neoplatonic.LTR.SixDimensionalNearPositiveSingletonEnergy
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeNeutralEdgeEnergy
+import Neoplatonic.LTR.SixDimensionalPositiveNearHalfFourthEdgeBudget
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2215,3 +2216,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixLabelled_singletonNeutral2_fourthEdge_normSq_eq_energy12
 #print axioms Neoplatonic.LTR.sixLabelled_singletonNeutral1_fourthEdge_normSq_eq_energy12
 #print axioms Neoplatonic.LTR.sixLabelled_singletonNeutralEither_fourthEdge_normSq_eq_energy12
+
+-- MAN-160: positive near-half original fourth-edge squared and scalar delta budgets.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_singletonFourthEdge_normSq_le
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_singletonFourthEdge_norm_le
