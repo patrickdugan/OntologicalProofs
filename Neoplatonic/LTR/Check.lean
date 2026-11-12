@@ -176,6 +176,7 @@ import Neoplatonic.LTR.SixDimensionalResidualDefectProjection
 import Neoplatonic.LTR.SixDimensionalOrthogonalHermitianNormGate
 import Neoplatonic.LTR.SixDimensionalPerturbedThreeChannelNorm
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
+import Neoplatonic.LTR.SixDimensionalNonsaturatedCoordinateFourEdges
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2182,3 +2183,7 @@ open Neoplatonic.LTR
 
 -- MAN-152: actual negative-signed corner-neutral leakage and isometry defect bounds.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_negativeNearHalf_cornerLeakage
+
+-- MAN-154: true nonsaturated coordinate four-edge signed Dirac decompositions.
+#print axioms Neoplatonic.LTR.sixLabelled_coordinateA_fourEdges
+#print axioms Neoplatonic.LTR.sixLabelled_coordinateB_fourEdges
