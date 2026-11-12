@@ -187,6 +187,7 @@ import Neoplatonic.LTR.SixDimensionalNearHalfTraceRigidity
 import Neoplatonic.LTR.SixDimensionalNearHalfNeutralSingletons
 import Neoplatonic.LTR.SixDimensionalApproxBistochasticFourChannelGate
 import Neoplatonic.LTR.SixDimensionalNearHalfTransitionGramBudget
+import Neoplatonic.LTR.SixDimensionalNearHalfActualBistochasticBudgets
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2249,3 +2250,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_transitionTrace_rowSum
 #print axioms Neoplatonic.LTR.sixMatrix_transitionTrace_columnSum
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_nonsaturated_transitionTable_traceIdentities
+
+-- MAN-165: genuine 2+2 near-half transition energy row and column bounds.
+#print axioms Neoplatonic.LTR.sixTruthFibre_transitionTrace_real_nonneg
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_oppositeDouble_transitionBudgets
