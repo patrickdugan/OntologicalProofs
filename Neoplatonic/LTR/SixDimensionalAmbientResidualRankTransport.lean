@@ -75,7 +75,9 @@ theorem sixMatrix_residualScalarSquare_transport
       1 - W * W = (1 - mu) • PM := by
     simpa only [map_sub, map_one, map_mul, map_smul,
       F.symm_apply_apply] using hOp
-  linear_combination -hMatrix
+  calc
+    W * W = 1 - (1 - W * W) := by abel
+    _ = 1 - (1 - mu) • PM := by rw [hMatrix]
 
 /-- Any genuine 6×6 witness of rank≤4 whose ambient Hilbert
 square differs from identity by a scalar multiple of a
