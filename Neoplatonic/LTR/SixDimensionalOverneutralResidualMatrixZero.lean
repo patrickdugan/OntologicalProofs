@@ -22,7 +22,7 @@ This holds for all Pauli overlaps with no near-saturation assumption.
 
 namespace Neoplatonic.LTR
 
-open scoped NNReal ENNReal Matrix.Norms.L2Operator
+open scoped NNReal ENNReal ComplexOrder Matrix.Norms.L2Operator
 
 private abbrev SixH := EuclideanSpace ℂ (Fin 6)
 private abbrev SixMat := Matrix (Fin 6) (Fin 6) ℂ
