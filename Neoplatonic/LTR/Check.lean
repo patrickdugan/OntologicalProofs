@@ -184,6 +184,7 @@ import Neoplatonic.LTR.SixDimensionalNearPositiveSingletonEnergy
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalPositiveNearHalfFourthEdgeBudget
 import Neoplatonic.LTR.SixDimensionalNearHalfTraceRigidity
+import Neoplatonic.LTR.SixDimensionalNearHalfNeutralSingletons
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2226,3 +2227,10 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_signedDiagonalSum_norm_le_six
 #print axioms Neoplatonic.LTR.sixLabelled_plusWitness_traceDefect_signedIdentity
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_traceRigidity
+
+-- MAN-162: epsilon<1/8 forces neutral fibre singletons and suppresses E12/J.
+#print axioms Neoplatonic.LTR.sixTruth_plusNeutral_multiplicity_positive
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_neutralSingletons
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_E03_upper
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_E12_le_twoEpsilon
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_J_normSq_le_twoEpsilon
