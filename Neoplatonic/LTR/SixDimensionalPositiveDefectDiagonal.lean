@@ -76,7 +76,10 @@ theorem sixTruthFibre_contraction_squareDefect_trace_re_nonneg
   have hRe :
       (∑ i : Fin 6, if label i = u then Δ i i else 0).re =
         ∑ i : Fin 6, if label i = u then (Δ i i).re else 0 := by
-    simp [Complex.re_sum]
+    rw [Complex.re_sum]
+    apply Finset.sum_congr rfl
+    intro i hi
+    by_cases hui : label i = u <;> simp [hui]
   rw [hRe]
   apply Finset.sum_nonneg
   intro i hi
@@ -103,7 +106,7 @@ theorem sixMatrix_signedDiagonal_re_lower_of_nonneg
       -(if neutral i then ‖M‖ else 0) ≤
       (if neutral i then -(M i i).re else (M i i).re) := by
     by_cases hn : neutral i
-    · simp only [hn, if_true]
+    · simp only [hn, ite_true]
       have h := Complex.re_le_norm (M i i)
       linarith [hEntry i]
     · simpa [hn] using hdiag i
@@ -123,7 +126,10 @@ theorem sixMatrix_signedDiagonal_re_lower_of_nonneg
         if neutral i then -(M i i).re else (M i i).re) =
       (∑ i : Fin 6,
         if neutral i then -(M i i) else M i i).re := by
-    simp [Complex.re_sum]
+    rw [Complex.re_sum]
+    apply Finset.sum_congr rfl
+    intro i hi
+    by_cases hn : neutral i <;> simp [hn]
   rw [← hLeft, ← hRight]
   exact hSum
 
