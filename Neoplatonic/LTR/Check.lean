@@ -192,6 +192,7 @@ import Neoplatonic.LTR.SixDimensionalRationalNearHalfFourChannelGate
 import Neoplatonic.LTR.SixDimensionalPositiveNearHalfOppositeDoubleNoGo
 import Neoplatonic.LTR.SixDimensionalNearHalfSingletonRowBudget
 import Neoplatonic.LTR.SixDimensionalSingletonOutputProbeBridge
+import Neoplatonic.LTR.SixDimensionalNearHalfSingleton00ProbeNoGo
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2276,3 +2277,7 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_singletonOutputEdge_normSq_eq_transitionTraceRe
 #print axioms Neoplatonic.LTR.sixTriple03Probe_deviation_eq_fourNeutralEdges
 #print axioms Neoplatonic.LTR.sixMatrix_signPerturbedProbe_norm_le_two
+
+-- MAN-170: true original 6D singleton 00 near-half separating-probe contradiction.
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_singleton00_neutralEdge_normSq_eq_rowEnergy
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_singleton00_impossible
