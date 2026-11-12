@@ -178,6 +178,7 @@ import Neoplatonic.LTR.SixDimensionalPerturbedThreeChannelNorm
 import Neoplatonic.LTR.SixDimensionalPerturbedFourChannelNorm
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalNonsaturatedCoordinateFourEdges
+import Neoplatonic.LTR.SixDimensionalFourthEdgeHermitian
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2192,3 +2193,7 @@ open Neoplatonic.LTR
 -- MAN-155: robust four-channel C*-norm obstruction with extra opposite neutral edge.
 #print axioms Neoplatonic.LTR.sixMatrix_fourChannel_perturbed_halfEnergy_norm_lt_one
 #print axioms Neoplatonic.LTR.sixMatrix_fourChannel_perturbed_unitNorm_impossible
+
+-- MAN-156: Hermitian first coordinate and additional unsaturated neutral-opposite channel.
+#print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_isHermitian
+#print axioms Neoplatonic.LTR.sixPlusOppositeNeutralEdge_isHermitian
