@@ -467,6 +467,7 @@ theorem sixLabelled_plusWitness_nonsaturated_transitionTable_traceIdentities
           (P0 * Δ * P0).trace =
         (P0 * (Y * Y.conjTranspose) * P0).trace +
           (P0 * Δ * P0).trace := by
+            apply congrArg (fun z : ℂ => z + (P0 * Δ * P0).trace)
             simpa only [Matrix.mul_assoc] using
               (sixMatrix_trace_doubleCompression_eq_leftCompression
                 P0 (Y * Y.conjTranspose) hP02).symm
@@ -486,6 +487,7 @@ theorem sixLabelled_plusWitness_nonsaturated_transitionTable_traceIdentities
           (P3 * Δ * P3).trace =
         (P3 * (Y * Y.conjTranspose) * P3).trace +
           (P3 * Δ * P3).trace := by
+            apply congrArg (fun z : ℂ => z + (P3 * Δ * P3).trace)
             simpa only [Matrix.mul_assoc] using
               (sixMatrix_trace_doubleCompression_eq_leftCompression
                 P3 (Y * Y.conjTranspose) hP32).symm
