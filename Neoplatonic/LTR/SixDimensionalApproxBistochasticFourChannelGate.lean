@@ -51,10 +51,10 @@ theorem fourTransition_approxBistochastic_halfPair
     (hrow1 : c + d ≤ 1 + rho)
     (hcol0 : 1 - sigma ≤ a + c)
     (hcol1 : 1 - sigma ≤ b + d) :
-    (a ≤ (1 / 2 : ℝ) + 3 * rho / 2 + sigma ∧
-      d ≤ (1 / 2 : ℝ) + 3 * rho / 2 + sigma) ∨
-    (b ≤ (1 / 2 : ℝ) + 3 * rho / 2 + sigma ∧
-      c ≤ (1 / 2 : ℝ) + 3 * rho / 2 + sigma) := by
+    (a ≤ (1 / 2 : ℝ) + (3 * rho / 2 + sigma) ∧
+      d ≤ (1 / 2 : ℝ) + (3 * rho / 2 + sigma)) ∨
+    (b ≤ (1 / 2 : ℝ) + (3 * rho / 2 + sigma) ∧
+      c ≤ (1 / 2 : ℝ) + (3 * rho / 2 + sigma)) := by
   have had : a - d ≤ rho + sigma := by linarith
   have hda : d - a ≤ rho + sigma := by linarith
   have hbc : b - c ≤ rho + sigma := by linarith
