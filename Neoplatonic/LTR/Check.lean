@@ -180,6 +180,7 @@ import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalNonsaturatedCoordinateFourEdges
 import Neoplatonic.LTR.SixDimensionalFourthEdgeHermitian
 import Neoplatonic.LTR.SixDimensionalUniformHalfCornerBound
+import Neoplatonic.LTR.SixDimensionalNearPositiveSingletonEnergy
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2202,3 +2203,7 @@ open Neoplatonic.LTR
 -- MAN-157: exact-Hamming positive signed and unsaturated active half-corner uniform contractions.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusWitness_norm_le_one
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusActiveHalf_norm_le
+
+-- MAN-158: quantitative opposite Dirac energy concentration near positive Pauli saturation.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_nearPositive_singleton03_energy12_le
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_nearPositive_singleton03_energy03_band
