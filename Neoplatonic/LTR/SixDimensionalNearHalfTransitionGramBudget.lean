@@ -139,7 +139,6 @@ theorem sixTruthFibreProjection_defectTrace_norm_le
     _ = (truthMultiplicity label u : ℝ) * ‖M‖ := by
       simp [truthMultiplicity, Finset.sum_ite, Finset.sum_const,
         nsmul_eq_mul]
-      ring
 
 /-- The exact column trace identity of a neutral exchange with
 nonzero signed spectral defect. This includes any singleton
@@ -173,9 +172,10 @@ theorem sixMatrix_neutralColumnTrace_defect
       _ = ((Q - Q * Δ * Q) * N).trace := by rw [hGram]
       _ = (N - Q * Δ * N).trace := by
         congr 1
-        rw [Matrix.sub_mul, hQN]
-        congr 1
-        noncomm_ring
+        calc
+          (Q - Q * Δ * Q) * N =
+              Q * N - Q * Δ * (Q * N) := by noncomm_ring
+          _ = N - Q * Δ * N := by rw [hQN]
       _ = N.trace - (N * Δ * N).trace := by
         rw [Matrix.trace_sub, hTrace]
   linear_combination hFirst
