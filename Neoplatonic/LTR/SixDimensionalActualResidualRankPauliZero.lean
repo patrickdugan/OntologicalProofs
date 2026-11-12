@@ -113,15 +113,18 @@ theorem sixLabelled_exactHamming_plusRankLeFour_pauliScalar_zero
     exact K.isIdempotentElem_starProjection
   have hWMap :
       W.toEuclideanLin.toContinuousLinearMap = S.A + S.B := by
-    change (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ)) W =
-      (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
-        (labelledSquareA label D) +
-      (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
-        (labelledSquareB label D) at *
-    exact (map_add
-      (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
-      (labelledSquareA label D) (labelledSquareB label D)).trans
-        (by rw [← hA, ← hB])
+    have hmap : W.toEuclideanLin.toContinuousLinearMap =
+        sixLabelledAOperator label D +
+          sixLabelledBOperator label D := by
+      change (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ)) W =
+        (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
+          (labelledSquareA label D) +
+        (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
+          (labelledSquareB label D)
+      exact map_add
+        (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
+        (labelledSquareA label D) (labelledSquareB label D)
+    rw [hmap, ← hA, ← hB]
   have hDefect :
       (1 : SixH →L[ℂ] SixH) -
         W.toEuclideanLin.toContinuousLinearMap *
