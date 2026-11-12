@@ -76,13 +76,14 @@ theorem sixTruthFibre_contraction_squareDefect_trace_re_nonneg
   have hRe :
       (∑ i : Fin 6, if label i = u then Δ i i else 0).re =
         ∑ i : Fin 6, if label i = u then (Δ i i).re else 0 := by
-    simp [Complex.sum_re]
+    simp [Complex.re_sum]
   rw [hRe]
   apply Finset.sum_nonneg
   intro i hi
   by_cases hui : label i = u
-  · simpa [hui] using
-      sixMatrix_contraction_squareDefect_diagonal_re_nonneg W hW i
+  · simp only [hui, ite_true]
+    change 0 ≤ (((1 : SixMat) - W * W) i i).re
+    exact sixMatrix_contraction_squareDefect_diagonal_re_nonneg W hW i
   · simp [hui]
 
 /-- For nonnegative real diagonal entries, the signed trace sum
@@ -114,7 +115,7 @@ theorem sixMatrix_signedDiagonal_re_lower_of_nonneg
   have hLeft :
       (∑ i : Fin 6, -(if neutral i then ‖M‖ else 0)) =
       -((Finset.univ.filter neutral).card : ℝ) * ‖M‖ := by
-    rw [← Finset.sum_neg_distrib]
+    rw [Finset.sum_neg_distrib]
     rw [← Finset.sum_filter]
     simp [nsmul_eq_mul]
   have hRight :
@@ -122,7 +123,7 @@ theorem sixMatrix_signedDiagonal_re_lower_of_nonneg
         if neutral i then -(M i i).re else (M i i).re) =
       (∑ i : Fin 6,
         if neutral i then -(M i i) else M i i).re := by
-    simp [Complex.sum_re]
+    simp [Complex.re_sum]
   rw [← hLeft, ← hRight]
   exact hSum
 
