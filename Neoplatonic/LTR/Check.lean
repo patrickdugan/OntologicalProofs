@@ -191,6 +191,7 @@ import Neoplatonic.LTR.SixDimensionalNearHalfActualBistochasticBudgets
 import Neoplatonic.LTR.SixDimensionalRationalNearHalfFourChannelGate
 import Neoplatonic.LTR.SixDimensionalPositiveNearHalfOppositeDoubleNoGo
 import Neoplatonic.LTR.SixDimensionalNearHalfSingletonRowBudget
+import Neoplatonic.LTR.SixDimensionalSingletonOutputProbeBridge
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2270,3 +2271,8 @@ open Neoplatonic.LTR
 -- MAN-168: nonsaturated singleton output neutral-row energy budget.
 #print axioms Neoplatonic.LTR.sixMatrix_nearHalf_singletonRow_scalarBudget
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_singletonCorner_rowBudget
+
+-- MAN-169: singleton output trace-norm equality and exact triple-probe deviation.
+#print axioms Neoplatonic.LTR.sixMatrix_singletonOutputEdge_normSq_eq_transitionTraceRe
+#print axioms Neoplatonic.LTR.sixTriple03Probe_deviation_eq_fourNeutralEdges
+#print axioms Neoplatonic.LTR.sixMatrix_signPerturbedProbe_norm_le_two
