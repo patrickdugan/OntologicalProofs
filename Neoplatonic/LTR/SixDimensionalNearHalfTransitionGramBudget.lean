@@ -467,9 +467,9 @@ theorem sixLabelled_plusWitness_nonsaturated_transitionTable_traceIdentities
           (P0 * Δ * P0).trace =
         (P0 * (Y * Y.conjTranspose) * P0).trace +
           (P0 * Δ * P0).trace := by
-            rw [← Matrix.mul_assoc]
-            rw [sixMatrix_trace_doubleCompression_eq_leftCompression
-              P0 (Y * Y.conjTranspose) hP02]
+            simpa only [Matrix.mul_assoc] using
+              (sixMatrix_trace_doubleCompression_eq_leftCompression
+                P0 (Y * Y.conjTranspose) hP02).symm
       _ = (P0 - T * T.conjTranspose - P0 * Δ * P0).trace +
           (P0 * Δ * P0).trace := by rw [hRows.1]
       _ = (truthMultiplicity label 0 : ℂ) - 4 * (e : ℂ) := by
@@ -486,9 +486,9 @@ theorem sixLabelled_plusWitness_nonsaturated_transitionTable_traceIdentities
           (P3 * Δ * P3).trace =
         (P3 * (Y * Y.conjTranspose) * P3).trace +
           (P3 * Δ * P3).trace := by
-            rw [← Matrix.mul_assoc]
-            rw [sixMatrix_trace_doubleCompression_eq_leftCompression
-              P3 (Y * Y.conjTranspose) hP32]
+            simpa only [Matrix.mul_assoc] using
+              (sixMatrix_trace_doubleCompression_eq_leftCompression
+                P3 (Y * Y.conjTranspose) hP32).symm
       _ = (P3 - T.conjTranspose * T - P3 * Δ * P3).trace +
           (P3 * Δ * P3).trace := by rw [hRows.2]
       _ = (truthMultiplicity label 3 : ℂ) - 4 * (e : ℂ) := by
