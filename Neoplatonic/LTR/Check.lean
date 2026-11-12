@@ -183,6 +183,7 @@ import Neoplatonic.LTR.SixDimensionalUniformHalfCornerBound
 import Neoplatonic.LTR.SixDimensionalNearPositiveSingletonEnergy
 import Neoplatonic.LTR.SixDimensionalSingletonOppositeNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalPositiveNearHalfFourthEdgeBudget
+import Neoplatonic.LTR.SixDimensionalNearHalfTraceRigidity
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2220,3 +2221,8 @@ open Neoplatonic.LTR
 -- MAN-160: positive near-half original fourth-edge squared and scalar delta budgets.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_singletonFourthEdge_normSq_le
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_singletonFourthEdge_norm_le
+
+-- MAN-161: exact signed trace defect and near-half 12-epsilon rigidity.
+#print axioms Neoplatonic.LTR.sixMatrix_signedDiagonalSum_norm_le_six
+#print axioms Neoplatonic.LTR.sixLabelled_plusWitness_traceDefect_signedIdentity
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_traceRigidity
