@@ -200,6 +200,7 @@ import Neoplatonic.LTR.SixDimensionalOverneutralSignedRank
 import Neoplatonic.LTR.SixDimensionalOverneutralResidualDefect
 import Neoplatonic.LTR.SixDimensionalAmbientResidualRankTransport
 import Neoplatonic.LTR.SixDimensionalActualResidualRankPauliZero
+import Neoplatonic.LTR.SixDimensionalActualMinusResidualRankZero
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2329,3 +2330,8 @@ open Neoplatonic.LTR
 
 -- MAN-177: original exact-Hamming 6D residual Pauli sum vanishes under rank≤4.
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusRankLeFour_pauliScalar_zero
+
+-- MAN-178: original negative signed residual Pauli scalar vanishes on singleton neutral fibres.
+#print axioms Neoplatonic.LTR.sixMatrix_rank_neg_eq
+#print axioms Neoplatonic.LTR.sixLabelled_minusNeutralSingletons_translatedPlus_rank_le_four
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_minusResidualPauli_zero
