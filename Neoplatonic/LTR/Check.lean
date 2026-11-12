@@ -161,6 +161,7 @@ import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalNeutralEdgeOriginalBridge
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeIdentification
 import Neoplatonic.LTR.SixDimensionalSaturatedHalfCornerNorm
+import Neoplatonic.LTR.SixDimensionalUniformHalfCornerBound
 import Neoplatonic.LTR.SixDimensionalSignedCornerTrueEdge
 import Neoplatonic.LTR.SixDimensionalBistochasticThreeEdgeNoGo
 import Neoplatonic.LTR.SixDimensionalSaturated03ActualNormNoGo
@@ -2187,3 +2188,7 @@ open Neoplatonic.LTR
 -- MAN-154: true nonsaturated coordinate four-edge signed Dirac decompositions.
 #print axioms Neoplatonic.LTR.sixLabelled_coordinateA_fourEdges
 #print axioms Neoplatonic.LTR.sixLabelled_coordinateB_fourEdges
+
+-- MAN-157: exact-Hamming positive signed and unsaturated active half-corner uniform contractions.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusWitness_norm_le_one
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusActiveHalf_norm_le
