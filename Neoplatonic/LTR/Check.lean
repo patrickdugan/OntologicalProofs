@@ -179,6 +179,7 @@ import Neoplatonic.LTR.SixDimensionalPerturbedFourChannelNorm
 import Neoplatonic.LTR.SixDimensionalSignedCoordinateThreeEdges
 import Neoplatonic.LTR.SixDimensionalNonsaturatedCoordinateFourEdges
 import Neoplatonic.LTR.SixDimensionalFourthEdgeHermitian
+import Neoplatonic.LTR.SixDimensionalUniformHalfCornerBound
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2197,3 +2198,7 @@ open Neoplatonic.LTR
 -- MAN-156: Hermitian first coordinate and additional unsaturated neutral-opposite channel.
 #print axioms Neoplatonic.LTR.sixLabelled_firstCoordinate_isHermitian
 #print axioms Neoplatonic.LTR.sixPlusOppositeNeutralEdge_isHermitian
+
+-- MAN-157: exact-Hamming positive signed and unsaturated active half-corner uniform contractions.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusWitness_norm_le_one
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusActiveHalf_norm_le
