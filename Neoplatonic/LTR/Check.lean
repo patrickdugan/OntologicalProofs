@@ -188,6 +188,7 @@ import Neoplatonic.LTR.SixDimensionalNearHalfNeutralSingletons
 import Neoplatonic.LTR.SixDimensionalApproxBistochasticFourChannelGate
 import Neoplatonic.LTR.SixDimensionalNearHalfTransitionGramBudget
 import Neoplatonic.LTR.SixDimensionalNearHalfActualBistochasticBudgets
+import Neoplatonic.LTR.SixDimensionalRationalNearHalfFourChannelGate
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2254,3 +2255,7 @@ open Neoplatonic.LTR
 -- MAN-165: genuine 2+2 near-half transition energy row and column bounds.
 #print axioms Neoplatonic.LTR.sixTruthFibre_transitionTrace_real_nonneg
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_oppositeDouble_transitionBudgets
+
+-- MAN-166: rational 1/250 Pauli window gives a strict four-channel norm obstruction.
+#print axioms Neoplatonic.LTR.sixMatrix_fourthEdge_twoOver250_norm_le_nineOver100
+#print axioms Neoplatonic.LTR.sixMatrix_approxBistochastic_fourChannel_oneOver250_impossible
