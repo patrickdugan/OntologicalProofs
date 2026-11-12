@@ -189,6 +189,7 @@ import Neoplatonic.LTR.SixDimensionalApproxBistochasticFourChannelGate
 import Neoplatonic.LTR.SixDimensionalNearHalfTransitionGramBudget
 import Neoplatonic.LTR.SixDimensionalNearHalfActualBistochasticBudgets
 import Neoplatonic.LTR.SixDimensionalRationalNearHalfFourChannelGate
+import Neoplatonic.LTR.SixDimensionalPositiveNearHalfOppositeDoubleNoGo
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2259,3 +2260,8 @@ open Neoplatonic.LTR
 -- MAN-166: rational 1/250 Pauli window gives a strict four-channel norm obstruction.
 #print axioms Neoplatonic.LTR.sixMatrix_fourthEdge_twoOver250_norm_le_nineOver100
 #print axioms Neoplatonic.LTR.sixMatrix_approxBistochastic_fourChannel_oneOver250_impossible
+
+-- MAN-167: original 6D positive near-half (2,1,1,2) contradiction.
+#print axioms Neoplatonic.LTR.sixMatrix_singletonNeutralEdge_normSq_eq_transitionTraceRe
+#print axioms Neoplatonic.LTR.sixMatrix_halfCorner_edgeProduct_oneOver250
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_oppositeDouble_impossible
