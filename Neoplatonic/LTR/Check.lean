@@ -154,6 +154,7 @@ import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalOffDiagonalNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalApproximateNeutralEdgeOrthogonality
+import Neoplatonic.LTR.SixDimensionalActualNearHalfNeutralEdgeLeakage
 import Neoplatonic.LTR.SixDimensionalActualCornerOffDiagonal
 import Neoplatonic.LTR.SixDimensionalActualNeutralEdgeOrthogonality
 import Neoplatonic.LTR.SixDimensionalNeutralEdgeOriginalBridge
@@ -2174,3 +2175,6 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_orthogonalHermitian_edgePair_normSq_eq_max
 #print axioms Neoplatonic.LTR.sixMatrix_threeChannel_perturbed_normSq_le
 #print axioms Neoplatonic.LTR.sixMatrix_threeChannel_perturbed_halfEnergy_norm_lt_one
+
+-- MAN-150: actual near-half neutral edge product bound for each signed coordinate.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_positiveNearHalf_actualEdges_smallProducts
