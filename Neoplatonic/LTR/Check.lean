@@ -199,6 +199,7 @@ import Neoplatonic.LTR.SixDimensionalSharpenedNearHalfEnergy
 import Neoplatonic.LTR.SixDimensionalOverneutralSignedRank
 import Neoplatonic.LTR.SixDimensionalOverneutralResidualDefect
 import Neoplatonic.LTR.SixDimensionalAmbientResidualRankTransport
+import Neoplatonic.LTR.SixDimensionalActualResidualRankPauliZero
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
 import Neoplatonic.LTR.SixDimensionalNeutralUndirectedEdgeNorm
@@ -2325,3 +2326,6 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_residualProjection_transport_idempotent
 #print axioms Neoplatonic.LTR.sixMatrix_residualScalarSquare_transport
 #print axioms Neoplatonic.LTR.sixMatrix_rank_le_four_residualSquare_scalar_zero
+
+-- MAN-177: original exact-Hamming 6D residual Pauli sum vanishes under rank≤4.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_plusRankLeFour_pauliScalar_zero
