@@ -201,6 +201,7 @@ import Neoplatonic.LTR.SixDimensionalOverneutralResidualDefect
 import Neoplatonic.LTR.SixDimensionalAmbientResidualRankTransport
 import Neoplatonic.LTR.SixDimensionalActualResidualRankPauliZero
 import Neoplatonic.LTR.SixDimensionalActualMinusResidualRankZero
+import Neoplatonic.LTR.SixDimensionalOverneutralPauliSign
 import Neoplatonic.LTR.SixDimensionalOverneutralResidualMatrixZero
 import Neoplatonic.LTR.SixDimensionalSingletonInputOperatorNorm
 import Neoplatonic.LTR.SixDimensionalSingletonNeutralEdgeEnergy
@@ -2341,3 +2342,8 @@ open Neoplatonic.LTR
 #print axioms Neoplatonic.LTR.sixMatrix_twoDim_hermitian_square_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_translatedResidual_sum_zero
 #print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_translatedResidual_opposites
+
+-- MAN-181: exact original overneutral Pauli overlap sign and opposite energy ordering.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_pauliImbalance_eq_residualSquares
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_pauliImbalance_nonneg
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_overneutral_oppositeEnergy_order
