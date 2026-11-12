@@ -84,10 +84,19 @@ theorem sixLabelled_exactHamming_minusWitness_rank_ge_four
     twoDirectionSignedQuartet S.uplus S.uminus S.vplus S.vminus
   have hMap :
       W.toEuclideanLin.toContinuousLinearMap = S.A - S.B := by
-    change (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
-      (labelledSquareA label D - labelledSquareB label D) = S.A - S.B
-    rw [map_sub]
-    rfl
+    have hMatrix :
+        W.toEuclideanLin.toContinuousLinearMap =
+          sixLabelledAOperator label D -
+            sixLabelledBOperator label D := by
+      change (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
+        (labelledSquareA label D - labelledSquareB label D) =
+          (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
+            (labelledSquareA label D) -
+          (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ))
+            (labelledSquareB label D)
+      exact map_sub
+        (Matrix.toEuclideanCLM (n := Fin 6) (𝕜 := ℂ)) _ _
+    rw [hMatrix, ← hA, ← hB]
   have hSquare (i : Fin 4) :
       W.toEuclideanLin (W.toEuclideanLin (q i)) = q i := by
     change W.toEuclideanLin.toContinuousLinearMap
