@@ -76,7 +76,7 @@ theorem sixMatrix_fourChannel_perturbed_halfEnergy_norm_lt_one
     nlinarith [norm_nonneg G, hGsq]
   have hGnonneg : 0 ≤ ‖G‖ := norm_nonneg G
   have hJG : ‖G + J‖ ≤ ‖G‖ + delta :=
-    (norm_add_le G J).trans (add_le_add_left hJ _)
+    (norm_add_le G J).trans (add_le_add (le_refl ‖G‖) hJ)
   have hprod :
       0 ≤ (‖G‖ + delta - ‖G + J‖) *
         (‖G‖ + delta + ‖G + J‖) :=
