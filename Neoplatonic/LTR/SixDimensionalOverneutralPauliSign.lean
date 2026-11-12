@@ -1,4 +1,5 @@
 import Neoplatonic.LTR.SixDimensionalActualMinusResidualRankZero
+import Neoplatonic.LTR.SixDimensionalNegativeNearHalfDefect
 import Neoplatonic.LTR.TwoDimensionalRealPauliVectors
 import Neoplatonic.LTR.SixDimensionalPauliOppositeEnergyRegions
 import Mathlib.Tactic
