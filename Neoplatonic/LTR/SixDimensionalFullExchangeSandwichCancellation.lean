@@ -41,16 +41,16 @@ theorem sixMatrix_fullExchange_exists_rightFactor
     ∃ R : SixMat, Y * R = C := by
   classical
   have hCYfun (x : Fin 6 → ℂ) :
-      C *ᵥ (Y *ᵥ x) = Y *ᵥ x := by
+      C.mulVec (Y.mulVec x) = Y.mulVec x := by
     calc
-      C *ᵥ (Y *ᵥ x) = (C * Y) *ᵥ x :=
+      C.mulVec (Y.mulVec x) = (C * Y).mulVec x :=
         (Matrix.mulVec_mulVec C Y x).symm
-      _ = Y *ᵥ x := by rw [hCY]
+      _ = Y.mulVec x := by rw [hCY]
   have hRangeLe :
       LinearMap.range Y.mulVecLin ≤ LinearMap.range C.mulVecLin := by
     intro z hz
     obtain ⟨x, rfl⟩ := hz
-    exact ⟨Y *ᵥ x, hCYfun x⟩
+    exact ⟨Y.mulVec x, hCYfun x⟩
   have hFin :
       Module.finrank ℂ (LinearMap.range Y.mulVecLin) =
         Module.finrank ℂ (LinearMap.range C.mulVecLin) := hRank
@@ -58,7 +58,7 @@ theorem sixMatrix_fullExchange_exists_rightFactor
       LinearMap.range Y.mulVecLin = LinearMap.range C.mulVecLin :=
     Submodule.eq_of_le_of_finrank_eq hRangeLe hFin
   have hPreimage (j : Fin 6) :
-      ∃ x : Fin 6 → ℂ, Y *ᵥ x = C.col j := by
+      ∃ x : Fin 6 → ℂ, Y.mulVec x = C.col j := by
     have hCmem : C.col j ∈ LinearMap.range C.mulVecLin := by
       refine ⟨Pi.single j (1 : ℂ), ?_⟩
       simpa only [Matrix.mulVecLin_apply] using
