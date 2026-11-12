@@ -26,6 +26,9 @@ This exposes a precise fourth-channel error budget to be discharged
 with original opposite-block energy E12 in the nonsaturated case.
 -/
 
+set_option maxHeartbeats 3000000
+set_option maxRecDepth 8192
+
 namespace Neoplatonic.LTR
 
 open scoped Matrix.Norms.L2Operator
