@@ -1,0 +1,39 @@
+name: GK-01 ground-kernel proof
+on:
+  push:
+    paths:
+      - 'Neoplatonic/GroundKernel.lean'
+      - 'Neoplatonic/Arithmetic.lean'
+      - 'Neoplatonic.lean'
+      - '.github/workflows/gk01-ground-kernel.yml'
+  pull_request:
+    paths:
+      - 'Neoplatonic/GroundKernel.lean'
+      - 'Neoplatonic/Arithmetic.lean'
+      - 'Neoplatonic.lean'
+      - '.github/workflows/gk01-ground-kernel.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  kernel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: true
+          build-args: Neoplatonic.GroundKernel
+          test: false
+          lint: false
+          use-mathlib-cache: true
+      - name: Exact theorem and dependency check
+        run: |
+          set -euo pipefail
+          lake env lean Neoplatonic/GroundKernel.lean | tee gk01-axioms.txt
+          if grep -Eq 'sorryAx|ofReduceBool' gk01-axioms.txt; then
+            echo 'Unexpected admitted or native computation axiom'
+            exit 1
+          fi

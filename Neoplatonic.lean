@@ -9,6 +9,7 @@ import Neoplatonic.Modal
 import Neoplatonic.RH
 import Neoplatonic.RHGeometry
 import Neoplatonic.Arithmetic
+import Neoplatonic.GroundKernel
 import Neoplatonic.GodelScott
 import Neoplatonic.GodelAnderson
 import Neoplatonic.GodelGrounding
