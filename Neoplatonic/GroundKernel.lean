@@ -46,6 +46,7 @@ noncomputable def unitVector (m : World) : ℝ :=
 theorem universal_is_rank_one (m n : World) :
     universalUnit m n = unitVector m * unitVector n := by
   simp [universalUnit, unitVector, div_eq_mul_inv, mul_inv_rev]
+  ac_rfl
 
 /-- Exact decomposition of the normalized gcd kernel. -/
 theorem normalized_kernel_splits (m n : World) :
