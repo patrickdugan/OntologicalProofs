@@ -1,0 +1,60 @@
+name: Grammy and Primes proof checks
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'grammy-and-primes/**'
+      - '.github/workflows/grammy-and-primes.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: grammy-and-primes-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+      - name: Build existing Neoplatonic imports
+        run: lake build Neoplatonic
+      - name: Reproduce finite arithmetic tests
+        run: python3 grammy-and-primes/experiment.py
+      - name: Verify finite Möbius cancellation checkpoints
+        run: python3 grammy-and-primes/mobius_experiment.py
+      - name: Check finite-field irreducibility controls
+        run: python3 grammy-and-primes/polynomial_experiment.py
+      - name: Check exact reflection positivity and negative controls
+        run: python3 grammy-and-primes/positivity_experiment.py
+      - name: Check divisor Gram forms and Mobius inverses
+        run: python3 grammy-and-primes/divisor_gram_experiment.py
+      - name: Check Logos projection controls and centered prime measure
+        run: python3 grammy-and-primes/logos-quasicrystal/experiment.py
+      - name: Compile every new Lean script and report all errors
+        shell: bash
+        run: |
+          status=0
+          while IFS= read -r -d '' file; do
+            echo "::group::$file"
+            log=$(mktemp)
+            lake env lean "$file" 2>&1 | tee "$log" || status=1
+            if grep -q 'sorryAx' "$log"; then
+              echo "::error::Unproved declaration found in $file"
+              status=1
+            fi
+            rm -f "$log"
+            echo "::endgroup::"
+          done < <(find grammy-and-primes -type f -name '*.lean' -print0 | sort -z)
+          exit "$status"

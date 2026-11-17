@@ -1,0 +1,170 @@
+import Neoplatonic.RH
+import Neoplatonic.GodelScott
+import Mathlib.Tactic
+
+/-!
+# RH and an ontological argument: dependency audit
+
+RiemannHypothesis here is the actual Mathlib analytic proposition, not a
+boolean placeholder. God is an unspecified proposition, not a defined
+or demonstrated supernatural being.
+
+RH → God is a conditional argument. A disproof of RH yields ¬God only with a
+separate bridge God → RH. Putting RH into the definition of a special
+spectrally certified God makes its refutation trivial and definitional.
+
+Finally, Scott's full axioms plus symmetry force modal collapse for any
+world-varying proposition. A world-indexed report about RH is an epistemic
+variable, not the mathematical truth value of RH itself.
+-/
+
+namespace GrammyAndPrimes
+
+/-- This is just modus ponens; the mathematical hypothesis does not provide
+    the bridge from zeta zeros to the existence of God. -/
+theorem conditional_god_of_rh (God : Prop)
+    (bridge : RiemannHypothesis → God) (rh : RiemannHypothesis) : God :=
+  bridge rh
+
+/-- The requested 'RH false ⇒ atheism' argument needs the opposite bridge. -/
+theorem atheism_of_counterexample_to_rh (God : Prop)
+    (bridge : God → RiemannHypothesis) (counter : ¬ RiemannHypothesis) : ¬ God :=
+  fun god => counter (bridge god)
+
+/-- Naming an intermediate spectral or Hilbert-Pólya hypothesis adds no
+    inferential strength when that hypothesis is an unconstrained Prop.
+    A meaningful spectral proposal must independently construct and verify
+    its claimed operator or positivity condition. -/
+theorem unconstrained_intermediate_bridge_iff_direct (God : Prop) :
+    (∃ HP : Prop, (God → HP) ∧ (HP → RiemannHypothesis)) ↔
+      (God → RiemannHypothesis) := by
+  constructor
+  · rintro ⟨HP, hGodHP, hHPRH⟩
+    exact fun hg => hHPRH (hGodHP hg)
+  · intro h
+    exact ⟨RiemannHypothesis, h, fun rh => rh⟩
+
+/-- A model where the forward implication holds, RH is false, and God is true.
+    This rules out the tempting but invalid converse in pure propositional logic. -/
+theorem false_antecedent_does_not_refute_consequent :
+    ¬ (∀ R God : Prop, (R → God) → ¬ R → ¬ God) := by
+  intro h
+  have hnot : ¬ True := h False True (fun hf => False.elim hf) (fun hf => hf)
+  exact hnot True.intro
+
+/-- One can define a special existence claim to include RH by stipulation. -/
+def SpectrallyCertifiedGod (God : Prop) : Prop := God ∧ RiemannHypothesis
+
+/-- An RH counterexample refutes that definition, not independent God claims. -/
+theorem no_spectrally_certified_god (God : Prop)
+    (counter : ¬ RiemannHypothesis) : ¬ SpectrallyCertifiedGod God :=
+  fun h => counter h.2
+
+/-- Under RH, the spectral adjective adds no information. -/
+theorem spectrally_certified_iff_god_under_rh (God : Prop)
+    (rh : RiemannHypothesis) : SpectrallyCertifiedGod God ↔ God := by
+  constructor
+  · intro h
+    exact h.1
+  · intro h
+    exact ⟨h, rh⟩
+
+universe u v
+
+/-- Under Scott's premises, a separate Godlike-to-RH bridge proves RH.
+    It makes that bridge, not the modal logic, the mathematical load bearer. -/
+theorem rh_from_scott_with_speculative_bridge
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (w : W)
+    (spectralBridge : ∀ x : α,
+      Neoplatonic.Godel.Godlike T.P x w → RiemannHypothesis) :
+    RiemannHypothesis := by
+  obtain ⟨g, hg⟩ := Neoplatonic.Godel.godlike_exists T hsymm w
+  exact spectralBridge g hg
+
+/-- Since Scott proves a Godlike inhabitant, the proposed bridge is
+    logically equivalent to RH itself once Scott's assumptions are held. -/
+theorem scott_spectral_bridge_iff_rh
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (w : W) :
+    (∀ x : α, Neoplatonic.Godel.Godlike T.P x w → RiemannHypothesis) ↔
+      RiemannHypothesis := by
+  constructor
+  · exact rh_from_scott_with_speculative_bridge T hsymm w
+  · intro rh _ _
+    exact rh
+
+/-- Any world-constant property of a Scott God-like witness is positive
+    exactly when that proposition is true. This is a conditional theorem
+    using Scott's axioms and a symmetric accessibility relation. -/
+theorem scott_constant_positivity_iff_truth
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (w : W) (Q : Prop) :
+    T.P (fun (_ : α) (_ : W) => Q) w ↔ Q := by
+  obtain ⟨g, hg⟩ := Neoplatonic.Godel.godlike_exists T hsymm w
+  exact Neoplatonic.Godel.positive_iff_godlike_has T w hg
+    (fun _ _ => Q)
+
+/-- Making "RH is a positive property" a Scott premise is, given a God-like
+    witness, equivalent to assuming RH itself. -/
+theorem scott_rh_positivity_iff_rh
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (w : W) :
+    T.P (fun (_ : α) (_ : W) => RiemannHypothesis) w ↔
+      RiemannHypothesis :=
+  scott_constant_positivity_iff_truth T hsymm w RiemannHypothesis
+
+/-- Scott's one-world theory admits a God-like being alongside a
+    reflection-symmetric, off-axis *toy* spectrum. This countermodel targets
+    the structural symmetry-to-alignment bridge, not the actual RH. -/
+theorem scott_model_with_off_axis_symmetric_toy :
+    ∃ T : Neoplatonic.Godel.ScottTheory (fun (_ _ : Unit) => True) Unit,
+      (∃ g : Unit, Neoplatonic.Godel.Godlike T.P g ()) ∧
+      (∃ coord : Bool → ℚ,
+        (∀ b : Bool, ∃ c : Bool, coord c = 1 - coord b) ∧
+        ∃ b : Bool, coord b ≠ (1 / 2 : ℚ)) := by
+  refine ⟨Neoplatonic.Godel.trivialScott, ?_, ?_⟩
+  · exact Neoplatonic.Godel.godlike_exists Neoplatonic.Godel.trivialScott
+      ⟨fun _ _ _ => trivial⟩ ()
+  · refine ⟨fun b => if b then (2 / 3 : ℚ) else (1 / 3 : ℚ), ?_, ?_⟩
+    · intro b
+      refine ⟨!b, ?_⟩
+      cases b <;> norm_num
+    · refine ⟨false, ?_⟩
+      norm_num
+
+/-- Scott's axioms propagate any proposition to an accessible world;
+    by this point RH has been replaced with a world-indexed report. -/
+theorem scott_propagates_rh_reports
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (rhReport : W → Prop) {w v : W}
+    (hwv : R w v) (hw : rhReport w) : rhReport v := by
+  exact Neoplatonic.Godel.modal_collapse T hsymm w rhReport hw v hwv
+
+/-- Therefore a frame admitting opposite reports between accessible worlds
+    is incompatible with Scott's premises on a symmetric accessibility frame. -/
+theorem scott_excludes_disagreeing_reports
+    {W : Type u} {R : W → W → Prop} {α : Type v}
+    (T : Neoplatonic.Godel.ScottTheory R α) (hsymm : Std.Symm R)
+    (rhReport : W → Prop) {w v : W}
+    (hwv : R w v) (hw : rhReport w) (hv : ¬ rhReport v) : False :=
+  hv (scott_propagates_rh_reports T hsymm rhReport hwv hw)
+
+/-- Concrete two-world inconsistency witness for the same modal-collapse
+    phenomenon. It does not presuppose anything about the real RH. -/
+theorem scott_impossible_on_total_two_world_frame :
+    ¬ Nonempty (Neoplatonic.Godel.ScottTheory (fun (_ _ : Bool) => True) Unit) := by
+  rintro ⟨T⟩
+  have hsymm : Std.Symm (fun (_ _ : Bool) => True) :=
+    ⟨fun _ _ _ => trivial⟩
+  have hfalse : false = true :=
+    scott_propagates_rh_reports T hsymm
+      (fun b : Bool => b = true) (w := true) (v := false) trivial rfl
+  cases hfalse
+
+end GrammyAndPrimes
