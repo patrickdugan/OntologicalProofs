@@ -1,0 +1,98 @@
+{
+  "project": "Divine Elegance: Mu\u02bftaziliya After G\u00f6del",
+  "jobs": [
+    {
+      "id": "DE-01",
+      "prompt_path": "jobs/DE-01_Lean_Kernel.md",
+      "status": "READY_FOR_AGENT",
+      "owner": "Codex plus designated reviewers",
+      "prerequisite": "See prompt",
+      "type": "offline research",
+      "requires_user_live_approval": false,
+      "priority": "P0"
+    },
+    {
+      "id": "DE-02",
+      "prompt_path": "jobs/DE-02_96_Global_Audit.md",
+      "status": "READY_FOR_AGENT",
+      "owner": "Codex plus designated reviewers",
+      "prerequisite": "See prompt",
+      "type": "offline research",
+      "requires_user_live_approval": false,
+      "priority": "P0"
+    },
+    {
+      "id": "DE-03",
+      "prompt_path": "jobs/DE-03_Moral_Bottleneck.md",
+      "status": "READY_FOR_AGENT",
+      "owner": "Codex plus designated reviewers",
+      "prerequisite": "See prompt",
+      "type": "offline research",
+      "requires_user_live_approval": false,
+      "priority": "P0"
+    },
+    {
+      "id": "DE-04",
+      "prompt_path": "jobs/DE-04_Isa_Source_Sign.md",
+      "status": "READY_FOR_AGENT",
+      "owner": "Codex plus designated reviewers",
+      "prerequisite": "See prompt",
+      "type": "offline research",
+      "requires_user_live_approval": false,
+      "requires_specialist_review": true,
+      "priority": "P1"
+    },
+    {
+      "id": "DE-05",
+      "prompt_path": "jobs/DE-05_RSI_Control.md",
+      "status": "READY_FOR_AGENT",
+      "owner": "Codex plus designated reviewers",
+      "prerequisite": "See prompt",
+      "type": "offline research",
+      "requires_user_live_approval": false,
+      "priority": "P1"
+    },
+    {
+      "id": "DE-06",
+      "prompt_path": "jobs/DE-06_Code19_Audit.md",
+      "status": "READY_FOR_AGENT",
+      "owner": "Codex plus designated reviewers",
+      "prerequisite": "See prompt",
+      "type": "offline research",
+      "requires_user_live_approval": false,
+      "priority": "P1"
+    },
+    {
+      "id": "DE-07",
+      "prompt_path": "jobs/DE-07_Conformal_Justice.md",
+      "status": "READY_FOR_AGENT",
+      "owner": "Codex plus designated reviewers",
+      "prerequisite": "See prompt",
+      "type": "offline research",
+      "requires_user_live_approval": false,
+      "priority": "P1"
+    },
+    {
+      "id": "DE-08",
+      "prompt_path": "jobs/DE-08_6GW_Source_Fiqh.md",
+      "status": "READY_FOR_AGENT",
+      "owner": "Codex plus designated reviewers",
+      "prerequisite": "See prompt",
+      "type": "offline research",
+      "requires_user_live_approval": false,
+      "requires_specialist_review": true,
+      "priority": "P2"
+    },
+    {
+      "id": "DE-09",
+      "prompt_path": "jobs/DE-09_Lattice_Replication.md",
+      "status": "READY_FOR_AGENT",
+      "owner": "Codex plus designated reviewers",
+      "prerequisite": "See prompt",
+      "type": "offline research",
+      "requires_user_live_approval": false,
+      "requires_specialist_review": true,
+      "priority": "P2"
+    }
+  ]
+}

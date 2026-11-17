@@ -1,0 +1,15 @@
+{
+  "registry_count": 96,
+  "has_source_a": 96,
+  "has_source_b": 96,
+  "route_counts": {
+    "S": 16,
+    "Q": 43,
+    "L": 21,
+    "T": 0,
+    "U": 16
+  },
+  "staged_semantics": 0,
+  "global_sat_status": "NOT_RUN: missing formal speaker/audience/claim semantics",
+  "interpretive_route_is_not_proof": true
+}

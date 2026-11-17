@@ -1,0 +1,121 @@
+[
+  {
+    "label": "Tawḥīd and type boundary",
+    "textual_touchstones": [
+      "Q112:1–4",
+      "Q4:171",
+      "Q3:59"
+    ],
+    "author_extension": "one referent is not its signs or descriptions",
+    "code": "DivineElegance/Jurisdiction.lean",
+    "evidence": "philological+metaphysical",
+    "id": "E0",
+    "status": "authorial_premise_under_audit",
+    "lean_disposition": "conditional mathematics only"
+  },
+  {
+    "label": "Moral value intelligible to reason",
+    "textual_touchstones": [
+      "Q4:58",
+      "Q5:8"
+    ],
+    "author_extension": "at least partial moral realism accessible by rational argument",
+    "code": "DivineElegance/Axioms.lean",
+    "evidence": "philosophical+textual",
+    "id": "E1",
+    "status": "authorial_premise_under_audit",
+    "lean_disposition": "conditional mathematics only"
+  },
+  {
+    "label": "Divine justice",
+    "textual_touchstones": [
+      "Q4:40",
+      "Q10:44"
+    ],
+    "author_extension": "reconciliation burden for arbitrary-cruelty accounts",
+    "code": "DivineElegance/MoralInformation.lean",
+    "evidence": "textual+normative",
+    "id": "E2",
+    "status": "authorial_premise_under_audit",
+    "lean_disposition": "conditional mathematics only"
+  },
+  {
+    "label": "Capacity and accountability",
+    "textual_touchstones": [
+      "Q2:286"
+    ],
+    "author_extension": "knowledge/coercion/repair context",
+    "code": "DivineElegance/MoralInformation.lean",
+    "evidence": "textual+ethics",
+    "id": "E3",
+    "status": "authorial_premise_under_audit",
+    "lean_disposition": "conditional mathematics only"
+  },
+  {
+    "label": "Mercy self-commitment",
+    "textual_touchstones": [
+      "Q6:12",
+      "Q6:54"
+    ],
+    "author_extension": "mercy internal to a just account",
+    "code": "DivineElegance/MoralInformation.lean",
+    "evidence": "textual+theology",
+    "id": "E4",
+    "status": "authorial_premise_under_audit",
+    "lean_disposition": "conditional mathematics only"
+  },
+  {
+    "label": "Relational claims survive accounting",
+    "textual_touchstones": [
+      "Q4:58",
+      "Q4:135",
+      "Q42:40"
+    ],
+    "author_extension": "victim-claim persistence and rights-respecting repair",
+    "code": "DivineElegance/MoralInformation.lean",
+    "evidence": "normative+textual",
+    "id": "E5",
+    "status": "authorial_premise_under_audit",
+    "lean_disposition": "conditional mathematics only"
+  },
+  {
+    "label": "Provenance and epistemic restraint",
+    "textual_touchstones": [
+      "Q17:36",
+      "Q49:6"
+    ],
+    "author_extension": "typed claim/warrant classes",
+    "code": "DivineElegance/Jurisdiction.lean",
+    "evidence": "methodological",
+    "id": "E6",
+    "status": "authorial_premise_under_audit",
+    "lean_disposition": "conditional mathematics only"
+  },
+  {
+    "label": "Delegation and rejected manufactured sovereignty",
+    "textual_touchstones": [
+      "Q4:58",
+      "Q2:256",
+      "Q42:38"
+    ],
+    "author_extension": "competence does not automatically authorize coercion",
+    "code": "DivineElegance/Jurisdiction.lean",
+    "evidence": "ethical+juristic",
+    "id": "E7",
+    "status": "authorial_premise_under_audit",
+    "lean_disposition": "conditional mathematics only"
+  },
+  {
+    "label": "Global interpretive coherence",
+    "textual_touchstones": [
+      "Q4:82",
+      "Q3:7"
+    ],
+    "author_extension": "shared subject/event propositions require global model",
+    "code": "DivineElegance/Readings.lean",
+    "evidence": "logic+philology",
+    "id": "E8",
+    "status": "authorial_premise_under_audit",
+    "lean_disposition": "conditional mathematics only"
+  }
+]

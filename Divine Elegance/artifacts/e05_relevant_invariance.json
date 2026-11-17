@@ -1,0 +1,12 @@
+{
+  "labels": [
+    "X",
+    "Y"
+  ],
+  "principled_label_swap_failures": 0,
+  "principled_policy_errors": 0,
+  "proxy_label_swap_failures": 4,
+  "proxy_policy_errors": 5,
+  "synthetic_scenarios": 8,
+  "warning": "Whether label is morally irrelevant must be externally specified and reviewed."
+}

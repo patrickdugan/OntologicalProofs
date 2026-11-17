@@ -1,0 +1,45 @@
+{
+  "enumerated_assignments": 32,
+  "consistent_with_2_62_3_85_and_reward_bridge": 10,
+  "consistent_with_seeks_other_implies_not_islam": 9,
+  "consistent_additional_exhaustion": 5,
+  "forced_by_base_model": "G -> not SeeksOther",
+  "not_forced_by_base_model": "G -> Islam",
+  "countermodel_to_forced_membership": {
+    "name": "outwardButIncluded",
+    "G": true,
+    "SeeksOther": false,
+    "Islam": false,
+    "Reward": true,
+    "Accepted": true
+  },
+  "coherent_interpretive_worlds": [
+    {
+      "name": "outwardButIncluded",
+      "G": true,
+      "SeeksOther": false,
+      "Islam": false,
+      "Reward": true,
+      "Accepted": true
+    },
+    {
+      "name": "excludedOnConditions",
+      "G": false,
+      "SeeksOther": true,
+      "Islam": false,
+      "Reward": false,
+      "Accepted": false
+    },
+    {
+      "name": "internallyIncluded",
+      "G": true,
+      "SeeksOther": false,
+      "Islam": true,
+      "Reward": true,
+      "Accepted": true
+    }
+  ],
+  "global_consistency_countermodel": "PASS: each cluster locally satisfiable; no shared interpretation-world satisfies both",
+  "lean_kernel": "NOT RUN: lean compiler absent in this environment",
+  "python_checks": "PASS"
+}
