@@ -1,0 +1,169 @@
+{
+  "finite_audit": {
+    "domain": "synthetic_only",
+    "execution": {
+      "contracts": 21584,
+      "contracts_with_initial_state": 7088,
+      "contracts_with_reachable_effect": 4559,
+      "premise_deletion_witnesses": {
+        "mediation": {
+          "edge_mask": 1,
+          "edges": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "gate": 0,
+          "holds": {
+            "mediation": false,
+            "preserves": true,
+            "sound": true,
+            "starts": true
+          },
+          "initial": 1,
+          "invariant": 1,
+          "lawful": 0
+        },
+        "preserves": {
+          "edge_mask": 17,
+          "edges": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "gate": 5,
+          "holds": {
+            "mediation": true,
+            "preserves": false,
+            "sound": true,
+            "starts": true
+          },
+          "initial": 2,
+          "invariant": 2,
+          "lawful": 4
+        },
+        "sound": {
+          "edge_mask": 1,
+          "edges": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "gate": 1,
+          "holds": {
+            "mediation": true,
+            "preserves": true,
+            "sound": false,
+            "starts": true
+          },
+          "initial": 1,
+          "invariant": 1,
+          "lawful": 0
+        },
+        "starts": {
+          "edge_mask": 1,
+          "edges": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "gate": 1,
+          "holds": {
+            "mediation": true,
+            "preserves": true,
+            "sound": true,
+            "starts": false
+          },
+          "initial": 1,
+          "invariant": 0,
+          "lawful": 0
+        }
+      },
+      "systems": 1048576,
+      "unsafe_contracts": 0
+    },
+    "guidance": {
+      "decreases": 495,
+      "increases": 495,
+      "positive_event_cases": 1080,
+      "unchanged": 90,
+      "zero_probability_events_excluded": 9
+    },
+    "information": {
+      "obstructed": 196,
+      "view_duty_pairs": 256
+    },
+    "motivation": {
+      "candidate_cases": 5184,
+      "qualifying_maximizers": 324
+    },
+    "schema": "moral_realism_finite_audit_v1"
+  },
+  "lean": {
+    "status": "NOT_RUN"
+  },
+  "python": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests_run": 19
+  },
+  "schema": "moral_realism_verification_v1",
+  "source_checks": {
+    "scope": "lexical smoke check; kernel dependency check is separate",
+    "theorem_names": [
+      "MoralRealism.admitted_execution_exists",
+      "MoralRealism.authenticated_guidance",
+      "MoralRealism.collision_obstruction",
+      "MoralRealism.consistent_refinement",
+      "MoralRealism.empty_evidence_vacuous",
+      "MoralRealism.execution_contract_inhabited",
+      "MoralRealism.ground_with_empty_value",
+      "MoralRealism.grounded_value",
+      "MoralRealism.guidance_update_increases",
+      "MoralRealism.joint_source_execution",
+      "MoralRealism.knowledge_action_countermodel",
+      "MoralRealism.lawful_both_contexts_no_gap",
+      "MoralRealism.maximizer_lawful",
+      "MoralRealism.mediation_required",
+      "MoralRealism.no_concealed_violation",
+      "MoralRealism.reachable_effect_lawful",
+      "MoralRealism.reachable_invariant",
+      "MoralRealism.report_does_not_authenticate",
+      "MoralRealism.soundness_required",
+      "MoralRealism.sufficient_view",
+      "MoralRealism.symmetry_insufficient",
+      "MoralRealism.zero_gap_countermodel"
+    ],
+    "theorems_per_file": {
+      "GroundingBridge.lean": 5,
+      "Kernel.lean": 17
+    }
+  },
+  "source_sha256": {
+    "MoralRealism/CLAIMS.md": "740139901f454089c1835b288cf4abfca4a581a9c3ac3ed1f46dcc2b98ab0ed1",
+    "MoralRealism/COMMISSION.md": "6b6ce8a2e45cfc89be92f4656cfa60ba32667f22e00c0df53e3256a6a9abc186",
+    "MoralRealism/EXPERIMENT.md": "39d7453d7cf39bd3bd3c7456024aa0d8388b4f76a6d42f409ad7ec24be496dd5",
+    "MoralRealism/GroundingBridge.lean": "a2112042bc76570cd0948a667660eee8abce76dc3362b37b514d5976e2e89b1e",
+    "MoralRealism/Kernel.lean": "da7de57b4f39fd5076a60d77c9b47d06f8b51bef5a044fa859a9e9a2815ca8c9",
+    "MoralRealism/PREMISES.md": "3c3700e4a7ae1bc333c0ee41f6075d0c98a96ceb1ff2fd4ae853c60007018cfb",
+    "MoralRealism/README.md": "594b517607c7c24c9a6f720b03d93014f4fcb2ee66a828ca2a69b5f8537b0060",
+    "MoralRealism/audit.py": "991c00b639049add7bcf467a74b347ecc20bc7cbc7caf86889f7693c8397635e",
+    "MoralRealism/test_audit.py": "71c009f69ce0971499f5f6d1ac2848e7cb1a695d0f0bd3fd6d0e65552f595318",
+    "MoralRealism/verify.py": "1011456bbcc01e83f107e7f872239c8c7df5bec2781ae63b94a94ae437655f9c"
+  },
+  "status": "PYTHON_PASS_LEAN_NOT_RUN"
+}
