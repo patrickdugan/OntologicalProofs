@@ -110,10 +110,12 @@ theorem hasDerivAt_zeta (A : Matrix n n ℝ) (z : ℝ)
     HasDerivAt (zeta A)
       (zeta A z * ((1 - z • A)⁻¹ * A).trace) z := by
   convert (hasDerivAt_denominator A z hz).inv hz using 1
-  change (denominator A z)⁻¹ * ((1 - z • A)⁻¹ * A).trace =
-    -(-denominator A z * ((1 - z • A)⁻¹ * A).trace) / denominator A z ^ 2
-  field_simp [hz]
-  <;> ring
+  · funext t
+    rfl
+  · change (denominator A z)⁻¹ * ((1 - z • A)⁻¹ * A).trace =
+      -(-denominator A z * ((1 - z • A)⁻¹ * A).trace) / denominator A z ^ 2
+    field_simp [hz]
+    <;> ring
 
 /-- The norm condition supplies the nonsingularity needed by Jacobi's formula. -/
 theorem denominator_ne_zero_of_norm_lt_one (A : Matrix n n ℝ) (z : ℝ)
@@ -218,12 +220,13 @@ theorem hasDerivAt_logTrace_on_interval (A : Matrix n n ℝ) {r z : ℝ}
     (summable_geometric_of_lt_one (mul_nonneg hr.le (norm_nonneg A)) hsmall).mul_left _
   have hzero : (0 : ℝ) ∈ Set.Ioo (-r) r := by
     constructor <;> linarith
-  simpa only [logTrace] using
-    (hasDerivAt_tsum_of_isPreconnected (𝕜 := ℝ) (F := ℝ)
-      hbound isOpen_Ioo isPreconnected_Ioo
-      (fun k y _ => hasDerivAt_logTraceTerm A k y)
-      (fun k y hy => logTrace_derivative_bound A hr hy k)
-      hzero (by simp [logTraceTerm]) hz)
+  change HasDerivAt (fun y : ℝ => ∑' k : ℕ, logTraceTerm A k y)
+    (∑' k : ℕ, z ^ k * (A ^ (k + 1)).trace) z
+  exact hasDerivAt_tsum_of_isPreconnected (𝕜 := ℝ) (F := ℝ)
+    hbound isOpen_Ioo isPreconnected_Ioo
+    (fun k y _ => hasDerivAt_logTraceTerm A k y)
+    (fun k y hy => logTrace_derivative_bound A hr hy k)
+    hzero (by simp [logTraceTerm]) hz
 
 /-- The trace logarithm series itself is summable on each certified interval. -/
 theorem summable_logTrace_on_interval (A : Matrix n n ℝ) {r z : ℝ}
