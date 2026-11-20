@@ -60,6 +60,7 @@ theorem walsh_eq_character_sum (n : ℕ) (f : Cube n → ℝ) (s : Cube n) :
   | zero =>
     letI : Unique (Cube 0) := { default := (), uniq := fun x => by cases x; rfl }
     simp only [walsh, character, mul_one, pow_zero, div_one, Fintype.sum_unique]
+    exact congrArg f (Subsingleton.elim () default)
   | succ n ih =>
     obtain ⟨b, s⟩ := s
     change walsh (n + 1) f (b, s) =
@@ -78,6 +79,7 @@ theorem parseval (n : ℕ) (f : Cube n → ℝ) :
   | zero =>
     letI : Unique (Cube 0) := { default := (), uniq := fun x => by cases x; rfl }
     simp only [walsh, pow_zero, div_one, Fintype.sum_unique]
+    exact congrArg (fun x : Cube 0 => (f x) ^ 2) (Subsingleton.elim () default)
   | succ n ih =>
     have hsum :
         (∑ x : Cube n, (f (false, x) - f (true, x)) ^ 2) +
