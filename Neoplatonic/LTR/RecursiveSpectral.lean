@@ -99,8 +99,18 @@ theorem two_cycle_det (a b z : ℝ) :
   simp [Matrix.det_fin_two]
   ring
 
+/-- An exact infinite geometric series for repeated traversals of one
+primitive two-state cycle, valid within its convergence disk. -/
+theorem two_cycle_zeta_series (a b z : ℝ)
+    (h : |a * b * z ^ 2| < 1) :
+    HasSum (fun k : ℕ => (a * b * z ^ 2) ^ k)
+      ((!![1, -(z * a); -(z * b), 1] : Matrix (Fin 2) (Fin 2) ℝ).det)⁻¹ := by
+  rw [two_cycle_det]
+  exact hasSum_geometric_of_abs_lt_one h
+
 #print axioms Neoplatonic.LTR.RecursiveSpectral.hankel_rank_le
 #print axioms Neoplatonic.LTR.RecursiveSpectral.intertwining_charpoly
 #print axioms Neoplatonic.LTR.RecursiveSpectral.two_cycle_det
+#print axioms Neoplatonic.LTR.RecursiveSpectral.two_cycle_zeta_series
 
 end Neoplatonic.LTR.RecursiveSpectral
