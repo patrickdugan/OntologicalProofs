@@ -4,17 +4,15 @@ import Mathlib
 # Recursive spectral certificates for looped reasoning
 
 Finite-dimensional foundations for spectral mechanistic interpretability and
-recursive self-improvement. These are unconditional matrix theorems; no claims
-about an actual model's intelligence or about the Riemann hypothesis enter.
+recursive self-improvement, with hypotheses stated in each theorem.
 
 * Time-series Hankel matrices factor through their latent mode space.
 * Intertwining transports all finite powers and preserves characteristic
   polynomials when the transport matrix has nonzero determinant.
 * A two-state feedback cycle has an exact determinant and square identity.
 
-The general analytic dynamical-zeta expansion, identification of neural
-Koopman operators, and the physical meaning of an RSI eigenvalue remain
-separate research questions.
+Empirical identification of neural Koopman operators and the physical meaning
+of an RSI eigenvalue require separate model and data assumptions.
 -/
 
 namespace Neoplatonic.LTR.RecursiveSpectral
@@ -108,9 +106,6 @@ theorem two_cycle_zeta_series (a b z : ℝ)
   rw [two_cycle_det]
   exact hasSum_geometric_of_abs_lt_one h
 
-#print axioms Neoplatonic.LTR.RecursiveSpectral.hankel_rank_le
-#print axioms Neoplatonic.LTR.RecursiveSpectral.intertwining_charpoly
-#print axioms Neoplatonic.LTR.RecursiveSpectral.two_cycle_det
-#print axioms Neoplatonic.LTR.RecursiveSpectral.two_cycle_zeta_series
 
 end Neoplatonic.LTR.RecursiveSpectral
+
