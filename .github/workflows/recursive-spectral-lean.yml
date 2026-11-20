@@ -2,18 +2,35 @@ name: Recursive spectral Lean certificates
 
 on:
   push:
+    branches: [main]
     paths:
       - 'Neoplatonic/LTR/RecursiveSpectral.lean'
+      - 'Neoplatonic/LTR/ApproximateIntertwining.lean'
+      - 'Neoplatonic/LTR/WalshFourier.lean'
+      - 'Neoplatonic/LTR/TraceDeterminant.lean'
+      - 'scripts/check_recursive_spectral.py'
+      - 'scripts/test_recursive_spectral_audit.py'
       - '.github/workflows/recursive-spectral-lean.yml'
       - 'lakefile.toml'
+      - 'lake-manifest.json'
       - 'lean-toolchain'
   pull_request:
     paths:
       - 'Neoplatonic/LTR/RecursiveSpectral.lean'
+      - 'Neoplatonic/LTR/ApproximateIntertwining.lean'
+      - 'Neoplatonic/LTR/WalshFourier.lean'
+      - 'Neoplatonic/LTR/TraceDeterminant.lean'
+      - 'scripts/check_recursive_spectral.py'
+      - 'scripts/test_recursive_spectral_audit.py'
       - '.github/workflows/recursive-spectral-lean.yml'
       - 'lakefile.toml'
+      - 'lake-manifest.json'
       - 'lean-toolchain'
   workflow_dispatch:
+
+concurrency:
+  group: recursive-spectral-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -24,26 +41,26 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+      - name: Test dependency audit failure cases
+        run: python3 -m unittest discover -s scripts -p 'test_recursive_spectral_audit.py' -v
       - uses: leanprover/lean-action@v1
         with:
           auto-config: false
           build: true
-          build-args: Neoplatonic.LTR.RecursiveSpectral
+          build-args: >-
+            Neoplatonic.LTR.RecursiveSpectral
+            Neoplatonic.LTR.ApproximateIntertwining
+            Neoplatonic.LTR.WalshFourier
+            Neoplatonic.LTR.TraceDeterminant
           test: false
           lint: false
           use-mathlib-cache: true
-      - name: Independent source and axiom check
-        run: |
-          set -euo pipefail
-          if grep -nE '\\b(sorry|admit|axiom|unsafe)\\b' Neoplatonic/LTR/RecursiveSpectral.lean; then
-            echo 'Review prohibited Lean source construct above'
-            exit 1
-          fi
-          lake env lean Neoplatonic/LTR/RecursiveSpectral.lean | tee recursive-spectral-axioms.txt
-          if grep -Eq 'sorryAx|ofReduceBool' recursive-spectral-axioms.txt; then
-            exit 1
-          fi
+      - name: Audit every spectral declaration
+        run: python3 scripts/check_recursive_spectral.py
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: recursive-spectral-axioms
-          path: recursive-spectral-axioms.txt
+          path: |
+            recursive-spectral-axioms.lean
+            recursive-spectral-axioms.txt
