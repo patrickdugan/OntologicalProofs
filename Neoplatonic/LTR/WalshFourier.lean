@@ -30,7 +30,9 @@ instance cubeFintype (n : ℕ) : Fintype (Cube n) := by
 
 theorem card_cube (n : ℕ) : Fintype.card (Cube n) = 2 ^ n := by
   induction n with
-  | zero => simp [Cube]
+  | zero =>
+    letI : Unique (Cube 0) := { default := (), uniq := fun x => by cases x; rfl }
+    simp only [Fintype.card_unique, pow_zero]
   | succ n ih =>
     change Fintype.card (Bool × Cube n) = 2 ^ (n + 1)
     simp [Fintype.card_prod, ih, pow_succ, Nat.mul_comm]
@@ -54,12 +56,17 @@ noncomputable def walsh : (n : ℕ) → (Cube n → ℝ) → Cube n → ℝ
 /-- The recursion computes the standard uniformly normalized character sum. -/
 theorem walsh_eq_character_sum (n : ℕ) (f : Cube n → ℝ) (s : Cube n) :
     walsh n f s = (∑ x : Cube n, f x * character n s x) / (2 : ℝ) ^ n := by
-  induction n generalizing f s with
-  | zero => simp [Cube, walsh, character]
+  induction n with
+  | zero =>
+    letI : Unique (Cube 0) := { default := (), uniq := fun x => by cases x; rfl }
+    simp only [walsh, character, mul_one, pow_zero, div_one, Fintype.sum_unique]
   | succ n ih =>
     obtain ⟨b, s⟩ := s
+    change walsh (n + 1) f (b, s) =
+      (∑ x : Bool × Cube n, f x * character (n + 1) (b, s) x) / (2 : ℝ) ^ (n + 1)
+    rw [Fintype.sum_prod_type, Fintype.sum_bool]
     cases b <;>
-      simp [walsh, character, ih, Fintype.sum_prod_type, Fintype.sum_bool,
+      simp [walsh, character, ih,
         add_mul, sub_mul, Finset.sum_add_distrib, Finset.sum_sub_distrib,
         Finset.sum_neg_distrib, pow_succ] <;> ring
 
@@ -67,13 +74,15 @@ theorem walsh_eq_character_sum (n : ℕ) (f : Cube n → ℝ) (s : Cube n) :
 theorem parseval (n : ℕ) (f : Cube n → ℝ) :
     (∑ s : Cube n, (walsh n f s) ^ 2) =
       (∑ x : Cube n, (f x) ^ 2) / (2 : ℝ) ^ n := by
-  induction n generalizing f with
-  | zero => simp [Cube, walsh]
+  induction n with
+  | zero =>
+    letI : Unique (Cube 0) := { default := (), uniq := fun x => by cases x; rfl }
+    simp only [walsh, pow_zero, div_one, Fintype.sum_unique]
   | succ n ih =>
     have hsum :
         (∑ x : Cube n, (f (false, x) - f (true, x)) ^ 2) +
             (∑ x : Cube n, (f (false, x) + f (true, x)) ^ 2) =
-          2 * (∑ x : Cube n, (f (false, x)) ^ 2 + (f (true, x)) ^ 2) := by
+          2 * (∑ x : Cube n, ((f (false, x)) ^ 2 + (f (true, x)) ^ 2)) := by
       rw [← Finset.sum_add_distrib, Finset.mul_sum]
       apply Finset.sum_congr rfl
       intro x hx
@@ -93,7 +102,7 @@ theorem parseval (n : ℕ) (f : Cube n → ℝ) :
         simp_rw [div_pow]
         rw [← Finset.sum_div, ← Finset.sum_div, ih, ih]
         ring
-      _ = (2 * (∑ x : Cube n, (f (false, x)) ^ 2 + (f (true, x)) ^ 2)) /
+      _ = (2 * (∑ x : Cube n, ((f (false, x)) ^ 2 + (f (true, x)) ^ 2))) /
           (4 * (2 : ℝ) ^ n) := by rw [hsum]
       _ = (∑ x : Cube (n + 1), (f x) ^ 2) / (2 : ℝ) ^ (n + 1) := by
         change _ = (∑ x : Bool × Cube n, (f x) ^ 2) / (2 : ℝ) ^ (n + 1)
@@ -119,7 +128,9 @@ theorem coefficient_error_le (n : ℕ) (f g : Cube n → ℝ) (s : Cube n) :
     (walsh n f s - walsh n g s) ^ 2 ≤
       (∑ x : Cube n, (f x - g x) ^ 2) / (2 : ℝ) ^ n := by
   rw [residual_energy]
-  exact Finset.single_le_sum (fun t _ => sq_nonneg _) (Finset.mem_univ s)
+  exact Finset.single_le_sum
+    (f := fun t : Cube n => (walsh n f t - walsh n g t) ^ 2)
+    (fun t _ => sq_nonneg (walsh n f t - walsh n g t)) (Finset.mem_univ s)
 
 
 end Neoplatonic.LTR.WalshFourier

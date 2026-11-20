@@ -45,6 +45,21 @@ class SpectralAuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             declarations("M", "namespace N\ndef x := 1\nend N")
 
+    def test_unsupported_declarations_are_rejected(self):
+        for decl in ("structure S where", "inductive T", "class C where",
+                     "@[simp] private theorem hidden : True := trivial"):
+            with self.subTest(decl=decl), self.assertRaises(ValueError):
+                declarations("M", f"namespace M\ndef x := 1\n{decl}\nend M")
+
+    def test_unnamed_instances_are_rejected(self):
+        for prefix in (":", "(n : Nat)", "{n : Nat}", "[Nonempty Nat]"):
+            with self.subTest(prefix=prefix), self.assertRaises(ValueError):
+                declarations("M", f"namespace M\ndef x := 1\ninstance {prefix} Foo := bar\nend M")
+
+    def test_named_instance_is_audited(self):
+        source = "namespace M\ninstance cubeFintype (n : Nat) : Fintype (Cube n) := by infer_instance\nend M"
+        self.assertEqual(declarations("M", source), ["M.cubeFintype"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -8,16 +8,18 @@ derivative `trace ((1 - z • A)⁻¹ * A)` wherever its denominator is nonzero.
 When `‖z • A‖ < 1` in the infinity operator norm, this quantity is the sum of
 the convergent series `∑ k, z ^ k * trace (A ^ (k + 1))`.
 
-The real logarithm below is Mathlib's `Real.log`, hence equals the logarithm of
-the absolute value on nonzero inputs. This file proves the differential
-trace–determinant identity. Integrating it to the exponential formula with
-coefficients `trace (A ^ k) / k` is a separate step.
+The trace logarithm series is summable under the same norm bound, and its
+exponential equals the reciprocal determinant. The proof differentiates the
+series on a certified interval and fixes the integration constant at zero.
+The intermediate real logarithm uses Mathlib's `Real.log` on nonzero inputs.
 -/
 
 namespace Neoplatonic.LTR.TraceDeterminant
 
 open Matrix Polynomial
 open scoped Matrix.Norms.Operator
+
+set_option backward.isDefEq.respectTransparency false
 
 variable {n : Type*} [Fintype n] [DecidableEq n]
 
@@ -29,7 +31,7 @@ theorem det_one_add_polynomial_eval (B : Matrix n n ℝ) (t : ℝ) :
   congr 1
   ext i j
   simp [Matrix.add_apply, Matrix.smul_apply, Matrix.map_apply,
-    Matrix.one_apply, apply_ite]
+    Matrix.one_apply, apply_ite, mul_comm]
 
 /-- The derivative of an affine determinant at the identity is the trace. -/
 theorem hasDerivAt_det_one_add (B : Matrix n n ℝ) :
@@ -79,7 +81,8 @@ theorem hasDerivAt_denominator (A : Matrix n n ℝ) (z : ℝ)
   have houter : HasDerivAt (fun t : ℝ => (1 - z • A + t • (-A)).det)
       ((1 - z • A).det * ((1 - z • A)⁻¹ * (-A)).trace) (z - z) := by
     simpa using hbase
-  have h := houter.comp z hinner
+  have h := houter.comp (h := fun t : ℝ => t - z) z hinner
+  simp only [Function.comp_def, mul_one] at h
   have heq : (fun t : ℝ => (1 - z • A + (t - z) • (-A)).det) =
       denominator A := by
     funext t
@@ -106,8 +109,7 @@ theorem hasDerivAt_zeta (A : Matrix n n ℝ) (z : ℝ)
     HasDerivAt (zeta A)
       (zeta A z * ((1 - z • A)⁻¹ * A).trace) z := by
   convert (hasDerivAt_denominator A z hz).inv hz using 1
-  <;> dsimp [zeta]
-  <;> field_simp [hz]
+  <;> field_simp [zeta, hz]
   <;> ring
 
 /-- The norm condition supplies the nonsingularity needed by Jacobi's formula. -/
@@ -126,7 +128,10 @@ theorem trace_resolvent_hasSum (A : Matrix n n ℝ) (z : ℝ)
       hasSum_geom_series_inverse (z • A) hz
   have ht := (hg.mul_right A).map (Matrix.traceAddMonoidHom n ℝ)
     continuous_id.matrix_trace
-  simpa only [smul_pow, smul_mul_assoc, Matrix.trace_smul, smul_eq_mul, pow_succ] using ht
+  change HasSum (fun k : ℕ => ((z • A) ^ k * A).trace)
+    ((1 - z • A)⁻¹ * A).trace at ht
+  simpa only [_root_.smul_pow, smul_mul_assoc, Matrix.trace_smul, smul_eq_mul, pow_succ]
+    using ht
 
 /-- Differential form of the general finite-dimensional trace–determinant zeta
 identity, with convergence certified by an explicit norm condition. -/
@@ -145,5 +150,152 @@ theorem zeta_derivative_eq_trace_series (A : Matrix n n ℝ) (z : ℝ)
       zeta A z * ∑' k : ℕ, z ^ k * (A ^ (k + 1)).trace := by
   rw [(hasDerivAt_zeta A z (denominator_ne_zero_of_norm_lt_one A z hz)).deriv,
     (trace_resolvent_hasSum A z hz).tsum_eq]
+
+/-- The trace as a continuous linear map for the infinity operator norm. -/
+noncomputable def traceCLM : Matrix n n ℝ →L[ℝ] ℝ where
+  toLinearMap := Matrix.traceLinearMap n ℝ ℝ
+  cont := continuous_id.matrix_trace
+
+theorem trace_norm_bound (M : Matrix n n ℝ) :
+    ‖M.trace‖ ≤ ‖traceCLM (n := n)‖ * ‖M‖ :=
+  (traceCLM (n := n)).le_opNorm M
+
+/-- One term of the trace logarithm, indexed by positive powers. -/
+noncomputable def logTraceTerm (A : Matrix n n ℝ) (k : ℕ) (z : ℝ) : ℝ :=
+  z ^ (k + 1) * (A ^ (k + 1)).trace / (k + 1 : ℝ)
+
+/-- The convergent trace logarithm near the origin. -/
+noncomputable def logTrace (A : Matrix n n ℝ) (z : ℝ) : ℝ :=
+  ∑' k : ℕ, logTraceTerm A k z
+
+theorem logTrace_zero (A : Matrix n n ℝ) : logTrace A 0 = 0 := by
+  simp [logTrace, logTraceTerm]
+
+theorem hasDerivAt_logTraceTerm (A : Matrix n n ℝ) (k : ℕ) (z : ℝ) :
+    HasDerivAt (logTraceTerm A k) (z ^ k * (A ^ (k + 1)).trace) z := by
+  have hk : (k + 1 : ℝ) ≠ 0 := by positivity
+  convert ((hasDerivAt_pow (k + 1) z).mul_const
+    (A ^ (k + 1)).trace).div_const (k + 1 : ℝ) using 1
+  <;> simp only [logTraceTerm]
+  <;> simp only [Nat.add_sub_cancel, Nat.cast_add, Nat.cast_one]
+  <;> field_simp [hk]
+  <;> ring
+
+/-- A summable uniform bound on the derivatives of the trace logarithm terms. -/
+theorem logTrace_derivative_bound (A : Matrix n n ℝ) {r z : ℝ}
+    (hr : 0 < r) (hz : z ∈ Set.Ioo (-r) r) (k : ℕ) :
+    ‖z ^ k * (A ^ (k + 1)).trace‖ ≤
+      (‖traceCLM (n := n)‖ * ‖A‖) * (r * ‖A‖) ^ k := by
+  have hzabs : |z| ≤ r := (abs_lt.mpr hz).le
+  have htrace : ‖(A ^ (k + 1)).trace‖ ≤
+      ‖traceCLM (n := n)‖ * ‖A‖ ^ (k + 1) := by
+    exact (trace_norm_bound _).trans
+      (mul_le_mul_of_nonneg_left (norm_pow_le' A (Nat.succ_pos k)) (norm_nonneg _))
+  calc
+    ‖z ^ k * (A ^ (k + 1)).trace‖ =
+        |z| ^ k * ‖(A ^ (k + 1)).trace‖ := by
+      rw [norm_mul, norm_pow, Real.norm_eq_abs]
+    _ ≤ r ^ k * (‖traceCLM (n := n)‖ * ‖A‖ ^ (k + 1)) := by
+      gcongr
+    _ = (‖traceCLM (n := n)‖ * ‖A‖) * (r * ‖A‖) ^ k := by
+      rw [mul_pow, pow_succ]
+      ring
+
+/-- Termwise differentiation of the trace logarithm on any certified interval. -/
+theorem hasDerivAt_logTrace_on_interval (A : Matrix n n ℝ) {r z : ℝ}
+    (hr : 0 < r) (hsmall : r * ‖A‖ < 1) (hz : z ∈ Set.Ioo (-r) r) :
+    HasDerivAt (logTrace A)
+      (∑' k : ℕ, z ^ k * (A ^ (k + 1)).trace) z := by
+  have hbound : Summable (fun k : ℕ =>
+      (‖traceCLM (n := n)‖ * ‖A‖) * (r * ‖A‖) ^ k) :=
+    (summable_geometric_of_lt_one (mul_nonneg hr.le (norm_nonneg A)) hsmall).mul_left _
+  have hzero : (0 : ℝ) ∈ Set.Ioo (-r) r := by
+    constructor <;> linarith
+  simpa only [logTrace] using
+    (hasDerivAt_tsum_of_isPreconnected hbound isOpen_Ioo isPreconnected_Ioo
+      (fun k y _ => hasDerivAt_logTraceTerm A k y)
+      (fun k y hy => logTrace_derivative_bound A hr hy k)
+      hzero (by simp [logTraceTerm]) hz)
+
+/-- The trace logarithm series itself is summable on each certified interval. -/
+theorem summable_logTrace_on_interval (A : Matrix n n ℝ) {r z : ℝ}
+    (hr : 0 < r) (hsmall : r * ‖A‖ < 1) (hz : z ∈ Set.Ioo (-r) r) :
+    Summable (fun k : ℕ => logTraceTerm A k z) := by
+  have hbound : Summable (fun k : ℕ =>
+      (‖traceCLM (n := n)‖ * ‖A‖) * (r * ‖A‖) ^ k) :=
+    (summable_geometric_of_lt_one (mul_nonneg hr.le (norm_nonneg A)) hsmall).mul_left _
+  have hzero : (0 : ℝ) ∈ Set.Ioo (-r) r := by
+    constructor <;> linarith
+  exact summable_of_summable_hasDerivAt_of_isPreconnected hbound isOpen_Ioo isPreconnected_Ioo
+    (fun k y _ => hasDerivAt_logTraceTerm A k y)
+    (fun k y hy => logTrace_derivative_bound A hr hy k)
+    hzero (by simp [logTraceTerm]) hz
+
+/-- The general finite-matrix zeta identity on a certified interval. -/
+theorem exp_logTrace_eq_zeta_on_interval (A : Matrix n n ℝ) {r z : ℝ}
+    (hr : 0 < r) (hsmall : r * ‖A‖ < 1) (hz : z ∈ Set.Ioo (-r) r) :
+    Real.exp (logTrace A z) = zeta A z := by
+  have hnorm (y : ℝ) (hy : y ∈ Set.Ioo (-r) r) : ‖y • A‖ < 1 := by
+    rw [norm_smul, Real.norm_eq_abs]
+    exact lt_of_le_of_lt
+      (mul_le_mul_of_nonneg_right (abs_lt.mpr hy).le (norm_nonneg A)) hsmall
+  have hsum (y : ℝ) (hy : y ∈ Set.Ioo (-r) r) :
+      HasDerivAt (logTrace A) ((1 - y • A)⁻¹ * A).trace y := by
+    have h := hasDerivAt_logTrace_on_interval A hr hsmall hy
+    rwa [(trace_resolvent_hasSum A y (hnorm y hy)).tsum_eq] at h
+  let F : ℝ → ℝ := fun t => Real.exp (logTrace A t) * denominator A t
+  have hprod (y : ℝ) (hy : y ∈ Set.Ioo (-r) r) : HasDerivAt F 0 y := by
+    have h := (hsum y hy).exp.mul
+      (hasDerivAt_denominator A y (denominator_ne_zero_of_norm_lt_one A y (hnorm y hy)))
+    convert h using 1 <;> simp only [F] <;> ring
+  have hzero : (0 : ℝ) ∈ Set.Ioo (-r) r := by
+    constructor <;> linarith
+  have heq : Set.EqOn F (fun _ => (1 : ℝ)) (Set.Ioo (-r) r) := by
+    refine isOpen_Ioo.eqOn_of_deriv_eq isPreconnected_Ioo
+      (fun y hy => (hprod y hy).differentiableAt.differentiableWithinAt)
+      (by fun_prop) ?_ hzero ?_
+    · intro y hy
+      rw [(hprod y hy).deriv]
+      simp
+    · simp [F, logTrace_zero, denominator_zero]
+  have h := heq hz
+  dsimp [F] at h
+  change Real.exp _ = (denominator A z)⁻¹
+  rw [← one_div]
+  exact (eq_div_iff (denominator_ne_zero_of_norm_lt_one A z (hnorm z hz))).mpr h
+
+/-- Any point satisfying the strict norm condition lies in a larger certified interval. -/
+theorem exists_trace_radius (c z : ℝ) (hc : 0 ≤ c) (hz : |z| * c < 1) :
+    ∃ r : ℝ, 0 < r ∧ |z| < r ∧ r * c < 1 := by
+  by_cases h0 : c = 0
+  · refine ⟨|z| + 1, by positivity, by linarith, ?_⟩
+    simp [h0]
+  · have hcpos : 0 < c := by
+      rcases lt_or_eq_of_le hc with h | h
+      · exact h
+      · exact (h0 h.symm).elim
+    have hlt : |z| < 1 / c := (lt_div_iff₀ hcpos).2 hz
+    obtain ⟨r, hzr, hr⟩ := exists_between hlt
+    exact ⟨r, (abs_nonneg z).trans_lt hzr, hzr, (lt_div_iff₀ hcpos).1 hr⟩
+
+/-- Convergence of the trace logarithm under the matrix norm condition. -/
+theorem logTrace_hasSum (A : Matrix n n ℝ) (z : ℝ) (hz : ‖z • A‖ < 1) :
+    HasSum (fun k : ℕ => logTraceTerm A k z) (logTrace A z) := by
+  have hsmall : |z| * ‖A‖ < 1 := by simpa only [norm_smul, Real.norm_eq_abs] using hz
+  obtain ⟨r, hr, hzr, hsmallr⟩ := exists_trace_radius ‖A‖ z (norm_nonneg A) hsmall
+  exact (summable_logTrace_on_interval A hr hsmallr (abs_lt.mp hzr)).hasSum
+
+/-- The general trace–determinant zeta identity for finite real matrices. -/
+theorem exp_logTrace_eq_zeta (A : Matrix n n ℝ) (z : ℝ) (hz : ‖z • A‖ < 1) :
+    Real.exp (logTrace A z) = zeta A z := by
+  have hsmall : |z| * ‖A‖ < 1 := by simpa only [norm_smul, Real.norm_eq_abs] using hz
+  obtain ⟨r, hr, hzr, hsmallr⟩ := exists_trace_radius ‖A‖ z (norm_nonneg A) hsmall
+  exact exp_logTrace_eq_zeta_on_interval A hr hsmallr (abs_lt.mp hzr)
+
+/-- The trace–determinant formula with its full convergent series displayed. -/
+theorem exp_trace_series_eq_inv_det (A : Matrix n n ℝ) (z : ℝ) (hz : ‖z • A‖ < 1) :
+    Real.exp (∑' k : ℕ, z ^ (k + 1) * (A ^ (k + 1)).trace / (k + 1 : ℝ)) =
+      ((1 - z • A).det)⁻¹ := by
+  exact exp_logTrace_eq_zeta A z hz
 
 end Neoplatonic.LTR.TraceDeterminant
