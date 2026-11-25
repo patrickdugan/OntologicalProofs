@@ -145,6 +145,7 @@ import Neoplatonic.LTR.SixDimensionalSaturated03Singleton00NoGo
 import Neoplatonic.LTR.SixDimensionalSignedNeutralExchangeDefect
 import Neoplatonic.LTR.SixDimensionalSaturated03TwoDefectChannels
 import Neoplatonic.LTR.SixDimensionalNeutralRankOnePullbacks
+import Neoplatonic.LTR.SixDimensionalSaturated03NeutralInputChannels
 import Neoplatonic.LTR.SixDimensionalSignedFibreNeutralGram
 import Neoplatonic.LTR.SixDimensionalSignedNeutralGramCross
 import Neoplatonic.LTR.FiveFibreFourTruthDual
@@ -1984,3 +1985,6 @@ open Neoplatonic.LTR
 -- MAN-115: orthogonal rank-one partial-isometry pullback projections.
 #print axioms Neoplatonic.LTR.sixMatrix_rangePullback_rankOne
 #print axioms Neoplatonic.LTR.sixMatrix_orthogonalRankOneChannels_pullback
+
+-- MAN-116: true 2+2 saturated Dirac neutral sector splits into two orthogonal rank-one pullbacks.
+#print axioms Neoplatonic.LTR.sixLabelled_exactHamming_saturated03_oppositeDouble_neutralInputChannels
