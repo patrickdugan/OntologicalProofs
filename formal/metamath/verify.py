@@ -1,4 +1,4 @@
-"""Verify explicit Lean companion certificates against a pinned full set.mm."""
+"""Verify Lean companion certificates against a pinned full set.mm."""
 import argparse
 import hashlib
 import json
@@ -68,12 +68,24 @@ def admit(source, manifest):
             continue
         end = tokens.index("$.", i)
         proof = tokens[i:end]
-        require(proof and all(re.fullmatch(r"[A-Za-z0-9_.-]+", t) for t in proof), "explicit proof labels")
+        require(bool(proof), "empty proof")
+        if proof[0] == "(":
+            j = proof.index(")")
+            labels_in_proof = proof[1:j]
+            require(all(re.fullmatch(r"[A-Za-z0-9_.-]+", t) for t in labels_in_proof)
+                    and len(set(labels_in_proof)) == len(labels_in_proof), "compressed label list")
+            code = "".join(proof[j+1:])
+            require(re.fullmatch(r"(?:[U-Y]*[A-T])+", code), "compressed proof without saved steps")
+            steps = sum("A" <= ch <= "T" for ch in code)
+            encoding = "compressed_no_save"
+        else:
+            require(all(re.fullmatch(r"[A-Za-z0-9_.-]+", t) for t in proof), "explicit proof labels")
+            steps, encoding = len(proof), "explicit"
         i = end + 1
-        proved[token] = (" ".join(statement), sum(stack, []), len(proof), sorted(set().union(*dv_stack)))
+        proved[token] = (" ".join(statement), sum(stack, []), steps, sorted(set().union(*dv_stack)), encoding)
     require(len(stack) == 1, "unclosed scope")
     expected = {p["metamath_label"]: (p["statement"], p["hypotheses"], p["proof_steps"],
-                    sorted(tuple(sorted(pair)) for pair in p.get("distinct", [])))
+                    sorted(tuple(sorted(pair)) for pair in p.get("distinct", [])), p.get("proof_encoding", "explicit"))
                 for p in manifest["ports"]}
     require(len(expected) == len(manifest["ports"]) and proved == expected, "manifest statement drift")
     return proved
@@ -134,7 +146,7 @@ def main():
                "positive": both(combined, "positive", True),
                "scope": "Metamath proof validity; human statement correspondence, no automatic Lean translation"}
     if a.negative:
-        bad_ext, n = re.subn(rb"[A-Za-z0-9_.-]+(?=\s+\$\.\s*(?:\$\}\s*)?$)", b"wph", ext)
+        bad_ext, n = re.subn(rb"\$=[^$]*\$\.(?=\s*\$\}\s*$)", b"$= wph $.", ext)
         require(n == 1 and bad_ext != ext, "mutation failed")
         bad = a.out.resolve() / "mutant.mm"
         bad.write_bytes(raw + b"\n" + bad_ext)
