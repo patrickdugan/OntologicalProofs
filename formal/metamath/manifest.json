@@ -1,0 +1,51 @@
+{
+  "schema": "lean-setmm-port-v1",
+  "source_commit": "520006b4611f549ad9f0501dfee250f4052ce7e4",
+  "setmm_commit": "806509385370b29fe8b1723804777ac21b1ce194",
+  "ports": [
+    {
+      "metamath_label": "ml-op-scott-a1w",
+      "source": "Neoplatonic/GodelScott.lean",
+      "source_blob": "64837f5a0336d871bd0b284b91af4d8b05747f3b",
+      "lean_declaration": "Neoplatonic.Godel.ScottTheory.A1w",
+      "scope": "pointwise propositional translation",
+      "mapping": "ph=P(phi,w); ps=P(pneg(phi),w). Instantiate A1 at w and phi.",
+      "hypotheses": [
+        "|- ( ps <-> -. ph )",
+        "|- ph"
+      ],
+      "statement": "|- -. ps",
+      "proof_steps": 9
+    },
+    {
+      "metamath_label": "ml-op-godlike-positive",
+      "source": "Neoplatonic/GodelScott.lean",
+      "source_blob": "64837f5a0336d871bd0b284b91af4d8b05747f3b",
+      "lean_declaration": "Neoplatonic.Godel.godlike_positive_of_has",
+      "scope": "pointwise propositional translation",
+      "mapping": "ph=P(phi,w); ps=P(pneg(phi),w); ch=phi(x,w). Specialize A1 and Godlike at the negated property.",
+      "hypotheses": [
+        "|- ( ps <-> -. ph )",
+        "|- ( ps -> -. ch )",
+        "|- ch"
+      ],
+      "statement": "|- ph",
+      "proof_steps": 19
+    },
+    {
+      "metamath_label": "ml-op-positive-iff-has",
+      "source": "Neoplatonic/GodelScott.lean",
+      "source_blob": "64837f5a0336d871bd0b284b91af4d8b05747f3b",
+      "lean_declaration": "Neoplatonic.Godel.positive_iff_godlike_has",
+      "scope": "pointwise propositional translation",
+      "mapping": "ph positivity, ps positivity of the negated property, ch possession. A1 and Godlike are specialized at phi and pneg(phi).",
+      "hypotheses": [
+        "|- ( ps <-> -. ph )",
+        "|- ( ph -> ch )",
+        "|- ( ps -> -. ch )"
+      ],
+      "statement": "|- ( ph <-> ch )",
+      "proof_steps": 19
+    }
+  ]
+}
