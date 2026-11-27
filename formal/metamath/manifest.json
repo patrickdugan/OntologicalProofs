@@ -46,6 +46,49 @@
       ],
       "statement": "|- ( ph <-> ch )",
       "proof_steps": 19
+    },
+    {
+      "metamath_label": "ml-op-divprior-lt",
+      "source": "Neoplatonic/Arithmetic.lean",
+      "source_blob": "8112c2969ed5874c1a8bb19de2e2616fabb70844",
+      "lean_declaration": "Neoplatonic.divPrior_lt",
+      "scope": "positive natural arithmetic translation",
+      "mapping": "A=d,B=n positive naturals; divPrior unfolds to divisibility and disequality. Membership hypotheses preserve PNat.",
+      "hypotheses": [
+        "|- A e. NN",
+        "|- B e. NN",
+        "|- A || B",
+        "|- A =/= B"
+      ],
+      "statement": "|- A < B",
+      "proof_steps": 67
+    },
+    {
+      "metamath_label": "ml-op-unit-divisor",
+      "source": "Neoplatonic/Arithmetic.lean",
+      "source_blob": "8112c2969ed5874c1a8bb19de2e2616fabb70844",
+      "lean_declaration": "Neoplatonic.root_one",
+      "scope": "supporting arithmetic lemma",
+      "mapping": "A positive natural divisor of one must be one; contradicts the proper-divisor premise. Root quantification remains outside this certificate.",
+      "hypotheses": [
+        "|- A e. NN",
+        "|- A || 1"
+      ],
+      "statement": "|- A = 1",
+      "proof_steps": 33
+    },
+    {
+      "metamath_label": "ml-op-nat-unbounded-witness",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.nat_unbounded_above",
+      "scope": "constructive witness certificate",
+      "mapping": "A=n; A+1 belongs to NN0 and exceeds A. This gives the original existential witness; outer quantifier introduction is not formalized.",
+      "hypotheses": [
+        "|- A e. NN0"
+      ],
+      "statement": "|- ( ( A + 1 ) e. NN0 /\\ A < ( A + 1 ) )",
+      "proof_steps": 50
     }
   ]
 }
