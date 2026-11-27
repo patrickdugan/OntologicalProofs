@@ -62,3 +62,51 @@ ${
     cA ml-op-nat-unbounded-witness.h1 nn0rei ltp1i pm3.2i
   $.
 $}
+
+$( Neoplatonic.exists_root; set-coded well-founded relation translation. $)
+${
+  $d A x $.
+  $d A y $.
+  $d R x $.
+  $d R y $.
+  $d x y $.
+  ml-op-exists-root.h1 $e |- A e. _V $.
+  ml-op-exists-root.h2 $e |- R Fr A $.
+  ml-op-exists-root.h3 $e |- B e. A $.
+  ml-op-exists-root $p |- E. x e. A A. y e. A -. y R x $=
+    cA cvv wcel cA cR wfr wa cA cA wss cA c0 wne wa vy cv vx cv cR wbr wn vy cA wral vx cA wrex cA cvv wcel
+    cA cR wfr ml-op-exists-root.h1 ml-op-exists-root.h2 pm3.2i cA cA wss cA c0 wne cA ssid cB cA
+    ml-op-exists-root.h3 ne0ii pm3.2i vx vy cA cA cvv cR fri mp2an
+  $.
+$}
+
+$( Neoplatonic.root_one; unfolded positive natural root translation. $)
+${
+  ml-op-root-one-full $p |- A. x e. NN -. ( x || 1 /\ x =/= 1 ) $=
+    vx cv c1 cdvds wbr vx cv c1 wne wa wn vx cn vx cv cn wcel vx cv c1 cdvds wbr vx cv c1 wne wa vx cv c1
+    wceq vx cv cn wcel vx cv c1 cdvds wbr vx cv c1 wne wa vx cv c1 wceq vx cv cn wcel vx cv c1 cdvds wbr vx
+    cv c1 wne wa wa vx cv c1 cdvds wbr vx cv c1 wceq vx cv cn wcel vx cv c1 cdvds wbr vx cv c1 wne wa wa vx
+    cv c1 cdvds wbr vx cv c1 wne wa vx cv c1 cdvds wbr vx cv cn wcel vx cv c1 cdvds wbr vx cv c1 wne wa simpr
+    vx cv c1 cdvds wbr vx cv c1 wne simpl syl vx cv cn wcel vx cv c1 cdvds wbr vx cv c1 wne wa wa vx cv cn
+    wcel vx cv c1 cdvds wbr vx cv c1 wceq wi vx cv cn wcel vx cv c1 cdvds wbr vx cv c1 wne wa simpl vx cv cn
+    wcel vx cv c1 cdvds wbr vx cv c1 wceq vx cv cn wcel vx cv cn0 wcel vx cv c1 cdvds wbr vx cv c1 wceq wb vx
+    cv nnnn0 vx cv dvds1 syl biimpd syl mpd ex vx cv cn wcel vx cv c1 cdvds wbr vx cv c1 wne wa vx cv c1 wceq
+    wn vx cv cn wcel vx cv c1 cdvds wbr vx cv c1 wne wa wa vx cv c1 wne vx cv c1 wceq wn vx cv cn wcel vx cv
+    c1 cdvds wbr vx cv c1 wne wa wa vx cv c1 cdvds wbr vx cv c1 wne wa vx cv c1 wne vx cv cn wcel vx cv c1
+    cdvds wbr vx cv c1 wne wa simpr vx cv c1 cdvds wbr vx cv c1 wne simpr syl vx cv c1 neneq syl ex pm2.65d
+    rgen
+  $.
+$}
+
+$( Neoplatonic.nat_unbounded_above; existential natural arithmetic translation. $)
+${
+  $d A x $.
+  ml-op-nat-unbounded-exists.h1 $e |- A e. NN0 $.
+  ml-op-nat-unbounded-exists $p |- E. x e. NN0 A < x $=
+    cA c1 caddc co cn0 wcel cA cA c1 caddc co clt wbr cA vx cv clt wbr vx cn0 wrex cA c1 caddc co cn wcel cA
+    c1 caddc co cn0 wcel cA cn0 wcel cA c1 caddc co cn wcel ml-op-nat-unbounded-exists.h1 cA nn0p1nn ax-mp cA
+    c1 caddc co nnnn0 ax-mp cA cA ml-op-nat-unbounded-exists.h1 nn0rei ltp1i cA vx cv clt wbr cA cA c1 caddc
+    co clt wbr vx cA c1 caddc co cn0 vx cv cA c1 caddc co wceq vx cv cA c1 caddc co cA clt vx cv cA c1 caddc
+    co wceq id breq2d rspcev mp2an
+  $.
+$}

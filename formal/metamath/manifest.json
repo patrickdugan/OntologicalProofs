@@ -89,6 +89,74 @@
       ],
       "statement": "|- ( ( A + 1 ) e. NN0 /\\ A < ( A + 1 ) )",
       "proof_steps": 50
+    },
+    {
+      "metamath_label": "ml-op-exists-root",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.exists_root",
+      "scope": "set-coded well-founded relation translation",
+      "mapping": "A is the set interpreting alpha, R the predecessor relation, B the seed. R Fr A is the set-theoretic well-foundedness condition (every nonempty subset has a minimal element), corresponding classically to Lean WellFounded. The restricted universal no-predecessor predicate is equivalent to Root. Uses fri, without new axioms.",
+      "hypotheses": [
+        "|- A e. _V",
+        "|- R Fr A",
+        "|- B e. A"
+      ],
+      "statement": "|- E. x e. A A. y e. A -. y R x",
+      "proof_steps": 57,
+      "distinct": [
+        [
+          "A",
+          "x"
+        ],
+        [
+          "A",
+          "y"
+        ],
+        [
+          "R",
+          "x"
+        ],
+        [
+          "R",
+          "y"
+        ],
+        [
+          "x",
+          "y"
+        ]
+      ]
+    },
+    {
+      "metamath_label": "ml-op-root-one-full",
+      "source": "Neoplatonic/Arithmetic.lean",
+      "source_blob": "8112c2969ed5874c1a8bb19de2e2616fabb70844",
+      "lean_declaration": "Neoplatonic.root_one",
+      "scope": "unfolded positive natural root translation",
+      "mapping": "Domain NN represents PNat. divPrior d 1 means d divides 1 and d != 1. Restricted universal negation establishes absence of a proper divisor.",
+      "hypotheses": [],
+      "statement": "|- A. x e. NN -. ( x || 1 /\\ x =/= 1 )",
+      "proof_steps": 321,
+      "distinct": []
+    },
+    {
+      "metamath_label": "ml-op-nat-unbounded-exists",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.nat_unbounded_above",
+      "scope": "existential natural arithmetic translation",
+      "mapping": "A=n in NN0; restricted existential introduced with witness n+1. Upgrades the earlier witness certificate to the quantified conclusion.",
+      "hypotheses": [
+        "|- A e. NN0"
+      ],
+      "statement": "|- E. x e. NN0 A < x",
+      "proof_steps": 101,
+      "distinct": [
+        [
+          "A",
+          "x"
+        ]
+      ]
     }
   ]
 }
