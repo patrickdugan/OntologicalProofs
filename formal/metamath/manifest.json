@@ -1,0 +1,439 @@
+{
+  "schema": "lean-setmm-port-v1",
+  "source_commit": "520006b4611f549ad9f0501dfee250f4052ce7e4",
+  "setmm_commit": "806509385370b29fe8b1723804777ac21b1ce194",
+  "ports": [
+    {
+      "metamath_label": "ml-op-scott-a1w",
+      "source": "Neoplatonic/GodelScott.lean",
+      "source_blob": "64837f5a0336d871bd0b284b91af4d8b05747f3b",
+      "lean_declaration": "Neoplatonic.Godel.ScottTheory.A1w",
+      "scope": "pointwise propositional translation",
+      "mapping": "ph=P(phi,w); ps=P(pneg(phi),w). Instantiate A1 at w and phi.",
+      "hypotheses": [
+        "|- ( ps <-> -. ph )",
+        "|- ph"
+      ],
+      "statement": "|- -. ps",
+      "proof_steps": 9
+    },
+    {
+      "metamath_label": "ml-op-godlike-positive",
+      "source": "Neoplatonic/GodelScott.lean",
+      "source_blob": "64837f5a0336d871bd0b284b91af4d8b05747f3b",
+      "lean_declaration": "Neoplatonic.Godel.godlike_positive_of_has",
+      "scope": "pointwise propositional translation",
+      "mapping": "ph=P(phi,w); ps=P(pneg(phi),w); ch=phi(x,w). Specialize A1 and Godlike at the negated property.",
+      "hypotheses": [
+        "|- ( ps <-> -. ph )",
+        "|- ( ps -> -. ch )",
+        "|- ch"
+      ],
+      "statement": "|- ph",
+      "proof_steps": 19
+    },
+    {
+      "metamath_label": "ml-op-positive-iff-has",
+      "source": "Neoplatonic/GodelScott.lean",
+      "source_blob": "64837f5a0336d871bd0b284b91af4d8b05747f3b",
+      "lean_declaration": "Neoplatonic.Godel.positive_iff_godlike_has",
+      "scope": "pointwise propositional translation",
+      "mapping": "ph positivity, ps positivity of the negated property, ch possession. A1 and Godlike are specialized at phi and pneg(phi).",
+      "hypotheses": [
+        "|- ( ps <-> -. ph )",
+        "|- ( ph -> ch )",
+        "|- ( ps -> -. ch )"
+      ],
+      "statement": "|- ( ph <-> ch )",
+      "proof_steps": 19
+    },
+    {
+      "metamath_label": "ml-op-divprior-lt",
+      "source": "Neoplatonic/Arithmetic.lean",
+      "source_blob": "8112c2969ed5874c1a8bb19de2e2616fabb70844",
+      "lean_declaration": "Neoplatonic.divPrior_lt",
+      "scope": "positive natural arithmetic translation",
+      "mapping": "A=d,B=n positive naturals; divPrior unfolds to divisibility and disequality. Membership hypotheses preserve PNat.",
+      "hypotheses": [
+        "|- A e. NN",
+        "|- B e. NN",
+        "|- A || B",
+        "|- A =/= B"
+      ],
+      "statement": "|- A < B",
+      "proof_steps": 67
+    },
+    {
+      "metamath_label": "ml-op-unit-divisor",
+      "source": "Neoplatonic/Arithmetic.lean",
+      "source_blob": "8112c2969ed5874c1a8bb19de2e2616fabb70844",
+      "lean_declaration": "Neoplatonic.root_one",
+      "scope": "supporting arithmetic lemma",
+      "mapping": "A positive natural divisor of one must be one; contradicts the proper-divisor premise. Root quantification remains outside this certificate.",
+      "hypotheses": [
+        "|- A e. NN",
+        "|- A || 1"
+      ],
+      "statement": "|- A = 1",
+      "proof_steps": 33
+    },
+    {
+      "metamath_label": "ml-op-nat-unbounded-witness",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.nat_unbounded_above",
+      "scope": "constructive witness certificate",
+      "mapping": "A=n; A+1 belongs to NN0 and exceeds A. This gives the original existential witness; outer quantifier introduction is not formalized.",
+      "hypotheses": [
+        "|- A e. NN0"
+      ],
+      "statement": "|- ( ( A + 1 ) e. NN0 /\\ A < ( A + 1 ) )",
+      "proof_steps": 50
+    },
+    {
+      "metamath_label": "ml-op-exists-root",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.exists_root",
+      "scope": "set-coded well-founded relation translation",
+      "mapping": "A is the set interpreting alpha, R the predecessor relation, B the seed. R Fr A is the set-theoretic well-foundedness condition (every nonempty subset has a minimal element), corresponding classically to Lean WellFounded. The restricted universal no-predecessor predicate is equivalent to Root. Uses fri, without new axioms.",
+      "hypotheses": [
+        "|- A e. _V",
+        "|- R Fr A",
+        "|- B e. A"
+      ],
+      "statement": "|- E. x e. A A. y e. A -. y R x",
+      "proof_steps": 57,
+      "distinct": [
+        [
+          "A",
+          "x"
+        ],
+        [
+          "A",
+          "y"
+        ],
+        [
+          "R",
+          "x"
+        ],
+        [
+          "R",
+          "y"
+        ],
+        [
+          "x",
+          "y"
+        ]
+      ]
+    },
+    {
+      "metamath_label": "ml-op-root-one-full",
+      "source": "Neoplatonic/Arithmetic.lean",
+      "source_blob": "8112c2969ed5874c1a8bb19de2e2616fabb70844",
+      "lean_declaration": "Neoplatonic.root_one",
+      "scope": "unfolded positive natural root translation",
+      "mapping": "Domain NN represents PNat. divPrior d 1 means d divides 1 and d != 1. Restricted universal negation establishes absence of a proper divisor.",
+      "hypotheses": [],
+      "statement": "|- A. x e. NN -. ( x || 1 /\\ x =/= 1 )",
+      "proof_steps": 321,
+      "distinct": []
+    },
+    {
+      "metamath_label": "ml-op-nat-unbounded-exists",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.nat_unbounded_above",
+      "scope": "existential natural arithmetic translation",
+      "mapping": "A=n in NN0; restricted existential introduced with witness n+1. Upgrades the earlier witness certificate to the quantified conclusion.",
+      "hypotheses": [
+        "|- A e. NN0"
+      ],
+      "statement": "|- E. x e. NN0 A < x",
+      "proof_steps": 101,
+      "distinct": [
+        [
+          "A",
+          "x"
+        ]
+      ]
+    },
+    {
+      "metamath_label": "ml-op-ancestor-of-root",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.ancestor_of_root_eq",
+      "scope": "set-coded transitive-closure translation",
+      "mapping": "A is domain, R a relation contained in A x A. Reach is equality or membership in the nonempty finite-path transitive closure t++ R. Root(C) means no R-predecessor in A. Range invariance rnttrcl and ssrelrn prove the root isolation implication; no transitive-closure construction is assumed beyond set.mm.",
+      "hypotheses": [
+        "|- R C_ ( A X. A )"
+      ],
+      "statement": "|- ( A. a e. A -. a R C -> ( ( B = C \\/ B t++ R C ) -> B = C ) )",
+      "proof_steps": 208,
+      "distinct": [
+        [
+          "A",
+          "a"
+        ],
+        [
+          "B",
+          "a"
+        ],
+        [
+          "C",
+          "a"
+        ],
+        [
+          "R",
+          "a"
+        ]
+      ],
+      "proof_encoding": "compressed_no_save"
+    },
+    {
+      "metamath_label": "ml-op-root-common-reach",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.unique_first_principle",
+      "scope": "supporting common-ancestor lemma",
+      "mapping": "A set domain, R subset A x A. If B is a root and B,C have a common finite-path ancestor in A, B reaches C. Uses ancestor isolation and eliminates the restricted existential over the ancestor.",
+      "hypotheses": [
+        "|- R C_ ( A X. A )"
+      ],
+      "statement": "|- ( A. a e. A -. a R B -> ( E. z e. A ( ( z = B \\/ z t++ R B ) /\\ ( z = C \\/ z t++ R C ) ) -> ( B = C \\/ B t++ R C ) ) )",
+      "proof_steps": 1397,
+      "distinct": [
+        [
+          "A",
+          "a"
+        ],
+        [
+          "A",
+          "z"
+        ],
+        [
+          "B",
+          "a"
+        ],
+        [
+          "B",
+          "z"
+        ],
+        [
+          "C",
+          "a"
+        ],
+        [
+          "C",
+          "z"
+        ],
+        [
+          "R",
+          "a"
+        ],
+        [
+          "R",
+          "z"
+        ],
+        [
+          "a",
+          "z"
+        ]
+      ],
+      "proof_encoding": "compressed_no_save"
+    },
+    {
+      "metamath_label": "ml-op-every-root-reaches",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.unique_first_principle",
+      "scope": "supporting quantified common-ancestor lemma",
+      "mapping": "The universally quantified common-ancestor premise is exactly the set-coded commonPrior condition for Reach. Every root reaches every element; this is a separate lemma used for first-principle uniqueness.",
+      "hypotheses": [
+        "|- R C_ ( A X. A )",
+        "|- A. x e. A A. y e. A E. z e. A ( ( z = x \\/ z t++ R x ) /\\ ( z = y \\/ z t++ R y ) )"
+      ],
+      "statement": "|- A. x e. A A. y e. A ( A. a e. A -. a R x -> ( x = y \\/ x t++ R y ) )",
+      "proof_steps": 550,
+      "distinct": [
+        [
+          "A",
+          "a"
+        ],
+        [
+          "A",
+          "x"
+        ],
+        [
+          "A",
+          "y"
+        ],
+        [
+          "A",
+          "z"
+        ],
+        [
+          "R",
+          "a"
+        ],
+        [
+          "R",
+          "x"
+        ],
+        [
+          "R",
+          "y"
+        ],
+        [
+          "R",
+          "z"
+        ],
+        [
+          "a",
+          "x"
+        ],
+        [
+          "a",
+          "y"
+        ],
+        [
+          "a",
+          "z"
+        ],
+        [
+          "x",
+          "y"
+        ],
+        [
+          "x",
+          "z"
+        ],
+        [
+          "y",
+          "z"
+        ]
+      ],
+      "proof_encoding": "compressed_no_save"
+    },
+    {
+      "metamath_label": "ml-op-unique-first-principle",
+      "source": "Neoplatonic/Core.lean",
+      "source_blob": "31cc409299af88fd3bf895e616bdf65a12d8da6b",
+      "lean_declaration": "Neoplatonic.unique_first_principle",
+      "scope": "set-coded unique-existence translation",
+      "mapping": "A nonempty set, R a typed predecessor relation, B seed. R Fr A interprets well-foundedness; common ancestors use equality or t++ R, i.e. finite nonempty paths with reflexivity added. Root and universal reach are unfolded, and the conclusion is restricted unique existence E!. The Lean inductive Reach to finite-path interpretation remains a human correspondence rather than a verified translation.",
+      "hypotheses": [
+        "|- A e. _V",
+        "|- R Fr A",
+        "|- B e. A",
+        "|- R C_ ( A X. A )",
+        "|- A. x e. A A. y e. A E. z e. A ( ( z = x \\/ z t++ R x ) /\\ ( z = y \\/ z t++ R y ) )"
+      ],
+      "statement": "|- E! w e. A ( A. a e. A -. a R w /\\ A. y e. A ( w = y \\/ w t++ R y ) )",
+      "proof_steps": 3346,
+      "distinct": [
+        [
+          "A",
+          "a"
+        ],
+        [
+          "A",
+          "w"
+        ],
+        [
+          "A",
+          "x"
+        ],
+        [
+          "A",
+          "y"
+        ],
+        [
+          "A",
+          "z"
+        ],
+        [
+          "B",
+          "a"
+        ],
+        [
+          "B",
+          "w"
+        ],
+        [
+          "B",
+          "x"
+        ],
+        [
+          "B",
+          "y"
+        ],
+        [
+          "B",
+          "z"
+        ],
+        [
+          "R",
+          "a"
+        ],
+        [
+          "R",
+          "w"
+        ],
+        [
+          "R",
+          "x"
+        ],
+        [
+          "R",
+          "y"
+        ],
+        [
+          "R",
+          "z"
+        ],
+        [
+          "a",
+          "w"
+        ],
+        [
+          "a",
+          "x"
+        ],
+        [
+          "a",
+          "y"
+        ],
+        [
+          "a",
+          "z"
+        ],
+        [
+          "w",
+          "x"
+        ],
+        [
+          "w",
+          "y"
+        ],
+        [
+          "w",
+          "z"
+        ],
+        [
+          "x",
+          "y"
+        ],
+        [
+          "x",
+          "z"
+        ],
+        [
+          "y",
+          "z"
+        ]
+      ],
+      "proof_encoding": "compressed_no_save"
+    }
+  ]
+}
